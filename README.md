@@ -6,13 +6,19 @@ A minimal 8-bit cpu made with TTL chips.
 
 ## Why
 
-to learn how cpu are inside
+to learn how cpu are made inside, and understand about signals, latches, pipelines, etc
+
+there are brainfuck computers, but most with the instructions [ and ] replaced by pre-compiled jumps. 
+
+_I_ want a pure interpreter without pre-compiler tricks. 
+
+_I_ know that will be slow.
 
 ## Ideas
 
 it just runs a minimal language, brainfuck.
 
-has no register or memory address.
+has no register and no memory address.
 
 memory works like a tape, by sequential access.
 
@@ -23,6 +29,14 @@ use 2's complement numbers, to increase add 0x1, to decrease add 0xf.
 use signals and latchs to read or write memory.
 
 ## Main frame
+
+### controls
+
+a 8-bit latch (U1) for controls, with enable and 3-state, as 74hc574
+    
+a eeprom for microcode, using 5 bits for address and 3 bits for pipeline cycles
+
+a dozen of cirtuits for enables, selects, logics
 
 ### code tape
 
@@ -48,34 +62,36 @@ a zero comparator circuit for adder result
 
 a 2-bit of a 8-bit latch, for select, increase, decrease, lock signals to tape
 
-### controls
+### input/output
 
-a 8-bit latch (U1) for controls, with enable and 3-state, as 74hc574
-    
-a eeprom for microcode, using 5 bits for address and 3 bits for pipeline cycles
+a 8-bit latch (U5) for input, with enable and 3-state, as 74hc574
 
-a dozen of cirtuits for enables, selects, logics
+a 8-bit latch (U6) for output, with enable and 3-state, as 74hc574
+
 
 ## Executing
 
 ### classic brainfuck
 
-  1. >  forward data tape
-  2. <  backward data tape
+  1) \>  forward data tape
+  2) \<  backward data tape
 
-  3. +  increase byte at data tape
-  4. -  decrease byte at data tape
+  3) \+  increase byte at data tape
+  4) \-  decrease byte at data tape
 
-  5. [  test if byte at data tape is zero, and forward code tape to matched ]
-  6. ]  test if byte at data tape is not zero, and backward code tape to matched [
+  5) [  test if byte at data tape is zero, and forward code tape to matched ]
+  6) ]  test if byte at data tape is not zero, and backward code tape to matched [
 
-  7. .  get a byte from data tape to output
-  8. ,  put a byte from input into data tape
+  7) .  get a byte from data tape to output
+  8) ,  put a byte from input into data tape
 
-### extensions
+### Jelly extensions
 
-   9. ~  cycle output
-  10. = cycle input
+
+brainfuck have only a default input/output device, then include a latch and a 
+
+   9) :  cycle output, repeat to first, next, ..., last, first
+  10) ;  cycle input, repeat to first, next, ..., last, first
 
 
 
