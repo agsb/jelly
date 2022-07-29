@@ -28,6 +28,30 @@ use 2's complement numbers, to increase add 0x1, to decrease add 0xf.
 
 use signals and latchs to read or write memory.
 
+## Op-Codes
+
+discrete 16 opcodes
+
+00  nop
+01  nop
+02  >
+03  <
+04  +
+05  -
+06  [
+07  ]
+08  .
+09  ,
+
+10  :
+11  ;
+
+12
+13
+
+14
+15  halt
+
 ## Main frame
 
 ### controls
@@ -87,9 +111,10 @@ a 8-bit latch (U6) for output, with enable and 3-state, as 74hc574
 
 ### Jelly extensions
 
+    0) nop  none
 
 brainfuck have only a default input/output device, then include a latch and a 
-
+    
    9) :  cycle output, repeat to first, next, ..., last, first
   10) ;  cycle input, repeat to first, next, ..., last, first
 
