@@ -2,7 +2,7 @@
 
 # jelly
 
-A minimal 8-bit cpu made with TTL chips.
+A minimal 8-bit brainfuck cpu diy made with TTL chips.
 
 ## Why
 
