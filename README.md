@@ -82,6 +82,8 @@ brainfuck have only a default input/output device, then include a latch and a
 
 ## Main frame
 
+three main circuits: 1. code tape, 2. data tape, 3. input/output
+
 ### controls
 
 a eeprom (U0) 2k x 8 for microcode, as at28c16-15p, a0 - a10
