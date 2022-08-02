@@ -24,3 +24,23 @@ Everthing is about control lines, to enable, select, increase, decrease, clear, 
 
 
 PS. forward or backward tape is increase or decrease memory address
+
+## common 
+
+### code +
+
+clear all, ZA & OFF, PA & OFF, E2 | ON, S2 | ON, E2 & OFF, E3 | ON, S2 & OFF, S3 | ON, E3 & OFF, S3 & OFF, next  
+
+### code -
+
+clear all, ZA & OFF, PA | ON, E2 | ON, S2 | ON, E2 & OFF, E3 | ON, S2 & OFF, S3 | ON, E3 & OFF, S3 & OFF, next  
+
+### code >
+
+clear all, ED & OFF, SD | ON, nop, SD & OFF, next  
+
+### code <
+
+clear all, ED | ON, SD | ON, nop, SD & OFF, next  
+
+
