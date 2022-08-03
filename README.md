@@ -28,60 +28,47 @@ Any device could be "as" a tape
 
 PS.
 
-
 Could be same tape for data and code just with diferent pointer positions
 
 ## Op-Codes
 
-Any byte code with upper nibble diferent of 0 is just skiped, and lower nibble goes for discrete 16 opcodes:
-        
-        // classic brainfuck
-        
-        02  >   forward data tape 
-        03  <   backward data tape
-        04  +   increment data at data tape position
-        05  -   decremente data at data tape position
-        06  [   if data is zero, mode code tape forward to correspondent ]
-        07  ]   if data is not zero, move code tape backward to correspondent [
-        08  .   output data from tape position
-        09  ,   input data into tape position
-
-        // extended 
-        
-        00  nop
-        01  nop
-        
-        10  :   cycle output channel
-        11  ;   cycle input channel
-
-        12  reserved
-        13  reserved
-
-        14  reserved
-        
-        15  halt
-
-## Executing
-
 | byte | op-code | action | code set | observations |
 | --- | --- | --- | --- | --- |
-| 0 | nop | none | jelly | |
-| 1 | nop | none | jelly | |
-| 2 | + | increase byte at data tape | brainfuck | |
-| 3 | - | decrease byte at data tape | brainfuck | |
-| 4 | > | forward data tape one position | brainfuck | |
-| 5 | < | backward data tape one position | brainfuck | |
-| 6 | . | output byte from data tape | brainfuck | |
-| 7 | , | input bute into data tape | brainfuck | |
-| 8 | [ | test if byte at data tape is zero, and forward code tape to matched | brainfuck | |
-| 9 | ] | test if byte at data tape is not zero, and backward code tape to matched | brainfuck | |
-| 10 | : | cycle output | jelly | |
-| 11 | ; | cycle input  | jelly | |
-| 12 | & | reserved | jelly | |
-| 13 | & | reserved | jelly | |
-| 14 | & | reserved | jelly | |
-| 15 | & | reserved | jelly | |
+| 0 | reset | reset all | jelly | |
+| 1 | next | go for next opcode | jelly | |
+| 2 | \+ | increase byte at data tape | brainfuck | |
+| 3 | \- | decrease byte at data tape | brainfuck | |
+| 4 | \> | forward data tape one position | brainfuck | |
+| 5 | \< | backward data tape one position | brainfuck | |
+| 6 | \. | output byte from data tape | brainfuck | |
+| 7 | \, | input bute into data tape | brainfuck | |
+| 8 | \[ | test if byte at data tape is zero, and forward code tape to matched | brainfuck | |
+| 9 | \] | test if byte at data tape is not zero, and backward code tape to matched | brainfuck | |
+| 10 | \: | cycle output | jelly | |
+| 11 | \; | cycle input  | jelly | |
+| 12 | \& | reserved | jelly | |
+| 13 | \& | reserved | jelly | |
+| 14 | nop  | does nothing | jelly | |
+| 15 | halt | halt | jelly | |
   
+## Executing
+
+The pipeline is a binary clocked counter of 16 cycles, where microcode could change;
+
+The microcode is a state of control signals, with active is high logic; (# could be changed later) 
+
+The microcode are stored in eeprom U0, the 16 opcodes by 16 cycles occupies a page of 256 bytes, mapping eeprom address decode as: 4 bits low nibble from pipeline counter (16 cycles) p0-p3 to a0-a3, 4 bits midle nibble from opcode (16 opcodes) c0-c3 as a4-a7, 3 bits high nibble for 8 pages as a8-a10.
+
+Any byte code is parsed by setting one of 16 blocks of 16 bytes of controls;
+
+Any byte code with upper nibble diferent of 0 is just skiped, mapping it (1) to page 111 of eeprom, where all opcodes goes for next opcode;
+
+
+the page 000 is the common page for processing all opcodes
+the page 010 is the fast forward/backward for solve nested loops
+
+(1) by using (d4 OR d5 OR d6 OR d7) NAND (k0,k1,k2) to a8-a10,
+
 ### Jelly extensions
 
 ### About loops
@@ -108,10 +95,7 @@ a eeprom (U0) 2k x 8 for microcode, as at28c16-15p, a0-a10
 
 a 4-bit pipeline counter with clear/increase/decrease
 
-eeprom address decode as:
-        4 bits low nible from pipeline counter (16 cycles), a0-a3
-        4 bits midle nible from opcode (16 opcodes) c0-c3, a4-a7
-        3 bits high nible for pages (8 pages), a8-a10
+e
         
 a dozen of gate circuits for enables, selects, logics
 
