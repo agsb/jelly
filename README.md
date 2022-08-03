@@ -59,15 +59,17 @@ The microcode is a state of control signals, with active is high logic; (# could
 
 The microcode are stored in eeprom U0, the 16 opcodes by 16 cycles occupies a page of 256 bytes, mapping eeprom address decode as: 4 bits low nibble from pipeline counter (16 cycles) p0-p3 to a0-a3, 4 bits midle nibble from opcode (16 opcodes) c0-c3 as a4-a7, 3 bits high nibble for 8 pages as a8-a10.
 
-Any byte code is parsed by setting one of 16 blocks of 16 bytes of controls;
+Any byte code is parsed by setting one of 16 blocks of 16 bytes of microcodes;
 
-Any byte code with upper nibble diferent of 0 is just skiped, mapping it (1) to page 111 of eeprom, where all opcodes goes for next opcode;
-
+Any byte code with upper nibble diferent of 0 is skiped by mapping it (1) to page 111 of eeprom, where all opcodes goes for next opcode;
 
 the page 000 is the common page for processing all opcodes
+
 the page 010 is the fast forward/backward for solve nested loops
 
 (1) by using (d4 OR d5 OR d6 OR d7) NAND (k0,k1,k2) to a8-a10,
+
+### Control signals
 
 ### Jelly extensions
 
@@ -94,8 +96,6 @@ three main circuits: 1. code tape, 2. data tape, 3. input/output
 a eeprom (U0) 2k x 8 for microcode, as at28c16-15p, a0-a10
 
 a 4-bit pipeline counter with clear/increase/decrease
-
-e
         
 a dozen of gate circuits for enables, selects, logics
 
