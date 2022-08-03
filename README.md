@@ -14,15 +14,17 @@ _I_ know that will be slow.
 
 ## Ideas
 
-it just runs a minimal language, brainfuck. 
+It just runs a minimal language, brainfuck;
 
-Works by sequential access an ideal tape, just moves forwards or backwards.
+Works by sequential access a conceitual tapes, just move forwards or backwards;
 
-No registers and no memory addresses.
+No registers and no memory addresses;
 
-Use of 2's complement numbers, to increase add 0x1, to decrease add 0xf.
+Extend brainfuck to include third tape for I/O;
 
-Use signals and latchs to read or write.
+Use of 2's complement numbers, to increase add 0x1, to decrease add 0xf;
+
+Use signals and latchs to read or write;
 
 Any device could be "as" a tape
 
@@ -44,8 +46,8 @@ Could be same tape for data and code just with diferent pointer positions
 | 7 | \, | input bute into data tape | brainfuck | |
 | 8 | \[ | test if byte at data tape is zero, and forward code tape to matched | brainfuck | |
 | 9 | \] | test if byte at data tape is not zero, and backward code tape to matched | brainfuck | |
-| 10 | \: | cycle output | jelly | |
-| 11 | \; | cycle input  | jelly | |
+| 10 | \= | swap tapes for moves | jelly | |
+| 11 | \7 | reserved | jelly | |
 | 12 | \& | reserved | jelly | |
 | 13 | \& | reserved | jelly | |
 | 14 | nop  | does nothing | jelly | |
