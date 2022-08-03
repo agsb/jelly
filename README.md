@@ -10,10 +10,6 @@ To learn how cpu are made inside, and understand about signals, gates, latches, 
 
 PS.
 
-there are some brainfuck computers, but most with the instructions [ and ] replaced by pre-compiled jumps. 
-
-_I_ want a pure interpreter without pre-compiler tricks. 
-
 _I_ know that will be slow.
 
 ## Ideas
@@ -28,16 +24,16 @@ Use of 2's complement numbers, to increase add 0x1, to decrease add 0xf.
 
 Use signals and latchs to read or write.
 
-Just any device could be as a tape
+Any device could be "as" a tape
 
 PS.
+
 
 Could be same tape for data and code just with diferent pointer positions
 
 ## Op-Codes
 
-discrete 16 opcodes
-
+Any byte code with upper nibble diferent of 0 is just skiped, and lower nibble goes for discrete 16 opcodes:
         
         // classic brainfuck
         
@@ -67,29 +63,41 @@ discrete 16 opcodes
 
 ## Executing
 
-### classic brainfuck
-
-  1) \>  forward data tape
-  2) \<  backward data tape
-
-  3) \+  increase byte at data tape
-  4) \-  decrease byte at data tape
-
-  5) [  test if byte at data tape is zero, and forward code tape to matched ]
-  6) ]  test if byte at data tape is not zero, and backward code tape to matched [
-
-  7) .  get a byte from data tape to output
-  8) ,  put a byte from input into data tape
-
+| byte | op-code | action | code set | observations |
+| --- | --- | --- | --- | --- |
+| 0 | nop | none | jelly | |
+| 1 | nop | none | jelly | |
+| 2 | + | increase byte at data tape | brainfuck | |
+| 3 | - | decrease byte at data tape | brainfuck | |
+| 4 | > | forward data tape one position | brainfuck | |
+| 5 | < | backward data tape one position | brainfuck | |
+| 6 | . | output byte from data tape | brainfuck | |
+| 7 | , | input bute into data tape | brainfuck | |
+| 8 | [ | test if byte at data tape is zero, and forward code tape to matched | brainfuck | |
+| 9 | ] | test if byte at data tape is not zero, and backward code tape to matched | brainfuck | |
+| 10 | : | cycle output | jelly | |
+| 11 | ; | cycle input  | jelly | |
+| 12 | & | reserved | jelly | |
+| 13 | & | reserved | jelly | |
+| 14 | & | reserved | jelly | |
+| 15 | & | reserved | jelly | |
+  
 ### Jelly extensions
 
-  0) nop  none
+### About loops
 
-brainfuck have only a default input/output device, then include 
-    
-   9) :  cycle output, repeat to first, next, ..., last, first
-  10) ;  cycle input, repeat to first, next, ..., last, first
+There are some brainfuck computers, but almost with the loop instructions (\[ and \]) replaced by pre-compiled jumps. 
 
+I want a pure interpreter without pre-compiler tricks, then need review a logic to deal with it nested loops.
+
+Nested loops needs a counter to match every \[ to \]  and  must finish when counter is zero else  do for search forward or backward.
+
+That search gives two extra modes for implement, those goes forward or backward, ignoring all code but *\[* and *\]* and counting till zero.
+
+the implementation by create two pages of microcode:
+        for forward, \[ increase the counter, \] decrease the counter, any other opcode just go next forward
+        for backward, \[ increase the counter, \] decrease the counter, any other opcode just go next backward
+        
 ## Main frame
 
 three main circuits: 1. code tape, 2. data tape, 3. input/output
