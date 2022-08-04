@@ -57,21 +57,21 @@ Any device could be mapped at I/O tape positions;
   
 ## Executing
 
-The pipeline is a binary clocked counter of 16 cycles, where microcode could change;
+In Jelly, the microcode is a state of control signals, with "active is high" logic; (# could be changed later) 
 
-The microcode is a state of control signals, with active is high logic; (# could be changed later) 
+The pipeline is a binary clocked counter of 16 cycles and microcode could change at each cycle and a opcode is a sequence of up to 16 microcodes, stored in eeprom U0, where the 16 opcodes by 16 cycles occupies a page of 256 bytes.
 
-The microcode are stored in eeprom U0, the 16 opcodes by 16 cycles occupies a page of 256 bytes, mapping eeprom address decode as: 4 bits low nibble from pipeline counter (16 cycles) p0-p3 to a0-a3, 4 bits midle nibble from opcode (16 opcodes) c0-c3 as a4-a7, 3 bits high nibble for 8 pages as a8-a10.
+The eeprom address decode are mapped as: 4 bits low nibble from pipeline counter (16 cycles) p0-p3 to a0-a3, 4 bits middle nibble from opcode (16 opcodes) c0-c3 as a4-a7, 3 bits high nibble from control logic for k0-k2 as a8-a10.
 
 Any byte code is parsed by setting one of 16 blocks of 16 bytes of microcodes;
 
-Any byte code with upper nibble diferent of 0 is skiped by mapping it (1) to page 111 of eeprom, where all opcodes are noop and goes for next byte;
+Any byte code with upper nibble diferent of 0 is skiped by mapping it (1) to page 111 of eeprom, where all opcodes are "noop";
 
-the page 000 is the common page for processing all opcodes
+the page 000 is the common page for processing all opcodes,
 
-the page 010 is the fast forward/backward for solve nested loops
+The page 010 is the fast forward/backward for solve nested loops
 
-the code tape (aka BOB), just moves forward but data ( aka ONE) and I/O (aka TWO) tapes could move forwards or backwards, using same \< and \> opcodes and \= for swap both.
+The code (aka BOB), data ( aka ONE) and I/O (aka TWO) tapes could move forwards or backwards, BOB using \[ and \] loops, and ONE or TWO using \< and \> opcodes and \= for swap both.
 
 (1) by using (d4 OR d5 OR d6 OR d7) NAND (k0,k1,k2) to a8-a10,
 
@@ -81,13 +81,13 @@ Explained in [control lines](controllines.md)
 
 ### Jelly extensions
 
-around the standart language, Jelly includes: (# list can grow)
+Around the standart language, Jelly includes: (# list can grow)
 
   a nop, to do nothing,
   
-  a halt, to stop running,
+  a halt, to stop,
   
-  a reset, to restart running,
+  a reset, to restart,
   
   a swap, to exchange data tape and I/O tape for forward \> and backward \< moves;
   
@@ -99,19 +99,21 @@ around the standart language, Jelly includes: (# list can grow)
 
 There are some brainfuck computers, but almost with the loop instructions (\[ and \]) replaced by pre-compiled jumps. 
 
-I want a pure interpreter without pre-compiler tricks, then need review a logic to deal with it nested loops.
+Jelly is pure interpreter without pre-compiler tricks, then need review a logic to deal with it nested loops.
 
-Nested loops needs a counter to match every \[ to \]  and  must finish when counter is zero else  do for search forward or backward.
+Nested loops needs a counter to match every \[ to \] and must finish when counter is zero else do for search forward or backward.
 
-That search gives two extra modes for implement, those goes forward or backward, ignoring all code but *\[* and *\]* and counting till zero.
+That search gives two extra modes for implement, those goes forward or backward, ignoring all opcode but *\[* and *\]* and counting till zero.
 
-the implementation by create two pages of microcode:
+the implementation by create two pages of microcode: (# could change)
         for forward, \[ increase the counter, \] decrease the counter, any other opcode just go next forward
         for backward, \[ increase the counter, \] decrease the counter, any other opcode just go next backward
         
 ## Main frame
 
-three main circuits: 1. code tape, 2. data tape, 3. input/output
+There is only one data bus, then all circuits connected (into or from) must have 3-state.
+
+Four main circuits: 0. microcode 1. code tape, 2. data tape, 3. input/output tape
 
 ### controls
 
@@ -121,17 +123,15 @@ a 4-bit pipeline counter with clear/increase/decrease
         
 a dozen of gate circuits for enables, selects, logics
 
-a control circuit for adder to define zero, increase or decrease
+a clock circuit better than 200 ns
 
-a control circuit for counter to define zero, increase or decrease
+a counter circuit with clear and increase
 
 a 2-bit control, for signals enable, increase, decrease, to code tape
 
 a 2-bit control, for signals enable, increase, decrease, to data tape
 
 a 2-bit control, for signals enable, increase, decrease, to I/O tape
-
-a 2-bit control, for signal select tape one or two
 
 ### code tape
 
@@ -147,7 +147,7 @@ a 8-bit d-latch (U3) for tape read, with enable and 3-state, as 74hc574, d0-d7
 
 a 8-bit d-latch (U4) for tape write, with enable and 3-state, as 74hc574, d0-d7
 
-a 8-bit full-adder circuit to clear/increase/decrease a 8-bit value
+a 8-bit full-adder circuit with clear/increase/decrease a 8-bit value
 
 a zero comparator circuit for adder result
 
