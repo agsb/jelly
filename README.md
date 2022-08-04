@@ -22,9 +22,9 @@ Extends brainfuck language to include a third tape for I/O;
 
 Use of 2's complement numbers, to increase add 0x1, to decrease add 0xf;
 
-Any device could be "as a" tape.
+PS:
 
-PS.
+Any device could be "as a" tape.
 
 Could use same tape for data, code, i/o just with diferent pointer positions.
 
@@ -33,20 +33,20 @@ Could use same tape for data, code, i/o just with diferent pointer positions.
 | byte | op-code | action | code set | observations |
 | --- | --- | --- | --- | --- |
 | 0 | reset | reset all | jelly | |
-| 1 | next | go for next opcode | jelly | |
-| 2 | \+ | increase byte at data tape | brainfuck | |
-| 3 | \- | decrease byte at data tape | brainfuck | |
-| 4 | \> | forward data tape one position | brainfuck | |
-| 5 | \< | backward data tape one position | brainfuck | |
-| 6 | \. | output byte from data tape | brainfuck | |
-| 7 | \, | input bute into data tape | brainfuck | |
+| 1 | \= | swap tapes | jelly | swaps data and I/O and vice versa |
+| 2 | \+ | increase byte at tape | brainfuck | |
+| 3 | \- | decrease byte at tape | brainfuck | |
+| 4 | \> | forward a tape one position | brainfuck | |
+| 5 | \< | backward a tape one position | brainfuck | |
+| 6 | \. | output byte from tape | brainfuck | move from data tape into I/O tape |
+| 7 | \, | input bute into tape | brainfuck | move from I/O tape into data tape |
 | 8 | \[ | test if byte at data tape is zero, and forward code tape to matched | brainfuck | |
 | 9 | \] | test if byte at data tape is not zero, and backward code tape to matched | brainfuck | |
-| 10 | \= | swap tapes for moves | jelly | |
+| 10 | \~ | reserved | jelly | |
 | 11 | \~ | reserved | jelly | |
 | 12 | \~ | reserved | jelly | |
 | 13 | \~ | reserved | jelly | |
-| 14 | nop  | does nothing | jelly | |
+| 14 | noop  | does nothing | jelly | |
 | 15 | halt | halt | jelly | |
   
 ## Executing
@@ -65,13 +65,27 @@ the page 000 is the common page for processing all opcodes
 
 the page 010 is the fast forward/backward for solve nested loops
 
+the code tape just moves forward but data and I/O tapes could move forwards or backwards, using same \< and \> opcodes and \= for swap both.
+
 (1) by using (d4 OR d5 OR d6 OR d7) NAND (k0,k1,k2) to a8-a10,
 
 ### Control signals
 
-Explained in 
+Explained in [control lines](controllines.md)
 
 ### Jelly extensions
+
+around the standart language, jelly includes;
+  a nop, to do nothing,
+  a halt, to stop running,
+  a reset, to restart running,
+  a next, to 
+  
+  a swap, to exchange data tape and I/O tape for forward \> and backward \< moves;
+  
+  the output \. command copy a byte from data tape to I/O tape;
+  
+  the input \, command copy a byte from I/O tape to data tape;
 
 ### About loops
 
@@ -129,15 +143,7 @@ a zero comparator circuit for adder result
 
 ### input/output
 
-a 8-bit latch (U5) for input, with enable and 3-state, as 74hc574
-
-a 8-bit latch (U6) for output, with enable and 3-state, as 74hc574
+just use data circuit and a latch to select which moves. 
 
 ## Work Bench
-
-Those 16 opcodes by 16 cycles of pipeline uses 256 bytes for microcode. A at28c16 eeprom gives 2k x 8bits, or 8 pages of microcode.
-
-I do reserve the first page (0x000) for reset state, 
-
-
 
