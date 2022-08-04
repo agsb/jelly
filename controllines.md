@@ -23,21 +23,20 @@ Everthing is about control lines, to enable, select, increase, decrease, clear, 
 | PA  | increase or decrease adder | | default is increase | 
 | ZC  | clear counter | counter is zero | | |
 | PA  | increase or decrease counter | | default is increase |
-| MR  | clear signals | | clear all latches |
+| MR  | MASTER RESET  | | clear all latches |
 
 those lines are multiplexed with D6-D7 for 4 8-bit latches 74hc273, with CP clock and /MR master reset. 
 
 the latches read D0-D5, first as ZA, PA, ZC, PC, RD, WR, second as E1, E2, E3, S1, S2, S3, third gets T1, T2, T3, FW, BK, MR, fourth is not used (# maybe change later)
 
-| first | second | thirtd | fourth |
+| first 0b00 | second 0b01 | thirtd 0b10 | fourth 0b11 |
 | --- | --- | --- | --- |
 | #define ZA  0b00 000001 | #define E1  0b01 000001 | #define T1 0b10 000001 | not defined |
-| #define ZA  0b00 000010 | #define E1  0b01 000010 | #define T1 0b10 000010 | not defined |
-| #define ZA  0b00 000100 | #define E1  0b01 000100 | #define T1 0b10 000100 | not defined |
-| #define ZA  0b00 001000 | #define E1  0b01 001000 | #define T1 0b10 001000 | not defined |
-| #define ZA  0b00 010000 | #define E1  0b01 010000 | #define T1 0b10 010000 | not defined |
-| #define ZA  0b00 100000 | #define E1  0b01 100000 | #define T1 0b10 100000 | not defined |
-
+| #define PA  0b00 000010 | #define E2  0b01 000010 | #define T2 0b10 000010 | not defined |
+| #define ZC  0b00 000100 | #define E3  0b01 000100 | #define T3 0b10 000100 | not defined |
+| #define PC  0b00 001000 | #define S1  0b01 001000 | #define FW 0b10 001000 | not defined |
+| #define RD  0b00 010000 | #define S2  0b01 010000 | #define BW 0b10 010000 | not defined |
+| #define WR  0b00 100000 | #define S3  0b01 100000 | #define MR 0b10 100000 | not defined |
 
 ## common 
 
