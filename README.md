@@ -16,7 +16,7 @@ Just runs a minimal language, brainfuck;
 
 Works by sequential access in ideal tapes, just move forwards or backwards;
 
-No use of registers or memory addresses;
+No use memory addresses;
 
 Extends brainfuck language to include a third tape for I/O;
 
@@ -111,7 +111,7 @@ the implementation by create two pages of microcode: (# could change)
         
 ## Main frame
 
-There is only one data bus, then all circuits connected (into or from) must have 3-state.
+There is a external shared data bus, then all circuits connected (into or from) must have 3-state.
 
 Four main circuits: 0. microcode 1. code tape, 2. data tape, 3. input/output tape
 
