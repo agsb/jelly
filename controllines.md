@@ -7,8 +7,9 @@ Everthing is about control lines, to enable, select, increase, decrease, clear, 
 
 | line | control | action | obs |
 |---|---|---|---|
-| SC  | select ROM | control to code circuit | |
-| SD  | select RAM | control to data circuit | |
+| SC   | select code tape (ROM) | control to code circuit | |
+| SD   | select data tape (RAM) | control to data circuit | |
+| SIO  | select i/o tape (I/O) | control to data circuit | |
 | EC  | forward or backward code tape | | |
 | ED  | forward or backward data tape | | |
 | S1  | select U1 | output valid | | |
