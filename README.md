@@ -1,14 +1,14 @@
 -- THIS FILE IS A STUB ---
 
-# JELLY
+# Jelly
 
-A minimal 8-bit CPU made with TTL chips. DIY to perform native brainfuck, using three sequential access tapes.
+A minimal DIY 8-bit CPU made with TTL chips, to perform native brainfuck using three sequential access tapes.
 
 ## Why
 
 To learn how cpu are made inside and understand about signals, gates, latches, pipelines, TTLs etc
 
-PS: _I_ know that it will be slow.
+PS: I know that it will be slow.
 
 ## Ideas
 
@@ -16,17 +16,23 @@ Just runs a minimal language, brainfuck;
 
 Works by sequential access in ideal tapes, just move forwards or backwards;
 
-No registers and no use of memory addresses;
+No use of registers or memory addresses;
 
 Extends brainfuck language to include a third tape for I/O;
 
 Use of 2's complement numbers, to increase add 0x1, to decrease add 0xf;
 
+Use byte values from 0 to 15 to represent language commands, just to simplify circuits;
+
 PS:
 
-Any device could be "as a" tape.
+Could be easy translate from ascii to values using a page in eeprom. (# maybe in next version)
 
-Could use same tape for data, code, i/o just with diferent pointer positions.
+Could use same tape for code, data, i/o just with diferent pointer positions;
+
+Any device could be "as a" tape;
+
+Any device could be mapped at I/O tape positions;
 
 ## Op-Codes
 
@@ -34,18 +40,18 @@ Could use same tape for data, code, i/o just with diferent pointer positions.
 | --- | --- | --- | --- | --- |
 | 0 | reset | reset all | jelly | |
 | 1 | \= | swap tapes | jelly | swaps data and I/O and vice versa |
-| 2 | \+ | increase byte at tape | brainfuck | |
-| 3 | \- | decrease byte at tape | brainfuck | |
-| 4 | \> | forward a tape one position | brainfuck | |
-| 5 | \< | backward a tape one position | brainfuck | |
+| 2 | \+ | increase byte at data tape | brainfuck | only at data tape |
+| 3 | \- | decrease byte at data tape | brainfuck | only at data tape |
+| 4 | \> | forward a tape one position | brainfuck | both tapes |
+| 5 | \< | backward a tape one position | brainfuck | both tapes |
 | 6 | \. | output byte from tape | brainfuck | move from data tape into I/O tape |
-| 7 | \, | input bute into tape | brainfuck | move from I/O tape into data tape |
+| 7 | \, | input byte into tape | brainfuck | move from I/O tape into data tape |
 | 8 | \[ | test if byte at data tape is zero, and forward code tape to matched | brainfuck | |
 | 9 | \] | test if byte at data tape is not zero, and backward code tape to matched | brainfuck | |
-| 10 | \~ | reserved | jelly | |
-| 11 | \~ | reserved | jelly | |
-| 12 | \~ | reserved | jelly | |
-| 13 | \~ | reserved | jelly | |
+| 10 | \~ | reserved | jelly | still does noop |
+| 11 | \~ | reserved | jelly | still does noop |
+| 12 | \~ | reserved | jelly | still does noop |
+| 13 | \~ | reserved | jelly | still does noop |
 | 14 | noop  | does nothing | jelly | |
 | 15 | halt | halt | jelly | |
   
@@ -59,13 +65,13 @@ The microcode are stored in eeprom U0, the 16 opcodes by 16 cycles occupies a pa
 
 Any byte code is parsed by setting one of 16 blocks of 16 bytes of microcodes;
 
-Any byte code with upper nibble diferent of 0 is skiped by mapping it (1) to page 111 of eeprom, where all opcodes goes for next opcode;
+Any byte code with upper nibble diferent of 0 is skiped by mapping it (1) to page 111 of eeprom, where all opcodes are noop and goes for next byte;
 
 the page 000 is the common page for processing all opcodes
 
 the page 010 is the fast forward/backward for solve nested loops
 
-the code tape just moves forward but data and I/O tapes could move forwards or backwards, using same \< and \> opcodes and \= for swap both.
+the code tape (aka BOB), just moves forward but data ( aka ONE) and I/O (aka TWO) tapes could move forwards or backwards, using same \< and \> opcodes and \= for swap both.
 
 (1) by using (d4 OR d5 OR d6 OR d7) NAND (k0,k1,k2) to a8-a10,
 
@@ -75,17 +81,19 @@ Explained in [control lines](controllines.md)
 
 ### Jelly extensions
 
-around the standart language, jelly includes;
+around the standart language, Jelly includes: (# list can grow)
+
   a nop, to do nothing,
+  
   a halt, to stop running,
+  
   a reset, to restart running,
-  a next, to 
   
   a swap, to exchange data tape and I/O tape for forward \> and backward \< moves;
   
-  the output \. command copy a byte from data tape to I/O tape;
+  the output \. command always copy a byte from data tape to I/O tape;
   
-  the input \, command copy a byte from I/O tape to data tape;
+  the input \, command always copy a byte from I/O tape to data tape;
 
 ### About loops
 
@@ -117,11 +125,13 @@ a control circuit for adder to define zero, increase or decrease
 
 a control circuit for counter to define zero, increase or decrease
 
-a 2-bit control, for signals select, increase, decrease, to code tape
+a 2-bit control, for signals enable, increase, decrease, to code tape
 
-a 2-bit control, for signals select, increase, decrease, to data tape
+a 2-bit control, for signals enable, increase, decrease, to data tape
 
-a 2-bit control, for signals select, increase, decrease, to I/O tape
+a 2-bit control, for signals enable, increase, decrease, to I/O tape
+
+a 2-bit control, for signal select tape one or two
 
 ### code tape
 
@@ -143,7 +153,7 @@ a zero comparator circuit for adder result
 
 ### input/output
 
-just use data circuit and a latch to select which moves. 
+just use data circuit and select which tape. 
 
 ## Work Bench
 
