@@ -1,7 +1,8 @@
 --- this file is a stub ---
 
+
 | Dec 	| Hex 	| Binary 	| HTML 	| Char 	| Description |
-| --- | --- | --- | --- | --- | --- | ---- |
+| --- | --- | --- | --- | --- | --- | 
 | 0 	| 00 	| 00000000 	| &#0; 	| NUL 	| Null |
 | 1 	| 01 	| 00000001 	| &#1; 	| SOH 	| Start of Header |
 | 2 	| 02 	| 00000010 	| &#2; 	| STX 	| Start of Text |
