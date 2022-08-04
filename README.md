@@ -2,35 +2,31 @@
 
 # JELLY
 
-A minimal 8-bit cpu made with TTL chips. Diy for run native brainfuck.
+A minimal 8-bit CPU made with TTL chips. DIY to perform native brainfuck, using three sequential access tapes.
 
 ## Why
 
-To learn how cpu are made inside, and understand about signals, gates, latches, pipelines, TTLs etc
+To learn how cpu are made inside and understand about signals, gates, latches, pipelines, TTLs etc
 
-PS.
-
-_I_ know that will be slow.
+PS: _I_ know that it will be slow.
 
 ## Ideas
 
-It just runs a minimal language, brainfuck;
+Just runs a minimal language, brainfuck;
 
-Works by sequential access a conceitual tapes, just move forwards or backwards;
+Works by sequential access in ideal tapes, just move forwards or backwards;
 
-No registers and no memory addresses;
+No registers and no use of memory addresses;
 
-Extend brainfuck to include third tape for I/O;
+Extends brainfuck language to include a third tape for I/O;
 
 Use of 2's complement numbers, to increase add 0x1, to decrease add 0xf;
 
-Use signals and latchs to read or write;
-
-Any device could be "as" a tape
+Any device could be "as a" tape.
 
 PS.
 
-Could be same tape for data and code just with diferent pointer positions
+Could use same tape for data, code, i/o just with diferent pointer positions.
 
 ## Op-Codes
 
@@ -47,9 +43,9 @@ Could be same tape for data and code just with diferent pointer positions
 | 8 | \[ | test if byte at data tape is zero, and forward code tape to matched | brainfuck | |
 | 9 | \] | test if byte at data tape is not zero, and backward code tape to matched | brainfuck | |
 | 10 | \= | swap tapes for moves | jelly | |
-| 11 | \7 | reserved | jelly | |
-| 12 | \& | reserved | jelly | |
-| 13 | \& | reserved | jelly | |
+| 11 | \~ | reserved | jelly | |
+| 12 | \~ | reserved | jelly | |
+| 13 | \~ | reserved | jelly | |
 | 14 | nop  | does nothing | jelly | |
 | 15 | halt | halt | jelly | |
   
@@ -72,6 +68,8 @@ the page 010 is the fast forward/backward for solve nested loops
 (1) by using (d4 OR d5 OR d6 OR d7) NAND (k0,k1,k2) to a8-a10,
 
 ### Control signals
+
+Explained in 
 
 ### Jelly extensions
 
@@ -108,6 +106,8 @@ a control circuit for counter to define zero, increase or decrease
 a 2-bit control, for signals select, increase, decrease, to code tape
 
 a 2-bit control, for signals select, increase, decrease, to data tape
+
+a 2-bit control, for signals select, increase, decrease, to I/O tape
 
 ### code tape
 
