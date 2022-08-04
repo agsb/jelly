@@ -4,14 +4,15 @@
 
 Everthing is about control lines, to enable, select, increase, decrease, clear, input and output.
 
-
 | line | control | action | obs |
 |---|---|---|---|
-| SC   | select code tape (ROM) | control to code circuit | |
-| SD   | select data tape (RAM) | control to data circuit | |
-| SIO  | select i/o tape (I/O) | control to data circuit | |
-| EC  | forward or backward code tape | | |
-| ED  | forward or backward data tape | | |
+| T1  | select code tape (ROM) | control to code circuit | BOB |
+| T2  | select data tape (RAM) | control to data circuit | ONE |
+| T3  | select i/o tape (I/O) | control to i/o circuit | TWO |
+| FW  | forward  state | | |
+| BK  | backward state | | |
+| RD  | read state | | |
+| WR  | write state | | |
 | S1  | select U1 | output valid | | |
 | S2  | select U2 | output valid | | |
 | S3  | select U3 | output valid | | |
@@ -19,12 +20,24 @@ Everthing is about control lines, to enable, select, increase, decrease, clear, 
 | E2  | enable U2 | fetch D to Q | | |
 | E3  | enable U3 | fetch D to Q | | |
 | ZA  | clear adder | adder is zero | | |
-| PA  | increase or decrease adder | | | 
+| PA  | increase or decrease adder | | default is increase | 
 | ZC  | clear counter | counter is zero | | |
-| PA  | increase or decrease counter | | |
+| PA  | increase or decrease counter | | default is increase |
+| MR  | clear signals | | clear all latches |
 
+those lines are multiplexed with D6-D7 for 4 8-bit latches 74hc273, with CP clock and /MR master reset. 
 
-PS. forward or backward tape is increase or decrease memory address
+the latches read D0-D5, first as ZA, PA, ZC, PC, RD, WR, second as E1, E2, E3, S1, S2, S3, third gets T1, T2, T3, FW, BK, MR, fourth is not used (# maybe change later)
+
+| first | second | thirtd | fourth |
+| --- | --- | --- | --- |
+| #define ZA  0b00 000001 | #define E1  0b01 000001 | #define T1 0b10 000001 | not defined |
+| #define ZA  0b00 000010 | #define E1  0b01 000010 | #define T1 0b10 000010 | not defined |
+| #define ZA  0b00 000100 | #define E1  0b01 000100 | #define T1 0b10 000100 | not defined |
+| #define ZA  0b00 001000 | #define E1  0b01 001000 | #define T1 0b10 001000 | not defined |
+| #define ZA  0b00 010000 | #define E1  0b01 010000 | #define T1 0b10 010000 | not defined |
+| #define ZA  0b00 100000 | #define E1  0b01 100000 | #define T1 0b10 100000 | not defined |
+
 
 ## common 
 
