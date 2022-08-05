@@ -57,7 +57,7 @@ Any device could be mapped at I/O tape positions;
   
 ## Executing
 
-In Jelly, the microcode is a state of control signals, with "active is high" logic; (# could be changed later) 
+In Jelly, the microcodes are states of control signals, with "active is high" logic; (# could be changed later) 
 
 The pipeline is a binary clocked counter of 16 cycles and microcode could change at each cycle and a opcode is a sequence of up to 16 microcodes, stored in eeprom U0, where the 16 opcodes by 16 cycles occupies a page of 256 bytes.
 
@@ -119,19 +119,11 @@ Four main circuits: 0. microcode 1. code tape, 2. data tape, 3. input/output tap
 
 a eeprom (U0) 2k x 8 for microcode, as at28c16-15p, a0-a10
 
-a 4-bit pipeline counter with clear/increase/decrease
+a 4-bit pipeline counter with clear/increase/decrease for pipeline
         
 a dozen of gate circuits for enables, selects, logics
 
 a clock circuit better than 200 ns
-
-a counter circuit with clear and increase
-
-a 2-bit control, for signals enable, increase, decrease, to code tape
-
-a 2-bit control, for signals enable, increase, decrease, to data tape
-
-a 2-bit control, for signals enable, increase, decrease, to I/O tape
 
 ### code tape
 
@@ -143,11 +135,11 @@ a zero comparator circuit for counter result
 
 ### data tape 
 
-a 8-bit d-latch (U3) for tape read, with enable and 3-state, as 74hc574, d0-d7
+a 8-bit d-latch (U2) for tape read, with enable and 3-state, as 74hc574, d0-d7
 
-a 8-bit d-latch (U4) for tape write, with enable and 3-state, as 74hc574, d0-d7
+a 8-bit d-latch (U3) for tape write, with enable and 3-state, as 74hc574, d0-d7
 
-a 8-bit full-adder circuit with clear/increase/decrease a 8-bit value
+a 8-bit full-adder circuit with clear/increase/decrease
 
 a zero comparator circuit for adder result
 
