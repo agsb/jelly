@@ -30,7 +30,8 @@ there are three buses of data,
 | PA  | increase or decrease counter | | default is increase |
 | MR  | MASTER RESET  | | clear all latches |
 
-those lines are multiplexed with D6-D7 for 4 8-bit latches 74hc273, with CP clock and /MR master reset. 
+
+those lines are multiplexed with D6-D7 for 4 x latches 74hc273, with CP clock and /MR master reset. 
 
 the data d0-d7 from/into tapes are bufferd by 4 8-bit D-registers 74hc574, with CP clock and /OE output enable.
 
