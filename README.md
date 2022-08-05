@@ -34,6 +34,10 @@ Any device could be "as a" tape;
 
 Any device could be mapped at I/O tape positions;
 
+Jelly uses three ideal tapes, first for code (aka BOB),  second for data (aka ONE), third for input/output (aka TWO).
+
+Any memory device could emulate a tape, and the i/o tape could be just as a memory mapped i/o ports.
+
 ## Op-Codes
 
 | byte | op-code | action | code set | observations |
