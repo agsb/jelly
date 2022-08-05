@@ -103,7 +103,7 @@ Jelly is pure interpreter without pre-compiler tricks, then need review a logic 
 
 Nested loops needs a counter to match every \[ to \] and must finish when counter is zero else do for search forward or backward.
 
-That search gives two extra modes for implement, those goes forward or backward, ignoring all opcode but *\[* and *\]* and counting till zero.
+That search gives two extra modes for implement, those goes code tape forward or backward, ignoring all opcode but *\[* and *\]* and counting till zero.
 
 the implementation by create two pages of microcode: (# could change)
         for forward, \[ increase the counter, \] decrease the counter, any other opcode just go next forward
