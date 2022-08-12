@@ -4,6 +4,10 @@
 
 A minimal DIY 8-bit CPU made with TTL chips, to perform native brainfuck using three sequential access tapes.
 
+
+-- this project is waiting for a new design, please be kind ---
+
+
 ## Why
 
 To learn how cpu are made inside and understand about signals, gates, latches, pipelines, TTLs etc
@@ -53,11 +57,11 @@ Any memory device could emulate a tape, and the i/o tape could be just as a memo
 | 8 | \[ | test if byte at data tape is zero, and forward code tape to matched | brainfuck | |
 | 9 | \] | test if byte at data tape is not zero, and backward code tape to matched | brainfuck | |
 | 10 | \~ | reserved | jelly | still does noop |
-| 11 | \~ | reserved | jelly | still does noop |
-| 12 | \~ | reserved | jelly | still does noop |
-| 13 | \~ | reserved | jelly | still does noop |
-| 14 | noop  | does nothing | jelly | |
-| 15 | halt | halt | jelly | |
+| 11 | \? | reserved | jelly | still does noop |
+| 12 | \& | reserved | jelly | still does noop |
+| 13 | \% | reserved | jelly | still does noop |
+| 14 | \@  | does nothing | jelly | |
+| 15 | \^ | halt | jelly | |
   
 ## Executing
 
