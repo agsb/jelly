@@ -3,11 +3,42 @@
 
 #define EES 256
 
+// simulate Jelly computer
+// @agsb 2022
+//
+
 char eep[5][2048];
 
 char buf[5];
 
 int i, j, k;
+
+void make_code(void) {
+
+    for (i = 0; i < EES; i++) {
+
+        switch (i) {
+            case '@' : k = 0 ; break ;
+            case '=' : k = 1 ; break ;
+            case '>' : k = 2 ; break ;
+            case '<' : k = 3 ; break ;
+            case '+' : k = 4 ; break ;
+            case '-' : k = 5 ; break ;
+            case '.' : k = 6 ; break ;
+            case ',' : k = 7 ; break ;
+            case '[' : k = 8 ; break ;
+            case ']' : k = 9 ; break ;
+            case '~' : k = 10 ; break ;
+            case '?' : k = 11 ; break ;
+            case '!' : k = 12 ; break ;
+            case '&' : k = 13 ; break ;
+            case '$' : k = 14 ; break ;
+            case '%' : k = 15 ; break ;
+            default : k = 0 ; break ;
+        }
+        eep[0][i]=k;
+    }
+}
 
 void make_math(void) {
 
@@ -73,16 +104,41 @@ void show (void) {
         }
     }
 
+/*
+ Jelly uses 4 eeproms of 2k
+ one is used to translate a byte value to a valid opcode
+ and three are used to map control signals
+ the address for eeproms are 
 
-#define BOB 0b00000001
-#define ONE 0b00000010
-#define TWO 0b00000100
-#define FW  0b00001000
-#define BK  0b00010000
-#define RD  0b00100000
-#define WR  0b01000000
-#define HLT 0b10000000
+ a counter 0-15, acts as phase pipeline, which maps lower nibble A0-A3 into epproms
+ the D0-D7 from a octal buffer goes into A0-A7 of 1st eeprom, which maps middle nibble A4-A7 into epproms
+ the D4-D7 from second epprom, maps the high nibble A8-A11 into epproms
 
+ the second eeprom does CP0, OE0, CP1, OE1, A8, A9, A10, A11 to a buffer
+ the third eeprom does ONE, TWO, BOB, RD, WR, FW, BK, RDY to a buffer
+ the fourth eepprom does CP2, OE2, CP3, OE3, OP0, OP2, OP3, CLR to a buffer
+ the fifth eeprom does math unary operations 
+
+
+ clock --> /74hc194/ --> Q0-Q3 --> A0-A3 --> ADDRESSBUS
+
+ DATABUS --> D0-D7 --> /74hc574/ --> A0-A7 --> /AT28C16/ --> A4-A7 --> ADDRESSBUS
+ 
+ ADDRESSBUS --> A0-A7 --> /AT28C16/ --> CP0, OE0, CP1, OE1, A8, A9, A10, A11 --> ADDRESSBUS
+
+ ADDRESSBUS --> A0-A7 --> /AT28C16/ --> ONE, TWO, BOB, RD, WR, FW, BK, RDY --> DATABUS
+
+ ADDRESSBUS --> A0-A7 --> /AT28C16/ --> CP2, OE2, CP3, OE3, OP0, OP2, OP3, CLR --> ADDRESSBUS 
+
+ DATABUS --> D0-D7 --> A0-A7, (OP0-OP3 --> A8-A10, CLR --> A11) --> /AT28C16/ --> D0-D7 --> DATABUS
+
+
+ a set of extra logics does the safety for signals
+ control signals bit controls
+
+*/
+
+// internal 
 #define CP0 0b00000001
 #define OE0 0b00000010
 #define CP1 0b00000100
@@ -92,6 +148,17 @@ void show (void) {
 #define M10 0b01000000
 #define M11 0b10000000
 
+// to data bus
+#define ONE 0b00000001
+#define TWO 0b00000010
+#define BOB 0b00000100
+#define FW  0b00001000
+#define BK  0b00010000
+#define RD  0b00100000
+#define WR  0b01000000
+#define RDY 0b10000000
+
+// internal
 #define CP2 0b00000001
 #define OE2 0b00000010
 #define CP3 0b00000100
@@ -106,7 +173,43 @@ void show (void) {
 int main (int argc, char * argv[]) {
 
 
+    unsigned char c, d, e, tape[1000000];
+
+    unsigned char * pc, * pd, * pe; 
+
+    make_code();
     
+    make_math();
+
+/*
+
+    read file input
+
+    use ! to mark end of code
+
+    assume data till EOF
+
+*/
+
+    k = 0;
+    
+    pd = pe = NULL;
+
+    pc = &tape[k];
+
+    while ((c = getch()) != EOF) {
+    
+        tape[k++] = c;
+        
+        if ( c == '!' ) pd = &tape[k];
+        
+        }   
+
+    if (pd == NULL) pd = &tape[k];
+
+
+    
+
 
     return (0);
 }
