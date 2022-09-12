@@ -5,22 +5,42 @@
   <visualElements>
     <visualElement>
       <elementName>74574.dig</elementName>
-      <elementAttributes/>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>U1</string>
+        </entry>
+      </elementAttributes>
       <pos x="1220" y="-460"/>
     </visualElement>
     <visualElement>
       <elementName>74574.dig</elementName>
-      <elementAttributes/>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>U2</string>
+        </entry>
+      </elementAttributes>
       <pos x="1220" y="220"/>
     </visualElement>
     <visualElement>
       <elementName>28c16.dig</elementName>
-      <elementAttributes/>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>EE1</string>
+        </entry>
+      </elementAttributes>
       <pos x="-400" y="-1040"/>
     </visualElement>
     <visualElement>
       <elementName>28c16.dig</elementName>
-      <elementAttributes/>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>EE2</string>
+        </entry>
+      </elementAttributes>
       <pos x="480" y="-1200"/>
     </visualElement>
     <visualElement>
@@ -87,7 +107,12 @@
     </visualElement>
     <visualElement>
       <elementName>28c16.dig</elementName>
-      <elementAttributes/>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>EE3</string>
+        </entry>
+      </elementAttributes>
       <pos x="480" y="-540"/>
     </visualElement>
     <visualElement>
@@ -114,7 +139,12 @@
     </visualElement>
     <visualElement>
       <elementName>28c16.dig</elementName>
-      <elementAttributes/>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>EE4</string>
+        </entry>
+      </elementAttributes>
       <pos x="480" y="140"/>
     </visualElement>
     <visualElement>
@@ -322,7 +352,12 @@
     </visualElement>
     <visualElement>
       <elementName>28c16.dig</elementName>
-      <elementAttributes/>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>EE5</string>
+        </entry>
+      </elementAttributes>
       <pos x="1640" y="140"/>
     </visualElement>
     <visualElement>
@@ -425,7 +460,12 @@
     </visualElement>
     <visualElement>
       <elementName>74574.dig</elementName>
-      <elementAttributes/>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>U3</string>
+        </entry>
+      </elementAttributes>
       <pos x="2320" y="220"/>
     </visualElement>
     <visualElement>
@@ -583,7 +623,7 @@
       <elementAttributes>
         <entry>
           <string>Label</string>
-          <string>2</string>
+          <string>U0</string>
         </entry>
       </elementAttributes>
       <pos x="1220" y="-1120"/>
@@ -1675,6 +1715,16 @@
       </elementAttributes>
       <pos x="3000" y="80"/>
     </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>clear</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1500" y="-760"/>
+    </visualElement>
   </visualElements>
   <wires>
     <wire>
@@ -1822,16 +1872,16 @@
       <p2 x="960" y="-1160"/>
     </wire>
     <wire>
-      <p1 x="-1060" y="520"/>
-      <p2 x="-720" y="520"/>
-    </wire>
-    <wire>
       <p1 x="3400" y="520"/>
       <p2 x="3440" y="520"/>
     </wire>
     <wire>
       <p1 x="3040" y="520"/>
       <p2 x="3280" y="520"/>
+    </wire>
+    <wire>
+      <p1 x="-1060" y="520"/>
+      <p2 x="-720" y="520"/>
     </wire>
     <wire>
       <p1 x="-720" y="520"/>
@@ -2947,11 +2997,15 @@
     </wire>
     <wire>
       <p1 x="1160" y="-1120"/>
-      <p2 x="1220" y="-1120"/>
+      <p2 x="1180" y="-1120"/>
     </wire>
     <wire>
       <p1 x="1340" y="-1120"/>
       <p2 x="1380" y="-1120"/>
+    </wire>
+    <wire>
+      <p1 x="1180" y="-1120"/>
+      <p2 x="1220" y="-1120"/>
     </wire>
     <wire>
       <p1 x="-900" y="480"/>
@@ -3210,6 +3264,10 @@
       <p2 x="-640" y="-760"/>
     </wire>
     <wire>
+      <p1 x="1380" y="-760"/>
+      <p2 x="1500" y="-760"/>
+    </wire>
+    <wire>
       <p1 x="-240" y="120"/>
       <p2 x="-60" y="120"/>
     </wire>
@@ -3452,6 +3510,10 @@
     <wire>
       <p1 x="1180" y="580"/>
       <p2 x="1180" y="700"/>
+    </wire>
+    <wire>
+      <p1 x="1180" y="-1120"/>
+      <p2 x="1180" y="-760"/>
     </wire>
     <wire>
       <p1 x="1180" y="-760"/>
