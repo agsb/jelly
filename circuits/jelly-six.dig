@@ -1004,7 +1004,7 @@
           <string>FSM Bus</string>
         </entry>
       </elementAttributes>
-      <pos x="120" y="-520"/>
+      <pos x="140" y="-160"/>
     </visualElement>
     <visualElement>
       <elementName>Text</elementName>
@@ -1197,7 +1197,7 @@
           <string>Data Bus</string>
         </entry>
       </elementAttributes>
-      <pos x="-80" y="1040"/>
+      <pos x="-360" y="960"/>
     </visualElement>
     <visualElement>
       <elementName>74574.dig</elementName>
@@ -1981,27 +1981,52 @@
     </visualElement>
     <visualElement>
       <elementName>7400.dig</elementName>
-      <elementAttributes/>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>u10</string>
+        </entry>
+      </elementAttributes>
       <pos x="2580" y="-500"/>
     </visualElement>
     <visualElement>
       <elementName>7408.dig</elementName>
-      <elementAttributes/>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>u11</string>
+        </entry>
+      </elementAttributes>
       <pos x="2580" y="-60"/>
     </visualElement>
     <visualElement>
       <elementName>7486.dig</elementName>
-      <elementAttributes/>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>u12</string>
+        </entry>
+      </elementAttributes>
       <pos x="2580" y="320"/>
     </visualElement>
     <visualElement>
       <elementName>7486.dig</elementName>
-      <elementAttributes/>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>u14</string>
+        </entry>
+      </elementAttributes>
       <pos x="2580" y="1180"/>
     </visualElement>
     <visualElement>
       <elementName>7474.dig</elementName>
-      <elementAttributes/>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>u13</string>
+        </entry>
+      </elementAttributes>
       <pos x="2580" y="760"/>
     </visualElement>
     <visualElement>
@@ -2379,6 +2404,66 @@
       <elementName>PullDown</elementName>
       <elementAttributes/>
       <pos x="1300" y="-760"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>Basic Logic Level,
+check for fail states,
+does hold for swap tapes
+does hold for move direction
+could halt</string>
+        </entry>
+      </elementAttributes>
+      <pos x="2840" y="-320"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>m1, m2, control math operation
+oe4 control output enable
+cs6 control output enable</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-580" y="-1100"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>A0-A3</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1340" y="620"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>A4-A7</string>
+        </entry>
+      </elementAttributes>
+      <pos x="900" y="620"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>textFontSize</string>
+          <int>36</int>
+        </entry>
+        <entry>
+          <string>Description</string>
+          <string>Address Bus</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-440" y="-520"/>
     </visualElement>
   </visualElements>
   <wires>
