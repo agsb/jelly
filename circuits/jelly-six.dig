@@ -1197,7 +1197,7 @@
           <string>Data Bus</string>
         </entry>
       </elementAttributes>
-      <pos x="-360" y="960"/>
+      <pos x="-420" y="960"/>
     </visualElement>
     <visualElement>
       <elementName>74574.dig</elementName>
@@ -2409,6 +2409,10 @@
       <elementName>Text</elementName>
       <elementAttributes>
         <entry>
+          <string>textFontSize</string>
+          <int>36</int>
+        </entry>
+        <entry>
           <string>Description</string>
           <string>Basic Logic Level,
 check for fail states,
@@ -2417,7 +2421,7 @@ does hold for move direction
 could halt</string>
         </entry>
       </elementAttributes>
-      <pos x="2840" y="-320"/>
+      <pos x="2880" y="-340"/>
     </visualElement>
     <visualElement>
       <elementName>Text</elementName>
@@ -2464,6 +2468,33 @@ cs6 control output enable</string>
         </entry>
       </elementAttributes>
       <pos x="-440" y="-520"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>textFontSize</string>
+          <int>36</int>
+        </entry>
+        <entry>
+          <string>Description</string>
+          <string>Decoder eeprom, translate a byte from ASCII into a valid BF instruction, ignores non valid;
+Code control eeprom, does  control logic of finite states for execute the current instruction;
+Tape control eeprom, selects which tape is active for use the Data bus and defines modes;
+Math operator eeprom, perform all math operations as table lookups;</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-1820" y="340"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>Data Bus is shared by all tapes</string>
+        </entry>
+      </elementAttributes>
+      <pos x="-600" y="1040"/>
     </visualElement>
   </visualElements>
   <wires>
