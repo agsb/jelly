@@ -92,7 +92,7 @@ Around the standart language, Jelly includes: (# list can grow)
 
 ### Control signals
 
-Explained in [control lines](controllines.md)
+Explained in [control lines](documents/controllines.md)
 
 ### About loops
 

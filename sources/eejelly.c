@@ -149,9 +149,9 @@ void show (void) {
 #define M11 0b10000000
 
 // to data bus
-#define ONE 0b00000001
-#define TWO 0b00000010
-#define BOB 0b00000100
+#define BOB 0b00000001
+#define ONE 0b00000010
+#define TWO 0b00000100
 #define FW  0b00001000
 #define BK  0b00010000
 #define RD  0b00100000
@@ -167,6 +167,40 @@ void show (void) {
 #define OP1 0b00100000
 #define OP2 0b01000000
 #define CLR 0b10000000
+
+
+void make_eprom(void) {
+
+unsigned char ep1, ep2, ep3;
+
+// NEXT or noop
+
+ep1 = 0, BOB | FW, 0;
+
+ep1 = 0, BOB | RD, 0;
+
+ep1 = CP0, 0, 0;
+
+ep1 = OE0, 0, 0;
+
+// >
+
+ep1 = 0, ONE | FW, 0;
+
+NEXT
+
+// <
+
+ep1 = 0, ONE | BK, 0;
+
+NEXT
+
+// +
+
+ep1 = 0, ONE | RD, CP2;
+
+ep1 = 0,  
+}
 
 
 
