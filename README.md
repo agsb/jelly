@@ -30,6 +30,8 @@ PS: I know that it will be slow.
 
 ## Jelly is on https://hackaday.io/project/186689-jelly
 
+Most of Notes and Updates are keeped there, please visit.
+
 
 ## Ideas
 
