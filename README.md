@@ -80,13 +80,13 @@ The simplest and easy way to filter income code tape bytes into opcodes, is just
 
 Around the standart language, Jelly includes: (# list can grow)
 
-  a nop, to do nothing,
+  a nop, to do nothing, forward code tape one step,
   
   a halt, to stop,
   
-  a reset, to restart,
+  a reset, to restart, backwards code tape all steps,
   
-  a swap, to exchange data tape and I/O tape. All operations are into active tape;
+  a swap, to exchange data tape and I/O tape as active, increase or decrease, forward or bracward, are into active tape;
   
   the output \. command always copy a byte from a data tape into a I/O tape;
   
