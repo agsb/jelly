@@ -1,4 +1,4 @@
 
--- this dircetory is a stub ---
+-- this directory is a stub ---
 
 auxiliary code for tests
