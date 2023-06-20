@@ -57,25 +57,27 @@ It should receive information from a code tape and translate into opcodes to exe
 
 The simplest and easy way to filter income code tape bytes into opcodes, is just pass the byte as address to a translator eeprom and collect the result as valid opcodes to  use as address to another eeprom which contains the real signals states. 
 
-| byte | op-code | action | code set | observations |
+| opcode | ascii | action | code set | observations |
 | --- | --- | --- | --- | --- |
-| 0 | reset | reset all | jelly | |
-| 1 | \= | swap tapes | jelly | swaps data and I/O and vice versa |
-| 2 | \+ | increase byte at data tape | brainfuck | only at data tape |
-| 3 | \- | decrease byte at data tape | brainfuck | only at data tape |
-| 4 | \> | forward a tape one position | brainfuck | both tapes |
-| 5 | \< | backward a tape one position | brainfuck | both tapes |
-| 6 | \. | output byte from tape | brainfuck | move from data tape into I/O tape |
-| 7 | \, | input byte into tape | brainfuck | move from I/O tape into data tape |
-| 8 | \[ | test if byte at data tape is zero, and forward code tape to matched | brainfuck | |
-| 9 | \] | test if byte at data tape is not zero, and backward code tape to matched | brainfuck | |
-| 10 | \~ | unary negation | jelly | math |
-| 11 | \? | reserved | jelly | still does noop |
-| 12 | \! | separator | jelly | code ! data |
-| 13 | \& | reset | jelly | restart cpu |
-| 14 | \$ | halt | jelly | halt cpu |
-| 15 | \% | eof | jelly | end of file |
-  
+| 0 | \+ | increase byte at data tape | brainfuck | only at data tape |
+| 1 | \- | decrease byte at data tape | brainfuck | only at data tape |
+| 2 | \> | forward a tape one position | brainfuck | both tapes |
+| 3 | \< | backward a tape one position | brainfuck | both tapes |
+| 4 | \. | output byte from tape | brainfuck | move from data tape into I/O tape |
+| 5 | \, | input byte into tape | brainfuck | move from I/O tape into data tape |
+| 6 | \[ | test if byte at data tape is zero, and forward code tape to matched | brainfuck | |
+| 7 | \] | test if byte at data tape is not zero, and backward code tape to matched | brainfuck | |
+| 8 | \! | end of code, halt | jelly | |
+| 9 | \= | swap tapes | jelly | swaps data and I/O and vice versa |
+| 10 | \~ | reserved, unary negation | jelly | math |
+| 11 | \? | reserved | jelly | noop |
+| 12 | \@ | reserved | jelly | noop |
+| 13 | \& | reserved | jelly | noop |
+| 14 | \$ | reserved | jelly | noop |
+| 15 | \% | reserved | jelly | noop |
+
+any other ascii value is nop, just read next byte code
+
 ### Jelly extensions
 
 Around the standart language, Jelly includes: (# list can grow)
