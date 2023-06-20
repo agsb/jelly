@@ -70,19 +70,19 @@ The simplest and easy way to filter income code tape bytes into opcodes, is just
 | 8 | \! | end of code, halt | jelly | |
 | 9 | \= | swap tapes | jelly | swaps data and I/O and vice versa |
 | 10 | \~ | reserved, unary negation | jelly | math |
-| 11 | \? | reserved | jelly | noop |
-| 12 | \@ | reserved | jelly | noop |
-| 13 | \& | reserved | jelly | noop |
-| 14 | \$ | reserved | jelly | noop |
-| 15 | \% | reserved | jelly | noop |
+| 11 | \? | reserved | jelly | nop |
+| 12 | \@ | reserved | jelly | nop |
+| 13 | \& | reserved | jelly | nop |
+| 14 | \$ | reserved | jelly | nop |
+| 15 | \% | reset, rewind code tape | jelly | nop |
 
-any other ascii value is nop, just read next byte code
+__any other ascii value is noop, just read next byte code__
 
 ### Jelly extensions
 
 Around the standart language, Jelly includes: (# list can grow)
 
-  a nop, to do nothing, forward code tape one step,
+  a noo, to do nothing, forward or backward code tape one step,
   
   a halt, to stop,
   
