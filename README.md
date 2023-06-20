@@ -59,10 +59,10 @@ The simplest and easy way to filter income code tape bytes into opcodes, is just
 
 | opcode | ascii | action | code set | observations |
 | --- | --- | --- | --- | --- |
-| 0 | \+ | increase byte at data tape | brainfuck | only at data tape |
-| 1 | \- | decrease byte at data tape | brainfuck | only at data tape |
-| 2 | \> | forward a tape one position | brainfuck | both tapes |
-| 3 | \< | backward a tape one position | brainfuck | both tapes |
+| 0 | \> | forward a tape one position | brainfuck | both tapes |
+| 1 | \< | backward a tape one position | brainfuck | both tapes |
+| 2 | \+ | increase byte at data tape | brainfuck | only at data tape |
+| 3 | \- | decrease byte at data tape | brainfuck | only at data tape |
 | 4 | \. | output byte from tape | brainfuck | move from data tape into I/O tape |
 | 5 | \, | input byte into tape | brainfuck | move from I/O tape into data tape |
 | 6 | \[ | test if byte at data tape is zero, and forward code tape to matched | brainfuck | |
