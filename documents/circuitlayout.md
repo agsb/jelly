@@ -101,16 +101,21 @@ From the table 1, the paging is controled just from first 4 lines,
    | 1 | 0 | 0 | 0 | 0 | 1 | 0 | toggle page 1 |
    | 0 | 1 | 1 | 0 | 0 | 0 | 1 | toggle page 2 |
 
-   	Y1 = /A./B (NOR) 
-   	Y2 = /D./E (NOR)
-    	Y3 = /B./C (NOR)
+      Y1 = /A./B (NOR) 
+      Y2 = /D./E (NOR)
+      Y3 = /B./C (NOR)
      
 
 ## A BOM    
 
-The BOM is 
-4 x AT28C16, 2kb eeprom, math and line states, decode opcpdes 
-4 x 74HC574, 8-bit latches, 
-1 x 74hc393, dual 4-stage binary counter, used for microcode steps 
-2 x 74HC32, 4x dual OR, as zero detector,
-some glue states logics (1 x 74HC74, )
+The BOM is
+
+      4 x AT28C16, 2kb eeprom, math and line states, decode opcpdes 
+
+      4 x 74HC574, 8-bit latches, 
+      
+      1 x 74hc393, dual 4-stage binary counter, used for microcode steps 
+      
+      2 x 74HC32, 4x dual OR, as zero detector,
+      
+      some glue states logics (1 x 74HC74, )
