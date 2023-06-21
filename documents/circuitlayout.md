@@ -8,27 +8,34 @@ Jelly circuit does not include the control circuit (CC) for tape devices, that c
 
 Jelly uses 2kb space, address are A0-A10, data input are D0-D7, data output are Q0-Q7, control lines C0-C15. 
 
-All chips have /OE (output enable) line and /CS (chip select) line for select action. 
-
-The eeproms have /WR (write enable) to VCC.
+All chips have /OE (output enable) line and /CS (chip select) line for select action. The eeproms have /WR (write enable) to VCC.
 
 ## Connections
 
-Two eeproms, U1 and U2, are used together for opcode and microdoce lookup, shares A0-A10 and match output control lines, from C0-C7 and C8-C15, /OE is GND and /CS is GND;
+### EEPROMs
 
-One eeprom, U3, is used to translate the code byte to opcodes, D0-D7 are used as A0-A7, giving Q0-Q3 as A5-A8, to U1 and U2, and not using A8-A10 and Q4-Q7, /OE is GND and /CS is GND;
+All eeproms are AT27C16, 2k x 8bits, 150 ns, and have /OE to GND and /CS to GND;
 
-One eeprom, U4, is used to translate the data byte as math function, D0-D7 are used as A0-A7, performing a table lookup selected by A8-A10, giving Q0 to Q7, /OE is GND and /CS is GND;
+Two eeproms, U1 and U2, are used together for opcode and microdoce lookup, shares A0-A10 and giving output control lines, from C0-C7 and C8-C15, ;
+
+One eeprom, U3, is used to translate the code byte to opcodes, D0-D7 from U5 are used as A0-A7 to U3, giving Q0-Q3 as A5-A8 to U1 and U2, and not using A9-A10 and Q4-Q7;
+
+One eeprom, U4, is used to translate the data byte as math function, D0-D7 from U7 are used as A0-A7 into U4, performing a table lookup selected by A8-A10, giving Q0-Q7 as D0-D7 into U8;
+
+### Latches
+
+All latchs ar 74HC574, 
+One latch, U5, receive D0-D7 from data bus, giving Q0-Q7 as A0-A7 into U3, /OE is GND, /CS is CX;
+
+One latch, U6, receive Q0-Q7 from U2, giving Q0-Q7 as P0-P7 to CC, /OE is CX, /CS is GND;
+
+One latch, U7, receive D0-D7 from data bus, giving Q0-Q7 as A0-A7 into U4, /OE is GND, /CS is CX;
+
+One latch, U8, receive Q0-Q7 from U4, giving Q0-Q7 as D0-D7 to data bus, /OE is CX, /CS is CX;
+
+### Clock 
 
 One binary counter, U9, gets clock pulses, giving Q0-A4 as A0-A4 to U1 and U2. _At Q5 its resets to 0_;
-
-One latch, U5, receive D0-D7 from data bus, giving A0-A7 into U3, /OE is GND, /CS is CX;
-
-One latch, U6, receive the control lines C8-C15, giving P0-P7 to DTCC, /OE is CX, /CS is GND;
-
-One latch, U7, receive D0-D7 from data bus, giving A0-A7 to U4, /OE is GND, /CS is CX;
-
-One latch, U8, receive Q0-Q7 from U4, giving D0-D7 to data bus, /OE is CX, /CS is CX;
 
 ## The Loop Logics
 
