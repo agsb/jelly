@@ -44,39 +44,39 @@ In page one, when found a begin increase a counter, when found a again decrease 
 
 In page two, when found a begin increase a counter, when found a again decrease a counter, then moves code tape backward and if counter is zero change to page 0.
 
-Since no data is read while in page one or two, the circuit of U7, U2, U8 is used as counter
+Since no data is read while in page one or two, the circuit of U7, U3, U8 is used as counter
 
 ### Make It
 
 the solution was make  true-table for lines and states.
 
-begin is a line set high when code is [
+begin is input a control line set high when code is [
 
-again is a line set high when code is ]
+again is input a control line set high when code is ]
 
-zero is a line set high when data is non zero
+zero is input a control line set high when data is non zero
 
-page 1 is the address A9 line for eeproms U1 and U2
+page_1 is input the address line A9 for eeproms U1 and U2
 
-page 2 is the address A10 line for eeproms U1 and U2
+page_2 is input the address line A10 for eeproms U1 and U2
 
-flip 1 is the clock for D-Flip-FLop the control the address A9 line
+flip_1 is output to the clock for D-Flip-FLop the control the address A9 line
 
-flip 2 is the clock for D-Flip-FLop the control the address A10 line
+flip_2 is output to the clock for D-Flip-FLop the control the address A10 line
 
-when page 2 is set the movement is backward.
+when page_2 is set the movement is backward.
 
-					output	output	
-| begin \[ | \] again	| zero	| page 1 | page 2 | FLIP  1 | FLIP 2 |	results
+### Table 1
 
-   +---+---+---+---+---+---+---+---------------+
+   | begin \[ | \] again | zero	| page_1 | page_2 | _FLIP_1_ | _FLIP_2_ | results |
+   | --- | --- | --- | --- | --- | --- | --- | --- |
    | 0 | 0 | 0 | 1 | 0 | 1 | 0 | toggle page 1 |
    | 0 | 0 | 0 | 0 | 1 | 0 | 1 | toggle page 2 |
    | 1  | 0 | 0 | 0 | 0 | 1 | 0 | toggle page 1 |
    | 0 | 1 | 1 | 0 | 0 | 0 | 1 | toggle page 2 |
    |  |  |  |  |  |  |  |  |
-   | 0 | 0 | 1 | 1 | 0 | 0 | 0 | forward |
-   | 0 | 0 | 1 | 0 | 1 | 0 | 0 | backward |
+   | 0 | 0 | 1 | 1 | 0 | 0 | 0 | next forward |
+   | 0 | 0 | 1 | 0 | 1 | 0 | 0 | next backward |
    |  |  |  |  |  |  |  |  |
    | 1 | 0 | 0 | 1 | 0 | 0 | 0 | count + 1 |
    | 1 | 0 | 1 | 1 | 0 | 0 | 0 | count + 1 |
@@ -86,10 +86,28 @@ when page 2 is set the movement is backward.
    | 1 | 0 | 0 | 0 | 1 | 0 | 0 | count + 1 |
    | 1 | 0 | 1 | 0 | 1 | 0 | 0 | count + 1 |
    | 0 | 1 | 0 | 0 | 1 | 0 | 0 | count - 1 |
-   | 0 | 1 | 1 | 0 | 1   0 | 0 | count - 1 |
+   | 0 | 1 | 1 | 0 | 1 | 0 | 0 | count - 1 |
 
+## Solution
 
-       
+From the table 1, the paging is controled just from first 4 lines,
+
+  
+   | begin \[ | \] again | zero | page_1 | page_2 | _FLIP_1_ | _FLIP_2_ | results |
+   | --- | --- | --- | --- | --- | --- | --- | --- |
+   | A | B | C | D | E | F | G | lines names | 
+   | 0 | 0 | 0 | 1 | 0 | 1 | 0 | toggle page 1 |
+   | 0 | 0 | 0 | 0 | 1 | 0 | 1 | toggle page 2 |
+   | 1 | 0 | 0 | 0 | 0 | 1 | 0 | toggle page 1 |
+   | 0 | 1 | 1 | 0 | 0 | 0 | 1 | toggle page 2 |
+
+   	Y1 = /A./B (NOR) 
+   	Y2 = /D./E (NOR)
+    	Y3 = /B./C (NOR)
+     
+
+## A BOM    
+
 The BOM is 
 4 x AT28C16, 2kb eeprom, math and line states, decode opcpdes 
 4 x 74HC574, 8-bit latches, 
