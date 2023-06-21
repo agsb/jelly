@@ -14,20 +14,21 @@ All chips have /OE (output enable) line and /CS (chip select) line for select ac
 
 ### EEPROMs
 
-All eeproms are AT27C16, 2k x 8bits, 150 ns, and have /OE to GND and /CS to GND;
+All eeproms are AT27C16, 2k x 8-bits, 150 ns, and have /OE to GND, /CS to GND, /WR to VCC;
 
-Two eeproms, U1 and U2, are used together for opcode and microdoce lookup, shares A0-A10 and giving output control lines, from C0-C7 and C8-C15, ;
+Two eeproms, U1 and U2, are used together for opcode and microdoce lookup, shares A0-A10 and giving Q0-Q7 as control lines, C0-C7 and C8-C15;
 
-One eeprom, U3, is used to translate the code byte to opcodes, D0-D7 from U5 are used as A0-A7 to U3, giving Q0-Q3 as A5-A8 to U1 and U2, and not using A9-A10 and Q4-Q7;
+One eeprom, U3, is used to translate the code byte to opcodes, receive Q0-Q7 from U5 as A0-A7 into U3, giving Q0-Q3 as A5-A8 to U1 and U2, and not using A9-A10 and Q4-Q7;
 
-One eeprom, U4, is used to translate the data byte as math function, D0-D7 from U7 are used as A0-A7 into U4, performing a table lookup selected by A8-A10, giving Q0-Q7 as D0-D7 into U8;
+One eeprom, U4, is used to translate the data byte as math function, receive Q0-Q7 from U7 as A0-A7 into U4, performing a table lookup selected M0-M2 as A8-A10, giving Q0-Q7 as D0-D7 into U8;
 
 ### Latches
 
-All latchs ar 74HC574, 
+All latchs are 74HC574, octal D-Flip-Flop, 3-state, pull-up,
+
 One latch, U5, receive D0-D7 from data bus, giving Q0-Q7 as A0-A7 into U3, /OE is GND, /CS is CX;
 
-One latch, U6, receive Q0-Q7 from U2, giving Q0-Q7 as P0-P7 to CC, /OE is CX, /CS is GND;
+One latch, U6, receive Q0-Q7 from U2, giving Q0-Q7 as C8-C15 to CC, /OE is CX, /CS is GND;
 
 One latch, U7, receive D0-D7 from data bus, giving Q0-Q7 as A0-A7 into U4, /OE is GND, /CS is CX;
 
