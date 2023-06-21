@@ -97,11 +97,11 @@ Around the standart language, Jelly includes: (# list can grow)
 
 ### Circuit Layout
 
-Explained in [circuit layout](documents/circuitlayout.md)
+Explained in [circuit layout](documents/CircuitLayout.md)
 
 ### Control signals
 
-Explained in [control lines](documents/controllines.md)
+Explained in [control lines](documents/ControlLines.md)
 
 ### About loops
 
