@@ -8,13 +8,13 @@ Jelly circuit does not include the control circuit (CC) for tape devices, that c
 
 Jelly uses 2kb space, address are A0-A10, data input are D0-D7, data output are Q0-Q7, control lines C0-C15. 
 
-All chips have /OE (output enable) line and /CS (chip select) line for select action. The eeproms have /WR (write enable) to VCC.
+All chips have /OE (output enable) line and /CS (chip select) line for select action. The eeproms have /WR (write enable) to VCC of 5.1 V .
 
 ## Connections
 
 ### EEPROMs
 
-All eeproms are AT27C16, 2k x 8-bits, 150 ns, and have /OE to GND, /CS to GND, /WR to VCC;
+All eeproms are AT28C16, 150 ns (~ 6.7 MHz), 2k x 8-bits, and have /OE to GND, /CS to GND, /WR to VCC;
 
 Two eeproms, U1 and U2, are used together for opcode and microdoce lookup, shares A0-A10 and giving Q0-Q7 as control lines, C0-C7 and C8-C15;
 
@@ -24,7 +24,7 @@ One eeprom, U4, is used to translate the data byte as math function, receive Q0-
 
 ### Latches
 
-All latchs are 74HC574, octal D-Flip-Flop, 3-state, pull-up,
+All latchs are 74HC574, 500 ns (~ 2.0 MHz), octal D-Flip-Flop, 3-state, pull-up;
 
 One latch, U5, receive D0-D7 from data bus, giving Q0-Q7 as A0-A7 into U3, /OE is GND, /CS is CX;
 
@@ -36,7 +36,17 @@ One latch, U8, receive Q0-Q7 from U4, giving Q0-Q7 as D0-D7 to data bus, /OE is 
 
 ### Clock 
 
-One binary counter, U9, gets clock pulses, giving Q0-A4 as A0-A4 to U1 and U2. _At Q5 its resets to 0_;
+A binary counter is 74HC393, (< 100 MHz), dual 4-bit binary ripple counter, with resets;
+
+One oscilator circuit at 1.4 MHz 
+
+One binary counter, U9, gets clock pulses from oscilator, giving Q0-Q4 as A0-A4 to U1 and U2. _At Q5 its resets to 0_;
+
+### Zero detector
+
+A circuit for zero detector uses two 74HC32, 150 ns ( ~6.7 MHz ), quad 2-input OR gate
+
+The two OR gates, U10 and U11, receive Q0-Q7 from U7 as A1B1-A4B4 into U10, giving Y1-Y4 as A1B1-A2B2 into U11, giving Y1-Y2 as A3B3 into U11, giving Y3 a ZERO line to Jelly circuit;
 
 ## The Loop Logics
 
