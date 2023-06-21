@@ -2,9 +2,9 @@
 
 # Circuit Layout
 
-Jelly is a simple 8-bit digital circuit, all math, opcodes and microcodes are done by eeproms and latches, have a zero detector, a binary counter e some glue state logics, and LEDs many LEDS ! 
+Jelly is a simple 8-bit digital circuit, all math, opcodes and microcodes are done by eeproms and latches. It haves a zero detector, a binary counter e some glue state logics, and LEDs many LEDS ! 
 
-Jelly circuit does not include the control circuit (CC) for tape devices, that could be a real tape or memory emulated.
+Jelly circuit does not include the Control Circuit (CC) for tape devices, that could be a real tape or memory emulated.
 
 Jelly uses 2kb space, address are A0-A10, data input are D0-D7, data output are Q0-Q7, control lines C0-C15. 
 
@@ -48,13 +48,13 @@ One binary counter, U9, gets clock pulses from oscilator, giving Q0-Q4 as A0-A4 
 
 _This takes 32 cycles for microcode of each opcode_; *maybe to much*
 
-### Zero detector
+### Zero Detector
 
 A circuit for zero detector uses two 74HC32, 150 ns ( ~6.7 MHz ), quad 2-input OR gate
 
 The two OR gates, U10 and U11, receive Q0-Q7 from U7 as A1B1-A4B4 into U10, giving Y1-Y4 as A1B1-A2B2 into U11, giving Y1-Y2 as A3B3 into U11, giving Y3 a ZERO line to Jelly circuit and A4B4/Y4 free for use;
 
-### Toggle Pages
+### Toggle Page
 
 The circuit for toggle pages uses one 74HC74, dual D-Flip-Flop;
 
@@ -62,8 +62,9 @@ The opcodes and microcode stored into U1 and U2 are mapped into 4 pages using A9
 
 ## The Loop Logic
 
-All Jelly opcodes are easy implemented except loops. the [ and ],  refered  as begin and again, keep me in a round-robin by months without a feasible 
-solution.
+All Jelly opcodes are easy implemented except loops. 
+
+the [ and ], refered  as begin and again, keep me in a round-robin by months without a feasible solution.
 
 In pseudo-code, _left not optimized, sure not optimized, did I said it is not optimized ?_ :
          
@@ -106,46 +107,59 @@ In pseudo-code, _left not optimized, sure not optimized, did I said it is not op
           page = 0;  
           }
 
-         // all code for other opcodes
+         if (page == 0) {
+         // all code for other opcodes: < > . , + -
+         }
 
+         code_ptr++;
+         
          } while (1);
          
-            
-The page zero does all common opcodes except _begin_ and _again_; The page one does the execution when occurs a _begin_ and the data byte is zero; The page two does the execution when occurs a _again_ and data byte is not zero;
+When grouping the codes in dependence of state of page, gives three pages,  
+
+The page zero does all opcodes except _begin_ and _again_; 
+
+The page one does the execution when occurs a _begin_ and the data byte is zero; 
+
+The page two does the execution when occurs a _again_ and data byte is not zero;
+
+That solution focus to decision match as a true table of lines, _begin_, _again_, zero, A9, A10, and toggle switches S9 and S10, that controls A9 and A10.
 
 ### How To
 
-In page zero, all opcodes are executed and when a begin occurs and data is zero that clear a counter and change to page one, when a again occurs and data is not zero that clear  a counter and change to page two.
+Explicit: 
+
+In page zero, all opcodes are executed and when a begin occurs and data is zero that clear a counter and change to page one, when a again occurs and data is not zero that clear a counter and change to page two.
 
 In page one, when found a begin increase a counter, when found a again decrease a counter,  then moves code tape forward and if counter is zero change to page 0.
 
 In page two, when found a begin increase a counter, when found a again decrease a counter, then moves code tape backward and if counter is zero change to page 0.
 
-Since no data byte is read while in page one or two, the circuit of U7, U3, U8 is used as counter
+Since no data byte is read while in page one or two, the circuit of U7, U3, U8 is used as counter;
 
 ### Make It
 
-the solution was make  true-table for lines and states.
+the solution was make true-table for lines and states.
 
-begin is input a control line set high when code is [
+begin is a control line set high when code_byte is [
 
-again is input a control line set high when code is ]
+again is a control line set high when code_byte is ]
 
-zero is input a control line set high when data is non zero
+zero is a control line set high when data is non zero, from Zero Detector circuit. 
 
-page_1 is input the address line A9 for eeproms U1 and U2
+page_1 is the address line A9 for eeproms U1 and U2, from Toggle Page circuit.
 
-page_2 is input the address line A10 for eeproms U1 and U2
+page_2 is the address line A10 for eeproms U1 and U2, from Toggle Page circuit.
 
-flip_1 is output to the clock for D-Flip-FLop the control the address A9 line
+flip_1 is output to the clock for D-Flip-FLop the control the address A9 line, to Toggle Page circuit.
 
-flip_2 is output to the clock for D-Flip-FLop the control the address A10 line
+flip_2 is output to the clock for D-Flip-FLop the control the address A10 line, to Toggle Page circuit.
 
-when page_2 is set the movement is backward.
+when page_2 is set the movement is always backward.
 
 ### Table 1
 
-   | begin \[ | \] again | zero	| page_1 | page_2 | _FLIP_1_ | _FLIP_2_ | results |
+   | begin \[ | \] again | zero | page_1 | page_2 | _FLIP_1_ | _FLIP_2_ | results |
    | --- | --- | --- | --- | --- | --- | --- | --- |
    | 0 | 0 | 0 | 1 | 0 | 1 | 0 | toggle page 1 |
    | 0 | 0 | 0 | 0 | 1 | 0 | 1 | toggle page 2 |
