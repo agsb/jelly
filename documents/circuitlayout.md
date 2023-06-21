@@ -8,25 +8,88 @@ Jelly circuit does not include the control circuit (CC) for tape devices, that c
 
 Jelly uses 2kb space, address are A0-A10, data input are D0-D7, data output are Q0-Q7, control lines C0-C15. 
 
-All chips have /OE (output enable) line and /CS (chip select) line for select action. The eeproms have /WR (write enable) to VCC.
+All chips have /OE (output enable) line and /CS (chip select) line for select action. 
 
-Two eeproms, U1 and U2, shared A0-A10 and are used together to match 16 output control lines, from C0-C7 and C8-C15;
+The eeproms have /WR (write enable) to VCC.
 
-One eeprom, U3, is used to translate the code byte to opcodes, D0-D7 are used as A0-A7, giving Q0-Q3 as A5-A8, to U1 and U2, and not using A8-A10 and Q4-Q7;
+## Connections
 
-One eeprom, U4, is used to translate the data byte as math function, D0-D7 are used as A0-A7, performing a table lookup selected by A8-A10, giving Q0 to Q7;
+Two eeproms, U1 and U2, are used together for opcode and microdoce lookup, shares A0-A10 and match output control lines, from C0-C7 and C8-C15, /OE is GND and /CS is GND;
 
-One binary counter, U9, gets clock pulses, giving A0, A1, A2, A3, A4, to U1 and U2;
+One eeprom, U3, is used to translate the code byte to opcodes, D0-D7 are used as A0-A7, giving Q0-Q3 as A5-A8, to U1 and U2, and not using A8-A10 and Q4-Q7, /OE is GND and /CS is GND;
 
-One latch, U5, receive D0-D7 from data bus, giving A0-A7 into U3, /OE is GND, CS is CX;
+One eeprom, U4, is used to translate the data byte as math function, D0-D7 are used as A0-A7, performing a table lookup selected by A8-A10, giving Q0 to Q7, /OE is GND and /CS is GND;
 
-One latch, U6, receive the control lines C8-C15, giving P0-P7 to DTCC, /OE is CX, CS is GND;
+One binary counter, U9, gets clock pulses, giving Q0-A4 as A0-A4 to U1 and U2. _At Q5 its resets to 0_;
 
-One latch, U7, receive D0-D7 from data bus, giving A0-A7 to U4;
+One latch, U5, receive D0-D7 from data bus, giving A0-A7 into U3, /OE is GND, /CS is CX;
 
-One latch, U8, receive Q0-Q7 from U4, giving D0-D7 to data bus;
+One latch, U6, receive the control lines C8-C15, giving P0-P7 to DTCC, /OE is CX, /CS is GND;
+
+One latch, U7, receive D0-D7 from data bus, giving A0-A7 to U4, /OE is GND, /CS is CX;
+
+One latch, U8, receive Q0-Q7 from U4, giving D0-D7 to data bus, /OE is CX, /CS is CX;
+
+## The Loop Logics
+
+All Jelly opcodes are easy implemented except loops. the [ and ],  refered  as begin and again, keep me in a round-robin by months without a feasible solution.
+
+### How To
+
+As  pseudo-code, there are three groups of actions, for simplify, I call as page zero, page one and page two.
+
+In page zero, all opcodes are executed and when a begin occurs and data is zero that clear a counter and change to page one, when a again occurs and data is not zero that clear  a counter and change to page two.
+
+In page one, when found a begin increase a counter, when found a again decrease a counter,  then moves code tape forward and if counter is zero change to page 0.
+
+In page two, when found a begin increase a counter, when found a again decrease a counter, then moves code tape backward and if counter is zero change to page 0.
+
+Since no data is read while in page one or two, the circuit of U7, U2, U8 is used as counter
+
+### Make It
+
+the solution was make  true-table for lines and states.
+
+begin is a line set high when code is [
+
+again is a line set high when code is ]
+
+zero is a line set high when data is non zero
+
+page 1 is the address A9 line for eeproms U1 and U2
+
+page 2 is the address A10 line for eeproms U1 and U2
+
+flip 1 is the clock for D-Flip-FLop the control the address A9 line
+
+flip 2 is the clock for D-Flip-FLop the control the address A10 line
+
+when page 2 is set the movement is backward.
+
+					output	output	
+| begin \[ | \] again	| zero	| page 1 | page 2 | FLIP  1 | FLIP 2 |	results
+
+   +---+---+---+---+---+---+---+---------------+
+   | 0 | 0 | 0 | 1 | 0 | 1 | 0 | toggle page 1 |
+   | 0 | 0 | 0 | 0 | 1 | 0 | 1 | toggle page 2 |
+   | 1  | 0 | 0 | 0 | 0 | 1 | 0 | toggle page 1 |
+   | 0 | 1 | 1 | 0 | 0 | 0 | 1 | toggle page 2 |
+   |  |  |  |  |  |  |  |  |
+   | 0 | 0 | 1 | 1 | 0 | 0 | 0 | forward |
+   | 0 | 0 | 1 | 0 | 1 | 0 | 0 | backward |
+   |  |  |  |  |  |  |  |  |
+   | 1 | 0 | 0 | 1 | 0 | 0 | 0 | count + 1 |
+   | 1 | 0 | 1 | 1 | 0 | 0 | 0 | count + 1 |
+   | 0 | 1 | 0 | 1 | 0 | 0 | 0 | count - 1 |
+   | 0 | 1 | 1 | 1 | 0 | 0 | 0 | count - 1 |
+   |  |  |  |  |  |  |  |  |
+   | 1 | 0 | 0 | 0 | 1 | 0 | 0 | count + 1 |
+   | 1 | 0 | 1 | 0 | 1 | 0 | 0 | count + 1 |
+   | 0 | 1 | 0 | 0 | 1 | 0 | 0 | count - 1 |
+   | 0 | 1 | 1 | 0 | 1   0 | 0 | count - 1 |
 
 
+       
 The BOM is 
 4 x AT28C16, 2kb eeprom, math and line states, decode opcpdes 
 4 x 74HC574, 8-bit latches, 
