@@ -65,14 +65,27 @@ The opcodes and microcode stored into U1 and U2 are mapped into 4 pages using A9
 All Jelly opcodes are easy implemented except loops. the [ and ],  refered  as begin and again, keep me in a round-robin by months without a feasible 
 solution.
 
-In pseudo-code, not optimized, not optimized, not optimized :
+In pseudo-code, _left not optimized, sure not optimized, did I said it is not optimized ?_ :
+         
+         char * code_ptr = POINTER_TO_CODE;
+         
+         char * data_ptr = POINTER_TO_DATA;
+         
+         int page = 0;
+         
+         int data_byte = 0;
 
+         int code_byte = 0;
+         
+         do {
+         
          code_byte = *code_ptr;
          
          if (code_byte == '[' and data_byte == 0) page = 1;
          if (code_byte == ']' and data_byte != 0) page = 2;
          
          if (page == 1) { 
+         counter = 0;
          do {
             code_byte = *code_ptr;
             if (code_byte == '\[') counter++;
@@ -83,6 +96,7 @@ In pseudo-code, not optimized, not optimized, not optimized :
           }
 
          if (page == 2) {
+         counter = 0;
          do {
             code_byte = *code_ptr;
             if (code_byte == '\[') counter++;
@@ -93,6 +107,8 @@ In pseudo-code, not optimized, not optimized, not optimized :
           }
 
          // all code for other opcodes
+
+         } while (1);
          
             
 The page zero does all common opcodes except _begin_ and _again_; The page one does the execution when occurs a _begin_ and the data byte is zero; The page two does the execution when occurs a _again_ and data byte is not zero;
