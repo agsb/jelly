@@ -58,19 +58,46 @@ The two OR gates, U10 and U11, receive Q0-Q7 from U7 as A1B1-A4B4 into U10, givi
 
 The circuit for toggle pages uses one 74HC74, dual D-Flip-Flop;
 
-The opcodes and microcode stored into U1 and U2 are mapped into 4 pages using A9-A10. The page are selected by toggle two d-flip-flops as line A9 and A10;
+The opcodes and microcode stored into U1 and U2 are mapped into 4 pages using A9-A10. The page are selected by two d-flip-flops configured as toggle switchs, as line A9 and A10. The clock for each switch is controled by the loop logic decision circuit;
 
+## The Loop Logic
+
+All Jelly opcodes are easy implemented except loops. the [ and ],  refered  as begin and again, keep me in a round-robin by months without a feasible 
+solution.
+
+In pseudo-code, not optimized, not optimized, not optimized :
+
+         code_byte = *code_ptr;
+         
+         if (code_byte == '[' and data_byte == 0) page = 1;
+         if (code_byte == ']' and data_byte != 0) page = 2;
+         
+         if (page == 1) { 
+         do {
+            code_byte = *code_ptr;
+            if (code_byte == '\[') counter++;
+            if (code_byte == '\]') counter--;
+            code_ptr++;
+            } while (counter !=0)
+          page = 0;  
+          }
+
+         if (page == 2) {
+         do {
+            code_byte = *code_ptr;
+            if (code_byte == '\[') counter++;
+            if (code_byte == '\]') counter--;
+            code_ptr--;
+            } while (counter !=0)      
+          page = 0;  
+          }
+
+         // all code for other opcodes
+         
+            
 The page zero does all common opcodes except _begin_ and _again_; The page one does the execution when occurs a _begin_ and the data byte is zero; The page two does the execution when occurs a _again_ and data byte is not zero;
 
-
-## The Loop Logics
-
-
-All Jelly opcodes are easy implemented except loops. the [ and ],  refered  as begin and again, keep me in a round-robin by months without a feasible solution.
-
 ### How To
-
-As  pseudo-code, there are three groups of actions, for simplify, I call as page zero, page one and page two.
 
 In page zero, all opcodes are executed and when a begin occurs and data is zero that clear a counter and change to page one, when a again occurs and data is not zero that clear  a counter and change to page two.
 
@@ -78,7 +105,7 @@ In page one, when found a begin increase a counter, when found a again decrease 
 
 In page two, when found a begin increase a counter, when found a again decrease a counter, then moves code tape backward and if counter is zero change to page 0.
 
-Since no data is read while in page one or two, the circuit of U7, U3, U8 is used as counter
+Since no data byte is read while in page one or two, the circuit of U7, U3, U8 is used as counter
 
 ### Make It
 
