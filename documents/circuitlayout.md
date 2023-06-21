@@ -26,29 +26,45 @@ One eeprom, U4, is used to translate the data byte as math function, receive Q0-
 
 All latchs are 74HC574, 500 ns (~ 2.0 MHz), octal D-Flip-Flop, 3-state, pull-up;
 
-One latch, U5, receive D0-D7 from data bus, giving Q0-Q7 as A0-A7 into U3, /OE is GND, /CS is CX;
+One latch, U5, receive D0-D7 from data bus, giving Q0-Q7 as A0-A7 into U3, /OE is GND, /CS is CS5;
 
-One latch, U6, receive Q0-Q7 from U2, giving Q0-Q7 as C8-C15 to CC, /OE is CX, /CS is GND;
+One latch, U6, receive Q0-Q7 from U2, giving Q0-Q7 as C8-C15 to CC, /OE is OE6, /CS is GND;
 
-One latch, U7, receive D0-D7 from data bus, giving Q0-Q7 as A0-A7 into U4, /OE is GND, /CS is CX;
+One latch, U7, receive D0-D7 from data bus, giving Q0-Q7 as A0-A7 into U4, /OE is GND, /CS is CS7;
 
-One latch, U8, receive Q0-Q7 from U4, giving Q0-Q7 as D0-D7 to data bus, /OE is CX, /CS is CX;
+One latch, U8, receive Q0-Q7 from U4, giving Q0-Q7 as D0-D7 to data bus, /OE is OE8, /CS is CS8;
+
+The CS7 and CS8 are syncronous, _then could share CS8 line to control both_; *not tested*
+
+The OE8 controls the output to data bus shared with U5, U7, and CC;
 
 ### Clock 
 
 A binary counter is 74HC393, (< 100 MHz), dual 4-bit binary ripple counter, with resets;
 
-One oscilator circuit at 1.4 MHz 
+One oscilator circuit at less than 1.6 MHz; 
 
 One binary counter, U9, gets clock pulses from oscilator, giving Q0-Q4 as A0-A4 to U1 and U2. _At Q5 its resets to 0_;
+
+_This takes 32 cycles for microcode of each opcode_; *maybe to much*
 
 ### Zero detector
 
 A circuit for zero detector uses two 74HC32, 150 ns ( ~6.7 MHz ), quad 2-input OR gate
 
-The two OR gates, U10 and U11, receive Q0-Q7 from U7 as A1B1-A4B4 into U10, giving Y1-Y4 as A1B1-A2B2 into U11, giving Y1-Y2 as A3B3 into U11, giving Y3 a ZERO line to Jelly circuit;
+The two OR gates, U10 and U11, receive Q0-Q7 from U7 as A1B1-A4B4 into U10, giving Y1-Y4 as A1B1-A2B2 into U11, giving Y1-Y2 as A3B3 into U11, giving Y3 a ZERO line to Jelly circuit and A4B4/Y4 free for use;
+
+### Toggle Pages
+
+The circuit for toggle pages uses one 74HC74, dual D-Flip-Flop;
+
+The opcodes and microcode stored into U1 and U2 are mapped into 4 pages using A9-A10. The page are selected by toggle two d-flip-flops as line A9 and A10;
+
+The page zero does all common opcodes except _begin_ and _again_; The page one does the execution when occurs a _begin_ and the data byte is zero; The page two does the execution when occurs a _again_ and data byte is not zero;
+
 
 ## The Loop Logics
+
 
 All Jelly opcodes are easy implemented except loops. the [ and ],  refered  as begin and again, keep me in a round-robin by months without a feasible solution.
 
