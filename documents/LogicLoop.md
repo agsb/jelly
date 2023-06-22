@@ -63,10 +63,13 @@ From the table 1, the paging is controled just from first 4 lines,
 
    | begin \[ | \] again | zero | page_1 | page_2 | _FLIP_1_ | _FLIP_2_ | results |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | A | B | C | D | E | F | G | lines names | 
+   | A | B | C | D | E | F | G | lines nicknames | 
    | 0 | 0 | 0 | 1 | 0 | 1 | 0 | toggle page 1 |
    | 0 | 0 | 0 | 0 | 1 | 0 | 1 | toggle page 2 |
    | 1 | 0 | 0 | 0 | 0 | 1 | 0 | toggle page 1 |
    | 0 | 1 | 1 | 0 | 0 | 0 | 1 | toggle page 2 |
 
+The first observation is, conditional lines are like '0-0-0-0-1', in some diferent order. 
+
+One solution is \[ not(((A or B) or (C or D)) or (not E)) \]
     
