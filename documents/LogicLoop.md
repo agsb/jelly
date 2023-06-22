@@ -77,22 +77,31 @@ A solution is resolve each line as pairs of logic expressions, resulting in 12 x
         Y2 = C or E
         Y3 = C or D
         Y4 = B or C
+        
         Y5 = D or E
         Y6 = A or not(C)
         Y7 = Y1 or Y2
         Y8 = Y1 or Y3
+        
         Y9 = Y4 or Y5
         Y10 = Y6 or Y5
+        
         Y11 = not Y7
         Y12 = not Y8
         Y13 = not Y9
         Y14 = not Y10
+        
         F1 = D and Y11
         F2 = E and Y12
         F3 = A and Y13
         F4 = B and Y14
-        FLIP1 = F1 or F3
-        FLIP2 = F2 or F4
+        
+        Y11 = F1 or F3
+        Y12 = F2 or F4
 
-        3 x 74HC32 (12:12), 1 x 74HC14 (5:6) or 2 x 74HC00 (5:8), 1 x 74HC02 (4:4)
+        OBS: 
+        
+        Y11 is Flip1 and Y12 is Flip2
+         
+        Chips, 3 x 74HC32 (12:12), 1 x 74HC14 (5:6) or 2 x 74HC00 (5:8), 1 x 74HC02 (4:4)
 
