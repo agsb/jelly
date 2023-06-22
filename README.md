@@ -55,60 +55,50 @@ The simplest and easy way to filter income code tape bytes into opcodes, is just
 
 | opcode | ascii | action | code set | observations |
 | --- | --- | --- | --- | --- |
-| 0 | \> | forward a tape one position | brainfuck | forw |
-| 1 | \< | backward a tape one position | brainfuck | bckw |
-| 2 | \+ | increase byte at data tape | brainfuck | incr |
-| 3 | \- | decrease byte at data tape | brainfuck | decr |
-| 4 | \. | output byte from tape | brainfuck | putc |
-| 5 | \, | input byte into tape | brainfuck | getc |
-| 6 | \[ | test if byte at data tape is zero, and forward code tape to matched \] | brainfuck | begin |
-| 7 | \] | test if byte at data tape is not zero, and backward code tape to matched \[ | brainfuck | again |
-| 8 | \! | end of code | jelly | halt |
-| 9 | \= | reserved | jelly | nop |
-| 10 | \~ | reserved | jelly | nop |
-| 11 | \? | reserved | jelly | nop |
-| 12 | \@ | reserved | jelly | nop |
-| 13 | \& | reserved | jelly | nop |
-| 14 | \$ | reserved | jelly | nop |
-| 15 | \% | reserved | jelly | nop |
+| 1 | \> | forward a tape one position | brainfuck | forw |
+| 2 | \< | backward a tape one position | brainfuck | bckw |
+| 3 | \+ | increase byte at data tape | brainfuck | incr |
+| 4 | \- | decrease byte at data tape | brainfuck | decr |
+| 5 | \. | output byte from tape | brainfuck | putc |
+| 6 | \, | input byte into tape | brainfuck | getc |
+| 7 | \[ | test if byte at data tape is zero, and forward code tape to matched \] | brainfuck | begin |
+| 8 | \] | test if byte at data tape is not zero, and backward code tape to matched \[ | brainfuck | again |
+| 9 | \! | eof | jelly | end of code, halt |
+| 0 | \= | nop | jelly | no operation, just moves the code tape |
 
-__any other ascii value is noop, just read next byte code__
+__any other ascii value is nop, just read next byte code__
 
 ### Jelly extensions
 
-the concept of mapped I/O,  multiple devices can be connected and selected by the values at first positions of data tape. As brainfunk just have a putc and getc 
+the concept of mapped I/O, multiple devices can be connected and selected by the values at first two positions of data tape. As brainfunk just have a putch and getch, this is a workround to allow use multiple devices, the position 0 is standart input and position 1 is standart output, both have 0 for default devices. 
 
 Around the standart language, Jelly includes: (# list can grow)
 
-  a nop, to do nothing and move forward or backward code tape one step,
+  a nop, to do nothing and move forward or backward code tape one step;
   
-  a halt, to stop,
+  a eof, to end of code and halt;
   
   a reset, to restart and backwards code tape all steps,
   
-  a swap, to exchange data tape and device tape as active, to forward or backward;
-  
-  the output \. command always copy a byte from a data tape into a device pointed by gear tape;
-  
-  the input \, command always copy a byte from a device pointed by gear tape into data tape;
+### About loops
+
+There are some brainfuck computers, but almost with the loop instructions _begin_ and _again_ (\[ and \]) replaced by pre-compiled jumps. 
+
+Jelly is pure interpreter without pre-compiler tricks, then need a logic to deal with it nested loops.
+
+Nested loops needs a counter to match every _begin_ to _again_ and must finish when counter is zero. As a 8-bit circuit, the maximum nested loops is 255;
+
+### Logic Loops
+
+How loops are implemented in Jelly is explained in [circuit layout](documents/LogicLoops.md)
 
 ### Circuit Layout
 
-Explained in [circuit layout](documents/CircuitLayout.md)
+How the circuit connects is explained in [circuit layout](documents/CircuitLayout.md)
 
 ### Control signals
 
 Explained in [control lines](documents/ControlLines.md)
-
-### About loops
-
-There are some brainfuck computers, but almost with the loop instructions (\[ and \]) replaced by pre-compiled jumps. 
-
-Jelly is pure interpreter without pre-compiler tricks, then need review a logic to deal with it nested loops.
-
-Nested loops needs a counter to match every _begin_\[ to _again_\] and must finish when counter is zero, else get next byte code, moving forward or backward.
-
-That search gives two extra modes for implement, those goes code tape forward or backward, ignoring all bytes but _begin_*\[* and _again_*\]* and counting till zero.
 
 ## Main frame
 
@@ -117,6 +107,4 @@ That search gives two extra modes for implement, those goes code tape forward or
 ## Work Bench
 
 -- work in progress
-
-
 
