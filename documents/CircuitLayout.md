@@ -79,6 +79,7 @@ In pseudo-code, _left not optimized, sure not optimized, did I said it is not op
          char * data_ptr = POINTER_TO_DATA;
          int page = 0;
          int dirs = 0;
+         int counter = 0;
          int data_byte = 0;
          int code_byte = 0;
          do {
