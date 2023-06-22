@@ -61,8 +61,6 @@ when page_2 is set the movement is always backward.
 
 From the table 1, the paging is controled just from first 4 lines, where flip_1 and flip_2 are outputs to D-flip-flops.
 
-
-
    | begin \[ | \] again | zero | page_1 | page_2 | _FLIP_1_ | _FLIP_2_ | results |
    | --- | --- | --- | --- | --- | --- | --- | --- |
    | **A** | **B** | **C** | **D** | **E** | **F** | **G** | lines nicknames | 
@@ -73,7 +71,7 @@ From the table 1, the paging is controled just from first 4 lines, where flip_1 
 
 The first observation is, the conditional lines are like '0-0-0-0-1', in some diferent order. 
 
-One solution is resolve each line as pairs of logic expressions, using  12 x OR, 5 x NOT or 4 x AND, 
+A solution is resolve each line as pairs of logic expressions, resulting in 12 x OR, 5 x NOT or 4 x AND, 
   
         Y1 = A or B
         Y2 = C or E
@@ -85,32 +83,16 @@ One solution is resolve each line as pairs of logic expressions, using  12 x OR,
         Y8 = Y1 or Y3
         Y9 = Y4 or Y5
         Y10 = Y6 or Y5
-        F1 = D and not (Y7)
-        F2 = E and not (Y8)
-        F3 = A and not (Y9)
-        F4 = B and not (Y10)
+        Y11 = not Y7
+        Y12 = not Y8
+        Y13 = not Y9
+        Y14 = not Y10
+        F1 = D and Y11
+        F2 = E and Y12
+        F3 = A and Y13
+        F4 = B and Y14
         FLIP1 = F1 or F3
         FLIP2 = F2 or F4
 
-        3 x 74HC32 (12:12), 2 x 74HC00 (5:8), 1 x 74HC02 (4:4)
-
-Another solution is group by most common pairs, 11 x OR, 5 x NOT, 4 x AND 
-         
-         Y1 = B or C
-         Y2 = D or E
-         Y3 = A or E
-         Y4 = A or D
-         Y5 = A or (not C) ******
-         Y6 = Y1 or Y3
-         Y7 = Y1 or Y4
-         Y8 = Y1 or Y2
-         Y9 = Y5 or Y2 
-         F1 = D and (not Y6)
-         F2 = E and (not Y7)
-         F3 = A and (not Y8)
-         F4 = B and (not Y9)
-         FLIP1 = F1 or F3
-         FLIP2 = F2 or F4
-
-         3 x 74HC32 (11:12), 2 x 74HC00 (5:8), 1 x 74HC02 (4:4)
+        3 x 74HC32 (12:12), 1 x 74HC14 (5:6) or 2 x 74HC00 (5:8), 1 x 74HC02 (4:4)
 
