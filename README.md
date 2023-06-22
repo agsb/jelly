@@ -1,6 +1,6 @@
 -- THIS FILE IS A STUB ---
 
-# Jelly
+# Jelly revision 2.0
 
 A minimal DIY 8-bit CPU made with TTL chips, to perform native brainfuck using three sequential access tapes.
 
@@ -10,21 +10,18 @@ I want to learn about how old cpus are made by inside and understand about signa
 
 Jelly runs a minimal language, brainfunk, which works with sequential access to two infinite tapes, just moving forwards or backwards.
 
-But Jelly includes a third tape for I/O and few new commands to self.
+But Jelly includes few new commands to self.
 
 Brainfuck is a minimal Turing-complete programming language with just 8 commands.
 
 image:
 https://en.freejpg.com.ar/free/info/100024149/jelly-fish-blue-water-background-sea-ocean-animal
 
-
 ## What is it ?
 
 Jelly is a concept, a alternative computer with a diferent paradigm, not for performance but for design.
 
-Jelly uses three ideal tapes, first for code (aka BOB),  second for data (aka ONE), third for gear (aka TWO).
-
-Any memory device could emulate a tape, and the gear tape could be just as a memory mapped i/o ports, like in many microcontrolers.
+Jelly uses two ideal tapes, first for code (aka ONE) and second for data (aka TWO), and any memory device could emulate a tape.
 
 PS: I know that it will be slow.
 
@@ -38,19 +35,19 @@ Jelly is not a common cpu.
 
 There is no general registers, just 3-state buffers to keep the data bus safe. 
 
-There is no arithmetic logical unit (ALU), just a memory with unary math results for copy, increment, decrement, negate and clear a byte.
+There is no arithmetic logical unit (ALU), just a memory with unary math results for clear, increment, decrement and copy a byte.
 
 There is no comparator, just a flag is zero or not.
 
-There is no input or output devices, just tapes to read or write,
+There is no memory address, just tapes that moves forward or backward.
 
-There is no memory address, just moves to forward or to backward.
+The input and output devices are maped as I/O ports at first positions of data tape, like in many microcontrolers.
 
 And Jelly executes a esoteric language.
 
 ## Op-Codes
 
-Jelly is really, a finite state machine, running by lookup tables and executing a extended version of language brainfuck, called brainfunk, which have more 8 commands and a extra tape.
+Jelly is really, a finite state machine, running by lookup tables and executing a extended version of language brainfuck, called brainfunk, which could have more 8 commands.
 
 It should receive information from a code tape and translate into opcodes to execute, a classical Read-Eval-Print Loop, or REPL.
 
@@ -58,28 +55,28 @@ The simplest and easy way to filter income code tape bytes into opcodes, is just
 
 | opcode | ascii | action | code set | observations |
 | --- | --- | --- | --- | --- |
-| 0 | \> | forward a tape one position | brainfuck | both tapes |
-| 1 | \< | backward a tape one position | brainfuck | both tapes |
-| 2 | \+ | increase byte at data tape | brainfuck | only at data tape |
-| 3 | \- | decrease byte at data tape | brainfuck | only at data tape |
-| 4 | \. | output byte from tape | brainfuck | move from data tape into gear tape |
-| 5 | \, | input byte into tape | brainfuck | move from gear tape into data tape |
-| 6 | \[ | test if byte at data tape is zero, and forward code tape to matched \] | brainfuck | |
-| 7 | \] | test if byte at data tape is not zero, and backward code tape to matched \[ | brainfuck | |
-| 8 | \! | end of code, halt | jelly | |
-| 9 | \= | swap tapes | jelly | swaps data and gear and vice versa |
-| 10 | \~ | reserved, unary negation | jelly | math |
+| 0 | \> | forward a tape one position | brainfuck | forw |
+| 1 | \< | backward a tape one position | brainfuck | bckw |
+| 2 | \+ | increase byte at data tape | brainfuck | incr |
+| 3 | \- | decrease byte at data tape | brainfuck | decr |
+| 4 | \. | output byte from tape | brainfuck | putc |
+| 5 | \, | input byte into tape | brainfuck | getc |
+| 6 | \[ | test if byte at data tape is zero, and forward code tape to matched \] | brainfuck | begin |
+| 7 | \] | test if byte at data tape is not zero, and backward code tape to matched \[ | brainfuck | again |
+| 8 | \! | end of code | jelly | halt |
+| 9 | \= | reserved | jelly | nop |
+| 10 | \~ | reserved | jelly | nop |
 | 11 | \? | reserved | jelly | nop |
 | 12 | \@ | reserved | jelly | nop |
 | 13 | \& | reserved | jelly | nop |
 | 14 | \$ | reserved | jelly | nop |
-| 15 | \% | reset, rewind code tape | jelly | nop |
+| 15 | \% | reserved | jelly | nop |
 
 __any other ascii value is noop, just read next byte code__
 
 ### Jelly extensions
 
-the concept of gear tape, as multiple devices connected sequentially as a tape, moving the position changes the device attached.
+the concept of mapped I/O,  multiple devices can be connected and selected by the values at first positions of data tape. As brainfunk just have a putc and getc 
 
 Around the standart language, Jelly includes: (# list can grow)
 
