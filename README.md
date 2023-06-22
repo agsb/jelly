@@ -90,7 +90,7 @@ Nested loops needs a counter to match every _begin_ to _again_ and must finish w
 
 ### Logic Loops
 
-How loops are implemented in Jelly is explained in [logic loops](documents/LogicLoops.md)
+How loops are implemented in Jelly is explained in [logic loops](documents/LogicLoop.md)
 
 ### Circuit Layout
 
