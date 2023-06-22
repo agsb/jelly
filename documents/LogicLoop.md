@@ -73,7 +73,7 @@ From the table 1, the paging is controled just from first 4 lines, where flip_1 
 
 The first observation is, the conditional lines are like '0-0-0-0-1', in some diferent order. 
 
-One solution is resolve each line as a logic expression, using  12 x OR, 5 x NOT or 4 x AND, 
+One solution is resolve each line as a logic expression, using  10 x OR, 5 x NOT or 4 x AND, 
   
           Y1 = not( (A or B) or (C or E) ) and D
           Y2 = not( (A or B) or (C or D) ) and E
