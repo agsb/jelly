@@ -77,45 +77,29 @@ In pseudo-code, _left not optimized, sure not optimized, did I said it is not op
          
          char * code_ptr = POINTER_TO_CODE;
          char * data_ptr = POINTER_TO_DATA;
-         
          int page = 0;
+         int dirs = 0;
          int data_byte = 0;
          int code_byte = 0;
-         
          do {
              code_byte = *code_ptr;
-             if (code_byte == '[' and data_byte == 0) page = 1;
-             if (code_byte == ']' and data_byte != 0) page = 2;
-         
+             if (code_byte == '[' and data_byte == 0) page = 1, dirs = 0;
+             if (code_byte == ']' and data_byte != 0) page = 1, dirs = 1;
              if (page == 1) { 
                  counter = 0;
                  do {
                      code_byte = *code_ptr;
                      if (code_byte == '\[') counter++;
                      if (code_byte == '\]') counter--;
-                     code_ptr++;
+                     if (dirs == 0) code_ptr++;
+                     if (dirs == 1) code_ptr--;
                  } while (counter !=0)
-                 page = 0;  
+                 page = 0;
+                 continue;
              }
-
-             if (page == 2) {
-                 counter = 0;
-                 do {
-                     code_byte = *code_ptr;
-                     if (code_byte == '\[') counter++;
-                     if (code_byte == '\]') counter--;
-                     code_ptr--;
-                 } while (counter !=0)      
-                 page = 0;  
-             }
-
-             if (page == 0) {
-                // all code for other opcodes: < > . , + -
-             }
-
+             // all code for other opcodes: < > . , + -
              code_ptr++;
-         
-         } while (1);
+           } while (1);
          
 When grouping the codes in dependence of state of page, gives three pages,  
 
