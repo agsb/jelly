@@ -73,16 +73,26 @@ From the table 1, the paging is controled just from first 4 lines, where flip_1 
 
 The first observation is, the conditional lines are like '0-0-0-0-1', in some diferent order. 
 
-One solution is resolve each line individualy as a logic expression, using  14 x OR, 5 x NOT or 4 x AND, 
+One solution is resolve each line as pairs of logic expressions, using  12 x OR, 5 x NOT or 4 x AND, 
   
-         F1 = not( (A or B) or (C or E) ) and D
-         F2 = not( (A or B) or (C or D) ) and E
-         F3 = not( (B or C) or (D or E) ) and A
-         F4 = not( (A or not(C)) or (D or E) ) and B
-         FLIP1 = F1 or F3
-         FLIP2 = F2 or F4
+        Y1 = A or B
+        Y2 = C or E
+        Y3 = C or D
+        Y4 = B or C
+        Y5 = D or E
+        Y6 = A or not(C)
+        Y7 = Y1 or Y2
+        Y8 = Y1 or Y3
+        Y9 = Y4 or Y5
+        Y10 = Y6 or Y5
+        F1 = D and not (Y7)
+        F2 = E and not (Y8)
+        F3 = A and not (Y9)
+        F4 = B and not (Y10)
+        FLIP1 = F1 or F3
+        FLIP2 = F2 or F4
 
-         4 x 74HC32 (14:16), 2 x 74HC00 (5:8), 1 x 74HC02 (4:4)
+        3 x 74HC32 (12:12), 2 x 74HC00 (5:8), 1 x 74HC02 (4:4)
 
 Another solution is group by most common pairs, 11 x OR, 5 x NOT, 4 x AND 
          
