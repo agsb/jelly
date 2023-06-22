@@ -127,6 +127,7 @@ The page two does the execution when occurs a _again_ and data byte is not zero;
 
 That solution focus to decision match as a true table of lines, _begin_, _again_, zero, A9, A10, and toggle switches S9 and S10, that controls A9 and A10.
 
+Explained in [control lines](documents/LogicLoop.md)
 
 ### How To
 
