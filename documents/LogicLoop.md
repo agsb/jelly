@@ -59,17 +59,25 @@ when page_2 is set the movement is always backward.
 
 ## Solution
 
-From the table 1, the paging is controled just from first 4 lines,
+From the table 1, the paging is controled just from first 4 lines, where flip_1 and flip_2 are outputs to D-flip-flops.
+
+
 
    | begin \[ | \] again | zero | page_1 | page_2 | _FLIP_1_ | _FLIP_2_ | results |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | A | B | C | D | E | F | G | lines nicknames | 
+   | **A** | **B** | **C** | **D** | **E** | **F** | **G** | lines nicknames | 
    | 0 | 0 | 0 | 1 | 0 | 1 | 0 | toggle page 1 |
    | 0 | 0 | 0 | 0 | 1 | 0 | 1 | toggle page 2 |
    | 1 | 0 | 0 | 0 | 0 | 1 | 0 | toggle page 1 |
    | 0 | 1 | 1 | 0 | 0 | 0 | 1 | toggle page 2 |
 
-The first observation is, conditional lines are like '0-0-0-0-1', in some diferent order. 
+The first observation is, the conditional lines are like '0-0-0-0-1', in some diferent order. 
 
-One solution is \[ not(((A or B) or (C or D)) or (not E)) \]
-    
+One solution is resolve each line as a logic expression, using  12 x OR, 5 x NOT or 4 x AND, 
+  
+          Y1 = not( (A or B) or (C or E) ) and D
+          Y2 = not( (A or B) or (C or D) ) and E
+          Y3 = not( (B or C) or (D or E) ) and A
+          Y4 = not( (A or not(C)) or (D or E) ) and B
+      
+
