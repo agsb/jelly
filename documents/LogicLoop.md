@@ -3,6 +3,61 @@
 
 # Logic Loop
 
+All Jelly opcodes are easy implemented except loops. 
+
+the [ and ], refered as begin and again, keep me in a round-robin by months without a feasible solution.
+
+In pseudo-code, _left not optimized, sure not optimized, did I said it is not optimized ?_ :
+
+         // for easy the tapes are mapped as sequential memory
+         
+         char * code_ptr = POINTER_TO_CODE;
+         char * data_ptr = POINTER_TO_DATA;
+         
+         int page = 0;
+         int dirs = 0;
+         int data_byte = 0;
+         int code_byte = 0;
+         do {
+             code_byte = *code_ptr;
+             if (code_byte == '[' and data_byte == 0) page = 1, dirs = 0;
+             if (code_byte == ']' and data_byte != 0) page = 1, dirs = 1;
+            
+             if (page == 1) { 
+                 data_byte = 0;
+                 do {
+                     code_byte = *code_ptr;
+                     if (dirs == 0) code_ptr++;
+                     if (dirs == 1) code_ptr--;
+                     if (code_byte == '\[') data_byte++;
+                     if (code_byte == '\]') data_byte--;
+                 } while (data_byte != 0)
+                 page = 0;
+                 continue;
+             }
+             
+             // all other opcodes: < > . , + -
+             
+             if (code_byte == '+') { data_byte = *data_ptr; data_byte++; *data_ptr = data_byte; }
+             if (code_byte == '-') { data_byte = *data_ptr; data_byte--; *data_ptr = data_byte; }
+             if (code_byte == '>') { data_ptr++; }
+             if (code_byte == '<') { data_ptr--; }
+             if (code_byte == '.') { data_byte = *data_ptr; putch(data_byte); }
+             if (code_byte == ',') { data_byte = getch(); *data_ptr = data_byte; }
+
+             if (code_byte == '!') { halt(); }
+             code_ptr++;
+           } while (1);
+         
+When grouping the codes in dependence of state of page, gives two pages,  
+
+The page zero does all opcodes except _begin_ and _again_; 
+
+The page one does the execution when occurs a _begin_ and the data byte is zero, or when occurs a _again_ and data byte is not zero;
+
+That solution focus to decision match as a true table of lines, _begin_, _again_, zero, page, reverse and toggle switches S1 and S2, that controls which page by line A10 and reverse by the Reverse Circuit.
+
+Explained in [control lines](documents/LogicLoop.md)
 ## How To
 
 Jelly have three pages of code, 
