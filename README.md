@@ -70,8 +70,9 @@ Not all bytes are opcodes then needs a NOP, do nothing instruction, to catch tho
 | 0 | \= | do nothing | jelly | noop |
 
 - Any other ascii value is just translated as nop.
+- Opcodes 11, 12, 13, 14, 15 reserved.
 
-### Jelly extensions
+## Jelly extensions
 
 Jelly includes: (list can grow)
 
@@ -85,9 +86,9 @@ Jelly includes: (list can grow)
 
 How the standart devices could be changed ? Maybe using the bytes at first two positions of data tape, to select which port to use, as input and output, as like in many microcontrolers ?
 
-The math could include Negation and Reverse.
+The math could include opcodes, for negation a byte, for reverse a byte.
 
-### About loops
+## About loops
 
 There are some brainfuck computers, but almost with the loop instructions _begin_ and _again_ (\[ and \]) replaced by pre-compiled jumps. 
 
@@ -95,19 +96,17 @@ Jelly does not pre-compiler tricks, then need a logic to deal with loops.
 
 The loops are like common while and until. The while ends when data byte is zero, then must go forward to after matched again. The until repeats when data byte is not zero, then must go backwards to after matched begin.
 
-The loops could be nested, use need a counter to increase for begins and decrease for again, finish when counter is zero. As a 8-bit circuit, the maximum nested loops is 255;
-
-
+The loops can be nested, using a counter that increase for begins and decrease for again, finish the loop when counter is zero. As a 8-bit circuit, the maximum nested loops is 255;
 
 ### Logic Loops
 
 How loops are implemented in Jelly is explained in [logic loops](documents/LogicLoop.md)
 
-### Circuit Layout
+## Circuit Layout
 
 How the circuit connects is explained in [circuit layout](documents/CircuitLayout.md)
 
-### Control signals
+## Control signals
 
 Explained in [control lines](documents/ControlLines.md)
 
