@@ -2,7 +2,7 @@
 
 # Jelly revision 2.0
 
-A minimal DIY 8-bit CPU made with TTL chips, to perform native brainfuck using three sequential access tapes.
+A minimal DIY 8-bit CPU made with TTL chips, to perform native brainfuck using sequential access tapes.
 
 How make a new cpu without memory address access, using only sequential access, for code, data and input/output ?
 
@@ -21,7 +21,7 @@ https://en.freejpg.com.ar/free/info/100024149/jelly-fish-blue-water-background-s
 
 Jelly is a concept, a alternative computer with a diferent paradigm, not for performance but for design.
 
-Jelly uses two ideal tapes, first for code (aka ONE) and second for data (aka TWO), and any memory device could emulate a tape.
+Jelly uses two ideal tapes, first for code (aka ONE) and second for data (aka TWO). Any memory device could emulate a tape.
 
 PS: I know that it will be slow.
 
@@ -33,15 +33,17 @@ Some of Notes and Updates are keeped there, please visit.
 
 Jelly is not a common cpu.
 
-There is no general registers, just 3-state buffers to keep the data bus safe. 
+There is no general registers, just 3-state latches to keep the data bus safe. 
 
 There is no arithmetic logical unit (ALU), just a memory with unary math results for clear, increment, decrement and copy a byte.
 
-There is no comparator, just a flag is zero or not.
+There is no comparator, just a flag for zero or not.
 
 There is no memory address, just tapes that moves forward or backward.
 
-The input and output devices are maped as I/O ports at first positions of data tape, like in many microcontrolers.
+Uses Havard architeture, with code and data in diferent mapped spaces, use diferent tapes.
+
+The standart input and output devices are used to external sense. 
 
 And Jelly executes a esoteric language.
 
@@ -61,9 +63,10 @@ The simplest and easy way to filter income code tape bytes into opcodes, is just
 | 4 | \- | decrease byte at data tape | brainfuck | decr |
 | 5 | \. | output byte from tape | brainfuck | putc |
 | 6 | \, | input byte into tape | brainfuck | getc |
-| 7 | \[ | test if byte at data tape is zero, and forward code tape to matched \] | brainfuck | begin |
-| 8 | \] | test if byte at data tape is not zero, and backward code tape to matched \[ | brainfuck | again |
+| 7 | \[ | begin a loop, as a while | brainfuck | begin |
+| 8 | \] | again a loop, as a until | brainfuck | again |
 | 9 | \! | eof | jelly | end of code, halt |
+| 10 | \% | rst | jelly | reset, rewinds both tapes |
 | 0 | \= | nop | jelly | no operation, just moves the code tape |
 
 __any other ascii value is nop, just read next byte code__
@@ -79,7 +82,13 @@ Around the standart language, Jelly includes: (# list can grow)
   a eof, to end of code and halt;
   
   a reset, to restart and backwards code tape all steps,
-  
+
+### Jelly ideas
+
+The standart devices could be changed using the bytes at first two positions of data tape, to select which port to use, as input and output, as like in many microcontrolers.
+
+the math could include Negation and Reverse.
+
 ### About loops
 
 There are some brainfuck computers, but almost with the loop instructions _begin_ and _again_ (\[ and \]) replaced by pre-compiled jumps. 
