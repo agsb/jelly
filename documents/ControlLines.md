@@ -5,18 +5,18 @@
 
 #### From U1
 
-| Signal | action | used |
-| --- | --- | --- |
-| CS5 | load a byte into latch | yes |
-| CS6 | load a byte into latch | yes |
-| CS7 | load a byte into latch | yes |
-| CS8 | load a byte into latch | yes |
-| /OE5 | enable output | **not** |
-| /OE6 | enable output | yes |
-| /OE7 | enable output | **not** |
-| /OE8 | enable output | yes |
-| /OE10 | enable output | yes |
-| DR10 | define direction | yes |
+| Signal | action | used | control |
+| --- | --- | --- | --- |
+| CS5 | load a byte into latch | yes | C0 |
+| CS6 | load a byte into latch | yes | C1 | 
+| CS7 | load a byte into latch | yes | C2 |
+| CS8 | load a byte into latch | yes | C3 |
+| /OE5 | enable output | **not** | XX |
+| /OE6 | enable output | yes | C4 |
+| /OE7 | enable output | **not** | XX |
+| /OE8 | enable output | yes | C5 |
+| /OE10 | enable output | yes | C6 |
+| DR10 | define direction | yes | C7 |
 
 #### From U2
 
