@@ -5,16 +5,18 @@
 
 #### From U1
 
-| Signal | action |
-| --- | --- |
-| CS5 | load a byte into latch |
-| CS6 | load a byte into latch |
-| CS7 | load a byte into latch |
-| CS8 | load a byte into latch |
-| /OE6 | enable output |
-| /OE8 | enable output |
-| /OE10 | enable output |
-| DR10 | define direction |
+| Signal | action | used |
+| --- | --- | --- |
+| CS5 | load a byte into latch | yes |
+| CS6 | load a byte into latch | yes |
+| CS7 | load a byte into latch | yes |
+| CS8 | load a byte into latch | yes |
+| /OE5 | enable output | **not** |
+| /OE6 | enable output | yes |
+| /OE7 | enable output | **not** |
+| /OE8 | enable output | yes |
+| /OE10 | enable output | yes |
+| DR10 | define direction | yes |
 
 #### From U2
 
@@ -45,6 +47,8 @@ Using 3 bits:
 | H | H | L | CPY | copy byte | 
 | L | L | H | PGZ | page zero opcodes |
 | H | L | H | PGL | page loop opcodes |
+| L | H | H | PGL | reserved |
+| H | H | H | PGL | reserved |
 
 One bit reserved.
 
