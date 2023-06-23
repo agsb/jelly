@@ -20,7 +20,7 @@
 
 #### From U2
 
-Using 2 bit:
+Using 2 bits, C8-C9:
 
 | value | action | select |
 | --- | --- | --- | 
@@ -29,7 +29,7 @@ Using 2 bit:
 | H L | RD | read  | 
 | H H | WR | write |  
 
-Using 2 bits:
+Using 2 bits, C10-C11:
 
 | value | device | select |
 | --- | --- | --- |
@@ -38,7 +38,7 @@ Using 2 bits:
 | H L | TWO | data tape |
 | H H | STD | standart |
 
-Using 3 bits:
+Using 3 bits, C12-C13-C14:
 | M0 | M1 | M2 | name | does | 
 | --- | --- | --- | --- | --- |
 | L | L | L | CLR | clear byte | 
@@ -50,7 +50,7 @@ Using 3 bits:
 | L | H | H | PGL | reserved |
 | H | H | H | PGL | reserved |
 
-One bit reserved.
+One bit, C15 reserved.
 
 ## Actions
 
