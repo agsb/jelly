@@ -19,24 +19,24 @@
 #### From U2
 
 Using 1 bit:
-| action | select |
-| --- | --- | 
-| FWD | forward  |
-| BCK | backward | 
+| value | action | select |
+| --- | --- | --- | 
+| L | FWD | forward  |
+| H | BCK | backward | 
 
 Using 1 bit:
-| action | select |
-| --- | --- |  
-| RD | read  | 
-| WR | write |  
+| value | action | select |
+| --- | --- | --- |  
+| L | RD | read  | 
+| H | WR | write |  
 
 Using 2 bits:
-| device | select |
-| --- | --- |
-| ONE | code tape |
-| TWO | data tape |
-| STD | standart |
-| NONE | none |
+| value device | select |
+| --- | --- | --- |
+| L H | ONE | code tape |
+| H L | TWO | data tape |
+| H H | STD | standart |
+| L L | NONE | none |
 
 Using 3 bits:
 | M0 | M1 | M2 | name | does | 
@@ -47,6 +47,8 @@ Using 3 bits:
 | H | H | L | CPY | copy byte | 
 | L | L | H | PGZ | page zero opcodes |
 | H | L | H | PGL | page loop opcodes |
+
+One bit reserved.
 
 ## Actions
 
