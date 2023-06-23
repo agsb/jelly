@@ -9,6 +9,8 @@ How implement the loop opcodes begin and again, keep me in a round-robin by mont
 
 A interpreter of brainfunk, in pseudo-code, _left not optimized, sure not optimized, did I said it is not optimized ?_ :
 
+         // Notes:
+         // getch(), putch() e halt() are external
          // for easy the tapes are mapped as sequential memory
          
          char * code_ptr = POINTER_TO_CODE;
@@ -20,7 +22,10 @@ A interpreter of brainfunk, in pseudo-code, _left not optimized, sure not optimi
          int code_byte = 0;
          do {
              code_byte = *code_ptr;
+             
+             // end of loop ?
              if (code_byte == '[' and data_byte == 0) page = 1, reverse = 0;
+             // not end of loop ?
              if (code_byte == ']' and data_byte != 0) page = 1, reverse = 1;
             
              if (page == 1) { 
@@ -33,6 +38,7 @@ A interpreter of brainfunk, in pseudo-code, _left not optimized, sure not optimi
                      if (reverse == 1) code_ptr--;
                  } while (data_byte != 0)
                  page = 0;
+                 data_byte = *data_ptr;
                  continue;
              }
              
@@ -48,13 +54,34 @@ A interpreter of brainfunk, in pseudo-code, _left not optimized, sure not optimi
              if (code_byte == '!') { halt(); }
              code_ptr++;
            } while (1);
+
+           
          
-When grouping the codes in dependence of state of page, gives two pages,  
+When grouping the code in dependence of state of loop, gives two pages, the page zero does opcode work, except for _begin_ forward and _again_ backwards;
 
-The page zero does all opcodes except _begin_ and _again_; 
+When a _begin_ occurs and the data byte is zero, it's the end of the loop, so it must step forward to find the corresponding _again_;
 
-The page one does the execution when occurs a _begin_ and the data byte is zero, or when occurs a _again_ and data byte is not zero;
+When a _again_ occurs and the data byte is not zero, then it is not the end of the loop, so it must step backward to find the corresponding _begin_;
 
+### Actions
+
+move code tape forward
+move code tape backward
+
+move data tape forward
+move data tape backward
+
+read from data tape into data latch
+write from data latch into data tape
+
+read from code tape to data latch
+copy data latch to code latch
+
+increase data latch
+decrease data latch
+
+clear output data latch
+copy  input data latch
 That solution focus to decision match as a true table of lines, _begin_, _again_, zero, page, reverse and toggle switches S1 and S2, that controls which page by line A10 and reverse by the Reverse Circuit.
 
 Explained in [control lines](documents/LogicLoop.md)
