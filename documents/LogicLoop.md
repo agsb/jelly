@@ -5,32 +5,32 @@
 
 All Jelly opcodes are easy implemented except loops. 
 
-the [ and ], refered as begin and again, keep me in a round-robin by months without a feasible solution.
+How implement the loop opcodes begin and again, keep me in a round-robin by months without a feasible solution.
 
-In pseudo-code, _left not optimized, sure not optimized, did I said it is not optimized ?_ :
+A interpreter of brainfunk, in pseudo-code, _left not optimized, sure not optimized, did I said it is not optimized ?_ :
 
          // for easy the tapes are mapped as sequential memory
          
          char * code_ptr = POINTER_TO_CODE;
          char * data_ptr = POINTER_TO_DATA;
          
-         int page = 0;
-         int dirs = 0;
+         int page = 0; // the page
+         int reverse = 0; // the direction
          int data_byte = 0;
          int code_byte = 0;
          do {
              code_byte = *code_ptr;
-             if (code_byte == '[' and data_byte == 0) page = 1, dirs = 0;
-             if (code_byte == ']' and data_byte != 0) page = 1, dirs = 1;
+             if (code_byte == '[' and data_byte == 0) page = 1, reverse = 0;
+             if (code_byte == ']' and data_byte != 0) page = 1, reverse = 1;
             
              if (page == 1) { 
-                 data_byte = 0;
+                 data_byte = 0; // used as counter
                  do {
                      code_byte = *code_ptr;
-                     if (dirs == 0) code_ptr++;
-                     if (dirs == 1) code_ptr--;
                      if (code_byte == '\[') data_byte++;
                      if (code_byte == '\]') data_byte--;
+                     if (reverse == 0) code_ptr++;
+                     if (reverse == 1) code_ptr--;
                  } while (data_byte != 0)
                  page = 0;
                  continue;
