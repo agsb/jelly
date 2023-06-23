@@ -20,7 +20,7 @@
 
 Using 1 bit:
 | action | select |
-| --- | --- | --- | 
+| --- | --- | 
 | FWD | forward  |
 | BCK | backward | 
 
