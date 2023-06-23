@@ -32,17 +32,17 @@ Some of notes are keeped at [ logbook ](https://hackaday.io/project/186689-jelly
 
 Jelly is not a common cpu.
 
-There is no general registers, just 3-state latches to keep the data bus safe. 
+- There is no general registers, just 3-state latches to keep the data bus safe. 
 
-There is no arithmetic logical unit (ALU), just a memory with a table of unary "math" results for clear, increment, decrement and copy a byte.
+- There is no arithmetic logical unit (ALU), just a memory with a table of unary "math" results for clear, increment, decrement and copy a byte.
 
-There is no comparator, just a flag for when a byte is zero or not.
+- There is no comparator, just a flag for when a byte is zero or not.
 
-There is no memory address, just tapes that moves forward or backward.
+- Uses Havard architeture, with code and data in diferent tapes.
 
-Uses Havard architeture, with code and data in diferent tapes.
+- There is no memory address, just tapes that moves forward or backward.
 
-The standart input and output are instant devices and not tapes. 
+- The standart input and output are instant devices and not tapes. 
 
 And Jelly executes a esoteric language.
 
@@ -55,19 +55,19 @@ Jelly does a classical Read-Eval-Print Loop, or REPL, over bytes received from a
 Not all bytes are opcodes then needs a NOP, do nothing instruction, to catch those and just advance the code tape.
 
 #### Table of OP-CODES
-| opcode | ascii | action | code set | observations |
+| opcode | ascii | action | code set | name |
 | --- | --- | --- | --- | --- |
-| 1 | \> | forward a tape one step | brainfuck | forw |
-| 2 | \< | backward a tape one step | brainfuck | bckw |
-| 3 | \+ | increase byte at tape | brainfuck | incr |
-| 4 | \- | decrease byte at tape | brainfuck | decr |
-| 5 | \. | output byte from tape | brainfuck | putc |
-| 6 | \, | input byte into tape | brainfuck | getc |
-| 7 | \[ | while loop | brainfuck | begin |
-| 8 | \] | until loop | brainfuck | again |
-| 9 | \! | eof | jelly | end of code, halt |
-| 10 | \% | rst | jelly | reset, rewinds both tapes |
-| 0 | \= | nop | jelly | no operation, just moves the code tape |
+| 1 | \> | forward a tape one step | brainfuck | forward |
+| 2 | \< | backward a tape one step | brainfuck | backward |
+| 3 | \+ | increase byte at tape | brainfuck | increase |
+| 4 | \- | decrease byte at tape | brainfuck | decrease |
+| 5 | \. | output byte from tape | brainfuck | putchar |
+| 6 | \, | input byte into tape | brainfuck | getchar |
+| 7 | \[ | while loop  | brainfuck | begin |
+| 8 | \] | until loop  | brainfuck | again |
+| 9 | \! | mark end of code | jelly | halt |
+| 10 | \% | rewinds both tapes | jelly | reset |
+| 0 | \= | do nothing | jelly | noop |
 
 - Any other ascii value is just translated as nop.
 
@@ -75,11 +75,11 @@ Not all bytes are opcodes then needs a NOP, do nothing instruction, to catch tho
 
 Jelly includes: (list can grow)
 
-  a nop, to do nothing, and move forward (or backward) code tape one step;
+  - a nop, to do nothing, and move forward (or backward) code tape one step;
   
-  a eof, to end of code and halt;
+  - a eof, to end of code and halt;
   
-  a reset, to rewind tapes and restart;
+  - a reset, to rewind tapes and restart;
 
 ### Jelly ideas
 
@@ -91,11 +91,13 @@ The math could include Negation and Reverse.
 
 There are some brainfuck computers, but almost with the loop instructions _begin_ and _again_ (\[ and \]) replaced by pre-compiled jumps. 
 
-Jelly is pure interpreter without pre-compiler tricks, then need a logic to deal with it nested loops.
+Jelly does not pre-compiler tricks, then need a logic to deal with loops.
 
-Nested loops needs a counter to match every _begin_ to _again_ and must finish when counter is zero. As a 8-bit circuit, the maximum nested loops is 255;
+The loops are like common while and until. The while ends when data byte is zero, then must go forward to after matched again. The until repeats when data byte is not zero, then must go backwards to after matched begin.
 
-The loops are like common while and until, and when ends must forward or when not end must backward 
+The loops could be nested, use need a counter to increase for begins and decrease for again, finish when counter is zero. As a 8-bit circuit, the maximum nested loops is 255;
+
+
 
 ### Logic Loops
 
