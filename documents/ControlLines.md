@@ -18,25 +18,23 @@
 
 #### From U2
 
-Using 1 bit:
+Using 2 bit:
+
 | value | action | select |
 | --- | --- | --- | 
-| L | FWD | forward  |
-| H | BCK | backward | 
-
-Using 1 bit:
-| value | action | select |
-| --- | --- | --- |  
-| L | RD | read  | 
-| H | WR | write |  
+| L L | FWD | forward  |
+| L H | BCK | backward | 
+| H L | RD | read  | 
+| H H | WR | write |  
 
 Using 2 bits:
-| value device | select |
+
+| value | device | select |
 | --- | --- | --- |
+| L L | NONE | none |
 | L H | ONE | code tape |
 | H L | TWO | data tape |
 | H H | STD | standart |
-| L L | NONE | none |
 
 Using 3 bits:
 | M0 | M1 | M2 | name | does | 
