@@ -18,15 +18,27 @@
 
 #### From U2
 
-| Signal | acronimo |
+Using 1 bit:
+| action | select |
+| --- | --- | --- | 
+| FWD | forward  |
+| BCK | backward | 
+
+Using 1 bit:
+| action | select |
+| --- | --- |  
+| RD | read  | 
+| WR | write |  
+
+Using 2 bits:
+| device | select |
 | --- | --- |
-| FWBK | select forward or backward |
-| RDWR | select read or write |
-| ONE | select code tape |
-| TWO | select data tape |
-| STD | select standart |
+| ONE | code tape |
+| TWO | data tape |
+| STD | standart |
 | NONE | none |
 
+Using 3 bits:
 | M0 | M1 | M2 | name | does | 
 | --- | --- | --- | --- | --- |
 | L | L | L | CLR | clear byte | 
