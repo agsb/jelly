@@ -22,7 +22,6 @@
 | --- | --- |
 | FWBK | select forward or backward |
 | RDWR | select read or write |
-| DIR | select direction |
 | ONE | select code tape |
 | TWO | select data tape |
 | STD | select standart |
