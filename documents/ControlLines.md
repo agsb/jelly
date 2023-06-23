@@ -56,11 +56,11 @@ One bit, C15 reserved.
 
 | na | Actions | Does |
 | -- | -- | -- |
-| x | exec | /OE6; |
 | x | forward code  | ONE, FWD, CS6; |
 | x | backward code | ONE, BCK, CS6; | 
 | x | forward data | TWO, FWD, CS6; |
 | x | backward data | TWO, BCK, CS6; |
+| x | exec | /OE6; |
 | x | read code | ONE, RD, CS6; |
 | x | read data | TWO, RD, CS6; |
 | x | read input | STD, RD, CS6; |
@@ -75,3 +75,5 @@ One bit, C15 reserved.
 | x | fill code | /OE8, CS5; |
 | x | fill data | /OE8, CS7; |
 | x | halt |
+
+
