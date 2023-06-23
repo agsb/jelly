@@ -53,9 +53,9 @@ One bit reserved.
 | na | Actions | Does |
 | -- | -- | -- |
 | x | exec | /OE6; |
-| x | forward code  | ONE, FWR, CS6; |
+| x | forward code  | ONE, FWD, CS6; |
 | x | backward code | ONE, BCK, CS6; | 
-| x | forward data | TWO, FWR, CS6; |
+| x | forward data | TWO, FWD, CS6; |
 | x | backward data | TWO, BCK, CS6; |
 | x | read code | ONE, RD, CS6; |
 | x | read data | TWO, RD, CS6; |
