@@ -47,8 +47,8 @@ Using 3 bits, C12-C13-C14:
 | H | H | L | CPY | copy byte | 
 | L | L | H | PGZ | page zero opcodes |
 | H | L | H | PGL | page loop opcodes |
-| L | H | H | PGL | reserved |
-| H | H | H | PGL | reserved |
+| L | H | H | NON | reserved |
+| H | H | H | HLT | reserved |
 
 One bit, C15 reserved.
 
@@ -56,24 +56,40 @@ One bit, C15 reserved.
 
 | na | Actions | Does |
 | -- | -- | -- |
-| x | forward code  | ONE, FWD, CS6; |
-| x | backward code | ONE, BCK, CS6; | 
-| x | forward data | TWO, FWD, CS6; |
-| x | backward data | TWO, BCK, CS6; |
-| x | exec | /OE6; |
-| x | read code | ONE, RD, CS6; |
-| x | read data | TWO, RD, CS6; |
-| x | read input | STD, RD, CS6; |
-| x | write data | TWO, WR, CS6; |
-| x | write output | STD, WR, CS6; |
-| x | load data | /OE6, /OE10, /DR10, CS7; |
-| x | save data | /OE6, /OE10, DR10, /OE8; |
-| x | copy data | CPY, CS8; |
-| x | clear data | CLR, CS8; |
-| x | increase data | INC, CS8; |
-| x | decrease data | DEC, CS8; |
-| x | fill code | /OE8, CS5; |
-| x | fill data | /OE8, CS7; |
-| x | halt |
+| 1 | exec | /OE6; |
+| 2 | forward code tape  | ONE, FWD, CS6; |
+| 3 | backward code tape | ONE, BCK, CS6; | 
+| 4 | forward data tape | TWO, FWD, CS6; |
+| 5 | backward data tape| TWO, BCK, CS6; |
+| 6 | read from code tape | ONE, RD, CS6; |
+| 7 | read from data tape | TWO, RD, CS6; |
+| 8 | read from standart input | STD, RD, CS6; |
+| 9 | write into data tape | TWO, WR, CS6; |
+| 10 | write into standart output | STD, WR, CS6; |
+| 11 | load from data bus | /OE6, /OE10, /DR10, CS7; |
+| 12 | save into data bus | /OE6, /OE10, DR10, /OE8; |
+| 13 | copy data | CPY, CS8; |
+| 14 | clear data | CLR, CS8; |
+| 15 | increase data | INC, CS8; |
+| 16 | decrease data | DEC, CS8; |
+| 17 | decode page zero | PGZ, CS8; |
+| 18 | decode page loop | PGL, CS8; |
+| 19 | fill code from data bus | /OE8, CS5; |
+| 20 | fill data from data bus | /OE8, CS7; |
+| 21 | halt | still not defined |
 
+Eg.
+
+to forward code tape: 2, 1
+to backward code tape: 3, 1
+to forward data tape: 4, 1
+to backward data tape: 5, 1
+
+to load a byte code: 2, 1, 6, 11, 17, 19
+to load a byte code, while: 2, 1, 6, 11, 18, 19
+to load a byte code, until: 3, 1, 6, 11, 18, 19
+
+to increase a byte data: 7, 11, 15, 9, 12 
+to decrease a byte data: 7, 11, 16, 9, 12
+to decode a byte code: 
 
