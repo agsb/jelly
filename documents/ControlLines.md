@@ -54,29 +54,33 @@ One bit, C15 reserved.
 
 ## Actions
 
-| na | Actions | Does |
-| -- | -- | -- |
-| 1 | exec | /OE6; |
-| 2 | forward code tape  | ONE, FWD, CS6; |
-| 3 | backward code tape | ONE, BCK, CS6; | 
-| 4 | forward data tape | TWO, FWD, CS6; |
-| 5 | backward data tape| TWO, BCK, CS6; |
-| 6 | read from code tape | ONE, RD, CS6; |
-| 7 | read from data tape | TWO, RD, CS6; |
-| 8 | read from standart input | STD, RD, CS6; |
-| 9 | write into data tape | TWO, WR, CS6; |
-| 10 | write into standart output | STD, WR, CS6; |
-| 11 | load from data bus | /OE6, /OE10, /DR10, CS7; |
-| 12 | save into data bus | /OE6, /OE10, DR10, /OE8; |
-| 13 | copy data | CPY, CS8; |
-| 14 | clear data | CLR, CS8; |
-| 15 | increase data | INC, CS8; |
-| 16 | decrease data | DEC, CS8; |
-| 17 | decode page zero | PGZ, CS8; |
-| 18 | decode page loop | PGL, CS8; |
-| 19 | fill code from data bus | /OE8, CS5; |
-| 20 | fill data from data bus | /OE8, CS7; |
-| 21 | halt | still not defined |
+| na | Actions | Signals | Does |
+| -- | -- | -- | -- |
+| 0 | none | 0x0 | does nothing, halt |
+| 1 | device send | /OE6; | |
+| 2 | forward code tape  | ONE, FWD, CS6; | |
+| 3 | backward code tape | ONE, BCK, CS6; | |
+| 4 | forward data tape | TWO, FWD, CS6; | |
+| 5 | backward data tape| TWO, BCK, CS6; | |
+| 6 | read from code tape | ONE, RD, CS6; | |
+| 7 | read from data tape | TWO, RD, CS6; | |
+| 8 | read from standart input | STD, RD, CS6; | |
+| 9 | write into code tape | ONE, WR, CS6; | |
+| 10 | write into data tape | TWO, WR, CS6; | |
+| 11 | write into standart output | STD, WR, CS6; | |
+| 12 | load from data bus | /OE6, /OE10, /DR10, CS7; | |
+| 13 | save into data bus | /OE6, /OE10, DR10, /OE8; | |
+| 14 | fill code from data bus | /OE8, CS5; | |
+| 15 | fill data from data bus | /OE8, CS7; | |
+| 16 | copy data | CPY, CS8; | |
+| 17 | clear data | CLR, CS8; | |
+| 18 | increase data | INC, CS8; | |
+| 19 | decrease data | DEC, CS8; | |
+| 20 | decode page zero | PGZ, CS8; | |
+| 21 | decode page loop | PGL, CS8; | |
+| 22 | decode page none | NON, CS8; | |
+| 23 | decode page halt | HLT, CS8; | |
+| 24 | halt | still not defined | |
 
 ## Commands
 
