@@ -78,18 +78,27 @@ One bit, C15 reserved.
 | 20 | fill data from data bus | /OE8, CS7; |
 | 21 | halt | still not defined |
 
-Eg.
+## Commands
 
 to forward code tape: 2, 1
-to backward code tape: 3, 1
-to forward data tape: 4, 1
-to backward data tape: 5, 1
 
-to load a byte code: 2, 1, 6, 11, 17, 19
+to backward code tape: 3, 1
+
+to load a byte code, : 2, 1, 6, 11, 17, 19
+
 to load a byte code, while: 2, 1, 6, 11, 18, 19
+
 to load a byte code, until: 3, 1, 6, 11, 18, 19
 
+to forward data tape: 4, 1
+
+to backward data tape: 5, 1
+
 to increase a byte data: 7, 11, 15, 9, 12 
+
 to decrease a byte data: 7, 11, 16, 9, 12
-to decode a byte code: 
+
+to input a byte, getch: 8, 11, 13, 9, 12
+
+to output a byte, putch: 7, 11, 13, 10, 12
 
