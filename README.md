@@ -94,7 +94,11 @@ There are some brainfuck computers, but almost with the loop instructions _begin
 
 Jelly does not pre-compiler tricks, then need a logic to deal with loops.
 
-The loops are like common while and until. The while ends when data byte is zero, then must go forward to after matched again. The until repeats when data byte is not zero, then must go backwards to after matched begin.
+The _begin_ and _again_ loops are like the _while_ and _until_ concepts of any programming language, but used together.
+
+The _begin_ ends when the data byte is zero, then advances until the corresponding _again_. 
+
+The _again_ repeats while the data byte is not zero, then must go back to the corresponding _begin_.
 
 The loops can be nested, using a counter that increase for begins and decrease for again, finish the loop when counter is zero. As a 8-bit circuit, the maximum nested loops is 255;
 
