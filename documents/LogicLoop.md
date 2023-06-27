@@ -113,44 +113,20 @@ the solution was make true-table for lines and states.
 
 - switch page is the line to clock for D-Flip-FLop the control the address A9 line.
 
-- switch back is the line to clock for D-Flip-FLop the control the direction of movement, forward or backward.
+- switch move is the line to clock for D-Flip-FLop the control the direction of movement, forward or backward.
 
 ## True Table
 
-   | begin \[ | \] again | zero | page | back | _switch page_ | _switch back_ | results |
+   | begin \[ | \] again | zero | page | back | _switch page_ | _switch move_ | results |
    | --- | --- | --- | --- | --- | --- | --- | --- |
    | 0 | 0 | 0 | 1 | 0 | 1 | 0 | toggle page, not change move |
    | 0 | 0 | 0 | 0 | 1 | 0 | 1 | toggle page, toggle move |
    | 1  | 0 | 0 | 0 | 0 | 1 | 0 | toggle page, not change move  |
    | 0 | 1 | 1 | 0 | 0 | 0 | 1 | toggle page, toggle move  |
-   |  |  |  |  |  |  |  |  |
-   | 0 | 0 | 1 | 1 | 0 | 0 | 0 | next forward |
-   | 0 | 0 | 1 | 0 | 1 | 0 | 0 | next backward |
-   |  |  |  |  |  |  |  |  |
-   | 1 | 0 | 0 | 1 | 0 | 0 | 0 | count + 1 |
-   | 1 | 0 | 1 | 1 | 0 | 0 | 0 | count + 1 |
-   | 0 | 1 | 0 | 1 | 0 | 0 | 0 | count - 1 |
-   | 0 | 1 | 1 | 1 | 0 | 0 | 0 | count - 1 |
-   |  |  |  |  |  |  |  |  |
-   | 1 | 0 | 0 | 0 | 1 | 0 | 0 | count + 1 |
-   | 1 | 0 | 1 | 0 | 1 | 0 | 0 | count + 1 |
-   | 0 | 1 | 0 | 0 | 1 | 0 | 0 | count - 1 |
-   | 0 | 1 | 1 | 0 | 1 | 0 | 0 | count - 1 |
+   |  |  |  |  |  |  |  |
+   
+The paging is controled just from first 5 lines, and _switch back_ and _switch move_ are clock lines to D-flip-flops.
 
-## Solution
-
-From the table 1, the paging is controled just from first 4 lines, where flip_1 and flip_2 are outputs to D-flip-flops.
-
- | begin \[ | \] again | zero | page | back | _switch page_ | _switch back_ | results |
-   | --- | --- | --- | --- | --- | --- | --- | --- |
-   | 0 | 0 | 0 | 1 | 0 | 1 | 0 | toggle page, not change move |
-   | 0 | 0 | 0 | 0 | 1 | 0 | 1 | toggle page, toggle move |
-   | 1  | 0 | 0 | 0 | 0 | 1 | 0 | toggle page, not change move  |
-   | 0 | 1 | 1 | 0 | 0 | 0 | 1 | toggle page, toggle move  |
-   |  |  |  |  |  |  |  |  |
-      
 The first observation is, the conditional lines are like '0-0-0-0-1', in some diferent order. 
 
-         
-        Chips, 3 x 74HC32 (12:12), 1 x 74HC14 (5:6) or 2 x 74HC00 (5:8), 1 x 74HC02 (4:4)
 
