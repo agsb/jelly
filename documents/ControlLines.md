@@ -11,9 +11,9 @@
 | CS6 | load a byte into latch | yes | C1 | 
 | CS7 | load a byte into latch | yes | C2 |
 | CS8 | load a byte into latch | yes | C3 |
-| /OE5 | enable output | **not** | XX |
+| /OE5 | enable output | **not** | not connected |
 | /OE6 | enable output | yes | C4 |
-| /OE7 | enable output | **not** | XX |
+| /OE7 | enable output | **not** | not connected |
 | /OE8 | enable output | yes | C5 |
 | /OE10 | enable output | yes | C6 |
 | DR10 | define direction | yes | C7 |
