@@ -66,11 +66,11 @@ The page lookup is
 | page | M0-A8 | M1-A9 | M2-A10 | action |
 | ---- | ----- | ----- | ------ | ----- |
 | zero | 0 | 0 | 0 | clear byte |
-| one | 1 | 0 | 0 | increase byte |
-| two | 0 | 1 | 0 | decrease byte |
+| incr | 1 | 0 | 0 | increase byte |
+| decr | 0 | 1 | 0 | decrease byte |
 | copy | 1 | 1 | 0 | copy byte |
-| opcode | 0 | 0 | 1 | decode byte as a opcode |
-| loop | 0 | 1 | 1 | decode byte as loop break or continue |
+| opcode | 0 | 0 | 1 | decode byte as opcode |
+| loop | 0 | 1 | 1 | decode byte in loop |
 | none | 1 | 0 | 1 | reserved |
 | none | 1 | 1 | 1 | reserved |
 
