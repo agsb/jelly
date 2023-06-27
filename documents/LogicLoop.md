@@ -55,8 +55,7 @@ A interpreter of brainfunk, in pseudo-code, _left not optimized, sure not optimi
              code_ptr++;
            } while (1);
 
-           
-         
+                    
 When grouping the code in dependence of state of loop, gives two pages, the page zero does opcode work, except for _begin_ forward and _again_ backwards;
 
 When a _begin_ occurs and the data byte is zero, it's the end of the loop, so it must step forward to find the corresponding _again_;
@@ -85,15 +84,13 @@ copy  input data latch
 
 That solution focus to decision match as a true table of lines, _begin_, _again_, zero, page, reverse and toggle switches S1 and S2, that controls which page by line A10 and reverse by the Reverse Circuit.
 
-Explained in [control lines](documents/LogicLoop.md)
-
 ## How To
 
 Jelly have two pages of code, 
 
-In page zero, all opcodes are executed and, when a code byte _begin_ occurs and data byte is zero, it clear a counter, set movement to forward and change to page one, or when a code byte _again_ occurs and data byte is not zero, it clear a counter, set movement to backwards and change to page one.
+In **page zero**, all opcodes are executed and, when a code byte _begin_ occurs and data byte is zero, it clear a counter, set movement to forward and change to page one, or when a code byte _again_ occurs and data byte is not zero, it clear a counter, set movement to backwards and change to page one.
 
-In page one, when a code byte _begin_ occurs it increase a counter, when a code byte _again_ occurs it decrease a counter,  then moves code tape forwards or backwards, when the counter is zero, set movement to forward and change to page zero.
+In **page one**, when a code byte _begin_ occurs it increase a counter, when a code byte _again_ occurs it decrease a counter,  then moves code tape forwards or backwards, when the counter is zero, set movement to forward and change to page zero.
 
 Since no data byte is read while in page one, the circuit of U7, U3, U8 is used as counter;
 
@@ -109,15 +106,15 @@ the solution was make true-table for lines and states.
 
 - page is the address line A10 for eeproms U1 and U2, from Toggle Page Circuit.
 
-- back is the movement line, from Toggle Pack Circuit.
+- move is the movement line, from Toggle Pack Circuit.
 
-- switch page is the line to clock for D-Flip-FLop the control the address A9 line.
+- switch page is the line to clock for D-Flip-FLop the control the address A10 line.
 
 - switch move is the line to clock for D-Flip-FLop the control the direction of movement, forward or backward.
 
 ## True Table
 
-   | begin \[ | \] again | zero | page | back | _switch page_ | _switch move_ | results |
+   | begin \[ | \] again | zero | page | move | _switch page_ | _switch move_ | results |
    | --- | --- | --- | --- | --- | --- | --- | --- |
    | 0 | 0 | 0 | 1 | 0 | 1 | 0 | toggle page, not change move |
    | 0 | 0 | 0 | 0 | 1 | 0 | 1 | toggle page, toggle move |
@@ -125,7 +122,7 @@ the solution was make true-table for lines and states.
    | 0 | 1 | 1 | 0 | 0 | 0 | 1 | toggle page, toggle move  |
    |  |  |  |  |  |  |  |
    
-The paging is controled just from first 5 lines, and _switch back_ and _switch move_ are clock lines to D-flip-flops.
+The paging is controled just from 5 lines, and _switch back_ and _switch move_ are clock lines to D-flip-flops.
 
 The first observation is, the conditional lines are like '0-0-0-0-1', in some diferent order. 
 
