@@ -5,7 +5,7 @@
 
 All Jelly opcodes are easy implemented except loops. 
 
-How implement the loop opcodes begin and again, keep me in a round-robin by months without a feasible solution.
+How implement the loop opcodes \[begin and again\], keep me in a round-robin by months without a feasible solution.
 
 A interpreter of brainfunk, in pseudo-code, _left not optimized, sure not optimized, did I said it is not optimized ?_ :
 
@@ -82,20 +82,20 @@ decrease data latch
 
 clear output data latch
 copy  input data latch
+
 That solution focus to decision match as a true table of lines, _begin_, _again_, zero, page, reverse and toggle switches S1 and S2, that controls which page by line A10 and reverse by the Reverse Circuit.
 
 Explained in [control lines](documents/LogicLoop.md)
+
 ## How To
 
-Jelly have three pages of code, 
+Jelly have two pages of code, 
 
-In page zero, all opcodes are executed and, when a code byte _begin_ occurs and data byte is zero, it clear a counter and change to page one, when a code byte _again_ occurs and data byte is not zero, it clear a counter and change to page two.
+In page zero, all opcodes are executed and, when a code byte _begin_ occurs and data byte is zero, it clear a counter, set movement to forward and change to page one, or when a code byte _again_ occurs and data byte is not zero, it clear a counter, set movement to backwards and change to page one.
 
-In page one, when a code byte _begin_ occurs it increase a counter, when a code byte _again_ occurs it decrease a counter,  then moves code tape forwards and if counter is zero change to page 0.
+In page one, when a code byte _begin_ occurs it increase a counter, when a code byte _again_ occurs it decrease a counter,  then moves code tape forwards or backwards, when the counter is zero, set movement to forward and change to page zero.
 
-In page two, when a code byte _begin_ occurs it increase a counter, when a code byte _again_ occurs it decrease a counter,  then moves code tape backwards and if counter is zero change to page 0.
-
-Since no data byte is read while in page one or page two, the circuit of U7, U3, U8 is used as counter;
+Since no data byte is read while in page one, the circuit of U7, U3, U8 is used as counter;
 
 ## Make It
 
@@ -107,24 +107,22 @@ the solution was make true-table for lines and states.
 
 - zero is a control line set high when data byte is non zero, from Zero Detector circuit. 
 
-- page_1 is the address line A9 for eeproms U1 and U2, from Toggle Page circuit.
+- page is the address line A10 for eeproms U1 and U2, from Toggle Page Circuit.
 
-- page_2 is the address line A10 for eeproms U1 and U2, from Toggle Page circuit.
+- back is the movement line, from Toggle Pack Circuit.
 
-- flip_1 is output to the clock for D-Flip-FLop the control the address A9 line.
+- switch page is the line to clock for D-Flip-FLop the control the address A9 line.
 
-- flip_2 is output to the clock for D-Flip-FLop the control the address A10 line.
-
-when page_2 is set the movement is always backward.
+- switch back is the line to clock for D-Flip-FLop the control the direction of movement, forward or backward.
 
 ## True Table
 
-   | begin \[ | \] again | zero | page_1 | page_2 | _FLIP_1_ | _FLIP_2_ | results |
+   | begin \[ | \] again | zero | page | back | _switch page_ | _switch back_ | results |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | 0 | 0 | 0 | 1 | 0 | 1 | 0 | toggle page 1 |
-   | 0 | 0 | 0 | 0 | 1 | 0 | 1 | toggle page 2 |
-   | 1  | 0 | 0 | 0 | 0 | 1 | 0 | toggle page 1 |
-   | 0 | 1 | 1 | 0 | 0 | 0 | 1 | toggle page 2 |
+   | 0 | 0 | 0 | 1 | 0 | 1 | 0 | toggle page, not change move |
+   | 0 | 0 | 0 | 0 | 1 | 0 | 1 | toggle page, toggle move |
+   | 1  | 0 | 0 | 0 | 0 | 1 | 0 | toggle page, not change move  |
+   | 0 | 1 | 1 | 0 | 0 | 0 | 1 | toggle page, toggle move  |
    |  |  |  |  |  |  |  |  |
    | 0 | 0 | 1 | 1 | 0 | 0 | 0 | next forward |
    | 0 | 0 | 1 | 0 | 1 | 0 | 0 | next backward |
