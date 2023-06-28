@@ -1,35 +1,54 @@
 
+--This page is still a stub--
+
 ### Signal lines
 
 ## States and Signals:
 
-#### From U1
+The lines for signals and controls are:
 
-| Signal | action | used | control |
+#### Table of signals
+
+| Signal | action | used | line |
 | --- | --- | --- | --- |
-| CS5 | load a byte into latch | yes | C0 |
-| CS6 | load a byte into latch | yes | C1 | 
-| CS7 | load a byte into latch | yes | C2 |
-| CS8 | load a byte into latch | yes | C3 |
+| CS5 | load a byte into latch | yes |  |
 | /OE5 | enable output | **not** | always connected |
-| /OE6 | enable output | yes | C4 |
+| CS6 | load a byte into latch | yes |  | 
+| /OE6 | enable output | yes |  |
+| CS7 | load a byte into latch | yes |  |
 | /OE7 | enable output | **not** | always connected |
-| /OE8 | enable output | yes | C5 |
-| /OE10 | enable output | yes | C6 |
-| DR10 | define direction | yes | C7 |
+| CS8 | load a byte into latch | yes |  |
+| /OE8 | enable output | yes |  |
+| /OE10 | enable output | yes |  |
+| DR10 | define direction | yes |  |
 
-#### From U2
+#### Table of controls
 
-Using 2 bits, C8-C9:
+| control | action | used | line |
+| --- | --- | --- | --- |
+| T0 | define tape device | yes |  |
+| T1 | define tape device | yes |  |
+| K0 | define operation | yes | |
+| K1 | define operation | yes | |
+| M0 | define math or decode | yes |  |
+| M1 | define math or decode | yes |  |
+| M2 | define math or decode | yes |  |
 
-| value | action | select |
-| --- | --- | --- | 
-| L L | FWD | forward  |
-| L H | BCK | backward | 
-| H L | RD | read  | 
-| H H | WR | write |  
+#### Table of logics
 
-Using 2 bits, C10-C11:
+For automatic  change of mode  for page zero or two
+
+| control | action | used | line |
+| --- | --- | --- | --- |
+| zero | logic 0 when data is 0 | yes |  |
+| page | logic 0 when page common or loop | yes |  |
+| move | logic 0 when move forward and logic 1 for backward | yes |  |
+| begin | logic 1 when code is begin [ | yes |  |
+| again | logic 1 when code is again ] | yes | |
+
+#### What is ?
+
+Using 2 bits:
 
 | value | device | select |
 | --- | --- | --- |
@@ -38,7 +57,17 @@ Using 2 bits, C10-C11:
 | H L | TWO | data tape |
 | H H | STD | standart |
 
-Using 3 bits, C12-C13-C14:
+Using 2 bits:
+
+| value | action | select |
+| --- | --- | --- | 
+| L L | FWD | forward  |
+| L H | BCK | backward | 
+| H L | RD | read  | 
+| H H | WR | write |  
+
+Using 3 bits:
+
 | M0 | M1 | M2 | name | does | 
 | --- | --- | --- | --- | --- |
 | L | L | L | CLR | clear byte | 
@@ -50,7 +79,7 @@ Using 3 bits, C12-C13-C14:
 | L | H | H | NON | reserved |
 | H | H | H | HLT | reserved |
 
-One bit, C15 reserved.
+One bit, reserved.
 
 ## Actions
 
