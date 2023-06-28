@@ -63,7 +63,7 @@ The pages are selected by two d-flip-flops configured like toggle switchs, as li
 
 ### Logic tables
 
-The page lookup is 
+The page lookup is done with M0-Mfor U3, maps unary math functions and decode page for U1 and U2.  
 
 | page | M0-A8 | M1-A9 | M2-A10 | action |
 | ---- | ----- | ----- | ------ | ----- |
