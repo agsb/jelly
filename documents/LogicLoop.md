@@ -81,6 +81,7 @@ the actions from pseudo-code are:
 - clear data latch
 - read from standart input device into data latch
 - write from data latch into standart output device
+- test if a data latch is zero
 
 Those actions must be done by combination of control lines, selects which chip is active at a clock instant.
 
@@ -108,15 +109,17 @@ the solution was make true-table for lines and states.
 
 ## True Table
 
-   | mode | move |  zero | begin | again | _switch mode_ | _switch move_ | results |
-   | --- | --- | --- | --- | --- | --- | --- | --- |
-   | 0 | X | 0 | 1 | 0 | 1 | 0 | toggle mode, not change move |
-   | 0 | X | 1 | 0 | 1 | 1 | 1 | toggle mode, toggle move |
-   | 1  | 0 | 0 | X | X | 1 | 0 | toggle mode, not change move  |
-   | 1 | 1 | 0 | X | X | 1 | 1 | toggle mode, toggle move  |
+   | case | mode | move |  zero | begin | again | _switch mode_ | _switch move_ | results |
+   | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+   | 1 | 0 | X | 0 | 1 | 0 | 1 | 0 | toggle mode, not change move |
+   | 2 | 0 | X | 1 | 0 | 1 | 1 | 1 | toggle mode, toggle move |
+   | 3 | 1  | 0 | 0 | X | X | 1 | 0 | toggle mode, not change move  |
+   | 4 | 1 | 1 | 0 | X | X | 1 | 1 | toggle mode, toggle move  |
    |  |  |  |  |  |  |  |
    
 The paging is controled just from 5 lines, and _switch mode_ and _switch move_ are clock lines to D-flip-flops.
 
 For simplify, when mode is normal (0), move is always for forward (0) and when mode is loop (1), the state of begin and again does not matter;
+
+** But, how clear the data latch (as counter) in case 2 ? how forward code tape two times in case 4 ? **
 
