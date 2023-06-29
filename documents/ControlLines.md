@@ -41,8 +41,8 @@ For automatic  change of mode  for page zero or two
 | control | action | used | line |
 | --- | --- | --- | --- |
 | zero | logic 0 when data is 0 | yes |  |
-| page | logic 0 when page common or loop | yes |  |
-| move | logic 0 when move forward and logic 1 for backward | yes |  |
+| mode | logic 0 when mode is common or logic 1 for loop | yes |  |
+| move | logic 0 when move forward or logic 1 for backward | yes |  |
 | begin | logic 1 when code is begin [ | yes |  |
 | again | logic 1 when code is again ] | yes | |
 
