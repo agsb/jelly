@@ -14,13 +14,13 @@ All chips used are CMOS, have /OE (output enable), CK (clock pulse) or CS (chip 
 
 There are four 8-bit devices, a code tape, a data tape, a standart input and a standart output. For easy, a code_byte is read from code tape and data_byte is writed into or read from data tape.
 
-The processing steps are  based in lookup tables, defined by 16 (4-bits) operation codes - opcodes, with 32 (5-bits) sequential steps - microcodes, in 4 (2-bits) pages, in total of 11 bits, 2048 possibilities.
+The processing steps are  based in lookup tables, defined by 16 (4-bits) operation codes - opcodes, with 32 (5-bits) sequential steps - microcodes, in 4 (2-bits) modes, in total of 11 bits, 2048 possibilities.
 
 ## Circuits
 
 ### Clock
 
-One oscilator circuit gives a primary clock pulses (at less than 1.6 MHz); 
+One oscilator circuit gives a primary clock pulses (less than 1.6 MHz); 
 
 ### Interpreter 
 
@@ -30,7 +30,7 @@ One binary counter 74HC393, U9, takes clock pulses, gives Q0-Q4 as A0-A4 into U1
 
 Two eeproms AT28C16, U1 and U2, shares A0-A10, takes Q0-Q4 as A5-A8 from U5, takes Q0-Q4 as A0-A4 from U9. U1 gives Q0-Q7 as C0-C7 to control bus and U2 gives Q0-Q7 as D0-D7 to U6, to device bus. 
 
-They are used together for opcode and microcode lookup, address A0-A4 are used for 32 steps micro-code, A5-A8 for define op-code, and A9-A10 for select pages of codes.
+They are used together for opcode and microcode lookup, address A0-A4 are used for 32 steps micro-code, A5-A8 for define op-code, and A9-A10 for select pages of codes for modes.
 
 ### Lookups
 
@@ -55,11 +55,11 @@ takes Y1-Y4 from U12 ad A1B1-A2B2, gives Y1-Y2 into A3B3, gives Y3 as ZERO line 
 
 ### Toggle Page
 
-The circuit for toggle pages uses one 74HC74, dual D-Flip-Flop, for toggle lines _page_ and _move_. The line _page_ is connect to A10 into U3, and line _move_ define the direction, forward and backwards of tape movement ;
+The circuit for toggle modes uses one 74HC74, dual D-Flip-Flop, for toggle lines _mode_ and _move_. The line _mode_ is connect to A10 into U3, and line _move_ define the direction, forward and backwards of tape movement.
 
-The opcodes and microcode stored into U1 and U2 could be mapped into 4 pages using address A9-A10. Only two pages, common and loop, are used. 
+The opcodes and microcode stored into U1 and U2 could be mapped into pages using address A9-A10. Only two modes, common and loop, are used. 
 
-The pages are selected by two d-flip-flops configured like toggle switchs, as line A9 and A10. The clock for each switch is controled by the Loop Logic Circuit;
+The clock line for each switch is controled by the Loop Logic Circuit;
 
 ### Logic tables
 
@@ -88,65 +88,8 @@ All ORs are 74HC32, 150 ns ( ~6.7 MHz ), quad 2-input OR gate;
 
 All D-flip-flop are 74HC74, 
 
-## The Loop Logic
+## Logic Loops
 
-All Jelly opcodes are easy implemented except loops. 
+## Lines
 
-the [ and ], for easy refered as begin and again, keep me in a round-robin by months without a feasible solution.
-
-In pseudo-code, _left not optimized, sure not optimized, did I said it is not optimized ?_ :
-
-         // for easy the tapes are mapped as sequential memory
-         
-         char * code_ptr = POINTER_TO_CODE;
-         char * data_ptr = POINTER_TO_DATA;
-         int page = 0;
-         int dirs = 0;
-         int counter = 0;
-         int data_byte = 0;
-         int code_byte = 0;
-         do {
-             code_byte = *code_ptr;
-             if (code_byte == '[' and data_byte == 0) page = 1, dirs = 0;
-             if (code_byte == ']' and data_byte != 0) page = 1, dirs = 1;
-             if (page == 1) { 
-                 counter = 0;
-                 do {
-                     code_byte = *code_ptr;
-                     if (code_byte == '\[') counter++;
-                     if (code_byte == '\]') counter--;
-                     if (dirs == 0) code_ptr++;
-                     if (dirs == 1) code_ptr--;
-                 } while (counter !=0)
-                 page = 0;
-                 continue;
-             }
-             // all code for other opcodes: < > . , + -
-             code_ptr++;
-           } while (1);
-         
-When grouping the codes in dependence of state of page, gives three pages,  
-
-The page zero does all opcodes except _begin_ and _again_; 
-
-The page one does the execution when occurs a _begin_ and the data byte is zero; 
-
-The page two does the execution when occurs a _again_ and data byte is not zero;
-
-That solution focus to decision match as a true table of lines, _begin_, _again_, zero, A9, A10, and toggle switches S9 and S10, that controls A9 and A10.
-
-Explained in [control lines](documents/LogicLoop.md)
-
-## A BOM    
-
-The BOM is
-
-      4 x AT28C16, 2kb eeprom,
-
-      4 x 74HC574, 8-bit latches, 
-      
-      1 x 74hc393, dual 4-stage binary counter,
-      
-      2 x 74HC32, quad dual OR, 
-      
-      some glue states logics (1 x 74HC74, )
+Explained in [control lines](documents/ControlLines.md)
