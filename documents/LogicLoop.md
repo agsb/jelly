@@ -38,6 +38,7 @@ A interpreter of brainfunk, in pseudo-code, _left not optimized, sure not optimi
                      if (move == 0) code_ptr++;
                      if (move == 1) code_ptr--;
                  } while (data_byte != 0)
+                 if (move == 1) code_ptr++, code_ptr++;
                  mode = 0;
                  move = 0;
                  data_byte = *data_ptr;
