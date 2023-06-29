@@ -16,28 +16,30 @@ A interpreter of brainfunk, in pseudo-code, _left not optimized, sure not optimi
          char * code_ptr = POINTER_TO_CODE;
          char * data_ptr = POINTER_TO_DATA;
          
-         int page = 0; // the page
-         int reverse = 0; // the direction
+         int mode = 0; // the page
+         int move = 0; // the direction
          int data_byte = 0;
          int code_byte = 0;
+         
          do {
              code_byte = *code_ptr;
              
              // end of loop ?
-             if (code_byte == '[' and data_byte == 0) page = 1, reverse = 0;
+             if (code_byte == '[' and data_byte == 0) mode = 1, move = 0;
              // not end of loop ?
-             if (code_byte == ']' and data_byte != 0) page = 1, reverse = 1;
+             if (code_byte == ']' and data_byte != 0) mode = 1, move = 1;
             
-             if (page == 1) { 
+             if (mode == 1) { 
                  data_byte = 0; // used as counter
                  do {
                      code_byte = *code_ptr;
                      if (code_byte == '\[') data_byte++;
                      if (code_byte == '\]') data_byte--;
-                     if (reverse == 0) code_ptr++;
-                     if (reverse == 1) code_ptr--;
+                     if (move == 0) code_ptr++;
+                     if (move == 1) code_ptr--;
                  } while (data_byte != 0)
-                 page = 0;
+                 mode = 0;
+                 move = 0;
                  data_byte = *data_ptr;
                  continue;
              }
@@ -56,13 +58,13 @@ A interpreter of brainfunk, in pseudo-code, _left not optimized, sure not optimi
            } while (1);
 
                     
-When grouping the code in dependence of state of loop, gives two pages, the page zero does opcode work, except for _begin_ forward and _again_ backwards;
+When grouping the code in dependence of state of loop, gives two modes, the normal mode does all opcodes but _begin_ and _again_. Those are executed by the loop mode, described as: 
 
-When a _begin_ occurs and the data byte is zero, it's the end of the loop, so it must step forward to find the corresponding _again_;
+When a _begin_ occurs and the data byte is zero, it's the end of the loop, so it must step forward to find the corresponding _again_, and return to mode normal;
 
-When a _again_ occurs and the data byte is not zero, then it is not the end of the loop, so it must step backward to find the corresponding _begin_;
+When a _again_ occurs and the data byte is not zero, then it is not the end of the loop, so it must step backward to find the corresponding _begin_, and return to mode normal;
 
-### Actions
+### Actions 
 
 move code tape forward
 move code tape backward
@@ -82,7 +84,7 @@ decrease data latch
 clear output data latch
 copy  input data latch
 
-That solution focus to decision match as a true table of lines, _begin_, _again_, zero, page, reverse and toggle switches S1 and S2, that controls which page by line A10 and reverse by the Reverse Circuit.
+That solution focus to decision match as a true table of five state lines, begin, again, zero, mode, move and two result toggle switches S1 and S2, that controls which mode by line A10 and move reverse by the Reverse Circuit.
 
 ## How To
 
