@@ -50,21 +50,21 @@ For automatic  change of mode  for page zero or two
 
 Using 2 bits:
 
-| value | device | select |
-| --- | --- | --- |
-| L L | NONE | none |
-| L H | ONE | code tape |
-| H L | TWO | data tape |
-| H H | STD | standart |
+| T0 | T1 | device | select |
+| --- | --- |  --- | --- |
+| L | L | NONE | none |
+| L | H | ONE | code tape |
+| H | L | TWO | data tape |
+| H | H | STD | standart |
 
 Using 2 bits:
 
-| value | action | select |
-| --- | --- | --- | 
-| L L | FWD | forward  |
-| L H | BCK | backward | 
-| H L | RD | read  | 
-| H H | WR | write |  
+| K0 | K1 | action | select |
+| --- | --- | --- | --- | --- | 
+| L | L | FWD | forward  |
+| L | H | BCK | backward | 
+| H | L | RD | read  | 
+| H | H | WR | write |  
 
 Using 3 bits:
 
@@ -134,4 +134,7 @@ to decrease a byte data: 7, 11, 16, 9, 12
 to input a byte, getch: 8, 11, 13, 9, 12
 
 to output a byte, putch: 7, 11, 13, 10, 12
+
+### Wait
+
 
