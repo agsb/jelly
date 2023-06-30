@@ -88,7 +88,7 @@ Using 2 bits:
 Using 2 bits:
 
 | K0 | K1 | action | select |
-| --- | --- | --- | --- | --- | 
+| --- | --- | --- | --- | 
 | L | L | FWD | forward  |
 | L | H | BCK | backward | 
 | H | L | RD | read  | 
