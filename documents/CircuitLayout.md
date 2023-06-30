@@ -24,7 +24,7 @@ One oscilator circuit gives a primary clock pulses (less than 1.6 MHz);
 
 ### Interpreter 
 
-One latch 74HC574, U5, takes D0-D7 from data bus, gives Q0-Q4 as A5-A8 into U1 and U2, Q5-Q7 not used, /OE is GND, CS is CS5;
+One latch 74HC273, U5, takes D0-D7 from data bus, gives Q0-Q4 as A5-A8 into U1 and U2, Q5-Q7 not used, /OE is GND, CS is CS5, CLR is CL5;
 
 One binary counter 74HC393, U9, takes clock pulses, gives Q0-Q4 as A0-A4 into U1 and U2. _At Q5 its resets to 0_;
 
@@ -34,7 +34,7 @@ They are used together for opcode and microcode lookup, address A0-A4 are used f
 
 ### Lookups
 
-One latch 74HC574, U7, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U3, /OE is OE7, CS is CS7;
+One latch 74HC273, U7, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U3, /OE is OE7, CS is CS7, CLR is CL7;
 
 One latch 74HC754, U8, takes Q0-Q7 from U3, giving Q0-Q7 as D0-D7 to data bus, /OE is OE8, CS is CS8;
 
@@ -80,7 +80,11 @@ The page lookup is done with lines M0-M2 for U3, the table maps unary math funct
 
 All eeproms are AT28C16, 150 ns (~ 6.7 MHz), 2k x 8-bits, and have /OE to GND, /CS to GND, /WR to VCC;
 
-All latchs are 74HC574, 500 ns (~ 2.0 MHz), octal D-Flip-Flop, 3-state, pull-up;
+All input latchs are 74HC273, 500 ns (~ 2.0 MHz), octal D-Flip-Flop with clear, 3-state, pull-up;
+
+All output latchs are 74HC574, 500 ns (~ 2.0 MHz), octal D-Flip-Flop, 3-state, pull-up;
+
+All switchs are 74HC245, 500 ns (~ 2.0 MHz), octal bi-diretional switch, 3-state;
 
 A binary counter is 74HC393, (< 100 MHz), dual 4-bit binary ripple counter, with resets;
 
