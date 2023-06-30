@@ -139,6 +139,7 @@ One bit, reserved.
 | 23 | decode page halt | HLT, CS8; | |
 | 24 | halt | still not defined | |
 
+
 ## Commands
 
 to forward code tape: 2, 1
