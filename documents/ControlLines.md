@@ -9,18 +9,22 @@ The lines for signals and controls are:
 
 #### Table of signals
 
-| Signal | action | used | line |
-| --- | --- | --- | --- |
-| CS5 | load a byte into latch | yes |  |
+| Signal | action | used | type | line |
+| --- | --- | --- | --- | --- |
+| CS5 | load a byte into latch | yes | 74hc273 | |
+| CL5 | clear a byte in latch | yes | 74hc273 | |
 | /OE5 | enable output | **not** | always connected |
-| CS6 | load a byte into latch | yes |  | 
-| /OE6 | enable output | yes |  |
-| CS7 | load a byte into latch | yes |  |
+| CS6 | load a byte into latch | yes | 74hc574 |  | 
+| /OE6 | enable output | yes | 74hc574 |  |
+| CS7 | load a byte into latch | yes |  74hc273 | |
+| CL7 | clear a byte in latch | yes | 74hc273 | |
 | /OE7 | enable output | **not** | always connected |
-| CS8 | load a byte into latch | yes |  |
-| /OE8 | enable output | yes |  |
-| /OE10 | enable output | yes |  |
-| DR10 | define direction | yes |  |
+| CS8 | load a byte into latch | yes | 74hc574 |  |
+| /OE8 | enable output | yes | 74hc574 |  |
+| /OE10 | enable output | yes | 74hc245 |  |
+| DR10 | define direction | yes | 74hc245 |  |
+
+10 signal lines.
 
 #### Table of controls
 
@@ -30,13 +34,37 @@ The lines for signals and controls are:
 | T1 | define tape device | yes |  |
 | K0 | define operation | yes | |
 | K1 | define operation | yes | |
-| M0 | define math or decode | yes |  |
-| M1 | define math or decode | yes |  |
-| M2 | define math or decode | yes |  |
+| BG | flag code begin [ | yes | |
+| AG | flag code again ] | yes | |
+| ZR | flag data zero | yes | |
+
+10 control lines.
+
+#### Table of address lines
+
+| control | action | used | line |
+| --- | --- | --- | --- |
+| M0 | define math or decode | yes | U3.A8 |
+| M1 | define math or decode | yes | U3.A9 |
+| M2 | define math or decode | yes | U3.A10 |
+| P0 | define decode page | yes | U1,U2.A8 |
+| P1 | define decode page | yes | U1,U2.A9 |
+| P2 | define decode page | yes | U1,U2.A10 |
+
+#### Table of unused lines
+
+| control | action | used | line |
+| --- | --- | --- | --- |
+| U0 | define math or decode | yes | U5.D4 |
+| U1 | define math or decode | yes | U5.D5 |
+| U2 | define math or decode | yes | U5.D6 |
+| U3 | define math or decode | yes | U5.D7 |
+
+The decode modes normal and loop, gets one of 16 opcodes from eeprom table, using the low nibble for compound address to U1 and U2, wherever the high nibble is fixed in U5 and not used. 
 
 #### Table of logics
 
-For automatic  change of mode  for page zero or two
+For automatic  change of mode normal or loop
 
 | control | action | used | line |
 | --- | --- | --- | --- |
