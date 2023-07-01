@@ -38,7 +38,7 @@ The lines for signals and controls are:
 | AG | flag code again ] | yes | |
 | ZR | flag data zero | yes | |
 
-10 control lines.
+7 control lines. ZR created by circuit. T0,T1,K0,K1 created by lookup. BG, AG, created by loop detect.
 
 #### Table of address lines
 
