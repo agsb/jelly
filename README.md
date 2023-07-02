@@ -34,7 +34,7 @@ Jelly is not a common cpu.
 
 - There is no general registers, just 3-state latches to keep the data bus safe. 
 
-- There is no arithmetic logical unit (ALU), just a memory with a table of unary "math" results for clear, increment, decrement and copy a byte.
+- There is no arithmetic logical unit (ALU), just a memory with a table of unary "math" results for clear, increment, decrement and copy a byte. Could include shift right, shift left, negation and reverse.
 
 - There is no comparator, just a flag for when a byte is zero or not.
 
@@ -42,7 +42,7 @@ Jelly is not a common cpu.
 
 - There is no memory address, just tapes that moves forward or backward.
 
-- The standart input and output are instant devices and not tapes. 
+- The standart input and output are instant devices, not tapes. 
 
 And Jelly executes a esoteric language.
 
@@ -86,7 +86,7 @@ Jelly includes: (list can grow)
 
 How the standart devices could be changed ? Maybe using the bytes at first two positions of data tape, to select which port to use, as input and output, as like in many microcontrolers ?
 
-The math could include opcodes, for negation a byte, for reverse a byte.
+The math could include opcodes, for shifts, negation, and reverse a byte.
 
 ## About loops
 
@@ -102,13 +102,13 @@ The _again_ repeats while the data byte is not zero, then must go back to the co
 
 The loops can be nested, using a counter that increase for begins and decrease for again, finish the loop when counter is zero. As a 8-bit circuit, the maximum nested loops is 255;
 
-### Logic Loops
-
-How loops are implemented in Jelly is explained in [logic loops](documents/LogicLoop.md)
-
 ## Circuit Layout
 
 How the circuit connects is explained in [circuit layout](documents/CircuitLayout.md)
+
+### Logic Loops
+
+How loops are implemented in Jelly is explained in [logic loops](documents/LogicLoop.md)
 
 ## Control signals
 
