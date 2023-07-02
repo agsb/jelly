@@ -8,13 +8,13 @@ Jelly is a simple 8-bit digital circuit, all math, opcodes and microcodes are do
 
 Jelly circuit include the interface for Device Control Circuit (DCC), that could be real tape or memory emulated.
 
-Jelly uses 2kb space, address are A0-A10, data inputs are D0-D7, data outputs are Q0-Q7, control lines C0-C15. 
+Jelly uses 2kb space, address are A0-A10, data inputs are D0-D7, data outputs are Q0-Q7, control lines C0-C23. 
 
-All chips used are CMOS, have /OE (output enable), CK (clock pulse) or CS (chip select) lines for selected action. The eeproms have /WR (write enable) to VCC.
+All chips used are CMOS, have /OE (output enable), CK (clock pulse) or CS (chip select), CLR (clear latch) lines for select action. The eeproms have /WR (write enable) to VCC.
 
 There are four 8-bit devices, a code tape, a data tape, a standart input and a standart output. For easy, a code_byte is read from code tape and data_byte is writed into or read from data tape.
 
-The processing steps are  based in lookup tables, defined by 16 (4-bits) operation codes - opcodes, with 32 (5-bits) sequential steps - microcodes, in 4 (2-bits) modes, in total of 11 bits, 2048 possibilities.
+The processing steps are based in lookup tables, defined by 16 (4-bits) operation codes - opcodes, with 32 (5-bits) sequential steps - microcodes, in 4 (2-bits) modes, in total of 11 bits, 2048 possibilities.
 
 ## Circuits
 
@@ -22,48 +22,31 @@ The processing steps are  based in lookup tables, defined by 16 (4-bits) operati
 
 One oscilator circuit gives a primary clock pulses (less than 1.6 MHz); 
 
-### Interpreter 
+### Decoder 
 
-One latch 74HC273, U5, takes D0-D7 from data bus, gives Q0-Q4 as A5-A8 into U1 and U2, Q5-Q7 not used, /OE is GND, CS is CS5, CLR is CL5;
+One latch 74HC273, U1, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U4,  /OE is GND, CS is CS1, CLR is CL1;
 
-One binary counter 74HC393, U9, takes clock pulses, gives Q0-Q4 as A0-A4 into U1 and U2. _At Q5 its resets to 0_;
+Two binary counter 74HC193, U2 and U3, takes clock pulses, gives Q0-Q4 as A0-A4 into U5, U6 and U7, CLR is CLR2 and CLR3;  _At Q5 its resets to 0_;
 
-Three eeproms AT28C16, U1, U2 and U3, shares A0-A10, takes Q0-Q4 as A5-A8 from U5, takes Q0-Q4 as A0-A4 from U9. U1 gives Q0-Q7 as C0-C7, U2 gives Q0-Q7 as C8-C15, to internal bus, amd U3 gives as C16-C23 as D0-D7 to U6, to device bus. 
+One eeproms AT28C16, U4, takes Q0-Q7 as A0-A7 from U1, gives D0-D3 as A5-A8 into U5, U6 and U7. lines A8-A10 and D4-D7 are not used.
 
-They are used together for opcode and microcode lookup, address A0-A4 are used for 32 steps micro-code, A5-A8 for define op-code, and A9-A10 for select pages of codes for modes.
+This circuit is used to translate the code byte to opcode and could decoder till 255 opcodes and 255 microcode steps.
 
-### Lookups
+### Interpreter
 
-One latch 74HC273, U7, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U3, /OE is OE7, CS is CS7, CLR is CL7;
+Three eeproms AT28C16, U5, U6 and U7, shares A0-A10, takes D0-D4 as A5-A8 from U4, takes Q0-Q4 as A0-A4 from U2 and U3. U5 gives D0-D7 as C0-C7, U6 gives D0-D7 as C8-C15, to internal bus, and U7 gives as C16-C23 as D0-D7 to U11. 
 
-One latch 74HC754, U8, takes Q0-Q7 from U3, giving Q0-Q7 as D0-D7 to data bus, /OE is OE8, CS is CS8;
+They are used together for opcode and microcode lookup, address A0-A4 are used for 32 steps micro-code, A5-A8 for define 16 op-code, and A9-A10 for select 4 pages of codes for modes.
 
-One eeprom At28C16, U4, takes M0-M2 from U2 as A8-A10, takes Q0-Q7 from U7 into A0-A7, gives Q0-Q7 as D0-D7 into U8; 
+### Math Lookups
 
-It is used to translate the code byte to opcode and to lookup table for math functions.
+One latch 74HC273, U8, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U9, /OE is OE8, CS is CS8, CLR is CL8;
 
-### Control Devices
+One eeprom At28C16, U9, takes M0-M2 from U2 as A8-A10, takes Q0-Q7 from U7 into A0-A7, takes QX-QX from UX into A8-A10, gives Q0-Q7 as D0-D7 into U10; 
 
-One latch 74HC574, U6, takes Q0-Q7 as D0-D7 from U3, gives Q0-Q7 as C16-C24 to device bus, /OE is /OE6, CS is CS5;
+One latch 74HC754, U10, takes Q0-Q7 from U9, giving Q0-Q7 as D0-D7 to data bus, /OE is OE10, CS is CS10;
 
-One bi-direcional switch, U10, 74HC245, uses D0-D7 as A0-A7 from data bus, uses B0-B7 as D0-D7 to device bus, /OE is /OE10, DIR is DIR10.
-
-### Zero Detector
-
-Uses Two quad dual OR gate, U12 and U13. U12 takes Q0-Q7 from U7 as A1B1-A4B4, gives Y1-Y4 as A1B1-A2B2 to U13; U13
-takes Y1-Y4 from U12 ad A1B1-A2B2, gives Y1-Y2 into A3B3, gives Y3 as ZERO line to Jelly circuit. Not using A4-B4/Y4;
-
-### Toggle Page
-
-The circuit for toggle modes uses one 74HC74, dual D-Flip-Flop, for toggle lines _mode_ and _move_. The line _mode_ is connect to A10 into U3, and line _move_ define the direction, forward and backwards of tape movement.
-
-The opcodes and microcode stored into U1 and U2 could be mapped into pages using address A9-A10. Only two modes, common and loop, are used. 
-
-The clock line for each switch is controled by the Loop Logic Circuit;
-
-### Logic tables
-
-The page lookup is done with lines M0-M2 for U3, the table maps unary math functions and decode page for U1 and U2.  
+It is used to lookup table for math functions.
 
 | page | M0-A8 | M1-A9 | M2-A10 | action |
 | ---- | ----- | ----- | ------ | ----- |
@@ -71,10 +54,30 @@ The page lookup is done with lines M0-M2 for U3, the table maps unary math funct
 | incr | 1 | 0 | 0 | increase byte |
 | decr | 0 | 1 | 0 | decrease byte |
 | copy | 1 | 1 | 0 | copy byte |
-| opcode | 0 | 0 | 1 | decode byte as opcode |
-| loop | 1 | 0 | 1 | decode byte as in loop |
-| none | 0 | 1 | 1 | reserved |
-| none | 1 | 1 | 1 | reserved |
+
+### Control Devices
+
+One latch 74HC574, U11, takes D0-D7 from U7, gives Q0-Q7 as C16-C23 to device bus, /OE is /OE11, CS is CS11;
+
+One bi-direcional switch, U12, 74HC245, uses D0-D7 as A0-A7 from data bus, uses B0-B7 as D0-D7 to device bus, /OE is /OE12, DIR is DIR12.
+
+This circuit does select device, move direction, and operation over tapes and standart devices;
+
+### Zero Detector
+
+Uses Two quad dual OR gate, U13 and U14. U13 takes Q0-Q7 from U8 as A1B1-A4B4, gives Y1-Y4 as A1B1-A2B2 to U14; U14 takes Y1-Y4 from U13 and A1B1-A2B2, gives Y1-Y2 into A3B3, gives Y3 as ZERO line to Jelly circuit. Not using A4-B4/Y4;
+
+This circuit does zero detection;
+
+### Toggle Page
+
+The circuit for toggle modes uses one 74HC74, dual D-Flip-Flop, for toggle lines _mode_ and _move_. The line _mode_ is connect to A9 into U5, U6 and U7, and line _move_ reverses the direction, forward and backwards of tape movement.
+
+The opcodes and microcode stored into U5, U6 and U7 could be mapped into pages using address A9-A10. Only two modes, common and loop, are used with A9. 
+
+The clock line for each switch is controled by the Loop Logic Circuit;
+
+### Logic Loops
 
 ### BOM
 
@@ -86,7 +89,7 @@ All output latchs are 74HC574, 500 ns (~ 2.0 MHz), octal D-Flip-Flop, 3-state, p
 
 All switchs are 74HC245, 500 ns (~ 2.0 MHz), octal bi-diretional switch, 3-state;
 
-A binary counter is 74HC393, (< 100 MHz), dual 4-bit binary ripple counter, with resets;
+All binary counter are 74HC193, (< 100 MHz), dual 4-bit binary ripple counter, up, down, load and reset;
 
 All ORs are 74HC32, 150 ns ( ~6.7 MHz ), quad 2-input OR gate;
 
