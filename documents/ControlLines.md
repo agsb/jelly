@@ -7,58 +7,65 @@
 
 The lines for signals and controls are:
 
+C0-C7 from U1, C8-C15 from U2, C16-C23 from U3
+
+- zero from zero detector circuit
+- begin is line
+- again is line 
+- mode from loop logic to A9 into U1, U2, U3
+- move from loop logic revert forward or backward
+
 #### Table of signals
 
 | Signal | action | used | type | line |
 | --- | --- | --- | --- | --- |
-| CS5 | load a byte into latch | yes | 74hc273 | |
-| CL5 | clear a byte in latch | yes | 74hc273 | |
-| /OE5 | enable output | **not** | always connected |
-| CS6 | load a byte into latch | yes | 74hc574 |  | 
-| /OE6 | enable output | yes | 74hc574 |  |
-| CS7 | load a byte into latch | yes |  74hc273 | |
-| CL7 | clear a byte in latch | yes | 74hc273 | |
-| /OE7 | enable output | **not** | always connected |
-| CS8 | load a byte into latch | yes | 74hc574 |  |
-| /OE8 | enable output | yes | 74hc574 |  |
-| /OE10 | enable output | yes | 74hc245 |  |
-| DR10 | define direction | yes | 74hc245 |  |
+| CS6 | load a byte into latch | yes | 74hc273 | C1|
+| CL6 | clear a byte in latch | yes | 74hc273 | C2|
+| /OE6 | enable output | **not** | always connected |
+| CS7 | load a byte into latch | yes | 74hc574 | C3 | 
+| /OE7 | enable output | yes | 74hc574 | C4 |
+| CS8 | load a byte into latch | yes |  74hc273 | C8 |
+| CL8 | clear a byte in latch | yes | 74hc273 | C9 |
+| /OE8 | enable output | **not** | always connected |
+| CS9 | load a byte into latch | yes | 74hc574 | C10 |
+| /OE9 | enable output | yes | 74hc574 | C11 |
+| /OE10 | enable output | yes | 74hc245 |  C16 |
+| DR10 | define direction | yes | 74hc245 | C17 |
 
 10 signal lines.
-
+            
 #### Table of controls
 
 | control | action | used | line |
 | --- | --- | --- | --- |
-| T0 | define tape device | yes |  |
-| T1 | define tape device | yes |  |
-| K0 | define operation | yes | |
-| K1 | define operation | yes | |
-| BG | flag code begin [ | yes | |
-| AG | flag code again ] | yes | |
+| T0 | define tape device | yes | C18 |
+| T1 | define tape device | yes | C19 |
+| K0 | define operation | yes |  C20 |
+| K1 | define operation | yes | C21 |
+| BG | flag code begin [ | yes | C5 |
+| AG | flag code again ] | yes | C6 |
 | ZR | flag data zero | yes | |
+| MV | flag move reverse | yes | |
+| MD | flag mode | yes | |
 
-7 control lines. ZR created by circuit. T0,T1,K0,K1 created by lookup. BG, AG, created by loop detect.
+7 control lines. ZR created by zero detector circuit. T0,T1,K0,K1 created by lookup. BG, AG, created by loop detect.
 
 #### Table of address lines
 
 | control | action | used | line |
 | --- | --- | --- | --- |
-| M0 | define math or decode | yes | U4.A8 |
-| M1 | define math or decode | yes | U4.A9 |
-| M2 | define math or decode | yes | U4.A10 |
-| P0 | define decode mode | yes | U1,U2,U3.A8 |
-| P1 | define decode mode | yes | U1,U2,U3.A9 |
-| P2 | define decode mode | yes | U1,U2,U3.A10 |
+| M0 | define math or decode | yes | C12 to U5.A8 |
+| M1 | define math or decode | yes | c13 to U5.A9 |
+| M2 | define math or decode | yes | c14 to U5.A10 |
 
 #### Table of unused lines
 
 | control | action | used | line |
 | --- | --- | --- | --- |
-| U0 | define math or decode | yes | U5.D4 |
-| U1 | define math or decode | yes | U5.D5 |
-| U2 | define math or decode | yes | U5.D6 |
-| U3 | define math or decode | yes | U5.D7 |
+| U0 | define math or decode | yes | U4.D4 |
+| U1 | define math or decode | yes | U4.D5 |
+| U2 | define math or decode | yes | U4.D6 |
+| U3 | define math or decode | yes | U4.D7 |
 
 The decode modes normal and loop, gets one of 16 opcodes from eeprom table, using the low nibble for compound address to U1,U2, and U3 wherever the high nibble is fixed in U5 and not used. 
 
@@ -109,7 +116,7 @@ Using 3 bits:
 
 One bit, reserved.
 
-## Actions
+## Actions ZZZ rever 
 
 | na | Actions | Signals | Does |
 | -- | -- | -- | -- |
