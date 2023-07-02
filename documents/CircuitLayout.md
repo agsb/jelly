@@ -28,7 +28,7 @@ One latch 74HC273, U5, takes D0-D7 from data bus, gives Q0-Q4 as A5-A8 into U1 a
 
 One binary counter 74HC393, U9, takes clock pulses, gives Q0-Q4 as A0-A4 into U1 and U2. _At Q5 its resets to 0_;
 
-Two eeproms AT28C16, U1 and U2, shares A0-A10, takes Q0-Q4 as A5-A8 from U5, takes Q0-Q4 as A0-A4 from U9. U1 gives Q0-Q7 as C0-C7 to control bus and U2 gives Q0-Q7 as D0-D7 to U6, to device bus. 
+Three eeproms AT28C16, U1, U2 and U3, shares A0-A10, takes Q0-Q4 as A5-A8 from U5, takes Q0-Q4 as A0-A4 from U9. U1 gives Q0-Q7 as C0-C7, U2 gives Q0-Q7 as C8-C15, to internal bus, amd U3 gives as C16-C23 as D0-D7 to U6, to device bus. 
 
 They are used together for opcode and microcode lookup, address A0-A4 are used for 32 steps micro-code, A5-A8 for define op-code, and A9-A10 for select pages of codes for modes.
 
@@ -38,13 +38,13 @@ One latch 74HC273, U7, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U3, 
 
 One latch 74HC754, U8, takes Q0-Q7 from U3, giving Q0-Q7 as D0-D7 to data bus, /OE is OE8, CS is CS8;
 
-One eeprom At28C16, U3, takes M0-M2 from U1 as A8-A10, takes Q0-Q7 from U7 into A0-A7, gives Q0-Q7 as D0-D7 into U8; 
+One eeprom At28C16, U4, takes M0-M2 from U2 as A8-A10, takes Q0-Q7 from U7 into A0-A7, gives Q0-Q7 as D0-D7 into U8; 
 
-It is used to translate the code byte to opcode, and to lookup table for math functions.
+It is used to translate the code byte to opcode and to lookup table for math functions.
 
 ### Control Devices
 
-One latch 74HC574, U6, takes Q0-Q7 as D0-D7 from U2, gives Q0-Q7 as C8-C15 to device bus, /OE is /OE6, CS is CS5;
+One latch 74HC574, U6, takes Q0-Q7 as D0-D7 from U3, gives Q0-Q7 as C16-C24 to device bus, /OE is /OE6, CS is CS5;
 
 One bi-direcional switch, U10, 74HC245, uses D0-D7 as A0-A7 from data bus, uses B0-B7 as D0-D7 to device bus, /OE is /OE10, DIR is DIR10.
 
