@@ -19,18 +19,18 @@ C0-C7 from U1, C8-C15 from U2, C16-C23 from U3
 
 | Signal | action | used | type | line |
 | --- | --- | --- | --- | --- |
-| CS6 | load a byte into latch | yes | 74hc273 | C1|
-| CL6 | clear a byte in latch | yes | 74hc273 | C2|
+| CS6 | load a byte into latch | yes | 74hc273 | C0 |
+| CL6 | clear a byte in latch | yes | 74hc273 | C1 | 
 | /OE6 | enable output | **not** | always connected |
-| CS7 | load a byte into latch | yes | 74hc574 | C3 | 
-| /OE7 | enable output | yes | 74hc574 | C4 |
+| CS7 | load a byte into latch | yes | 74hc574 | C2 | 
+| /OE7 | enable output | yes | 74hc574 | C3 |
 | CS8 | load a byte into latch | yes |  74hc273 | C8 |
 | CL8 | clear a byte in latch | yes | 74hc273 | C9 |
 | /OE8 | enable output | **not** | always connected |
 | CS9 | load a byte into latch | yes | 74hc574 | C10 |
 | /OE9 | enable output | yes | 74hc574 | C11 |
-| /OE10 | enable output | yes | 74hc245 |  C16 |
-| DR10 | define direction | yes | 74hc245 | C17 |
+| /OE10 | enable output | yes | 74hc245 |  C4 |
+| DR10 | define direction | yes | 74hc245 | C5 |
 
 10 signal lines.
             
@@ -38,12 +38,12 @@ C0-C7 from U1, C8-C15 from U2, C16-C23 from U3
 
 | control | action | used | line |
 | --- | --- | --- | --- |
-| T0 | define tape device | yes | C18 |
-| T1 | define tape device | yes | C19 |
-| K0 | define operation | yes |  C20 |
-| K1 | define operation | yes | C21 |
-| BG | flag code begin [ | yes | C5 |
-| AG | flag code again ] | yes | C6 |
+| T0 | define tape device | yes | C16 |
+| T1 | define tape device | yes | C17 |
+| K0 | define operation | yes |  C18 |
+| K1 | define operation | yes | C19 |
+| BG | flag code begin [ | yes | C6 |
+| AG | flag code again ] | yes | C7 |
 | ZR | flag data zero | yes | |
 | MV | flag move reverse | yes | |
 | MD | flag mode | yes | |
@@ -62,10 +62,17 @@ C0-C7 from U1, C8-C15 from U2, C16-C23 from U3
 
 | control | action | used | line |
 | --- | --- | --- | --- |
-| U0 | define math or decode | yes | U4.D4 |
-| U1 | define math or decode | yes | U4.D5 |
-| U2 | define math or decode | yes | U4.D6 |
-| U3 | define math or decode | yes | U4.D7 |
+| K0 | undefine | no | U6.D4 |
+| K1 | undefine | no | U6.D5 |
+| K2 | undefine | no | U6.D6 |
+| K3 | undefine | no | U6.D7 |
+|  |  |  |  |
+| K4 | undefine | no | U3.D4 |
+| K5 | undefine | no | U3.D5 |
+| K6 | undefine | no | U3.D6 |
+| K7 | undefine | no | U3.D7 |
+|  |  |  |  |
+
 
 The decode modes normal and loop, gets one of 16 opcodes from eeprom table, using the low nibble for compound address to U1,U2, and U3 wherever the high nibble is fixed in U5 and not used. 
 
