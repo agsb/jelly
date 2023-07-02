@@ -18,33 +18,51 @@ The processing steps are based in lookup tables, defined by 16 (4-bits) operatio
 
 ## Circuits
 
+The chips are grouped by type and sequential numbers are used for identify.
+
+### BOM
+
+05 eeproms, U1, U2, U3, U4 and U5, are AT28C16, 150 ns (~ 6.7 MHz), 2k x 8-bits, and have /OE to GND, /CS to GND, /WR to VCC;
+
+02 input latchs, U6 and U8, are 74HC273, 500 ns (~ 2.0 MHz), octal D-Flip-Flop with clear, 3-state, pull-up;
+
+02 output latchs, U7 and U9, are 74HC574, 500 ns (~ 2.0 MHz), octal D-Flip-Flop, 3-state, pull-up;
+
+01 switch, U10, is 74HC245, 500 ns (~ 2.0 MHz), octal bi-diretional switch, 3-state;
+
+02 binary counter, U11 and U12, are 74HC193, (< 100 MHz), dual 4-bit binary ripple counter, up, down, load and reset;
+
+01 D-flip-flop, U13, is 74HC74, 
+
+02 ORs gates, U14, U15, are 74HC32, 150 ns ( ~6.7 MHz ), quad 2-input OR gate;
+
 ### Clock
 
 One oscilator circuit gives a primary clock pulses (less than 1.6 MHz); 
 
 ### Decoder 
 
-One latch 74HC273, U1, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U4,  /OE is GND, CS is CS1, CLR is CL1;
+One latch 74HC273, U6, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U4, /OE is GND, CS is CS6, CLR is CL6;
 
-Two binary counter 74HC193, U2 and U3, takes clock pulses, gives Q0-Q4 as A0-A4 into U5, U6 and U7, CLR is CLR2 and CLR3;  _At Q5 its resets to 0_;
+One eeproms AT28C16, U4, takes Q0-Q7 as A0-A7 from U6, gives D0-D3 as A5-A8 into U1, U2 and U3. Lines A8-A10 and D4-D7 are not used.
 
-One eeproms AT28C16, U4, takes Q0-Q7 as A0-A7 from U1, gives D0-D3 as A5-A8 into U5, U6 and U7. lines A8-A10 and D4-D7 are not used.
+Two binary counter 74HC193, U11 and U12, takes clock pulses, gives Q0-Q4 as A0-A4 into U1, U2 and U3, CLRs is CLR11 and CLR12;  _At Q5 its resets to 0_;
 
-This circuit is used to translate the code byte to opcode and could decoder till 255 opcodes and 255 microcode steps.
+This circuit is used to translate a byte from code tape into opcode and could decode till 255 opcodes and 255 microcode steps.
 
 ### Interpreter
 
-Three eeproms AT28C16, U5, U6 and U7, shares A0-A10, takes D0-D4 as A5-A8 from U4, takes Q0-Q4 as A0-A4 from U2 and U3. U5 gives D0-D7 as C0-C7, U6 gives D0-D7 as C8-C15, to internal bus, and U7 gives as C16-C23 as D0-D7 to U11. 
+Three eeproms AT28C16, U1, U2 and U3, shares A0-A10, takes D0-D4 as A5-A8 from U4, takes Q0-Q4 as A0-A4 from U11 and U12. U1 gives D0-D7 as C0-C7 and U2 gives D0-D7 as C8-C15, to internal bus, and U3 gives as C16-C23 as D0-D7 to U7. 
 
 They are used together for opcode and microcode lookup, address A0-A4 are used for 32 steps micro-code, A5-A8 for define 16 op-code, and A9-A10 for select 4 pages of codes for modes.
 
 ### Math Lookups
 
-One latch 74HC273, U8, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U9, /OE is OE8, CS is CS8, CLR is CL8;
+One latch 74HC273, U8, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U5, /OE is OE8, CS is CS8, CLR is CL8;
 
-One eeprom At28C16, U9, takes M0-M2 from U2 as A8-A10, takes Q0-Q7 from U7 into A0-A7, takes QX-QX from UX into A8-A10, gives Q0-Q7 as D0-D7 into U10; 
+One eeprom At28C16, U5, takes M0-M2 from U2 as A8-A10, takes Q0-Q7 from U7 into A0-A7, gives D0-D7 as D0-D7 into U10; 
 
-One latch 74HC754, U10, takes Q0-Q7 from U9, giving Q0-Q7 as D0-D7 to data bus, /OE is OE10, CS is CS10;
+One latch 74HC754, U9, takes Q0-Q7 from U5, giving Q0-Q7 as D0-D7 to data bus, /OE is OE9, CS is CS9;
 
 It is used to lookup table for math functions.
 
@@ -57,9 +75,9 @@ It is used to lookup table for math functions.
 
 ### Control Devices
 
-One latch 74HC574, U11, takes D0-D7 from U7, gives Q0-Q7 as C16-C23 to device bus, /OE is /OE11, CS is CS11;
+One latch 74HC574, U7, takes D0-D7 from U3, gives Q0-Q7 as C16-C23 to device bus, /OE is /OE7, CS is CS7;
 
-One bi-direcional switch, U12, 74HC245, uses D0-D7 as A0-A7 from data bus, uses B0-B7 as D0-D7 to device bus, /OE is /OE12, DIR is DIR12.
+One bi-direcional switch, U10, 74HC245, uses D0-D7 as A0-A7 from data bus, uses B0-B7 as D0-D7 to device bus, /OE is /OE10, DIR is DIR10.
 
 This circuit does select device, move direction, and operation over tapes and standart devices;
 
