@@ -71,7 +71,7 @@ The decode modes normal and loop, gets one of 16 opcodes from eeprom table, usin
 
 #### Table of logics
 
-For automatic  change of mode normal or loop
+For automatic change of mode normal or loop
 
 | control | action | used | line |
 | --- | --- | --- | --- |
@@ -109,12 +109,10 @@ Using 3 bits:
 | L | H | L | INC | increase byte | 
 | H | L | L | DEC | decrease byte | 
 | H | H | L | CPY | copy byte | 
-| L | L | H | PGZ | page zero opcodes |
-| H | L | H | PGL | page loop opcodes |
-| L | H | H | NON | reserved |
-| H | H | H | HLT | reserved |
-
-One bit, reserved.
+| L | L | H | CPY | reserved |
+| H | L | H | CPY | reserved |
+| L | H | H | CPY | reserved |
+| H | H | H | CPY | reserved |
 
 ## Actions ZZZ rever 
 
