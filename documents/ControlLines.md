@@ -44,12 +44,12 @@ The lines for signals and controls are:
 
 | control | action | used | line |
 | --- | --- | --- | --- |
-| M0 | define math or decode | yes | U3.A8 |
-| M1 | define math or decode | yes | U3.A9 |
-| M2 | define math or decode | yes | U3.A10 |
-| P0 | define decode page | yes | U1,U2.A8 |
-| P1 | define decode page | yes | U1,U2.A9 |
-| P2 | define decode page | yes | U1,U2.A10 |
+| M0 | define math or decode | yes | U4.A8 |
+| M1 | define math or decode | yes | U4.A9 |
+| M2 | define math or decode | yes | U4.A10 |
+| P0 | define decode mode | yes | U1,U2,U3.A8 |
+| P1 | define decode mode | yes | U1,U2,U3.A9 |
+| P2 | define decode mode | yes | U1,U2,U3.A10 |
 
 #### Table of unused lines
 
@@ -60,7 +60,7 @@ The lines for signals and controls are:
 | U2 | define math or decode | yes | U5.D6 |
 | U3 | define math or decode | yes | U5.D7 |
 
-The decode modes normal and loop, gets one of 16 opcodes from eeprom table, using the low nibble for compound address to U1 and U2, wherever the high nibble is fixed in U5 and not used. 
+The decode modes normal and loop, gets one of 16 opcodes from eeprom table, using the low nibble for compound address to U1,U2, and U3 wherever the high nibble is fixed in U5 and not used. 
 
 #### Table of logics
 
