@@ -9,7 +9,7 @@ The lines for signals and controls are:
 
 C0-C7 from U1, C8-C15 from U2, C16-C23 from U3
 
-- zero from zero logics circuit
+- zero from zero logics 
 - clear data byte from loop logics
 - begin (BG) is line
 - again (AG) is line 
@@ -39,14 +39,14 @@ C0-C7 from U1, C8-C15 from U2, C16-C23 from U3
 | M0 | define math or decode | yes | into U5.A8 | C12 |
 | M1 | define math or decode | yes | into U5.A9 | C13 |
 | M2 | define math or decode | yes | into U5.A10 | C14 |
-| XX | reserved | yes | reserved | C15 | 
-
+| LDS | reserved | yes | reserved | C15 | 
+| --- | --- | --- | --- | --- |
 | CK11 | clock pulse | yes | 74hc193 | external clock circuit |
 | CL11 | clear byte | yes | 74hc193 | C0 |
-| LD11 | load byte | yes | 74hc193 | XXX |
+| LD11 | load byte | yes | 74hc193 | C15 |
 | CK12 | clock pulse | yes | 74hc193 | from U11 overflow |
 | CL12 | clear byte | yes | 74hc193 | C0 |
-| LD12 | load byte | yes | 74hc193 | XXX |
+| LD12 | load byte | yes | 74hc193 | C15 |
 
 signal lines.
             
@@ -63,12 +63,13 @@ signal lines.
 | N2 | free | yes |  C22 |
 | N3 | free | yes |  C23 |
 
+| control | action | used | line |
+| --- | --- | --- | --- |
+| ZR | flag data zero | yes | from zero logics into loop logics|
+| MV | flag move reverse | yes | from loop logics into A9 line at U1, U2, U3 |
+| MD | flag mode | yes |  from loop logics to reverse forward or brackward |
 
-| ZR | flag data zero | yes | from zero logics |
-| MV | flag move reverse | yes | form loop logics |
-| MD | flag mode | yes |  from loop logics |
-
-7 control lines. ZR created by zero detector circuit. T0,T1,K0,K1 created by lookup. BG, AG, created by loop detect.
+7 control lines. ZR created by zero detector circuit.
 
 #### Table of address lines
 
@@ -77,6 +78,7 @@ signal lines.
 | M0 | define math or decode | yes | C12 to U5.A8 |
 | M1 | define math or decode | yes | c13 to U5.A9 |
 | M2 | define math or decode | yes | c14 to U5.A10 |
+| MV | flag move reverse | yes | from loop logics into A9 line at U1, U2, U3 |
 
 #### Table of unused lines
 
@@ -87,7 +89,7 @@ signal lines.
 | K2 | undefine | no | U6.D6 |
 | K3 | undefine | no | U6.D7 |
 |  |  |  |  |
-| K4 | undefine | no | U3.D4 |
+| K4 | undefine | no | U3.D4 |  
 | K5 | undefine | no | U3.D5 |
 | K6 | undefine | no | U3.D6 |
 | K7 | undefine | no | U3.D7 |
