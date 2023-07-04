@@ -5,15 +5,28 @@
 
 ## Circuit Components
 
-U1, AT28C16, lookup code, A0-A10, C0-C7, 
-U2, AT28C16, lookup code, A0-A10, C8-C15
-U3, AT28C16, lookup math and decode, A0-A7, A8-A10, D0-D7, Q0-Q7
-U4, 74HC273, code latch, CLR, CLK, D0-D7, Q0-Q7
-U5, 74HC273, data latch, CLR, CLK, D0-D7, Q0-Q7
-U6, 74HC574, output latch, OE, CE, D0-D7, Q0-Q7
-U7, 74HC245, data switch, OE, DIR, E0-E7, F0-F7
-U8, 74HC393, step counter, CLR, CLK, Q0-Q3, Q4-Q7
+Lookup Logics circuit:
 
+- U1, AT28C16, lookup code, A0-A10, C0-C7, 
+- U2, AT28C16, lookup code, A0-A10, C8-C15
+- U3, AT28C16, lookup math and decode, A0-A7, A8-A10, D0-D7, Q0-Q7
+- U4, 74HC273, code latch, CLR, CLK, D0-D7, Q0-Q7
+- U5, 74HC273, data latch, CLR, CLK, D0-D7, Q0-Q7
+- U6, 74HC574, output latch, OE, CE, D0-D7, Q0-Q7
+- U7, 74HC245, data switch, OE, DIR, E0-E7, F0-F7
+- U8, 74HC393, step counter, CLR, CLK, Q0-Q3, Q4-Q7
+
+Loop Logics circuit:
+
+- U10, 74HC74, dual D-flip flop, D1, Q1, /Q1, C1, D2, Q2, /Q2, C2
+- U11, 74HC32, OR gates, A0-A3, B0-B3, Y0-Y3
+- U12, 74HC32, OR gates, A0-A3, B0-B3, Y0-Y3
+- U13, 74HC32, OR gates, A0-A3, B0-B3, Y0-Y3
+- U14, 74HC00, NAND gates, A0-A3, B0-B3, Y0-Y3
+- U15, 74HC00, NAND gates, A0-A3, B0-B3, Y0-Y3
+- U16, 74HC00, NAND gates, A0-A3, B0-B3, Y0-Y3
+- U17, 74HC00, NAND gates, A0-A3, B0-B3, Y0-Y3
+   
 ## States and Signals:
 
 The lines for signals and controls are:
@@ -24,11 +37,13 @@ signals into CL4, CK4, CK5, OE6, CE6, OE7, DR7,
 
 states for BG, AG, M0, M1, M2, T0, T1, K0, K1, 
 
+states for ZR, MV, MD, CL5, by loop logics
+
 clock pulse into CLK8
 
-- zero from zero logics 
+- ZR zero from zero logics 
 - clear code byte from lookup logics, are CL4 and CL8
-- clear data byte from loop logics, is CL5
+- CL5 clear data byte from loop logics
 - begin (BG) from control line, is C
 - again (AG) from control line, is C
 - M0, M1, M2 from control lines, into A8-A10 of U3
@@ -43,8 +58,8 @@ clock pulse into CLK8
 | CK4 | load a byte into latch | yes | 74hc273 | C1 |
 | T0 | define tape device | yes | C2 |
 | T1 | define tape device | yes | C3 |
-| K0 | define operation | yes |  C4 |
-| K1 | define operation | yes |  C5 |
+| K0 | define read or write | yes | C4 |
+| K1 | define forward or backward | yes | C5 |
 | BG | flag code begin [ | yes | software condition | C6 |
 | AG | flag code again ] | yes | software condition | C7 |
 | --- | --- | --- | --- | --- |
@@ -58,20 +73,7 @@ clock pulse into CLK8
 | DR7 | define direction | yes | 74hc245 | C15 |
 | --- | --- | --- | --- | --- |
 
-signal lines.
-            
 #### Table of controls
-
-| control | action | used | line |
-| --- | --- | --- | --- |
-| T0 | define tape device | yes | C16 |
-| T1 | define tape device | yes | C17 |
-| K0 | define operation | yes |  C18 |
-| K1 | define operation | yes |  C19 |
-| N0 | free | yes |  C20 |
-| N1 | free | yes |  C21 |
-| N2 | free | yes |  C22 |
-| N3 | free | yes |  C23 |
 
 | control | action | used | line |
 | --- | --- | --- | --- |
@@ -79,34 +81,9 @@ signal lines.
 | MV | flag move reverse | yes | from loop logics into A9 line at U1, U2, U3 |
 | MD | flag mode | yes |  from loop logics to reverse forward or brackward |
 
-7 control lines. ZR created by zero detector circuit.
-
 #### Table of address lines
 
-| control | action | used | line |
-| --- | --- | --- | --- |
-| M0 | define math or decode | yes | C12 to U5.A8 |
-| M1 | define math or decode | yes | c13 to U5.A9 |
-| M2 | define math or decode | yes | c14 to U5.A10 |
-| MV | flag move reverse | yes | from loop logics into A9 line at U1, U2, U3 |
-
 #### Table of unused lines
-
-| control | action | used | line |
-| --- | --- | --- | --- |
-| K0 | undefine | no | U6.D4 |
-| K1 | undefine | no | U6.D5 |
-| K2 | undefine | no | U6.D6 |
-| K3 | undefine | no | U6.D7 |
-|  |  |  |  |
-| K4 | undefine | no | U3.D4 |  
-| K5 | undefine | no | U3.D5 |
-| K6 | undefine | no | U3.D6 |
-| K7 | undefine | no | U3.D7 |
-|  |  |  |  |
-
-
-The decode modes normal and loop, gets one of 16 opcodes from eeprom table, using the low nibble for compound address to U1,U2, and U3 wherever the high nibble is fixed in U5 and not used. 
 
 #### Table of logics
 
@@ -122,7 +99,7 @@ For automatic change of mode normal or loop
 
 #### What is ?
 
-Using 2 bits:
+Using 2 bits for wich device:
 
 | T0 | T1 | device | select |
 | --- | --- |  --- | --- |
@@ -131,18 +108,18 @@ Using 2 bits:
 | H | L | TWO | data tape |
 | H | H | STD | standart |
 
-Using 2 bits:
+Using 2 bits for which operation:
 
 | K0 | K1 | action | select |
 | --- | --- | --- | --- | 
-| L | L | FW | forward  |
-| L | H | BK | backward | 
-| H | L | RD | read  | 
-| H | H | WR | write |  
+| L | L | RD | read  | 
+| H | L | WR | write |  
+| L | H | FW | forward  |
+| H | H | BK | backward | 
 
-Using 3 bits:
+Using 3 bits for math and lookup:
 
-| M0 | M1 | M2 | name | does lookup for | 
+| M0 | M1 | M2 | name | select | 
 | --- | --- | --- | --- | --- |
 | L | L | L | CLR | clear byte | 
 | L | H | L | INC | increase byte | 
@@ -182,7 +159,6 @@ Using 3 bits:
 | 22 | decode page none | NON, CS8; | |
 | 23 | decode page halt | HLT, CS8; | |
 | 24 | halt | still not defined | |
-
 
 ## Commands
 
