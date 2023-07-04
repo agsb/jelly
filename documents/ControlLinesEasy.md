@@ -102,7 +102,7 @@ For automatic change of mode normal or loop
 Using 2 bits for wich device:
 
 | T0 | T1 | device | select |
-| --- | --- |  --- | --- |
+| --- | --- | --- | --- |
 | L | L | NON | none |
 | L | H | ONE | code tape |
 | H | L | TWO | data tape |
@@ -129,6 +129,31 @@ Using 3 bits for math and lookup:
 | H | L | H | COD | mode code |
 | L | H | H | LOP | mode loop |
 | H | H | H | CPY | reserved |
+
+#### Logic Table for reverse move:
+
+| K0 | K1 | move | todo | done | 
+| --- | --- | --- | --- | --- |
+| L | L | X | read | read | 
+| H | L | X | write | write | 
+| L | H | L | forward | forward | 
+| H | H | L | backward | backward | 
+| L | H | H | forward | backward | 
+| H | H | H | backward | forward |
+
+done == (K0 and move) xor (K1)
+
+#### Logic Table for clear counter:
+
+| D0-D7 | zero OR | clear | zero line | done | 
+| --- | --- | -- | --- | --- |
+| 0 | L | L | L | no change | 
+| 1-255 | H | L | H | no change | 
+| 0 | L | H | L | no change | 
+| 1-255 | H | H | L | clear | 
+
+??? done == (K0 and move) xor (K1)
+
 
 ## Actions ZZZ rever 
 
