@@ -41,14 +41,15 @@ states for ZR, MV, MD, CL5, by loop logics
 
 clock pulse into CLK8
 
-- ZR zero from zero logics 
-- clear code byte from lookup logics, are CL4 and CL8
-- CL5 clear data byte from loop logics
-- begin (BG) from control line, is C
-- again (AG) from control line, is C
-- M0, M1, M2 from control lines, into A8-A10 of U3
-- mode from loop logics, into A9 of U1, U2
-- move from loop logics, circuit to revert forward or backward
+- zero from D0-D7 and  logics;
+- clear code byte into latch, with CL4 also clear CL8;
+- read a code byte into latch, with CS4 also clear CL8;
+- CL5 clear data byte from loop logics;
+- begin (BG) from control line;
+- again (AG) from control line;
+- M0, M1, M2 from control lines, into A8-A10 of U3;
+- mode from loop logics, into A9 of U1, U2;
+- move from loop logics, circuit to revert forward or backward;
 
 #### Table of signals
 
