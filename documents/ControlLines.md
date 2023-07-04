@@ -9,30 +9,46 @@ The lines for signals and controls are:
 
 C0-C7 from U1, C8-C15 from U2, C16-C23 from U3
 
-- zero from zero detector circuit
-- begin is line
-- again is line 
-- mode from loop logic to A9 into U1, U2, U3
-- move from loop logic revert forward or backward
+- zero from zero logics 
+- clear data byte from loop logics
+- begin (BG) is line
+- again (AG) is line 
+- mode from loop logics, to A9 into U1, U2, U3
+- move from loop logics, revert forward or backward
 
 #### Table of signals
 
 | Signal | action | used | type | line |
 | --- | --- | --- | --- | --- |
-| CS6 | load a byte into latch | yes | 74hc273 | C0 |
-| CL6 | clear a byte in latch | yes | 74hc273 | C1 | 
+| CL6 | clear a byte in latch | yes | 74hc273 | C0 | 
+| CS6 | load a byte into latch | yes | 74hc273 | C1 |
 | /OE6 | enable output | **not** | always connected |
 | CS7 | load a byte into latch | yes | 74hc574 | C2 | 
 | /OE7 | enable output | yes | 74hc574 | C3 |
+| /OE10 | enable output | yes | 74hc245 |  C4 |
+| DR10 | define direction | yes | 74hc245 | C5 |
+| BG | flag code begin [ | yes | software condition | C6 |
+| AG | flag code again ] | yes | software condition | C7 |
+| --- | --- | --- | --- | --- |
 | CS8 | load a byte into latch | yes |  74hc273 | C8 |
 | CL8 | clear a byte in latch | yes | 74hc273 | C9 |
 | /OE8 | enable output | **not** | always connected |
 | CS9 | load a byte into latch | yes | 74hc574 | C10 |
 | /OE9 | enable output | yes | 74hc574 | C11 |
-| /OE10 | enable output | yes | 74hc245 |  C4 |
-| DR10 | define direction | yes | 74hc245 | C5 |
+| --- | --- | --- | --- | --- |
+| M0 | define math or decode | yes | into U5.A8 | C12 |
+| M1 | define math or decode | yes | into U5.A9 | C13 |
+| M2 | define math or decode | yes | into U5.A10 | C14 |
+| LDS | reserved | yes | reserved | C15 | 
+| --- | --- | --- | --- | --- |
+| CK11 | clock pulse | yes | 74hc193 | external clock circuit |
+| CL11 | clear byte | yes | 74hc193 | C0 |
+| LD11 | load byte | yes | 74hc193 | C15 |
+| CK12 | clock pulse | yes | 74hc193 | from U11 overflow |
+| CL12 | clear byte | yes | 74hc193 | C0 |
+| LD12 | load byte | yes | 74hc193 | C15 |
 
-10 signal lines.
+signal lines.
             
 #### Table of controls
 
@@ -41,14 +57,19 @@ C0-C7 from U1, C8-C15 from U2, C16-C23 from U3
 | T0 | define tape device | yes | C16 |
 | T1 | define tape device | yes | C17 |
 | K0 | define operation | yes |  C18 |
-| K1 | define operation | yes | C19 |
-| BG | flag code begin [ | yes | C6 |
-| AG | flag code again ] | yes | C7 |
-| ZR | flag data zero | yes | |
-| MV | flag move reverse | yes | |
-| MD | flag mode | yes | |
+| K1 | define operation | yes |  C19 |
+| N0 | free | yes |  C20 |
+| N1 | free | yes |  C21 |
+| N2 | free | yes |  C22 |
+| N3 | free | yes |  C23 |
 
-7 control lines. ZR created by zero detector circuit. T0,T1,K0,K1 created by lookup. BG, AG, created by loop detect.
+| control | action | used | line |
+| --- | --- | --- | --- |
+| ZR | flag data zero | yes | from zero logics into loop logics|
+| MV | flag move reverse | yes | from loop logics into A9 line at U1, U2, U3 |
+| MD | flag mode | yes |  from loop logics to reverse forward or brackward |
+
+7 control lines. ZR created by zero detector circuit.
 
 #### Table of address lines
 
@@ -57,6 +78,7 @@ C0-C7 from U1, C8-C15 from U2, C16-C23 from U3
 | M0 | define math or decode | yes | C12 to U5.A8 |
 | M1 | define math or decode | yes | c13 to U5.A9 |
 | M2 | define math or decode | yes | c14 to U5.A10 |
+| MV | flag move reverse | yes | from loop logics into A9 line at U1, U2, U3 |
 
 #### Table of unused lines
 
@@ -67,7 +89,7 @@ C0-C7 from U1, C8-C15 from U2, C16-C23 from U3
 | K2 | undefine | no | U6.D6 |
 | K3 | undefine | no | U6.D7 |
 |  |  |  |  |
-| K4 | undefine | no | U3.D4 |
+| K4 | undefine | no | U3.D4 |  
 | K5 | undefine | no | U3.D5 |
 | K6 | undefine | no | U3.D6 |
 | K7 | undefine | no | U3.D7 |
