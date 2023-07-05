@@ -78,9 +78,10 @@ clock pulse into CLK8
 
 | control | action | used | line |
 | --- | --- | --- | --- |
-| ZR | flag data zero | yes | from zero logics into loop logics|
-| MV | flag move reverse | yes | from loop logics into A9 line at U1, U2, U3 |
+| ZR | flag data for zero | yes | from zero logics into loop logics|
+| MV | flag move for reverse | yes | from loop logics into A9 line at U1, U2 |
 | MD | flag mode | yes |  from loop logics to reverse forward or brackward |
+| CL | pulse for clear | yes | from loop logics into CLR at U4 |
 
 #### Table of address lines
 
