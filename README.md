@@ -68,6 +68,11 @@ Not all bytes are opcodes then needs a NOP, do nothing instruction, to catch tho
 | 9 | \! | mark end of code | jelly | halt |
 | 10 | \% | rewinds both tapes | jelly | reset |
 | 0 | \= | do nothing | jelly | noop |
+| 11 | \~ | one complement | jelly | noop |
+| 12 | \{ | shift left | jelly | noop |
+| 13 | \} | shift right | jelly | noop |
+| 14 | \^ | clear | jelly | noop |
+| 15 | \& | reserved | jelly | noop |
 
 - Any other ascii value is just translated as nop.
 - Opcodes 11, 12, 13, 14, 15 reserved.
