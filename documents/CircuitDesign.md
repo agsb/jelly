@@ -50,29 +50,25 @@ One oscilator circuit gives a primary clock pulses (less than 1.6 MHz);
 
 A binary counter 74HC393, U3, takes clock pulses from clock circuit, gives Q0-Q4 as A0-A4 into U1, clear is CLR3;
 
-A latch 74HC273, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, clock is CLK4, clear is CLR4;
+A latch 74HC273, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, clock is CLK4, clear is /CLR4;
 
-A eeprom AT28C16, U1, takes Q0-Q3 from U3 and Q4-Q7 from U4, gives D0-D3 as M0-M3 and D4-D7 as T0-T3. Lines A8-A10.
+A eeprom AT28C16, U1, takes Q0-Q3 from U3 and Q4-Q7 from U4, gives D0-D3 as M0-M3 and D4-D7 as T0-T3. 
 
-This circuit is used to translate a byte as finite state machine steps.
-
-### Interpreter
-
-Three eeproms AT28C16, U1, U2 and U3, shares A0-A10, takes D0-D4 as A5-A8 from U4, takes Q0-Q4 as A0-A4 from U11 and U12. U1 gives D0-D7 as C0-C7 and U2 gives D0-D7 as C8-C15, to internal bus, and U3 gives as C16-C23 as D0-D7 to U7. 
-
-They are used together for opcode and microcode lookup, address A0-A4 are used for 32 steps micro-code, A5-A8 for define 16 op-code, and A9-A10 for select 4 pages of codes for modes.
+This circuit is used to translate a byte as finite state machine steps. it is used for opcode and microcode lookup, address A0-A3 are used for up 16 steps micro-code, A4-A7 for define 16 op-code, A8-A9 are not used and A10 select mode code or loop.
 
 ### Math Lookups and Decoder
 
-One latch 74HC273, U5, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U2, clock is CLK5, clear is CLR5;
+One latch 74HC273, U5, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U2, clock is CLK5, clear is /CLR5;
 
 One eeprom At28C16, U2, takes Q0-Q7 from U5 into A0-A7, takes M0-M2 from U1 into A8-A10, gives Q0-Q7 into U6; 
 
-One latch 74HC754, U6, takes Q0-Q7 from U2 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is OE6, clock is CLK6;
+One latch 74HC754, U6, takes Q0-Q7 from U2 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is /OE6, clock is CLK6;
 
-It is used to lookup table for math functions.
+One bi-direcional switch, U8, 74HC245, uses D0-D7 as A0-A7 from data bus, uses B0-B7 as D0-D7 to device bus, /OE is /OE8, DIR is DIR8.
 
-| page | M0-A8 | M1-A9 | M2-A10 | M3 | action |
+It is used to lookup table for math functions and translate opcode;
+
+| name | M0-A8 | M1-A9 | M2-A10 | M3 | action |
 | ---- | ----- | ----- | ------ | --- | ----- |
 | zero | 0 | 0 | 0 | 1 | clear  | 
 | incr | 1 | 0 | 0 | 1 | increase |
@@ -85,11 +81,20 @@ It is used to lookup table for math functions.
 
 ### Control Devices
 
-One latch 74HC574, U7, takes D0-D7 from U3, gives Q0-Q7 as C16-C23 to device bus, /OE is /OE7, CS is CS7;
-
-One bi-direcional switch, U10, 74HC245, uses D0-D7 as A0-A7 from data bus, uses B0-B7 as D0-D7 to device bus, /OE is /OE10, DIR is DIR10.
+A decoder 3:8 74HC138, U7, takes M0-M3 from U1 into A0-A2, gives /Y0-/Y7 as controls as table
 
 This circuit does select device, move direction, and operation over tapes and standart devices;
+
+| signal | /OE6 | CLK4 | CLK5 | /CLR4 | CLR3| action |
+| --- | --- | --- | --- | --- | --- | --- |
+| Y0 | 0 | 0 | 0 | 1 | clear  | 
+| Y1 | 1 | 0 | 0 | 1 | increase |
+| Y2 | 0 | 1 | 0 | 1 | decrease |
+| Y3 | 1 | 1 | 0 | 1 | one complement |
+| Y4 | 0 | 0 | 1 | 1 | reverse order |
+| Y5 | 1 | 0 | 1 | 1 | shift left |
+| Y6 | 0 | 1 | 1 | 1 | shift right |
+| Y7 | 1 | 1 | 1 | 1 | copy and decode |
 
 ### Zero Detector
 
