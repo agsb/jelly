@@ -64,11 +64,11 @@ One eeprom At28C16, U2, takes Q0-Q7 from U5 into A0-A7, takes M0-M2 from U1 into
 
 One latch 74HC754, U6, takes Q0-Q7 from U2 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is /OE6, clock is CLK6;
 
-One bi-direcional switch, U8, 74HC245, uses D0-D7 as A0-A7 from data bus, uses B0-B7 as D0-D7 to device bus, /OE is /OE8, DIR is DIR8.
+*** One bi-direcional switch, U8, 74HC245, uses D0-D7 as A0-A7 from data bus, uses B0-B7 as D0-D7 to device bus, /OE is /OE8, DIR is DIR8.
 
 It is used to lookup table for math functions and translate opcode;
 
-| name | M0-A8 | M1-A9 | M2-A10 | M3 | action |
+| name | M0 | M1 | M2 | M3 | action |
 | ---- | ----- | ----- | ------ | --- | ----- |
 | zero | 0 | 0 | 0 | 1 | clear  | 
 | incr | 1 | 0 | 0 | 1 | increase |
@@ -79,22 +79,25 @@ It is used to lookup table for math functions and translate opcode;
 | sfr  | 0 | 1 | 1 | 1 | shift right |
 | cpy  | 1 | 1 | 1 | 1 | copy and decode |
 
-### Control Devices
+Any math lookup will push result into U6 latch, by connections (M3 and M0) at U2.A8, (M3 and M2) at U2.A9, (M3 and M2) at U2.A10 and M3 at CLK6. A zero also results when M3 is zero, but not goes to latch.
 
-A decoder 3:8 74HC138, U7, takes M0-M3 from U1 into A0-A2, gives /Y0-/Y7 as controls as table
+#### Control Devices
+
+A decoder 3:8 74HC138, U7, takes M0-M2 from U1 into A0-A2, M3 low, gives /Y0-/Y7 as controls as table 3
 
 This circuit does select device, move direction, and operation over tapes and standart devices;
 
+#### Table 3
 | signal | /OE6 | CLK4 | CLK5 | /CLR4 | CLR3| action |
 | --- | --- | --- | --- | --- | --- | --- |
-| Y0 | 0 | 0 | 0 | 1 | clear  | 
-| Y1 | 1 | 0 | 0 | 1 | increase |
-| Y2 | 0 | 1 | 0 | 1 | decrease |
-| Y3 | 1 | 1 | 0 | 1 | one complement |
-| Y4 | 0 | 0 | 1 | 1 | reverse order |
-| Y5 | 1 | 0 | 1 | 1 | shift left |
-| Y6 | 0 | 1 | 1 | 1 | shift right |
-| Y7 | 1 | 1 | 1 | 1 | copy and decode |
+| /Y0 | 1 | 0 | 0 | 1 | 0 | not connect, default states | 
+| /Y1 | 1 | 0 | 1 | 1 | 0 | input from bus |
+| /Y2 | 0 | 0 | 0 | 1 | 0 | output into bus |
+| /Y3 | 0 | 1 | 0 | 1 | 1 | output into code latch |
+| /Y4 | 0 | 0 | 1 | 1 | 0 | output into data latch |
+| /Y5 | 1 | 0 | 0 | 0 | 1 | clear, nop code |
+| /Y6 | 1 | 0 | 0 | 1 | 0 | to begin signal |
+| /Y7 | 1 | 0 | 0 | 1 | 0 | to again signal |
 
 ### Zero Detector
 
