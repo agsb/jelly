@@ -130,16 +130,16 @@ the /OE9 line is controled by not(T0  T1) and direction DIR9 by T2; ****
 #### Table devices
 | T0 | T1 | selects |
 | --- | --- | --- |
-| 0 | 0 | standart device | 
+| 1 | 1 | standart device | 
 | 1 | 0 | one, code tape | 
 | 0 | 1 | two, data tape | 
-| 1 | 1 | none, no device | 
+| 0 | 0 | none, no device | 
 
 #### Table operations
 | T2 | T3 | selects |
 | --- | --- | --- |
-| 0 | 0 | read from | 
-| 1 | 0 | write into | 
+| 0 | 0 | write into | 
+| 1 | 0 | read from | 
 | 0 | 1 | forward step| 
 | 1 | 1 | backward step | 
 
