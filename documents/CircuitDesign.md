@@ -48,13 +48,15 @@ One oscilator circuit gives a primary clock pulses (less than 1.6 MHz);
 
 ### Finite State Machine 
 
-A binary counter 74HC393, U3, takes clock pulses from clock circuit, gives Q0-Q4 as A0-A4 into U1, clear is CLR3;
+A binary up-counter 74HC393, U3, takes clock pulses from clock circuit, gives Q0-Q3 as A0-A4 into U1, clear is CLR3 and Q4-Q7 unused;
 
-A latch 74HC273, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, clock is CLK4, clear is /CLR4;
+A latch 74HC273, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, clock is CLK4, clear is /CLR4 and Q4-Q7 unused;
 
 A eeprom AT28C16, U1, takes Q0-Q3 from U3 and Q4-Q7 from U4, gives D0-D3 as M0-M3 and D4-D7 as T0-T3. 
 
 This circuit is used to translate a byte as finite state machine steps. it is used for opcode and microcode lookup, address A0-A3 are used for up 16 steps micro-code, A4-A7 for define 16 op-code, A8-A9 are not used and A10 select mode code or loop.
+
+The nible M0-M3 are used to control signals inside Jelly and the nible T0-T3 are used to signals outside Jelly.
 
 ### Math Lookups and Decoder
 
@@ -62,11 +64,9 @@ One latch 74HC273, U5, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U2, 
 
 One eeprom At28C16, U2, takes Q0-Q7 from U5 into A0-A7, takes M0-M2 from U1 into A8-A10, gives Q0-Q7 into U6; 
 
-One latch 74HC754, U6, takes Q0-Q7 from U2 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is /OE6, clock is CLK6;
+One latch 74HC754, U6, takes Q0-Q7 from U2 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is /OE6, clock is CLK6; 
 
-*** One bi-direcional switch, U8, 74HC245, uses D0-D7 as A0-A7 from data bus, uses B0-B7 as D0-D7 to device bus, /OE is /OE8, DIR is DIR8.
-
-When M3 is high, it is used to enable clock for U6 and load the lookup table for math functions and translate opcode;
+When M3 is high, it is used to enable clock for U6 and load results from lookup table for math functions and translate opcode; The lookup table does more unary math operations over a byte than increase and decrease.
 
 #### Table Lookup
 | name | M0 | M1 | M2 | action |
@@ -81,6 +81,8 @@ When M3 is high, it is used to enable clock for U6 and load the lookup table for
 | cpy  | 1 | 1 | 1 | copy and decode |
 
 Any math lookup will push result into U6 latch, by connections (M3 and M0) at U2.A8, (M3 and M2) at U2.A9, (M3 and M2) at U2.A10 and M3 at CLK6. A zero also results when M3 is zero, but not goes to latch.
+
+In _copy and decode_ all bytes are translated in valid opcodes range, 0 to 15, not defined symbols are mapped as noop; 
 
 ### Control Devices
 
@@ -107,6 +109,12 @@ The high nible T0-T1 selects devices, operations, comands and information for a 
 The D0-D7 are bi-diretional, defaults to output, T0-T1 are output only. All lines are as pull-down and high actived. 
 
 The T0-T1 could go into a 74HC139, dual 2:4 decoder for separated lines, and D0-D7 could go to a 74HC242, bi-directional switch for control direction;
+
+One dual 2:4 decoder, U8, 74HC139, uses T0-T3 as A0-A3 from U1, giving Y0-Y3 and Y4-Y7, DIR is DIR8.
+
+One bi-direcional switch, U9, 74HC245, uses D0-D7 as A0-A7 from data bus, uses B0-B7 as D0-D7 to device bus, /OE is /OE9, DIR is DIR9.
+
+the /OE9 line is controled by not(T0  T1) and direction DIR9 by T2; ****
 
 #### Connector
 | line | Pin | Pin | line |
