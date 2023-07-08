@@ -8,7 +8,7 @@ Jelly is a simple 8-bit digital circuit, all math, opcodes and microcodes are do
 
 Jelly circuit include the interface for Device Control Circuit (DCC), that could be real tape or memory emulated.
 
-Jelly uses 2kb space, address are A0-A10, data inputs are D0-D7, data outputs are Q0-Q7, control lines C0-C23. 
+Jelly uses 2kb space, address are A0-A10, data inputs are D0-D7, data outputs are Q0-Q7, control lines C0-C7. 
 
 All chips used are CMOS, have OE (output enable), CK (clock pulse) or CS (chip select), CR (clear latch) lines for select action. The eeproms have /WR (write enable) to VCC.
 
