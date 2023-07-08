@@ -56,7 +56,7 @@ A eeprom AT28C16, U1, takes Q0-Q3 from U3 and Q4-Q7 from U4, gives D0-D3 as M0-M
 
 This circuit is used to translate a byte as finite state machine steps. it is used for opcode and microcode lookup, address A0-A3 are used for up 16 steps micro-code, A4-A7 for define 16 op-code, A8-A9 are not used and A10 select mode code or loop.
 
-The nible M0-M3 are used to control signals inside Jelly and the nible T0-T3 are used to signals outside Jelly.
+The low nibble M0-M3 are used to control signals inside Jelly and the high nible T0-T3 are used to signals outside Jelly.
 
 ### Math Lookups and Decoder
 
@@ -102,6 +102,18 @@ When M3 is low, this circuit does sense of select device, move direction and ope
 | /Y6 | 1 | 0 | 0 | 1 | 0 | to begin signal, active low |
 | /Y7 | 1 | 0 | 0 | 1 | 0 | to again signal, active low |
 
+Some logic circuits aid to signals:
+
+- The /OE4 is of ((( /Y2 and /Y2) and /Y3) and /Y4);
+- The CK4 is of (not /Y3);
+- The CK5 is of (not /Y4);
+- The CR4 is /Y5;
+- The CR3 is ((not /Y5) or (not /Y3));
+- The _begin_ is of /Y6;
+- The _again_ is of /Y7;
+
+Note: A 74HC238, 3:8 decoder with non inverted outputs, is better for it;
+  
 ### Devices 
 
 The high nible T0-T1 selects devices, operations, comands and information for a controler at external word.
@@ -114,7 +126,7 @@ One dual 2:4 decoder, U8, 74HC139, uses T0-T3 as A0-A3 from U1, giving Y0-Y3 and
 
 One bi-direcional switch, U9, 74HC245, uses D0-D7 as A0-A7 from data bus, uses B0-B7 as D0-D7 to device bus, /OE is /OE9, DIR is DIR9.
 
-the /OE9 line is controled by not(T0  T1) and direction DIR9 by T2; ****
+Note: The /OE9 line is controled by not(T0 or T1) and direction DIR9 by T2; ****
 
 #### Connector
 | line | Pin | Pin | line |
@@ -130,10 +142,10 @@ the /OE9 line is controled by not(T0  T1) and direction DIR9 by T2; ****
 #### Table devices
 | T0 | T1 | selects |
 | --- | --- | --- |
-| 1 | 1 | standart device | 
+| 0 | 0 | none, no device |  
 | 1 | 0 | one, code tape | 
 | 0 | 1 | two, data tape | 
-| 0 | 0 | none, no device | 
+| 1 | 1 | standart device |
 
 #### Table operations
 | T2 | T3 | selects |
@@ -142,6 +154,8 @@ the /OE9 line is controled by not(T0  T1) and direction DIR9 by T2; ****
 | 1 | 0 | read from | 
 | 0 | 1 | forward step| 
 | 1 | 1 | backward step | 
+
+Note: The standart input and output devices does no moves forward or backward.
 
 #### Table commands
 | T0 | T1 | T2 | T3 | selects |
