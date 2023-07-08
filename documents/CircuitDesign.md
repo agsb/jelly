@@ -160,24 +160,6 @@ The opcodes and microcode stored into U5, U6 and U7 could be mapped into pages u
 
 The clock line for each switch is controled by the Loop Logic Circuit;
 
-### Logic Loops
-
-### BOM
-
-All eeproms are AT28C16, 150 ns (~ 6.7 MHz), 2k x 8-bits, and have /OE to GND, /CS to GND, /WR to VCC;
-
-All input latchs are 74HC273, 500 ns (~ 2.0 MHz), octal D-Flip-Flop with clear, 3-state, pull-up;
-
-All output latchs are 74HC574, 500 ns (~ 2.0 MHz), octal D-Flip-Flop, 3-state, pull-up;
-
-All switchs are 74HC245, 500 ns (~ 2.0 MHz), octal bi-diretional switch, 3-state;
-
-All binary counter are 74HC193, (< 100 MHz), dual 4-bit binary ripple counter, up, down, load and reset;
-
-All ORs are 74HC32, 150 ns ( ~6.7 MHz ), quad 2-input OR gate;
-
-All D-flip-flop are 74HC74, 
-
 ## Logic Loops
 
 ## Lines
