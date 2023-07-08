@@ -99,8 +99,8 @@ When M3 is low, this circuit does sense of select device, move direction and ope
 | /Y3 | 0 | 1 | 0 | 1 | 1 | output into code latch |
 | /Y4 | 0 | 0 | 1 | 1 | 0 | output into data latch |
 | /Y5 | 1 | 0 | 0 | 0 | 1 | clear, noop code |
-| /Y6 | 1 | 0 | 0 | 1 | 0 | to begin signal |
-| /Y7 | 1 | 0 | 0 | 1 | 0 | to again signal |
+| /Y6 | 1 | 0 | 0 | 1 | 0 | to begin signal, active low |
+| /Y7 | 1 | 0 | 0 | 1 | 0 | to again signal, active low |
 
 ### Devices 
 
