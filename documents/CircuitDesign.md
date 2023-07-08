@@ -102,6 +102,24 @@ When M3 is low, this circuit does sense of select device, move direction and ope
 
 ### Devices 
 
+The high nible T0-T1 selects devices, operations, comands and information for a controler at external word.
+
+The D0-D7 are bi-diretional, defaults to output, T0-T1 are output only. All lines are as pull-down and high actived. 
+
+The T0-T1 could go into a 74HC139, dual 2:4 decoder for separated lines, and D0-D7 could go to a 74HC242, bi-directional switch for control direction;
+
+#### Connector
+| line | Pin | Pin | line |
+| --- | --- | --- | --- |
+| D0 | 1 | 14 | VCC |
+| D1 | 2 | 13 | T3 |
+| D2 | 3 | 12 | T2 |
+| D3 | 4 | 11 | T1 |
+| D4 | 5 | 10 | T0 |
+| D5 | 6 |  9 | D7 |
+| GND | 7 |  8 | D6 |
+
+#### Table devices
 | T0 | T1 | selects |
 | --- | --- | --- |
 | 0 | 0 | standart device | 
@@ -109,6 +127,7 @@ When M3 is low, this circuit does sense of select device, move direction and ope
 | 0 | 1 | two, data tape | 
 | 1 | 1 | none, no device | 
 
+#### Table operations
 | T2 | T3 | selects |
 | --- | --- | --- |
 | 0 | 0 | read from | 
@@ -116,6 +135,7 @@ When M3 is low, this circuit does sense of select device, move direction and ope
 | 0 | 1 | forward step| 
 | 1 | 1 | backward step | 
 
+#### Table commands
 | T0 | T1 | T2 | T3 | selects |
 | --- | --- | --- | --- | --- |
 | 0 | 0 | 0 | 1 |   |
