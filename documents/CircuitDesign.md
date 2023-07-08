@@ -10,7 +10,7 @@ Jelly circuit include the interface for Device Control Circuit (DCC), that could
 
 Jelly uses 2kb space, address are A0-A10, data inputs are D0-D7, data outputs are Q0-Q7, control lines C0-C23. 
 
-All chips used are CMOS, have /OE (output enable), CK (clock pulse) or CS (chip select), CLR (clear latch) lines for select action. The eeproms have /WR (write enable) to VCC.
+All chips used are CMOS, have OE (output enable), CK (clock pulse) or CS (chip select), CR (clear latch) lines for select action. The eeproms have /WR (write enable) to VCC.
 
 There are four 8-bit devices, a code tape, a data tape, a standart input and a standart output. For easy, a code_byte is read from code tape and data_byte is writed into or read from data tape. The standart devices are instantaneous.
 
@@ -24,11 +24,11 @@ The chips are grouped by type and sequential numbers are used for identify.
 
 02 eeproms, U1 and U2, are AT28C16, 150 ns (~ 6.7 MHz), 2k x 8-bits, and have /OE to GND, /CS to GND, /WR to VCC;
 
-01 binary counter, U3, 74HC393, (< 100 MHz), dual 4-bit binary counter, with clock (CLK3) and clear (CLR3);
+01 binary counter, U3, 74HC393, (< 100 MHz), dual 4-bit binary counter, with clock (CK3) and clear (CR3);
 
-02 input latchs, U4 and U5, are 74HC273, 500 ns (~ 2.0 MHz), octal D-Flip-Flop with clock (CLK4, CLK5), clear (CLR4, CLR5);
+02 input latchs, U4 and U5, are 74HC273, 500 ns (~ 2.0 MHz), octal D-Flip-Flop with clock (CK4, CK5), clear (CR4, CR5);
 
-01 output latch, U6, 74HC574, 500 ns (~ 2.0 MHz), octal D-Flip-Flop, 3-state, with clock (CLK6), enable (/OE6);
+01 output latch, U6, 74HC574, 500 ns (~ 2.0 MHz), octal D-Flip-Flop, 3-state, with clock (CK6), enable (/OE6);
 
 01 switch, U7, is 74HC245, 500 ns (~ 2.0 MHz), octal bi-diretional switch, 3-state, with direction (DIR), enable (/OE7);
 
@@ -48,9 +48,9 @@ One oscilator circuit gives a primary clock pulses (less than 1.6 MHz);
 
 ### Finite State Machine 
 
-A binary up-counter 74HC393, U3, takes clock pulses from clock circuit, gives Q0-Q3 as A0-A4 into U1, clear is CLR3 and Q4-Q7 unused;
+A binary up-counter 74HC393, U3, takes clock pulses from clock circuit, gives Q0-Q3 as A0-A4 into U1, clear is CR3 and Q4-Q7 unused;
 
-A latch 74HC273, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, clock is CLK4, clear is /CLR4 and Q4-Q7 unused;
+A latch 74HC273, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, clock is CK4, clear is /CR4 and Q4-Q7 unused;
 
 A eeprom AT28C16, U1, takes Q0-Q3 from U3 and Q4-Q7 from U4, gives D0-D3 as M0-M3 and D4-D7 as T0-T3. 
 
@@ -60,11 +60,11 @@ The nible M0-M3 are used to control signals inside Jelly and the nible T0-T3 are
 
 ### Math Lookups and Decoder
 
-One latch 74HC273, U5, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U2, clock is CLK5, clear is /CLR5;
+One latch 74HC273, U5, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U2, clock is CK5, clear is /CR5;
 
 One eeprom At28C16, U2, takes Q0-Q7 from U5 into A0-A7, takes M0-M2 from U1 into A8-A10, gives Q0-Q7 into U6; 
 
-One latch 74HC754, U6, takes Q0-Q7 from U2 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is /OE6, clock is CLK6; 
+One latch 74HC754, U6, takes Q0-Q7 from U2 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is /OE6, clock is CK6; 
 
 When M3 is high, it is used to enable clock for U6 and load results from lookup table for math functions and translate opcode; The lookup table does more unary math operations over a byte than increase and decrease.
 
@@ -80,7 +80,7 @@ When M3 is high, it is used to enable clock for U6 and load results from lookup 
 | sfr  | 0 | 1 | 1 | shift right |
 | cpy  | 1 | 1 | 1 | copy and decode |
 
-Any math lookup will push result into U6 latch, by connections (M3 and M0) at U2.A8, (M3 and M2) at U2.A9, (M3 and M2) at U2.A10 and M3 at CLK6. A zero also results when M3 is zero, but not goes to latch.
+Any math lookup will push result into U6 latch, by connections (M3 and M0) at U2.A8, (M3 and M2) at U2.A9, (M3 and M2) at U2.A10 and M3 at CK6. A zero also results when M3 is zero, but not goes to latch.
 
 In _copy and decode_ all bytes are translated in valid opcodes range, 0 to 15, not defined symbols are mapped as noop; 
 
@@ -91,7 +91,7 @@ A decoder 3:8 74HC138, U7, takes M0-M2 from U1 into A0-A2, gives /Y0-/Y7 as cont
 When M3 is low, this circuit does sense of select device, move direction and operation over tapes and standart devices, and also signals when _begin_ or _again_ happen; When M3 is high all outputs are high.
 
 #### Table Controls
-| signal | /OE6 | CLK4 | CLK5 | /CLR4 | CLR3| action |
+| signal | /OE6 | CK4 | CK5 | /CR4 | CR3| action |
 | --- | --- | --- | --- | --- | --- | --- |
 | /Y0 | 1 | 0 | 0 | 1 | 0 | not connect, default states | 
 | /Y1 | 1 | 0 | 1 | 1 | 0 | input from bus |
@@ -110,7 +110,7 @@ The D0-D7 are bi-diretional, defaults to output, T0-T1 are output only. All line
 
 The T0-T1 could go into a 74HC139, dual 2:4 decoder for separated lines, and D0-D7 could go to a 74HC242, bi-directional switch for control direction;
 
-One dual 2:4 decoder, U8, 74HC139, uses T0-T3 as A0-A3 from U1, giving Y0-Y3 and Y4-Y7, DIR is DIR8.
+One dual 2:4 decoder, U8, 74HC139, uses T0-T3 as A0-A3 from U1, giving Y0-Y3 and Y4-Y7, the /OE is GND.
 
 One bi-direcional switch, U9, 74HC245, uses D0-D7 as A0-A7 from data bus, uses B0-B7 as D0-D7 to device bus, /OE is /OE9, DIR is DIR9.
 
