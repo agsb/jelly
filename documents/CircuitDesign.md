@@ -66,28 +66,29 @@ One latch 74HC754, U6, takes Q0-Q7 from U2 into D0-D7, giving Q0-Q7 as D0-D7 int
 
 *** One bi-direcional switch, U8, 74HC245, uses D0-D7 as A0-A7 from data bus, uses B0-B7 as D0-D7 to device bus, /OE is /OE8, DIR is DIR8.
 
-It is used to lookup table for math functions and translate opcode;
+When M3 is high, it is used to enable clock for U6 and load the lookup table for math functions and translate opcode;
 
-| name | M0 | M1 | M2 | M3 | action |
-| ---- | ----- | ----- | ------ | --- | ----- |
-| zero | 0 | 0 | 0 | 1 | clear  | 
-| incr | 1 | 0 | 0 | 1 | increase |
-| decr | 0 | 1 | 0 | 1 | decrease |
-| not  | 1 | 1 | 0 | 1 | one complement |
-| rev  | 0 | 0 | 1 | 1 | reverse order |
-| sfl  | 1 | 0 | 1 | 1 | shift left |
-| sfr  | 0 | 1 | 1 | 1 | shift right |
-| cpy  | 1 | 1 | 1 | 1 | copy and decode |
+#### Table Lookup
+| name | M0 | M1 | M2 | action |
+| ---- | ----- | ----- | ---- | --- |
+| zero | 0 | 0 | 0 | clear  | 
+| incr | 1 | 0 | 0 | increase |
+| decr | 0 | 1 | 0 | decrease |
+| not  | 1 | 1 | 0 | one complement |
+| rev  | 0 | 0 | 1 | reverse order |
+| sfl  | 1 | 0 | 1 | shift left |
+| sfr  | 0 | 1 | 1 | shift right |
+| cpy  | 1 | 1 | 1 | copy and decode |
 
 Any math lookup will push result into U6 latch, by connections (M3 and M0) at U2.A8, (M3 and M2) at U2.A9, (M3 and M2) at U2.A10 and M3 at CLK6. A zero also results when M3 is zero, but not goes to latch.
 
-#### Control Devices
+### Control Devices
 
-A decoder 3:8 74HC138, U7, takes M0-M2 from U1 into A0-A2, M3 low, gives /Y0-/Y7 as controls as table 3
+A decoder 3:8 74HC138, U7, takes M0-M2 from U1 into A0-A2, gives /Y0-/Y7 as controls as table 3;
 
-This circuit does select device, move direction, and operation over tapes and standart devices;
+When M3 is low, this circuit does sense of select device, move direction and operation over tapes and standart devices, and also signals when _begin_ or _again_ happen; When M3 is high all outputs are high.
 
-#### Table 3
+#### Table Controls
 | signal | /OE6 | CLK4 | CLK5 | /CLR4 | CLR3| action |
 | --- | --- | --- | --- | --- | --- | --- |
 | /Y0 | 1 | 0 | 0 | 1 | 0 | not connect, default states | 
@@ -95,9 +96,35 @@ This circuit does select device, move direction, and operation over tapes and st
 | /Y2 | 0 | 0 | 0 | 1 | 0 | output into bus |
 | /Y3 | 0 | 1 | 0 | 1 | 1 | output into code latch |
 | /Y4 | 0 | 0 | 1 | 1 | 0 | output into data latch |
-| /Y5 | 1 | 0 | 0 | 0 | 1 | clear, nop code |
+| /Y5 | 1 | 0 | 0 | 0 | 1 | clear, noop code |
 | /Y6 | 1 | 0 | 0 | 1 | 0 | to begin signal |
 | /Y7 | 1 | 0 | 0 | 1 | 0 | to again signal |
+
+### Devices 
+
+| T0 | T1 | selects |
+| --- | --- | --- |
+| 0 | 0 | standart device | 
+| 1 | 0 | one, code tape | 
+| 0 | 1 | two, data tape | 
+| 1 | 1 | none, no device | 
+
+| T2 | T3 | selects |
+| --- | --- | --- |
+| 0 | 0 | read from | 
+| 1 | 0 | write into | 
+| 0 | 1 | forward step| 
+| 1 | 1 | backward step | 
+
+| T0 | T1 | T2 | T3 | selects |
+| --- | --- | --- | --- | --- |
+| 0 | 0 | 0 | 1 |   |
+| 0 | 0 | 1 | 1 |   |
+| 1 | 1 | 0 | 0 |   |
+| 1 | 1 | 1 | 0 |   |
+| 1 | 1 | 0 | 1 |   |
+| 1 | 1 | 1 | 0 |   |
+
 
 ### Zero Detector
 
