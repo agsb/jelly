@@ -91,26 +91,26 @@ A decoder 3:8 74HC138, U7, takes M0-M2 from U1 into A0-A2, gives /Y0-/Y7 as cont
 When M3 is low, this circuit does sense of select device, move direction and operation over tapes and standart devices, and also signals when _begin_ or _again_ happen; When M3 is high all outputs are high.
 
 #### Table Controls
-| signal | /OE6 | CK4 | CK5 | /CR4 | CR3| action |
-| --- | --- | --- | --- | --- | --- | --- |
-| /Y0 | 1 | 0 | 0 | 1 | 0 | not connect, default states | 
-| /Y1 | 1 | 0 | 1 | 1 | 0 | input from bus |
-| /Y2 | 0 | 0 | 0 | 1 | 0 | output into bus |
-| /Y3 | 0 | 1 | 0 | 1 | 1 | output into code latch |
-| /Y4 | 0 | 0 | 1 | 1 | 0 | output into data latch |
-| /Y5 | 1 | 0 | 0 | 0 | 1 | clear, noop code |
-| /Y6 | 1 | 0 | 0 | 1 | 0 | to begin signal, active low |
-| /Y7 | 1 | 0 | 0 | 1 | 0 | to again signal, active low |
+| M0 | M1 | M2 | signal | /OE6 | CK4 | CK5 | /CR4 | CR3| action |
+| -- | -- | -- | --- | --- | --- | --- | --- | --- | --- |
+| 0 | 0 | 0 | /Y0 | 1 | 0 | 0 | 1 | 0 | not connect, default states | 
+| 1 | 0 | 0 | /Y1 | 0 | 0 | 0 | 1 | 0 | output into bus |
+| 0 | 1 | 0 | /Y2 | 0 | 1 | 0 | 1 | 1 | output into data latch |
+| 1 | 1 | 0 | /Y3 | 0 | 0 | 1 | 1 | 0 | output into code latch |
+| 0 | 0 | 1 | /Y4 | 1 | 0 | 1 | 1 | 0 | input from bus |
+| 1 | 0 | 1 | /Y5 | 1 | 0 | 0 | 1 | 0 | to begin signal, active low |
+| 0 | 1 | 1 | /Y6 | 1 | 0 | 0 | 1 | 0 | to again signal, active low |
+| 1 | 1 | 1 | /Y7 | 1 | 0 | 0 | 0 | 1 | clear, noop code |
 
 Some logic circuits aid to signals:
 
-- The /OE4 is of ((( /Y2 and /Y2) and /Y3) and /Y4);
-- The CK4 is of (not /Y3);
-- The CK5 is of (not /Y4);
-- The CR4 is /Y5;
-- The CR3 is ((not /Y5) or (not /Y3));
-- The _begin_ is of /Y6;
-- The _again_ is of /Y7;
+- The /OE4 is of ((( /Y1 and /Y1) and /Y2) and /Y3);
+- The CK4 is of (not /Y2);
+- The CK5 is of (/Y3 nand /Y4);
+- The CR4 is /Y7;
+- The CR3 is ( /Y nand /Y7);
+- The _begin_ is of /Y5;
+- The _again_ is of /Y6;
 
 Note: A 74HC238, 3:8 decoder with non inverted outputs, is better for it;
   
