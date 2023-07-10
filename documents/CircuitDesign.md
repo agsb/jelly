@@ -68,7 +68,7 @@ One latch 74HC754, U6, takes Q0-Q7 from U2 into D0-D7, giving Q0-Q7 as D0-D7 int
 
 When M3 is high, it is used to enable clock for U6 and load results from lookup table for math functions and translate opcode; The lookup table does more unary math operations over a byte than increase and decrease.
 
-#### Table Lookup
+#### Table Lookup M3 == 1
 | name | M0 | M1 | M2 | action |
 | ---- | ----- | ----- | ---- | --- |
 | zero | 0 | 0 | 0 | clear  | 
@@ -90,7 +90,7 @@ A decoder 3:8 74HC138, U7, takes M0-M2 from U1 into A0-A2, gives /Y0-/Y7 as cont
 
 When M3 is low, this circuit does sense of select device, move direction and operation over tapes and standart devices, and also signals when _begin_ or _again_ happen; When M3 is high all outputs are high.
 
-#### Table Controls
+#### Table Controls M3 == 0
 | M0 | M1 | M2 | signal | /OE6 | CK4 | CK5 | /CR4 | CR3| action |
 | -- | -- | -- | --- | --- | --- | --- | --- | --- | --- |
 | 0 | 0 | 0 | /Y0 | 1 | 0 | 0 | 1 | 0 | not connect, default states | 
@@ -102,7 +102,7 @@ When M3 is low, this circuit does sense of select device, move direction and ope
 | 0 | 1 | 1 | /Y6 | 1 | 0 | 0 | 1 | 0 | to again signal, active low |
 | 1 | 1 | 1 | /Y7 | 1 | 0 | 0 | 0 | 1 | clear, noop code |
 
-Some logic circuits aid to signals:
+Some logic circuits for signals:
 
 - The /OE4 is of ((( /Y1 and /Y1) and /Y2) and /Y3);
 - The CK4 is of (not /Y2);
@@ -112,8 +112,6 @@ Some logic circuits aid to signals:
 - The _begin_ is of /Y5;
 - The _again_ is of /Y6;
 
-Note: A 74HC238, 3:8 decoder with non inverted outputs, is better for it;
-  
 ### Devices 
 
 The high nible T0-T1 selects devices, operations, comands and information for a controler at external word.
