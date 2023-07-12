@@ -513,6 +513,16 @@
       </elementAttributes>
       <pos x="2040" y="-160"/>
     </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>CLR3</string>
+        </entry>
+      </elementAttributes>
+      <pos x="1580" y="1240"/>
+    </visualElement>
   </visualElements>
   <wires>
     <wire>
@@ -828,6 +838,10 @@
       <p2 x="1660" y="-600"/>
     </wire>
     <wire>
+      <p1 x="1500" y="1240"/>
+      <p2 x="1580" y="1240"/>
+    </wire>
+    <wire>
       <p1 x="1340" y="-860"/>
       <p2 x="1580" y="-860"/>
     </wire>
@@ -865,6 +879,10 @@
     </wire>
     <wire>
       <p1 x="1400" y="1120"/>
+      <p2 x="1500" y="1120"/>
+    </wire>
+    <wire>
+      <p1 x="1500" y="1120"/>
       <p2 x="1580" y="1120"/>
     </wire>
     <wire>
@@ -1150,6 +1168,10 @@
     <wire>
       <p1 x="1500" y="-660"/>
       <p2 x="1500" y="-240"/>
+    </wire>
+    <wire>
+      <p1 x="1500" y="1120"/>
+      <p2 x="1500" y="1240"/>
     </wire>
     <wire>
       <p1 x="860" y="200"/>
