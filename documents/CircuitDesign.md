@@ -114,7 +114,12 @@ When M3 is low, this circuit does sense of select device, move direction and ope
 | 8 | 1 | 0 | 1 | 0 | 1 | 0 | 1 | 0 | 0 | tape one, read, U7 into U5 |
 | 9 | 0 | 1 | 1 | 0 | 1 | 0 | 1 | 0 | 0 | tape two, read, U7 into U5 |
 | 10 | 1 | 1 | 1 | 0 | 1 | 0 | 1 | 0 | 0 | standard, read, U7 into U5 |
-| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | no action |
+| 11 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | 1 | 0 | none, none, clear U5 |
+| 12 | 0 | 0 | 0 | 1 | 0 | 1 | 1 | 1 | 0 | none, none, U6 into U5 |
+| 13 | 1| 1 | 0 | 1 | 1 | 0 | 1 | 1 | 0 | none, none, clear U4, clear U3 |
+| 14 | 1 | 1 | 1 | 0 | 0 | 1 | 1 | 1 | 0 | none, none, U6 into U4, clear U3 |
+| 15 | 1 | 1 | 1 | 1 | 0 | 0 | 1 | 1 | 0 | reserved, no action |
+|  |  |  |  |  |  |  |  |  |  |  |
 
 
 
