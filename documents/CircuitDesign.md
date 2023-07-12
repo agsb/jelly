@@ -123,7 +123,7 @@ When M3 is low, this circuit does sense of select device, move direction and ope
 | 13 | 1| 1 | 0 | 1 | 1 | 0 | 1| 1 | none, none, clear U4, clear U3 |
 | 14 | 1 | 1 | 1 | 0 | 1 | 0 | 0 | 1 | none, none, U6 into U4, clear U3 |
 |  |  |  |  |  |  |  |  |  |  |
-| 15 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 1 | reserved, no action |
+| 15 | 1 | 1 | 1 | 1 | 0 | 0 | 1 | 1 | reserved, no action |
 |  |  |  |  |  |  |  |  |  |  |
 
 Notes:
