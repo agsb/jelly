@@ -101,27 +101,35 @@ One switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q7 as D0-D7 in
 When M3 is low, this circuit does sense of select device, move direction and operation over tapes and standart devices, and also signals when _begin_ or _again_ happen; When M3 is high all outputs are high.
 
 #### Table Controls M3 == 0
-| case | T0 | T1 | T2 | T3 | CK4 | CK5 | /OE6 | /OE7 | CR3 | action |
-| ---- | -- | -- | -- | --- | --- | --- | --- | --- | --- | --- |
-| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | no action |
-| 1 | 1 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | 0 | tape one, forward, no transfer |
-| 2 | 0 | 1 | 0 | 1 | 0 | 0 | 1 | 1 | 0 | tape two, forward, no transfer |
-| 3 | 1 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | 0 | tape one, backward, no transfer |
-| 4 | 0 | 1 | 0 | 1 | 0 | 0 | 1 | 1 | 0 | tape two, backward, no transfer |
-| 5 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | tape one, write, U6 into U7 |
-| 6 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | tape two, write, U6 into U7 |
-| 7 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | standard, write, U6 into U7 |
-| 8 | 1 | 0 | 1 | 0 | 1 | 0 | 1 | 0 | 0 | tape one, read, U7 into U5 |
-| 9 | 0 | 1 | 1 | 0 | 1 | 0 | 1 | 0 | 0 | tape two, read, U7 into U5 |
-| 10 | 1 | 1 | 1 | 0 | 1 | 0 | 1 | 0 | 0 | standard, read, U7 into U5 |
-| 11 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | 1 | 0 | none, none, clear U5 |
-| 12 | 0 | 0 | 0 | 1 | 0 | 1 | 1 | 1 | 0 | none, none, U6 into U5 |
-| 13 | 1| 1 | 0 | 1 | 1 | 0 | 1 | 1 | 0 | none, none, clear U4, clear U3 |
-| 14 | 1 | 1 | 1 | 0 | 0 | 1 | 1 | 1 | 0 | none, none, U6 into U4, clear U3 |
-| 15 | 1 | 1 | 1 | 1 | 0 | 0 | 1 | 1 | 0 | reserved, no action |
-|  |  |  |  |  |  |  |  |  |  |  |
+| case | T0 | T1 | T2 | T3 | CK4 | CK5 | /OE6 | /OE7 | action |
+| ---- | -- | -- | -- | --- | --- | --- | --- | --- | --- |
+| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | no action |
+| 1 | 1 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | tape one, forward, no transfer |
+| 2 | 0 | 1 | 0 | 1 | 0 | 0 | 1 | 1 | tape two, forward, no transfer |
+| 3 | 1 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | tape one, backward, no transfer |
+| 4 | 0 | 1 | 0 | 1 | 0 | 0 | 1 | 1 | tape two, backward, no transfer |
+|  |  |  |  |  |  |  |  |  |  |
+| 5 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | tape one, write, U6 into U7 |
+| 6 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | tape two, write, U6 into U7 |
+| 7 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | standard, write, U6 into U7 |
+|  |  |  |  |  |  |  |  |  |  |
+| 8 | 1 | 0 | 1 | 0 | 0 | 1 | 1 | 0 | tape one, read, U7 into U5 |
+| 9 | 0 | 1 | 1 | 0 | 0 | 1 | 1 | 0 | tape two, read, U7 into U5 |
+| 10 | 1 | 1 | 1 | 0 | 0 | 1 | 1 | 0 | standard, read, U7 into U5 |
+|  |  |  |  |  |  |  |  |  |  |
+| 11 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | 1 | none, none, clear U5 |
+| 12 | 0 | 0 | 0 | 1 | 0 | 1 | 0 | 1 | none, none, U6 into U5 |
+|  |  |  |  |  |  |  |  |  |  |
+| 13 | 1| 1 | 0 | 1 | 1 | 0 | 1| 1 | none, none, clear U4, clear U3 |
+| 14 | 1 | 1 | 1 | 0 | 1 | 0 | 0 | 1 | none, none, U6 into U4, clear U3 |
+|  |  |  |  |  |  |  |  |  |  |
+| 15 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 1 | reserved, no action |
+|  |  |  |  |  |  |  |  |  |  |
 
-
+Notes:
+- case 5, tape one is code, no write allowed, never
+- case 13 and case 14, also clear/reset U3
+   
 
 Some logic circuits for signals:
 
