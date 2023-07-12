@@ -104,10 +104,11 @@ When M3 is low, this circuit does sense of select device, move direction and ope
 | case | T0 | T1 | T2 | T3 | CK4 | CK5 | /OE6 | /OE7 | action |
 | ---- | -- | -- | -- | --- | --- | --- | --- | --- | --- |
 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | no action |
+|  |  |  |  |  |  |  |  |  |  |
 | 1 | 1 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | tape one, forward, no transfer |
 | 2 | 0 | 1 | 0 | 1 | 0 | 0 | 1 | 1 | tape two, forward, no transfer |
-| 3 | 1 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | tape one, backward, no transfer |
-| 4 | 0 | 1 | 0 | 1 | 0 | 0 | 1 | 1 | tape two, backward, no transfer |
+| 3 | 1 | 0 | 1 | 1 | 0 | 0 | 1 | 1 | tape one, backward, no transfer |
+| 4 | 0 | 1 | 1 | 1 | 0 | 0 | 1 | 1 | tape two, backward, no transfer |
 |  |  |  |  |  |  |  |  |  |  |
 | 5 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | tape one, write, U6 into U7 |
 | 6 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | tape two, write, U6 into U7 |
@@ -117,11 +118,11 @@ When M3 is low, this circuit does sense of select device, move direction and ope
 | 9 | 0 | 1 | 1 | 0 | 0 | 1 | 1 | 0 | tape two, read, U7 into U5 |
 | 10 | 1 | 1 | 1 | 0 | 0 | 1 | 1 | 0 | standard, read, U7 into U5 |
 |  |  |  |  |  |  |  |  |  |  |
-| 11 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | 1 | none, none, clear U5 |
-| 12 | 0 | 0 | 0 | 1 | 0 | 1 | 0 | 1 | none, none, U6 into U5 |
+| 11 | 0 | 0 | 1 | 1 | 0 | 1 | 1 | 1 | none, none, clear U5 |
+| 12 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 1 | none, none, U6 into U5 |
 |  |  |  |  |  |  |  |  |  |  |
-| 13 | 1| 1 | 0 | 1 | 1 | 0 | 1| 1 | none, none, clear U4, clear U3 |
-| 14 | 1 | 1 | 1 | 0 | 1 | 0 | 0 | 1 | none, none, U6 into U4, clear U3 |
+| 13 | 0 | 0 | 0 | 1 | 1 | 0 | 1| 1 | none, none, clear U4, clear U3 |
+| 14 | 1 | 1 | 0 | 1 | 1 | 0 | 0 | 1 | none, none, U6 into U4, clear U3 |
 |  |  |  |  |  |  |  |  |  |  |
 | 15 | 1 | 1 | 1 | 1 | 0 | 0 | 1 | 1 | reserved, no action |
 |  |  |  |  |  |  |  |  |  |  |
