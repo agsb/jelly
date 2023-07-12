@@ -18,7 +18,14 @@ The processing steps are based in lookup tables, defined by 16 (4-bits) operatio
 
 ## Circuits
 
-The chips are grouped by type and sequential numbers are used for identify.
+
+rules:
+
+- The chips are grouped by type and sequential numbers are used for identify;
+- Use internal and external data bus;
+- Minimize number of signals;
+- Use pull-down to GND; 
+- _"keep it simple, sweet"_;
 
 ### BOM
 
@@ -26,7 +33,7 @@ The chips are grouped by type and sequential numbers are used for identify.
 
 01 binary counter, U3, 74HC393, (< 100 MHz), dual 4-bit binary counter, with clock (CK3) and clear (CR3);
 
-02 input latchs, U4 and U5, are 74HC273, 500 ns (~ 2.0 MHz), octal D-Flip-Flop with clock (CK4, CK5), clear (CR4, CR5);
+02 input latch, U4 and U5, 74HC574, 500 ns (~ 2.0 MHz), octal D-Flip-Flop, 3-state, with clock (CK6), enable (/OE6);
 
 01 output latch, U6, 74HC574, 500 ns (~ 2.0 MHz), octal D-Flip-Flop, 3-state, with clock (CK6), enable (/OE6);
 
@@ -50,23 +57,23 @@ One oscilator circuit gives a primary clock pulses (less than 1.6 MHz);
 
 A binary up-counter 74HC393, U3, takes clock pulses from clock circuit, gives Q0-Q3 as A0-A4 into U1, clear is CR3 and Q4-Q7 unused;
 
-A latch 74HC273, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, clock is CK4, clear is /CR4 and Q4-Q7 unused;
+A latch 74HC574, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, clock is CK4 and Q4-Q7 unused;
 
 A eeprom AT28C16, U1, takes Q0-Q3 from U3 and Q4-Q7 from U4, gives D0-D3 as M0-M3 and D4-D7 as T0-T3. 
 
-This circuit is used to translate a byte as finite state machine steps. it is used for opcode and microcode lookup, address A0-A3 are used for up 16 steps micro-code, A4-A7 for define 16 op-code, A8-A9 are not used and A10 select mode code or loop.
+This circuit is used to translate a byte as finite state machine steps. It is used for opcode and microcode lookup, address A0-A3 are used for up 16 steps micro-code, A4-A7 for define 16 op-code, A8 selects mode code or loop, A9-A10 are not used.
 
-The low nibble M0-M3 are used to control signals inside Jelly and the high nible T0-T3 are used to signals outside Jelly.
+The low nibble M0-M3 are used to select math operation and the high nible T0-T3 are used to signals outside Jelly. Both controls signals inside Jelly.
 
 ### Math Lookups and Decoder
 
-One latch 74HC273, U5, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U2, clock is CK5, clear is /CR5;
+One latch 74HC574, U5, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U2, clock is CK5;
 
 One eeprom At28C16, U2, takes Q0-Q7 from U5 into A0-A7, takes M0-M2 from U1 into A8-A10, gives Q0-Q7 into U6; 
 
-One latch 74HC754, U6, takes Q0-Q7 from U2 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is /OE6, clock is CK6; 
+One latch 74HC574, U6, takes Q0-Q7 from U2 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is /OE6, clock is CK6; 
 
-When M3 is high, it is used to enable clock for U6 and load results from lookup table for math functions and translate opcode; The lookup table does more unary math operations over a byte than increase and decrease.
+When M3 is high, it is used to enable clock for U6 (CK6) and load results from lookup table for math functions and translate opcode; The lookup table does more unary math operations over a byte than increase and decrease. 
 
 #### Table Lookup M3 == 1
 | name | M0 | M1 | M2 | action |
@@ -80,27 +87,36 @@ When M3 is high, it is used to enable clock for U6 and load results from lookup 
 | sfr  | 0 | 1 | 1 | shift right |
 | cpy  | 1 | 1 | 1 | copy and decode |
 
-Any math lookup will push result into U6 latch, by connections (M3 and M0) at U2.A8, (M3 and M2) at U2.A9, (M3 and M2) at U2.A10 and M3 at CK6. A zero also results when M3 is zero, but not goes to latch.
+
+When M3 is low, results does not go to latch, but is used to set three signal lines as _begin_ (M3 or M0), _again_ (M3 or M1) and _next_ (M3 or M2); 
 
 In _copy and decode_ all bytes are translated in valid opcodes range, 0 to 15, not defined symbols are mapped as noop; 
 
+Any math lookup will push result into U6 latch, by connections (M3 and M0) at U2.A8, (M3 and M2) at U2.A9, (M3 and M2) at U2.A10 and M3 at CK6. 
+
 ### Control Devices
 
-A decoder 3:8 74HC138, U7, takes M0-M2 from U1 into A0-A2, gives /Y0-/Y7 as controls as table 3;
+One switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q7 as D0-D7 into external data bus, output enable is /OE7, direction is DR7; 
 
 When M3 is low, this circuit does sense of select device, move direction and operation over tapes and standart devices, and also signals when _begin_ or _again_ happen; When M3 is high all outputs are high.
 
 #### Table Controls M3 == 0
-| M0 | M1 | M2 | signal | /OE6 | CK4 | CK5 | /CR4 | CR3| action |
-| -- | -- | -- | --- | --- | --- | --- | --- | --- | --- |
-| 0 | 0 | 0 | /Y0 | 1 | 0 | 0 | 1 | 0 | not connect, default states | 
-| 1 | 0 | 0 | /Y1 | 0 | 0 | 0 | 1 | 0 | output into bus |
-| 0 | 1 | 0 | /Y2 | 0 | 1 | 0 | 1 | 1 | output into data latch |
-| 1 | 1 | 0 | /Y3 | 0 | 0 | 1 | 1 | 0 | output into code latch |
-| 0 | 0 | 1 | /Y4 | 1 | 0 | 1 | 1 | 0 | input from bus |
-| 1 | 0 | 1 | /Y5 | 1 | 0 | 0 | 1 | 0 | to begin signal, active low |
-| 0 | 1 | 1 | /Y6 | 1 | 0 | 0 | 1 | 0 | to again signal, active low |
-| 1 | 1 | 1 | /Y7 | 1 | 0 | 0 | 0 | 1 | clear, noop code |
+| case | T0 | T1 | T2 | T3 | CK4 | CK5 | /OE6 | /OE7 | CR3 | action |
+| ---- | -- | -- | -- | --- | --- | --- | --- | --- | --- | --- |
+| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | no action |
+| 1 | 1 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | 0 | tape one, forward, no transfer |
+| 2 | 0 | 1 | 0 | 1 | 0 | 0 | 1 | 1 | 0 | tape two, forward, no transfer |
+| 3 | 1 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | 0 | tape one, backward, no transfer |
+| 4 | 0 | 1 | 0 | 1 | 0 | 0 | 1 | 1 | 0 | tape two, backward, no transfer |
+| 5 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | tape one, write, U6 into U7 |
+| 6 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | tape two, write, U6 into U7 |
+| 7 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | standard, write, U6 into U7 |
+| 8 | 1 | 0 | 1 | 0 | 1 | 0 | 1 | 0 | 0 | tape one, read, U7 into U5 |
+| 9 | 0 | 1 | 1 | 0 | 1 | 0 | 1 | 0 | 0 | tape two, read, U7 into U5 |
+| 10 | 1 | 1 | 1 | 0 | 1 | 0 | 1 | 0 | 0 | standard, read, U7 into U5 |
+| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | no action |
+
+
 
 Some logic circuits for signals:
 
