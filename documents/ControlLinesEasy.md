@@ -22,10 +22,9 @@ Loop Logics circuit:
 - U11, 74HC32, OR gates, A0-A3, B0-B3, Y0-Y3
 - U12, 74HC32, OR gates, A0-A3, B0-B3, Y0-Y3
 - U13, 74HC32, OR gates, A0-A3, B0-B3, Y0-Y3
-- U14, 74HC00, NAND gates, A0-A3, B0-B3, Y0-Y3
+- U14, 74HC08, AND gates, A0-A3, B0-B3, Y0-Y3
 - U15, 74HC00, NAND gates, A0-A3, B0-B3, Y0-Y3
 - U16, 74HC00, NAND gates, A0-A3, B0-B3, Y0-Y3
-- U17, 74HC00, NAND gates, A0-A3, B0-B3, Y0-Y3
    
 ## States and Signals:
 
@@ -57,12 +56,12 @@ clock pulse into CLK8
 | --- | --- | --- | --- | --- |
 | CL4, CL8 | clear a byte in latch | yes | 74hc273 | C0 | 
 | CK4 | load a byte into latch | yes | 74hc273 | C1 |
-| T0 | define tape device | yes | C2 |
-| T1 | define tape device | yes | C3 |
-| K0 | define read or write | yes | C4 |
-| K1 | define forward or backward | yes | C5 |
-| BG | flag code begin [ | yes | software condition | C6 |
-| AG | flag code again ] | yes | software condition | C7 |
+| BG | flag code begin [ | yes | software condition | C2 |
+| AG | flag code again ] | yes | software condition | C3 |
+| T0 | define tape device | yes | C4 |
+| T1 | define tape device | yes | C5 |
+| K0 | define read or write | yes | C6 |
+| K1 | define forward or backward | yes | C7 |
 | --- | --- | --- | --- | --- |
 | M0 | define math or decode | yes | into U5.A8 | C8 |
 | M1 | define math or decode | yes | into U5.A9 | C9 |
@@ -154,62 +153,56 @@ done == (K0 and move) xor (K1)
 | 0 | L | H | L | no change | 
 | 1-255 | H | H | L | clear | 
 
-??? done == (K0 and move) xor (K1)
+??? logics
 
+## Actions 
 
-## Actions ZZZ rever 
-
-| na | Actions | Signals | Does |
+| na | Actions | Signals | Note |
 | -- | -- | -- | -- |
-| 0 | none | 0x0 | does nothing, halt |
-| 1 | device send | /OE6; | |
-| 2 | forward code tape  | ONE, FWD, CS6; | |
-| 3 | backward code tape | ONE, BCK, CS6; | |
-| 4 | forward data tape | TWO, FWD, CS6; | |
-| 5 | backward data tape| TWO, BCK, CS6; | |
-| 6 | read from code tape | ONE, RD, CS6; | |
-| 7 | read from data tape | TWO, RD, CS6; | |
-| 8 | read from standart input | STD, RD, CS6; | |
-| 9 | write into code tape | ONE, WR, CS6; | |
-| 10 | write into data tape | TWO, WR, CS6; | |
-| 11 | write into standart output | STD, WR, CS6; | |
-| 12 | load from data bus | /OE6, /OE10, /DR10, CS7; | |
-| 13 | save into data bus | /OE6, /OE10, DR10, /OE8; | |
-| 14 | fill code from data bus | /OE8, CS5; | |
-| 15 | fill data from data bus | /OE8, CS7; | |
-| 16 | copy data | CPY, CS8; | |
-| 17 | clear data | CLR, CS8; | |
-| 18 | increase data | INC, CS8; | |
-| 19 | decrease data | DEC, CS8; | |
-| 20 | decode page zero | PGZ, CS8; | |
-| 21 | decode page loop | PGL, CS8; | |
-| 22 | decode page none | NON, CS8; | |
-| 23 | decode page halt | HLT, CS8; | |
-| 24 | halt | still not defined | |
+|  0 | none | 0x0 | does nothing |
+|  1 | lookup code | COD, CS4; | |
+|  2 | lookup loop | LOP, CS4; | |
+|  3 | forward code tape  | ONE, FW | |
+|  4 | backward code tape | ONE, BK | |
+|  5 | forward data tape | TWO, FW | |
+|  6 | backward data tape| TWO, BK | |
+|  7 | read from code tape | ONE, RD, /OE7, /DR7, CS5 | |
+|  8 | write into code tape | ONE, WR, /OE7, DR7, /OE6 | never |
+|  9 | read from data tape | TWO, RD, /OE7, /DR7, CS5 | |
+| 10 | write into date tape | TWO, WR, /OE7, DR7, /OE6 | |
+| 11 | read from standart input | STD, RD, /OE7, /DR7, CS5 | |
+| 12 | write into standart output | STD, WR, /OE7, DR7, /OE6 | |
+| 13 | copy data | CPY, CS6; | |
+| 14 | clear data | CLR, CS6; | |
+| 15 | increase data | INC, CS6; | |
+| 16 | decrease data | DEC, CS6; | |
+| 17 | halt | still not defined | |
 
 ## Commands
 
-to forward code tape: 2, 1
+to forward code tape: 3
 
-to backward code tape: 3, 1
+to backward code tape: 4
 
-to load a byte code, : 2, 1, 6, 11, 17, 19
+to forward data tape: 5
 
-to load a byte code, while: 2, 1, 6, 11, 18, 19
+to backward data tape: 6
 
-to load a byte code, until: 3, 1, 6, 11, 18, 19
+to load a byte code : 7
 
-to forward data tape: 4, 1
+to load a byte data : 8
 
-to backward data tape: 5, 1
+to load a byte in code: 7, 1 
 
-to increase a byte data: 7, 11, 15, 9, 12 
+to load a byte in loop: 7, 2
 
-to decrease a byte data: 7, 11, 16, 9, 12
+to increase a byte data: 8, 15, 11
 
-to input a byte, getch: 8, 11, 13, 9, 12
+to decrease a byte data: 8, 16, 11
 
-to output a byte, putch: 7, 11, 13, 10, 12
+to input a byte, getch: 9
+
+to output a byte, putch: 12
 
 ### Wait
 
