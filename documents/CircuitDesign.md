@@ -2,13 +2,13 @@
 
 # Circuit Design
 
-In a processing unit, opcodes define what to make and microcode how to make. Opcode names a abstract action and microcode controls the signals and the flow of information to execute the action.
+In a processing unit, opcodes define what to make and microcode how to make. Opcode names a abstract action and microcode controls signals and flow of information to execute actions.
 
 Jelly is a simple 8-bit digital circuit, all math, opcodes and microcodes are done by eeproms and latches. It haves a zero detector, a binary counter e some glue state logics, and LEDs many LEDS ! 
 
 Jelly circuit include the interface for Device Control Circuit (DCC), that could be real tape or memory emulated.
 
-Jelly uses 2kb space, address are A0-A10, data inputs are D0-D7, data outputs are Q0-Q7, multiplexed control lines C0-C7. 
+Jelly uses 2kb space, address are A0-A10, data inputs are D0-D7, data outputs are Q0-Q7, multiplexed control lines C0-C7 and C8-C15. 
 
 All chips used are CMOS, have OE (output enable), CK (clock pulse) or CS (chip select), CR (clear latch) lines for select action. The eeproms have /WR (write enable) to VCC.
 
@@ -18,26 +18,25 @@ The processing steps are based in lookup tables, defined by 16 (4-bits) operatio
 
 ## Circuits
 
+Rules:
 
-rules:
-
-- The chips are grouped by type and sequential numbers are used for identify;
-- Use internal and external data bus;
+- The chips are grouped by type, sequential numbers are used for identify;
+- Use an internal and an external data bus;
 - Minimize number of signals;
 - Use pull-down to GND; 
 - _"keep it simple, sweet"_;
 
 ### BOM
 
-02 eeproms, U1 and U2, are AT28C16, 150 ns (~ 6.7 MHz), 2k x 8-bits, and have /OE to GND, /CS to GND, /WR to VCC;
-
-01 binary counter, U3, 74HC393, (< 100 MHz), dual 4-bit binary counter, with clock (CK3) and clear (CR3);
+03 eeproms, U1, U2 and U3, are AT28C16, 150 ns (~ 6.7 MHz), 2k x 8-bits, and have /OE to GND, /CS to GND, /WR to VCC;
 
 02 input latch, U4 and U5, 74HC574, 500 ns (~ 2.0 MHz), octal D-Flip-Flop, 3-state, with clock (CK6), enable (/OE6);
 
 01 output latch, U6, 74HC574, 500 ns (~ 2.0 MHz), octal D-Flip-Flop, 3-state, with clock (CK6), enable (/OE6);
 
-01 switch, U7, is 74HC245, 500 ns (~ 2.0 MHz), octal bi-diretional switch, 3-state, with direction (DIR), enable (/OE7);
+01 input-output switch, U7, is 74HC245, 500 ns (~ 2.0 MHz), octal bi-diretional switch, 3-state, with direction (DIR), enable (/OE7);
+
+01 binary counter, U8, 74HC393, (< 100 MHz), dual 4-bit binary counter, with clock (CK3) and clear (CR3);
 
 01 D-flip-flop, U10, is 74HC74, dual D-Type flip-flops, with clear and preset;
 
@@ -51,17 +50,17 @@ rules:
 
 ### Clock
 
-One oscilator circuit gives a primary clock pulses (less than 1.6 MHz); 
+One oscilator circuit with a 555, gives a primary clock pulses (less than 1.6 MHz); 
 
 ### Finite State Machine 
 
-A binary up-counter 74HC393, U3, takes clock pulses from clock circuit, gives Q0-Q3 as A0-A4 into U1, clear is CR3 and Q4-Q7 unused;
+A binary up-counter 74HC393, U8, takes clock pulses from clock circuit, gives Q0-Q3 as A0-A4 into U1, clear is CR3 and Q4-Q7 unused;
 
 A latch 74HC574, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, clock is CK4 and Q4-Q7 unused;
 
-A eeprom AT28C16, U1, takes Q0-Q3 from U3 and Q4-Q7 from U4, gives D0-D3 as M0-M3 and D4-D7 as T0-T3. 
+Two eeprom AT28C16, U1 and A2, takes Q0-Q3 from U8 as A0-A3 and Q4-Q7 from U4 as A4-A7, U1 gives D0-D3 as M0-M3 and D4-D7 as T0-T3, and U2 gives D0-D7 as C0-C7 control lines for circuits. 
 
-This circuit is used to translate a byte as finite state machine steps. It is used for opcode and microcode lookup, address A0-A3 are used for up 16 steps micro-code, A4-A7 for define 16 op-code, A8 selects mode code or loop, A9-A10 are not used.
+This circuit is used to translate a byte as finite state machine steps. It is used for opcode and microcode lookup, address A0-A3 are used for up 16 steps micro-code, A4-A7 for define 16 op-code, A8 selected by zero circuit detector, A9 selects mode code or loop, A10 are not used.
 
 The low nibble M0-M3 are used to select math operation and the high nible T0-T3 are used to signals outside Jelly. Both controls signals inside Jelly.
 
@@ -94,43 +93,46 @@ In _copy and decode_ all bytes are translated in valid opcodes range, 0 to 15, n
 
 Any math lookup will push result into U6 latch, by connections (M3 and M0) at U2.A8, (M3 and M2) at U2.A9, (M3 and M2) at U2.A10 and M3 at CK6. 
 
-### Control Devices
-
-One switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q7 as D0-D7 into external data bus, output enable is /OE7, direction is DR7; 
+One input-output switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q7 as D0-D7 into external data bus, output enable is /OE7, direction is DR7; 
 
 When M3 is low, this circuit does sense of select device, move direction and operation over tapes and standart devices, and also signals when _begin_ or _again_ happen; When M3 is high all outputs are high.
 
+### Control Devices
+
+Those U4, U5, U6, U7 must be coordenated to use the data bus, and the signals C0-C8 are used in order. 
+C0 is CK4, C1 is CK5, C2 is OE6, C3 is OE7, and C4-C7 not used and reserved.
+
 #### Table Controls M3 == 0
-| case | T0 | T1 | T2 | T3 | CK4 | CK5 | /OE6 | /OE7 | action |
+| case | T0 | T1 | T2 | T3 | CK4 C0 | CK5 C1 | OE6 C2 | OE7 C3 | action |
 | ---- | -- | -- | -- | --- | --- | --- | --- | --- | --- |
-| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | no action |
+| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | no action |
 |  |  |  |  |  |  |  |  |  |  |
-| 1 | 1 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | tape one, forward, no transfer |
-| 2 | 0 | 1 | 0 | 1 | 0 | 0 | 1 | 1 | tape two, forward, no transfer |
-| 3 | 1 | 0 | 1 | 1 | 0 | 0 | 1 | 1 | tape one, backward, no transfer |
-| 4 | 0 | 1 | 1 | 1 | 0 | 0 | 1 | 1 | tape two, backward, no transfer |
+| 1 | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | tape one, forward, no transfer |
+| 2 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | tape two, forward, no transfer |
+| 3 | 1 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | tape one, backward, no transfer |
+| 4 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | tape two, backward, no transfer |
 |  |  |  |  |  |  |  |  |  |  |
-| 5 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | tape one, write, U6 into U7 |
-| 6 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | tape two, write, U6 into U7 |
-| 7 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | standard, write, U6 into U7 |
+| 5 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | tape one, write, U6 into U7 |
+| 6 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 1 | tape two, write, U6 into U7 |
+| 7 | 1 | 1 | 0 | 0 | 0 | 0 | 1 | 1 | standard, write, U6 into U7 |
 |  |  |  |  |  |  |  |  |  |  |
-| 8 | 1 | 0 | 1 | 0 | 0 | 1 | 1 | 0 | tape one, read, U7 into U5 |
-| 9 | 0 | 1 | 1 | 0 | 0 | 1 | 1 | 0 | tape two, read, U7 into U5 |
-| 10 | 1 | 1 | 1 | 0 | 0 | 1 | 1 | 0 | standard, read, U7 into U5 |
+| 8 | 1 | 0 | 1 | 0 | 0 | 1 | 0 | 1 | tape one, read, U7 into U5 |
+| 9 | 0 | 1 | 1 | 0 | 0 | 1 | 0 | 1 | tape two, read, U7 into U5 |
+| 10 | 1 | 1 | 1 | 0 | 0 | 1 | 0 | 1 | standard, read, U7 into U5 |
 |  |  |  |  |  |  |  |  |  |  |
-| 11 | 0 | 0 | 1 | 1 | 0 | 1 | 1 | 1 | none, none, clear U5 |
-| 12 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 1 | none, none, U6 into U5 |
+| 11 | 0 | 0 | 1 | 1 | 0 | 1 | 0 | 0 | none, none, clear U5 |
+| 12 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | 0 | none, none, U6 into U5 |
 |  |  |  |  |  |  |  |  |  |  |
-| 13 | 0 | 0 | 0 | 1 | 1 | 0 | 1| 1 | none, none, clear U4, clear U3 |
-| 14 | 1 | 1 | 0 | 1 | 1 | 0 | 0 | 1 | none, none, U6 into U4, clear U3 |
+| 13 | 0 | 0 | 0 | 1 | 1 | 0 | 0| 0 | none, none, clear U4, clear U3 |
+| 14 | 1 | 1 | 0 | 1 | 1 | 0 | 1 | 0 | none, none, U6 into U4, clear U3 |
 |  |  |  |  |  |  |  |  |  |  |
-| 15 | 1 | 1 | 1 | 1 | 0 | 0 | 1 | 1 | reserved, no action |
+| 15 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | reserved, no action |
 |  |  |  |  |  |  |  |  |  |  |
 
 Notes:
 - case 5, tape one is code, no write allowed, never
 - case 13 and case 14, also clear/reset U3
-   
+- logics for /OE6 and /OE7 are inverted, just add a NOT later.  
 
 Some logic circuits for signals:
 
