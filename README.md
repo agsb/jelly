@@ -66,26 +66,24 @@ Not all bytes are opcodes then needs a NOP, do nothing instruction, to catch tho
 | 7 | \[ | while loop  | brainfuck | begin |
 | 8 | \] | until loop  | brainfuck | again |
 | 9 | \! | mark end of code | jelly | halt |
-| 10 | \% | rewinds both tapes | jelly | reset |
 | 0 | \= | do nothing | jelly | noop |
+| 10 | \% | reverse bits | jelly | reset |
 | 11 | \~ | one complement | jelly | noop |
 | 12 | \{ | shift left | jelly | noop |
 | 13 | \} | shift right | jelly | noop |
 | 14 | \^ | clear | jelly | noop |
 | 15 | \& | reserved | jelly | noop |
 
-- Any other ascii value is just translated as nop.
-- Opcodes 11, 12, 13, 14, 15 reserved.
+- Any other ascii value is just translated as noop.
+- Opcodes 10, 11, 12, 13, 14, 15 reserved and could change.
 
 ## Jelly extensions
 
 Jelly includes: (list can grow)
 
-  - a nop, to do nothing, and move forward (or backward) code tape one step;
+  - a noop, to do nothing, and move forward (or backward) code tape one step;
   
   - a eof, to end of code and halt;
-  
-  - a reset, to rewind tapes and restart;
 
 ### Jelly ideas
 
