@@ -30,11 +30,11 @@ Rules:
 
 03 eeproms, U1, U2 and U3, are AT28C16, 150 ns (~ 6.7 MHz), 2k x 8-bits, and have /OE to GND, /CS to GND, /WR to VCC;
 
-02 input latch, U4 and U5, 74HC574, 500 ns (~ 2.0 MHz), octal D-Flip-Flop, 3-state, with clock (CK6), enable (/OE6);
+02 input latch, U4 and U5, 74HC574, 40 ns (< 20.0 MHz), octal D-Flip-Flop, 3-state, with clock (CK6), enable (/OE6);
 
-01 output latch, U6, 74HC574, 500 ns (~ 2.0 MHz), octal D-Flip-Flop, 3-state, with clock (CK6), enable (/OE6);
+01 output latch, U6, 74HC574, 40 ns (< 20.0 MHz), octal D-Flip-Flop, 3-state, with clock (CK6), enable (/OE6);
 
-01 input-output switch, U7, is 74HC245, 500 ns (~ 2.0 MHz), octal bi-diretional switch, 3-state, with direction (DIR), enable (/OE7);
+01 input-output switch, U7, is 74HC245, 40 ns (< 20.0 MHz), octal bi-diretional switch, 3-state, with direction (DIR), enable (/OE7);
 
 01 binary counter, U8, 74HC393, (< 100 MHz), dual 4-bit binary counter, with clock (CK3) and clear (CR3);
 
@@ -58,7 +58,7 @@ A binary up-counter 74HC393, U8, takes clock pulses from clock circuit, gives Q0
 
 A latch 74HC574, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, clock is CK4 and Q4-Q7 unused;
 
-Two eeprom AT28C16, U1 and A2, takes Q0-Q3 from U8 as A0-A3 and Q4-Q7 from U4 as A4-A7, U1 gives D0-D3 as M0-M3 and D4-D7 as T0-T3, and U2 gives D0-D7 as C0-C7 control lines for circuits. 
+Two eeprom AT28C16, U1 and A2, takes Q0-Q3 from U8 as A0-A3 and Q4-Q7 from U4 as A4-A7, U1 gives D0-D3 as M0-M3 and D4-D7 as T0-T3, and U2 gives D0-D7 as C0-C4 and K4-K7 control lines for circuits. 
 
 This circuit is used to translate a byte as finite state machine steps. It is used for opcode and microcode lookup, address A0-A3 are used for up 16 steps micro-code, A4-A7 for define 16 op-code, A8 selected by zero circuit detector, A9 selects mode code or loop, A10 are not used.
 
@@ -99,8 +99,8 @@ When M3 is low, this circuit does sense of select device, move direction and ope
 
 ### Control Devices
 
-Those U4, U5, U6, U7 must be coordenated to use the data bus, and the signals C0-C8 are used in order. 
-C0 is CK4, C1 is CK5, C2 is OE6, C3 is OE7, and C4-C7 not used and reserved.
+Those U4, U5, U6, U7 must be coordenated to use the data bus, and the signals C0-C3 are used in order. 
+C0 is CK4, C1 is CK5, C2 is OE6, C3 is OE7, and C4 is tied to A9 in U1 and U2, C5-C7 not used and reserved.
 
 #### Table Controls M3 == 0
 | case | T0 | T1 | T2 | T3 | CK4 C0 | CK5 C1 | OE6 C2 | OE7 C3 | action |
@@ -134,16 +134,6 @@ Notes:
 - case 13 and case 14, also clear/reset U3
 - logics for /OE6 and /OE7 are inverted, just add a NOT later.  
 
-Some logic circuits for signals:
-
-- The /OE4 is of ((( /Y1 and /Y1) and /Y2) and /Y3);
-- The CK4 is of (not /Y2);
-- The CK5 is of (/Y3 nand /Y4);
-- The CR4 is /Y7;
-- The CR3 is ( /Y nand /Y7);
-- The _begin_ is of /Y5;
-- The _again_ is of /Y6;
-
 ### Devices 
 
 The high nible T0-T1 selects devices, operations, comands and information for a controler at external word.
@@ -158,7 +148,7 @@ One bi-direcional switch, U9, 74HC245, uses D0-D7 as A0-A7 from data bus, uses B
 
 Note: The /OE9 line is controled by not(T0 or T1) and direction DIR9 by T2; ****
 
-#### Connector
+#### Connector external
 | line | Pin | Pin | line |
 | --- | --- | --- | --- |
 | D0 | 1 | 14 | VCC |
@@ -187,32 +177,17 @@ Note: The /OE9 line is controled by not(T0 or T1) and direction DIR9 by T2; ****
 
 Note: The standart input and output devices does no moves forward or backward.
 
-#### Table commands
-| T0 | T1 | T2 | T3 | selects |
-| --- | --- | --- | --- | --- |
-| 0 | 0 | 0 | 1 |   |
-| 0 | 0 | 1 | 1 |   |
-| 1 | 1 | 0 | 0 |   |
-| 1 | 1 | 1 | 0 |   |
-| 1 | 1 | 0 | 1 |   |
-| 1 | 1 | 1 | 0 |   |
-
-
 ### Zero Detector
 
-Uses Two quad dual OR gate, U13 and U14. U13 takes Q0-Q7 from U8 as A1B1-A4B4, gives Y1-Y4 as A1B1-A2B2 to U14; U14 takes Y1-Y4 from U13 and A1B1-A2B2, gives Y1-Y2 into A3B3, gives Y3 as ZERO line to Jelly circuit. Not using A4-B4/Y4;
+Uses Two quad dual OR gate, U13 and U14. U13 takes Q0-Q7 from U8 as A1B1-A4B4, gives Y1-Y4 as A1B1-A2B2 to U14; U14 takes Y1-Y4 from U13 and A1B1-A2B2, gives Y1-Y2 into A3B3, gives Y3 as ZERO line to A8 into U1 and U2 of Jelly circuit. Not using A4-B4/Y4;
 
 This circuit does zero detection;
 
 ### Toggle Page
 
-The circuit for toggle modes uses one 74HC74, dual D-Flip-Flop, for toggle lines _mode_ and _move_. The line _mode_ is connect to A9 into U5, U6 and U7, and line _move_ reverses the direction, forward and backwards of tape movement.
-
-The opcodes and microcode stored into U5, U6 and U7 could be mapped into pages using address A9-A10. Only two modes, common and loop, are used with A9. 
+The circuit for toggle modes uses one 74HC74, dual D-Flip-Flop, for toggle lines _mode_ and _move_. The line _mode_ is connect to A9 into U1 and U2, and line _move_ reverses the direction, forward and backwards of tape movement.
 
 The clock line for each switch is controled by the Loop Logic Circuit;
-
-## Logic Loops
 
 ## Lines
 
