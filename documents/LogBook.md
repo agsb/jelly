@@ -6,15 +6,13 @@ Thinking about mode normal and loop.
 
 Using zero detector circuit as A8 for FSM eeproms U1 and U2, solves how detect zero. 
 
-When in page A8=0 if got a _begin_ [ is a end of loop. When in page A8=1 if got a _again_ [ is a loop back. 
+When in page A8=0 if got a _begin_ [ is a end of loop. When in page A8=1 if got a _again_ [ is a loop back. Both cases sets the counter and select A9=1 for mode loop. Everthing else is same for both.
 
-Both sets the counter and select A9=1 as page loop. 
+In mode loop, at A8=1 and A9=1, any _begin_ or _again_ just updates the counter until counter is zero. When then page will be, A8=0 and A9=1, which clears A8=0 and A9=0. 
 
-In page loop, A8=1 and A9=1, any _begin_ or _again_ just updates the counter until counter is zero, then page will be, A8=0 and A9=1, which clears A8=0 and A9=0. 
+As no data is read or writed, while in loop mode, the circuit for Math is used as counter.
 
-As no data read while in loop mode, the circuit for Math is used as counter.
-
-Confirm two FSM eeproms, One with M0-M3, for Math, decode (and maybe 3 flips-flops), and T0-T4 for control devices at connector; And Two for C0-C4, for internal control lines and K0-K4 not used and reserved.
+Confirm use of two eeproms for Finite State Machine. One with M0-M3, for Math, decode (and maybe 3 flips-flops), and T0-T4 for control devices at connector; One for C0-C4, for internal control lines and K0-K4 not used and reserved.
 
 11/07/2023
 
