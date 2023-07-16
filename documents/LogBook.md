@@ -1,12 +1,28 @@
 # LogBook
 
+16/07/2023
+
+Thinking about mode normal and loop. 
+
+Using zero detector circuit as A8 for FSM eeproms U1 and U2, solves how detect zero. 
+
+When in page A8=0 if got a _begin_ [ is a end of loop. When in page A8=1 if got a _again_ [ is a loop back. 
+
+Both sets the counter and select A9=1 as page loop. 
+
+In page loop, A8=1 and A9=1, any _begin_ or _again_ just updates the counter until counter is zero, then page will be, A8=0 and A9=1, which clears A8=0 and A9=0. 
+
+As no data read while in loop mode, the circuit for Math is used as counter.
+
+Confirm two FSM eeproms, One with M0-M3, for Math, decode (and maybe 3 flips-flops), and T0-T4 for control devices at connector; And Two for C0-C4, for internal control lines and K0-K4 not used and reserved.
+
 11/07/2023
 
 The 74HC273 is a weird circuit with a strange pinout and use it adds more two control lines for clear.
 
 The true-table for controls is done but too much logic ports to make it.
 
-Better return to original design, use 74HC574 and a pull-down pool for clear, and use another eeprom to control signals. Then Jelly will be pleny of lines for states.
+Better return to original design, use 74HC574 and a pull-down pool for clear, and use another eeprom to control signals. Then Jelly will be pleny of lines for states and less glue logic.
 
 03/07/2023
 
