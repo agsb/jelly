@@ -26,7 +26,9 @@ The image is from https://en.freejpg.com.ar/free/info/100024149/jelly-fish-blue-
 
 I know that it will be slow.
 
-Some of notes are keeped at [ logbook ](https://hackaday.io/project/186689-jelly).
+Some notes are keeped at [ logbook ](https://github.com/agsb/jelly/blob/main/documents/LogBook.md).
+
+There are a hackday log [ hackio ](https://hackaday.io/project/186689-jelly).
 
 ## Ideas
 
