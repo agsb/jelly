@@ -105,7 +105,7 @@ C0 is CK4, C1 is CK5, C2 is OE6, C3 is OE7, and C4 is tied to A9 in U1 and U2, C
 #### Table Controls M3 == 0
 | case | T0 | T1 | T2 | T3 | CK4 C0 | CK5 C1 | OE6 C2 | OE7 C3 | action |
 | ---- | -- | -- | -- | --- | --- | --- | --- | --- | --- |
-| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | no action |
+| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | no action |
 |  |  |  |  |  |  |  |  |  |  |
 | 1 | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | tape one, forward, no transfer |
 | 2 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | tape two, forward, no transfer |
