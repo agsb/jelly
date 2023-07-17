@@ -48,21 +48,21 @@ Rules:
 
 02 XOR gates, U14, U15, are 74HC86, 150 ns ( ~6.7 MHz ), quad 2-input XOR gate;
 
-### Clock
+### Clock Circuit
 
-One oscilator circuit with a 555, gives a primary clock pulses (less than 1.6 MHz); 
+One oscilator circuit with a 555, gives a primary clock pulses (less than 2.0 MHz); 
 
 ### Finite State Machine 
 
-A binary up-counter 74HC393, U8, takes clock pulses from clock circuit, gives Q0-Q3 as A0-A4 into U1, clear is CR3 and Q4-Q7 unused;
+A binary up-counter 74HC393, U8, takes clock pulses from clock circuit, gives Q0-Q3 as A0-A4 into U1 and U2, clear is CR3 and _Q4-Q7 unused_;
 
-A latch 74HC574, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, clock is CK4 and Q4-Q7 unused;
+A latch 74HC574, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, clock is CK4 and _Q4-Q7 unused_;
 
-Two eeprom AT28C16, U1 and A2, takes Q0-Q3 from U8 as A0-A3 and Q4-Q7 from U4 as A4-A7, U1 gives D0-D3 as M0-M3 and D4-D7 as T0-T3, and U2 gives D0-D7 as C0-C4 and K4-K7 control lines for circuits. 
+Two eeprom AT28C16, U1 and A2, takes Q0-Q3 from U8 as A0-A3 and Q4-Q7 from U4 as A4-A7, U1 gives C0-C7 and U2 gives C8-C15. The D0-D3 as M0-M3 and D4-D7 as T0-T3, D8-D11 as C0-C4, and D12-D15 as K4-K7, as lines for circuits. 
 
-This circuit is used to translate a byte as finite state machine steps. It is used for opcode and microcode lookup, address A0-A3 are used for up 16 steps micro-code, A4-A7 for define 16 op-code, A8 selected by zero circuit detector, A9 selects mode code or loop, A10 are not used.
+This circuit is used to translate a byte as finite state machine steps. It is used for opcode and microcode lookup, address A0-A3 are used for up 16 steps micro-code, A4-A7 for define 16 op-code, A8 selected by zero circuit detector, A9 selects mode code or loop, _A10 are not used_.
 
-The low nibble M0-M3 are used to select math operation and the high nible T0-T3 are used to signals outside Jelly. Both controls signals inside Jelly.
+The M0-M3 are used to select math operation, the T0-T3 are used to signals outside Jelly, the C0-C3 and K0-K3 controls signals inside Jelly.
 
 ### Math Lookups and Decoder
 
@@ -72,7 +72,11 @@ One eeprom At28C16, U2, takes Q0-Q7 from U5 into A0-A7, takes M0-M2 from U1 into
 
 One latch 74HC574, U6, takes Q0-Q7 from U2 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is /OE6, clock is CK6; 
 
-When M3 is high, it is used to enable clock for U6 (CK6) and load results from lookup table for math functions and translate opcode; The lookup table does more unary math operations over a byte than increase and decrease. 
+When M3 is low, results does not go to latch U6, but is used to set three signal lines as _begin_ (M3 or M0), _again_ (M3 or M1) and _next_ (M3 or M2); 
+
+When M3 is high, it is used to enable clock for U6 (CK6) and load results from lookup table for math functions and translate opcode; 
+
+The lookup table does more unary math operations over a byte than increase and decrease. 
 
 #### Table Lookup M3 == 1
 | name | M0 | M1 | M2 | action |
@@ -87,20 +91,16 @@ When M3 is high, it is used to enable clock for U6 (CK6) and load results from l
 | cpy  | 1 | 1 | 1 | copy and decode |
 
 
-When M3 is low, results does not go to latch, but is used to set three signal lines as _begin_ (M3 or M0), _again_ (M3 or M1) and _next_ (M3 or M2); 
-
 In _copy and decode_ all bytes are translated in valid opcodes range, 0 to 15, not defined symbols are mapped as noop; 
 
 Any math lookup will push result into U6 latch, by connections (M3 and M0) at U2.A8, (M3 and M2) at U2.A9, (M3 and M2) at U2.A10 and M3 at CK6. 
 
 One input-output switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q7 as D0-D7 into external data bus, output enable is /OE7, direction is DR7; 
 
-When M3 is low, this circuit does sense of select device, move direction and operation over tapes and standart devices, and also signals when _begin_ or _again_ happen; When M3 is high all outputs are high.
-
 ### Control Devices
 
 Those U4, U5, U6, U7 must be coordenated to use the data bus, and the signals C0-C3 are used in order. 
-C0 is CK4, C1 is CK5, C2 is OE6, C3 is OE7, and C4 is tied to A9 in U1 and U2, C5-C7 not used and reserved.
+Line C0 is CK4, C1 is CK5, C2 is OE6, C3 is OE7, and C4 is tied to U10 and Q0 as A10 into U1 and U2, C5-C7 not used and reserved.
 
 #### Table Controls M3 == 0
 | case | T0 | T1 | T2 | T3 | CK4 C0 | CK5 C1 | OE6 C2 | OE7 C3 | action |
