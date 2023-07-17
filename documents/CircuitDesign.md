@@ -60,7 +60,7 @@ A latch 74HC574, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, cl
 
 Two eeprom AT28C16, U1 and A2, takes Q0-Q3 from U8 as A0-A3 and Q4-Q7 from U4 as A4-A7, U1 gives C0-C7 and U2 gives C8-C15. The D0-D3 as M0-M3, D4-D7 as T0-T3, D8-D11 as C0-C4, and D12-D15 as K4-K7, as lines for circuits. 
 
-This circuit is used to translate a byte as finite state machine steps. It is used for opcode and microcode lookup, address A0-A3 are used for up 16 steps micro-code, A4-A7 for define 16 op-code, A8 selected by zero circuit detector, A9 selects mode code or loop, _A10 is not used_.
+This circuit is used to translate a byte as finite state machine steps. It is used for opcode and microcode lookup, address A0-A3 are used for up 16 steps micro-code, A4-A7 for define 16 op-code, A8 selected by zero circuit detector, A9 selected by toggle a flip-flop as mode code or loop, _A10 is not used_.
 
 The M0-M3 are used to select math operation, the T0-T3 are used to signals outside Jelly, the C0-C3 and K0-K3 controls signals inside Jelly.
 
