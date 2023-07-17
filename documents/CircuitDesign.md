@@ -58,7 +58,7 @@ A binary up-counter 74HC393, U8, takes clock pulses from clock circuit, gives Q0
 
 A latch 74HC574, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, clock is CK4 and _Q4-Q7 unused_;
 
-Two eeprom AT28C16, U1 and A2, takes Q0-Q3 from U8 as A0-A3 and Q4-Q7 from U4 as A4-A7, U1 gives C0-C7 and U2 gives C8-C15. The D0-D3 as M0-M3 and D4-D7 as T0-T3, D8-D11 as C0-C4, and D12-D15 as K4-K7, as lines for circuits. 
+Two eeprom AT28C16, U1 and A2, takes Q0-Q3 from U8 as A0-A3 and Q4-Q7 from U4 as A4-A7, U1 gives C0-C7 and U2 gives C8-C15. The D0-D3 as M0-M3, D4-D7 as T0-T3, D8-D11 as C0-C4, and D12-D15 as K4-K7, as lines for circuits. 
 
 This circuit is used to translate a byte as finite state machine steps. It is used for opcode and microcode lookup, address A0-A3 are used for up 16 steps micro-code, A4-A7 for define 16 op-code, A8 selected by zero circuit detector, A9 selects mode code or loop, _A10 are not used_.
 
@@ -185,9 +185,9 @@ This circuit does zero detection;
 
 ### Toggle Page
 
-The circuit for toggle modes uses one 74HC74, dual D-Flip-Flop, for toggle lines _mode_ and _move_. The line _mode_ is connect to A9 into U1 and U2, and line _move_ reverses the direction, forward and backwards of tape movement.
+The circuit for toggle modes uses one 74HC74, dual D-Flip-Flop, for toggle lines _mode_ and _move_. The clock line for each switch is controled by K4 and K5;
 
-The clock line for each switch is controled by the Loop Logic Circuit;
+The line _mode_ is connect to A9 into U1 and U2, and line _move_ reverses the direction, forward and backwards of tape movement.
 
 ## Lines
 
