@@ -6,16 +6,11 @@ _read the funny manuals_, again.
 
 Take a time to review the documents to a version for release.
 
-The pull-down resistor understand challenge starts. Must have resistors to ground (GND) for limit the draw current. 
+The wich pull-down resistor challenge starts. Must have resistors to ground (GND), for limit the draw current. 
 
-For old 74HC-CMOS at 4.5-5.1 V, it must be ? Already known that Vil/Iil must be reference, then could be 2k (0.8V/400uA) or 800k (0.8V/1uA) or 100 (0.4V/4mA), which one ?  Almost all comments says, depends of manufacturer, source and circuit. 
+For old 74HC-CMOS at 4.5-5.1 V, it must be ? Already known that Vil/Iil must be reference, almost all comments says, depends of manufacturer, source and circuit. I will try with a pool of 4k7 Ohms.
 
-I will try a pool of 4k7 Ohms.
-
-Note:
-
-- https://www.farnell.com/datasheets/311607.pdf 
-
+And for Leds ? At 4.5V, _20mA source limit_, and no more than 2mA per led, then 1.5k for Red (1.8V), 1.2k Yellow (2.2V), 750 for Green (3.1V) and 450 for Blue (3.6V);
 
 16/07/2023
 
