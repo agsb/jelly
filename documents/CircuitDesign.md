@@ -40,13 +40,13 @@ Rules:
 
 01 D-flip-flop, U10, is 74HC74, dual D-Type flip-flops, with clear and preset;
 
-02 OR gates, U14, U15, are 74HC32, 150 ns ( ~6.7 MHz ), quad 2-input OR gate;
+02 OR gates, U11, U12, are 74HC32, 150 ns ( ~6.7 MHz ), quad 2-input OR gate;
 
-02 AND gates, U14, U15, are 74HC08, 150 ns ( ~6.7 MHz ), quad 2-input AND gate;
+02 NAND gates, U13, U14, are 74HC00, 150 ns ( ~6.7 MHz ), quad 2-input NAND gate;
 
-02 NAND gates, U14, U15, are 74HC00, 150 ns ( ~6.7 MHz ), quad 2-input NAND gate;
+02 AND gates, U15, U16, are 74HC08, 150 ns ( ~6.7 MHz ), quad 2-input AND gate;
 
-02 XOR gates, U14, U15, are 74HC86, 150 ns ( ~6.7 MHz ), quad 2-input XOR gate;
+02 XOR gates, U17, U18, are 74HC86, 150 ns ( ~6.7 MHz ), quad 2-input XOR gate;
 
 ### Clock Circuit
 
