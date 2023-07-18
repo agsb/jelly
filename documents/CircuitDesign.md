@@ -12,9 +12,9 @@ Jelly uses 2kb space, address are A0-A10, data inputs are D0-D7, data outputs ar
 
 All chips used are CMOS, have OE (output enable), CK (clock pulse) or CS (chip select), CR (clear latch) lines for select action. The eeproms have /WR (write enable) to VCC.
 
-There are four 8-bit devices, a code tape, a data tape, a standart input and a standart output. For easy, a code_byte is read from code tape and data_byte is writed into or read from data tape. The standart devices are instantaneous.
+There are four 8-bit devices, a code tape, a data tape, a standart input and a standart output. For easy, a code_byte is read from code tape and data_byte is writed into or read from data tape. The standart devices are like streams and instantaneous.
 
-The processing steps are based in lookup tables, defined by 16 (4-bits) operation codes - opcodes, with 16 (4-bits) sequential steps - microcodes, in 4 (2-bits) modes, in total of 11 bits, 2048 possibilities.
+The processing steps are based in lookup tables, defined by 16 (4-bits) operation codes - opcodes, with 16 (4-bits) sequential steps - microcodes, in 8 (3-bits) modes, in total of 11 bits, 2048 possibilities.
 
 ## Circuits
 
@@ -54,9 +54,9 @@ One oscilator circuit with a 555, gives a primary clock pulses (less than 2.0 MH
 
 ### Finite State Machine 
 
-A binary up-counter 74HC393, U8, takes clock pulses from clock circuit, gives Q0-Q3 as A0-A4 into U1 and U2, clear is CR3 and _Q4-Q7 unused_;
+A binary up-counter 74HC393, U8, takes clock pulses from clock circuit, gives Q0-Q3 as A0-A4 into U1 and U2, clear is CR3 and second counter _Q4-Q7 unused_;
 
-A latch 74HC574, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, clock is CK4 and _Q4-Q7 unused_;
+A latch 74HC574, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, clock is CK4 and high nibble _Q4-Q7 unused_;
 
 Two eeprom AT28C16, U1 and A2, takes Q0-Q3 from U8 as A0-A3 and Q4-Q7 from U4 as A4-A7, U1 gives C0-C7 and U2 gives C8-C15. The D0-D3 as M0-M3, D4-D7 as T0-T3, D8-D11 as C0-C4, and D12-D15 as K4-K7, as lines for circuits. 
 
@@ -66,13 +66,13 @@ The M0-M3 are used to select math operation, the T0-T3 are used to signals outsi
 
 ### Math Lookups and Decoder
 
-One latch 74HC574, U5, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U2, clock is CK5;
+One latch 74HC574, U5, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U3, clock is CK5;
 
-One eeprom At28C16, U2, takes Q0-Q7 from U5 into A0-A7, takes M0-M2 from U1 into A8-A10, gives Q0-Q7 into U6; 
+One eeprom At28C16, U3, takes Q0-Q7 from U5 into A0-A7, takes M0-M2 from U1 into A8-A10, gives Q0-Q7 into U6; 
 
-One latch 74HC574, U6, takes Q0-Q7 from U2 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is /OE6, clock is CK6; 
+One latch 74HC574, U6, takes Q0-Q7 from U3 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is /OE6, clock is CK6 tied at M3; 
 
-When M3 is low, results does not go to latch U6, but is used to set three signal lines as _begin_ (M3 or M0), _again_ (M3 or M1) and _next_ (M3 or M2); 
+When M3 is low, results does not go to latch U6, but is used to set three active low signal lines: _begin_ (M3 or M0), _again_ (M3 or M1) and _next_ (M3 or M2); 
 
 When M3 is high, it is used to enable clock for U6 (CK6) and load results from lookup table for math functions and translate opcode; 
 
@@ -90,7 +90,6 @@ The lookup table does more unary math operations over a byte than increase and d
 | sfr  | 0 | 1 | 1 | shift right |
 | cpy  | 1 | 1 | 1 | copy and decode |
 
-
 In _copy and decode_ all bytes are translated in valid opcodes range, 0 to 15, not defined symbols are mapped as noop; 
 
 Any math lookup will push result into U6 latch, by connections (M3 and M0) at U2.A8, (M3 and M2) at U2.A9, (M3 and M2) at U2.A10 and M3 at CK6. 
@@ -99,8 +98,7 @@ One input-output switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q
 
 ### Control Devices
 
-Those U4, U5, U6, U7 must be coordenated to use the data bus, and the signals C0-C3 are used in order. 
-Line C0 is CK4, C1 is CK5, C2 is OE6, C3 is OE7, and C4 is tied to U10 and Q0 as A10 into U1 and U2, C5-C7 not used and reserved.
+Those U4, U5, U6, U7 must be coordenated to use the data bus, and the signals C0-C3 are used in order for, C0 is CK4, C1 is CK5, C2 is OE6, C3 is OE7, and C4 is tied to U10. The Q1 from U10 as A10 into U1 and U2, C5-C7 not used and reserved.
 
 #### Table Controls M3 == 0
 | case | T0 | T1 | T2 | T3 | CK4 C0 | CK5 C1 | OE6 C2 | OE7 C3 | action |
@@ -130,9 +128,10 @@ Line C0 is CK4, C1 is CK5, C2 is OE6, C3 is OE7, and C4 is tied to U10 and Q0 as
 |  |  |  |  |  |  |  |  |  |  |
 
 Notes:
-- case 5, tape one is code, no write allowed, never
-- case 13 and case 14, also clear/reset U3
-- logics for /OE6 and /OE7 are inverted, just add a NOT later.  
+- logics for /OE6 and /OE7 are inverted, just add a NOT later;  
+- case 5, tape one is code, no write allowed, never;
+- case 13 and case 14, also clear/reset U3;
+- data bus D0-D7 have pull-down resistors for clear U4 and U5 when U6 and U7 are in 3-state.
 
 ### Devices 
 
@@ -140,13 +139,11 @@ The high nible T0-T1 selects devices, operations, comands and information for a 
 
 The D0-D7 are bi-diretional, defaults to output, T0-T1 are output only. All lines are as pull-down and high actived. 
 
-The T0-T1 could go into a 74HC139, dual 2:4 decoder for separated lines, and D0-D7 could go to a 74HC242, bi-directional switch for control direction;
+One bi-direcional switch, U7, 74HC245, uses D0-D7 as A0-A7 from internal data bus, uses B0-B7 as D0-D7 to external device bus, /OE is /OE7, DIR is DIR7.
 
-One dual 2:4 decoder, U8, 74HC139, uses T0-T3 as A0-A3 from U1, giving Y0-Y3 and Y4-Y7, the /OE is GND.
+Optional external, One dual 2:4 decoder, U9, 74HC139, uses T0-T3 as A0-A3 from U1, giving Y0-Y3 and Y4-Y7, for external controler, the /OE is GND.
 
-One bi-direcional switch, U9, 74HC245, uses D0-D7 as A0-A7 from data bus, uses B0-B7 as D0-D7 to device bus, /OE is /OE9, DIR is DIR9.
-
-Note: The /OE9 line is controled by not(T0 or T1) and direction DIR9 by T2; ****
+Note: The /OE7 line is controled by not(T0 or T1) and direction DIR7 by T2; ****
 
 #### Connector external
 | line | Pin | Pin | line |
@@ -181,7 +178,7 @@ Note: The standart input and output devices does no moves forward or backward.
 
 Uses Two quad dual OR gate, U13 and U14. U13 takes Q0-Q7 from U8 as A1B1-A4B4, gives Y1-Y4 as A1B1-A2B2 to U14; U14 takes Y1-Y4 from U13 and A1B1-A2B2, gives Y1-Y2 into A3B3, gives Y3 as ZERO line to A8 into U1 and U2 of Jelly circuit. Not using A4-B4/Y4;
 
-This circuit does zero detection;
+This circuit does zero detection and is tied as A8 into U1 and U2;
 
 ### Toggle Page
 
