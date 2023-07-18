@@ -12,12 +12,13 @@ int zero, mode, move, loop;
 
 int i, c, d, cp, dp;
 
-char * code = 
+char * code1 = 
 "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.!";
 
+char * code = "++++>+++++<[[->+<]]!";
 char data[8192];
 
-zero = loop = mode = move = cp = dp = 0;
+c = d = zero = loop = mode = move = cp = dp = 0;
 
 while (1) {
     
@@ -31,13 +32,13 @@ while (1) {
 
     d = data[dp];
     
+    printf (" %4d %4d %4d %4d | %4d %1c | %4d  %4d |\n", 
+        zero, loop, mode, move, cp, (char) c, dp, d);
+
     if (move == 0) cp++;
 
     if (move != 0) cp--;
   
-    printf (" %4d %4d %4d %4d | %4d %4d | %1c | %4d\n", 
-        zero, loop, mode, move, cp, dp, c, d);
-
     if (c == '!') break;
 
     if (mode == 1) {
@@ -55,7 +56,7 @@ while (1) {
 
     if (mode == 0) {
     
-        switch (d) {
+        switch (c) {
             case '<' : dp--; break;
             case '>' : dp++; break;
             case ',' : d = getchar(); data[dp] = d; break;
@@ -76,6 +77,7 @@ while (1) {
                     // page 100
                     d = data[dp];
                     if (d != 0) {
+                        cp--;
                         loop = -1;
                         move = 1;
                         mode = 1; 
