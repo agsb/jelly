@@ -174,28 +174,19 @@ Note: The /OE7 line is controled by not(T0 or T1) and direction DIR7 by T2; ****
 
 Note: The standart input and output devices does no moves forward or backward.
 
-
 ### Glue Logics
 
-The Zero detector circuit uses two quad dual OR gate, U13 and U14. Does (D0 OR D1 OR D2 OR D3 OR D4 OR D5 OR D6 OR D7). The U13 takes Q0-Q7 from U8 as A1B1-A4B4, gives Y1-Y4 as A1B1-A2B2 to U14; U14 takes Y1-Y4 from U13 and A1B1-A2B2, gives Y1-Y2 into A3B3, gives Y3 as ZERO line to A8 into U1 and U2 of Jelly circuit, _not using A4-B4-Y4_;
+The Zero detector circuit uses two quad dual OR gate, U13 and U14. Does (D0 OR D1 OR D2 OR D3 OR D4 OR D5 OR D6 OR D7). Wherever, U13 are all used and U14 gives Y3 as A8 into U1 and U2 of Jelly circuit, _spare one gate of U14_;
 
-The Math selector circuit, uses one quad dual AND gates, U15, and take M3 as A1-A3, and M0-M2 as B1-B3, gives Y1-Y3 as A8-A10 into U3, _no use A4-B4-Y4_; 
+The Math selector circuit, uses one quad dual AND gates, U15. Does (M3 AND M0), (M3 AND M1), (M3 AND M2), gives Y1-Y3 as A8-A10 into U3, _spare one gate of U15_; 
 
-The Toggle circuit, uses one quad dual AND gates, U16, and take NOT(M3) as A1-A3, and M0-M2 as B1-B3, gives Y1-Y2 as CLK1-CLK2 of U10, Y3 is reserved, _no use A4-B4-Y4_;  
+The Toggle circuit, uses one quad dual AND gates, U16. Does (/M3 AND M0), (/M3 AND M1), (/M3 AND M2), gives Y0-Y1 as CLK1-CLK2 of U10, Y2 is reserved, _spare one gate of U16_;  
 
-The U10 receive CLK1-CLK2 from U16 and gives Q1 as A9 into U1 and U2, and Q2 to reverse direction circuit; 
+The U10 receive Y0-Y1 as CLK1-CLK2 from U16 and gives Q1 as A9 into U1 and U2, and Q2 to reverse direction circuit; 
 
 The Reverse direction circuit gets Q2 from U10 and T2-T3 from U1, does ((Q2 AND T3) XOR T2) to DIR7 and T2 at connector;
 
-All NOT() is done by NAND ports;
-
-
-### Toggle Page
-
-The circuit for toggle modes uses one 74HC74, dual D-Flip-Flop, for toggle lines _mode_ and _move_. The clock line for each switch is controled by K4 and K5;
-
-The line _mode_ is connect to A9 into U1 and U2, and line _move_ reverses the direction, forward and backwards of tape movement.
+All NOT() and XOR() are done by NAND ports;
 
 ## Lines
 
-Explained in [control lines](documents/ControlLines.md)
