@@ -42,11 +42,11 @@ Rules:
 
 02 OR gates, U11, U12, are 74HC32, 150 ns ( ~6.7 MHz ), quad 2-input OR gate;
 
-02 NAND gates, U13, U14, are 74HC00, 150 ns ( ~6.7 MHz ), quad 2-input NAND gate;
+02 AND gates, U13, U14, are 74HC08, 150 ns ( ~6.7 MHz ), quad 2-input AND gate;
 
-02 AND gates, U15, U16, are 74HC08, 150 ns ( ~6.7 MHz ), quad 2-input AND gate;
+02 NAND gates, U15, U16, are 74HC00, 150 ns ( ~6.7 MHz ), quad 2-input NAND gate;
 
-02 XOR gates, U17, U18, are 74HC86, 150 ns ( ~6.7 MHz ), quad 2-input XOR gate;
+(01 XOR gates, U17, U18, are 74HC86, 150 ns ( ~6.7 MHz ), quad 2-input XOR gate) maybe not;
 
 ### Clock Circuit
 
@@ -72,7 +72,7 @@ One eeprom At28C16, U3, takes Q0-Q7 from U5 into A0-A7, takes M0-M2 from U1 into
 
 One latch 74HC574, U6, takes Q0-Q7 from U3 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is /OE6, clock is CK6 tied at M3; 
 
-When M3 is low, results does not go to latch U6, but is used to set three active low signal lines: _begin_ (M3 or M0), _again_ (M3 or M1) and _next_ (M3 or M2); 
+When M3 is low, results does not go to latch U6, but is used to set three active signal lines: S0 (/M3 AND M0), S1 (/M3 AND M1) and S3 (/M3 AND M2); The /M3 is NOT(M3), done by a NAND port;
 
 When M3 is high, it is used to enable clock for U6 (CK6) and load results from lookup table for math functions and translate opcode; 
 
@@ -92,7 +92,7 @@ The lookup table does more unary math operations over a byte than increase and d
 
 In _copy and decode_ all bytes are translated in valid opcodes range, 0 to 15, not defined symbols are mapped as noop; 
 
-Any math lookup will push result into U6 latch, by connections (M3 and M0) at U2.A8, (M3 and M2) at U2.A9, (M3 and M2) at U2.A10 and M3 at CK6. 
+Any math lookup will push result into U6 latch, by connections (M3 AND M0) at U2.A8, (M3 AND M2) at U2.A9, (M3 AND M2) at U2.A10 and M3 at CK6. 
 
 One input-output switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q7 as D0-D7 into external data bus, output enable is /OE7, direction is DR7; 
 
@@ -174,11 +174,21 @@ Note: The /OE7 line is controled by not(T0 or T1) and direction DIR7 by T2; ****
 
 Note: The standart input and output devices does no moves forward or backward.
 
-### Zero Detector
 
-Uses Two quad dual OR gate, U13 and U14. U13 takes Q0-Q7 from U8 as A1B1-A4B4, gives Y1-Y4 as A1B1-A2B2 to U14; U14 takes Y1-Y4 from U13 and A1B1-A2B2, gives Y1-Y2 into A3B3, gives Y3 as ZERO line to A8 into U1 and U2 of Jelly circuit. Not using A4-B4/Y4;
+### Glue Logics
 
-This circuit does zero detection and is tied as A8 into U1 and U2;
+The Zero detector circuit uses two quad dual OR gate, U13 and U14. Does (D0 OR D1 OR D2 OR D3 OR D4 OR D5 OR D6 OR D7). The U13 takes Q0-Q7 from U8 as A1B1-A4B4, gives Y1-Y4 as A1B1-A2B2 to U14; U14 takes Y1-Y4 from U13 and A1B1-A2B2, gives Y1-Y2 into A3B3, gives Y3 as ZERO line to A8 into U1 and U2 of Jelly circuit, _not using A4-B4-Y4_;
+
+The Math selector circuit, uses one quad dual AND gates, U15, and take M3 as A1-A3, and M0-M2 as B1-B3, gives Y1-Y3 as A8-A10 into U3, _no use A4-B4-Y4_; 
+
+The Toggle circuit, uses one quad dual AND gates, U16, and take NOT(M3) as A1-A3, and M0-M2 as B1-B3, gives Y1-Y2 as CLK1-CLK2 of U10, Y3 is reserved, _no use A4-B4-Y4_;  
+
+The U10 receive CLK1-CLK2 from U16 and gives Q1 as A9 into U1 and U2, and Q2 to reverse direction circuit; 
+
+The Reverse direction circuit gets Q2 from U10 and T2-T3 from U1, does ((Q2 AND T3) XOR T2) to DIR7 and T2 at connector;
+
+All NOT() is done by NAND ports;
+
 
 ### Toggle Page
 
