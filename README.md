@@ -4,7 +4,7 @@
 
 Jelly is a concept, a alternative computer with a diferent paradigm, not for performance but for design.
 
-Jelly is a minimal DIY 8-bit CPU made with TTL chips, to perform computations using sequential access tapes.
+Jelly is a minimal DIY 8-bit CPU made with CMOS chips, to perform computations using sequential access tapes.
 
 ## What is it ?
 
@@ -44,7 +44,7 @@ Jelly is not a common cpu.
 
 - There is no memory address, just tapes that moves forward or backward.
 
-- The standart input and output are instant devices, not tapes. 
+- The standart input and output are instant stream devices, not tapes. 
 
 And Jelly executes a esoteric language.
 
@@ -101,29 +101,27 @@ Jelly does not pre-compiler tricks, then need a logic to deal with loops.
 
 The _begin_ and _again_ loops are like the _while_ and _until_ concepts of any programming language, but used together.
 
-The _begin_ ends when the data byte is zero, then advances until the corresponding _again_. 
+The _begin_ ends when the actual data byte is zero, then advances until the corresponding _again_. 
 
-The _again_ repeats while the data byte is not zero, then must go back to the corresponding _begin_.
+The _again_ repeats while the actual data byte is not zero, then must go back to the corresponding _begin_.
 
-The loops can be nested, using a counter that increase for begins and decrease for again, finish the loop when counter is zero. As a 8-bit circuit, the maximum nested loops is 255;
+The loops can be nested, using a counter that increase for begins and decrease for again, finishing the loop when counter is zero. As a 8-bit circuit, the maximum nested loops is 255;
 
 ## Circuit Layout
 
-How the circuit connects is explained in [circuit layout](documents/CircuitLayout.md)
+How the Jelly circuit connects is explained in [circuit design](documents/CircuitDesign.md)
 
 ### Logic Loops
 
 How loops are implemented in Jelly is explained in [logic loops](documents/LogicLoop.md)
 
-## Control signals
-
-Explained in [control lines](documents/ControlLines.md)
-
 ## Main frame
 
--- work in progress
+Jelly will be a wirewrap circuit -- work in progress
 
 ## Work Bench
 
--- work in progress
+Jelly logic circuits needs some tests -- work in progress
+
+
 
