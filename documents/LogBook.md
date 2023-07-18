@@ -1,5 +1,22 @@
 # LogBook
 
+18/07/2023
+
+_read the funny manuals_, again.
+
+Take a time to review the documents to a version for release.
+
+The pull-down resistor understand challenge starts. Must have resistors to ground (GND) for limit the draw current. 
+
+For old 74HC-CMOS at 4.5-5.1 V, it must be ? Already known that Vil/Iil must be reference, then could be 2k (0.8V/400uA) or 800k (0.8V/1uA) or 100 (0.4V/4mA), which one ?  Almost all comments says, depends of manufacturer, source and circuit. 
+
+I will try a pool of 4k7 Ohms.
+
+Note:
+
+- https://www.farnell.com/datasheets/311607.pdf 
+
+
 16/07/2023
 
 Thinking about mode normal and loop. 
@@ -12,13 +29,15 @@ In mode loop, at A8=1 and A9=1, any _begin_ or _again_ just updates the counter 
 
 As no data is read or writed, while in loop mode, the circuit for Math is used as counter.
 
-Confirm use of two eeproms for Finite State Machine. One with M0-M3, for Math, decode (and maybe 3 flips-flops), and T0-T4 for control devices at connector; One for C0-C4, for internal control lines and K0-K4 not used and reserved.
+Confirm use of two eeproms for Finite State Machine. One with M0-M3, for Math, decode (and maybe 3 flips-flops), and T0-T4 for control devices at connector; One for internal control lines and some not used and reserved.
+
+The T0-T4 lines are multiplexed, maybe better one line for each (One, Two, forward, backward, read, write) ? Why not ? Because that mux T0-T3 are easy to decode by a MCU, keeps the connector small and any 74HC139 could demux if need.
 
 11/07/2023
 
-The 74HC273 is a weird circuit with a strange pinout and use it adds more two control lines for clear.
+The 74HC273 is a weird circuit with a strange pinout and use it adds more two control lines for clear function.
 
-The true-table for controls is done but too much logic ports to make it.
+The true-table for controls is done but too much logic ports to make it work.
 
 Better return to original design, use 74HC574 and a pull-down pool for clear, and use another eeprom to control signals. Then Jelly will be pleny of lines for states and less glue logic.
 
