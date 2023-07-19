@@ -1,5 +1,9 @@
 # LogBook
 
+19/07/2023
+
+Made a C small simulator for jelly for test the _begin and again_ using zero at A8 and mode at A9. Note, before mode loop from _again_, must backward code tape two times;
+
 18/07/2023
 
 _read the funny manuals_, again.
