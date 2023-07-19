@@ -78,6 +78,7 @@ while (1) {
                     d = data[dp];
                     if (d != 0) {
                         cp--;
+                        cp--;
                         loop = -1;
                         move = 1;
                         mode = 1; 
