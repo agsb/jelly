@@ -2,7 +2,7 @@
 
 19/07/2023
 
-Made a C small simulator for jelly for test the _begin and again_ using zero at A8 and mode at A9. Note, before mode loop from _again_, must backward code tape two times;
+Made a C small Jelly simulator for test the _begin and again_ loops using zero at A8 and mode at A9. Note, before mode loop from _again_, must backward code tape two times;
 
 18/07/2023
 
