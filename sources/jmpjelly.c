@@ -8,6 +8,8 @@
 
 int main(void) {
 
+long int steps = 0;
+
 int zero, mode, move, loop;
 
 int i, c, d, cp, dp;
@@ -23,6 +25,8 @@ c = d = zero = loop = mode = move = cp = dp = 0;
 
 while (1) {
     
+    steps++;
+
     if (cp < 0) cp = 0;
     if (cp > 108) cp = 0;
 
@@ -33,8 +37,8 @@ while (1) {
 
     d = data[dp];
     
-    printf (" %4d %4d %4d %4d | %4d %1c | %4d  %4d |\n", 
-        zero, loop, mode, move, cp, (char) c, dp, d);
+    printf (" %8ld %4d %4d %4d %4d | %4d %1c | %4d  %4d |\n", 
+        steps, zero, loop, mode, move, cp, (char) c, dp, d);
 
     if (move == 0) cp++;
 
@@ -92,6 +96,8 @@ while (1) {
 
         }
     }
+
+fflush(stdout);
 
 return (0);
 }
