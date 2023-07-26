@@ -1,6 +1,6 @@
 # LogBook
 
-26/07/2023
+### 26/07/2023
 
 _be back to future_
 
@@ -48,13 +48,12 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 | | | |
 
 BOM:
-CN is a dual eigth pins connector,
-U1 is a AT28C16, U2 is a AT28C16, 
-U4 is a 74HC574, U6 is a 74HC574, U6 is a 74HC574, 
-U7 is a 74HC245, U8 is a 74HC393, U10 is a 74HC74,
-U11 is a 74HC32, U12 is a 74HC32, U13 is a 74HC32
-U14 is a 74HC32, U15 is a 74HC32, U16 is a 74HC32, U17 is a 74HC32,
-
+- CN is a dual eigth pins connector,
+- U1 is a AT28C16, U2 is a AT28C16, 
+- U4 is a 74HC574, U6 is a 74HC574, U6 is a 74HC574, 
+- U7 is a 74HC245, U8 is a 74HC393, U10 is a 74HC74,
+- U11 is a 74HC32, U12 is a 74HC32, U13 is a 74HC32
+- U14 is a 74HC32, U15 is a 74HC32, U16 is a 74HC32, U17 is a 74HC32,
 
 these extends the eeprom table of contents to toggle signals.
 
@@ -62,11 +61,11 @@ these extends the eeprom table of contents to toggle signals.
 
 
 
-19/07/2023
+### 19/07/2023
 
 Made a C small Jelly simulator for test the _begin and again_ loops using zero at A8 and mode at A9. Note, before mode loop from _again_, must backward code tape two times;
 
-18/07/2023
+### 18/07/2023
 
 _read the funny manuals_, again.
 
@@ -78,7 +77,7 @@ For old 74HC-CMOS at 4.5-5.1 V, it must be ? Already known that Vil/Iil must be 
 
 And for Leds ? At 4.5V, _20mA source limit_, and no more than 2mA per led, then 1.5k for Red (1.8V), 1.2k Yellow (2.2V), 750 for Green (3.1V) and 450 for Blue (3.6V);
 
-16/07/2023
+### 16/07/2023
 
 Thinking about mode normal and loop. 
 
@@ -94,7 +93,7 @@ Confirm use of two eeproms for Finite State Machine. One with M0-M3, for Math, d
 
 The T0-T4 lines are multiplexed, maybe better one line for each (One, Two, forward, backward, read, write) ? Why not ? Because that mux T0-T3 are easy to decode by a MCU, keeps the connector small and any 74HC139 could demux if need.
 
-11/07/2023
+### 11/07/2023
 
 The 74HC273 is a weird circuit with a strange pinout and use it adds more two control lines for clear function.
 
@@ -102,19 +101,19 @@ The true-table for controls is done but too much logic ports to make it work.
 
 Better return to original design, use 74HC574 and a pull-down pool for clear, and use another eeprom to control signals. Then Jelly will be pleny of lines for states and less glue logic.
 
-03/07/2023
+### 03/07/2023
 
 Jelly needs zero at counter for start counting \[ and \] inside loops, then I could try use a 74HC273 with clear as input latchs.
 
 Some glue logics for define states for detect zero, toggle modes normal and loop, control chip signals need about more than 48 logic ports. Most from especific actions and decision true-tables.
 
-01/07/2023
+### 01/07/2023
 
 Jelly have 2 eeproms, and 16 data lines used as control and signals lines. What to do when need more ? Easy, use more one eeprom in paralel. 
 
 With 11 address lines A0-A11, five lines A0-A4 for microcodes gives 32 steps, four lines A5-A8 for opcodes gives 16 codes, and two lines A9-A10 for 4 pages or modes. With 3 eeproms got 24 lines D0-D7, D8-D15, D16-D23.  
 
-30/06/2023  
+### 30/06/2023  
 
 Start this logbook, as stack of changes in documentation of Jelly.
 
