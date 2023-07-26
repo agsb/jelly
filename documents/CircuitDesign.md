@@ -152,29 +152,29 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 
 
 #### Table 4, Controls M3 == 0
-| case | T3 | T2 | T1 | T0 | OE7 C3 | OE6 C2 | CS5 C1 | CS4 C0 | action |
-| ---- | -- | -- | -- | --- | --- | --- | --- | --- | --- |
-| 0x00 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | no action |
-|  |  |  |  |  |  |  |  |  |  |
-| 0x60 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | tape one, forward, no transfer |
-| 0xA0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | tape two, forward, no transfer |
-| 0x70 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | tape one, backward, no transfer |
-| 0xB0 | 1 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | tape two, backward, no transfer |
-|  |  |  |  |  |  |  |  |  |  |
-| 0x5A | 0 | 1 | 0 | 1 | 1 | 0 | 1 | 0 | tape one, write, U6 into U7 |
-| 0x9A | 1 | 0 | 0 | 1 | 1 | 0 | 1 | 0 | tape two, write, U6 into U7 |
-| 0xDA | 1 | 1 | 0 | 1 | 1 | 0 | 1 | 0 | standard, write, U6 into U7 |
-|  |  |  |  |  |  |  |  |  |  |
-| 0x4C | 0 | 1 | 0 | 0 | 1 | 1 | 0 | 0 | tape one, read, U7 into U5 |
-| 0x8C | 1 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | tape two, read, U7 into U5 |
-| 0xCC | 1 | 1 | 0 | 0 | 1 | 1 | 0 | 0 | standard, read, U7 into U5 |
-|  |   |  |  |  |  |  |  |  |  |
-| 0x06 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | none, none, U6 into U5 |
-| 0x02 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | none, none, clear U5, clear U3 |
-|  |   |  |  |  |  |  |  |  |  |
-| 0x05 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 1 | none, none, U6 into U4 |
-| 0x01 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | none, none, clear U4, clear U3 |
-|  |   |  |  |  |  |  |  |  |  |
+| byte | T3 | T2 | T1 | T0 || OE7 C3 | OE6 C2 | CS5 C1 | CS4 C0 | action |
+| ---- | -- | -- | -- | --- |-- | --- | --- | --- | --- | --- |
+| 0x00 | 0 | 0 | 0 | 0 || 0 | 0 | 0 | 0 | no action |
+|  |  |  |  |  ||  |  |  |  |  |
+| 0x60 | 0 | 1 | 1 | 0 || 0 | 0 | 0 | 0 | tape one, forward, no transfer |
+| 0xA0 | 1 | 0 | 1 | 0 || 0 | 0 | 0 | 0 | tape two, forward, no transfer |
+| 0x70 | 0 | 1 | 1 | 1 || 0 | 0 | 0 | 0 | tape one, backward, no transfer |
+| 0xB0 | 1 | 0 | 1 | 1 || 0 | 0 | 0 | 0 | tape two, backward, no transfer |
+|  |  |  |  |  ||  |  |  |  |  |
+| 0x5A | 0 | 1 | 0 | 1 || 1 | 0 | 1 | 0 | tape one, write, U6 into U7 |
+| 0x9A | 1 | 0 | 0 | 1 || 1 | 0 | 1 | 0 | tape two, write, U6 into U7 |
+| 0xDA | 1 | 1 | 0 | 1 || 1 | 0 | 1 | 0 | standard, write, U6 into U7 |
+|  |  |  |  |  |  ||  |  |  |  |
+| 0x4C | 0 | 1 | 0 | 0 || 1 | 1 | 0 | 0 | tape one, read, U7 into U5 |
+| 0x8C | 1 | 0 | 0 | 0 || 1 | 1 | 0 | 0 | tape two, read, U7 into U5 |
+| 0xCC | 1 | 1 | 0 | 0 || 1 | 1 | 0 | 0 | standard, read, U7 into U5 |
+|  |   |  |  |  |  ||  |  |  |  |
+| 0x06 | 0 | 0 | 0 | 0 || 0 | 1 | 1 | 0 | none, none, U6 into U5 |
+| 0x02 | 0 | 0 | 0 | 0 || 0 | 0 | 1 | 0 | none, none, clear U5, clear U3 |
+|  |   |  |  |  |  |  ||  |  |  |
+| 0x05 | 0 | 0 | 0 | 0 || 0 | 1 | 0 | 1 | none, none, U6 into U4 |
+| 0x01 | 0 | 0 | 0 | 0 || 0 | 0 | 0 | 1 | none, none, clear U4, clear U3 |
+|  |   |  |  |  ||  |  |  |  |  |
 
 Notes:
 - logics for /OE6 and /OE7 are inverted, just add a NOT later;  
