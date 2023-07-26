@@ -18,9 +18,29 @@ In the list of combinations used to control lines, state of devices and operatio
 
 Those extra states with some glue logics make needs just one eeprom as finite state machine. Combining low nibble C0-C3 and high nibble T0-T3 as:
 
-| signal | combines | gives |
-| -- | -- | -- |
-| select | t0 and t1 and t2 and t3 | high when 0xF |
+| byte | signal | combines | gives |
+| -- | --| -- | -- |
+| 0xFX | select | T0 AND T1 AND T2 AND T3 | high when 0xF |
+| 0xF9 | U2.A8 | select AND C0 | address line of U2 |
+| 0xFA | U2.A9 | select AND C1 | address line of U2 |
+| 0xFC | U2.A10 | select AND C2 | address line of U2 |
+| 0xF8 | U6.CS | select AND C3 | chip select line of U6 |
+| | | | |
+| 0x | control | NOT (select) | high when not 0xF |
+| 0x | U4.CS | control AND C0 | chip select line of U4 |
+| 0x | U5.CS | control AND C1 | chip select line of U5 |
+| 0x | U6.OE | NOT (control AND C2) | output enable line of U6 |
+| 0x | U7.OE | NOT (control AND C3) | output enable line of U7 |
+| | | | |
+| 0xF | toggle | NOT(C3) AND select | high when not in math | 
+| 0xF1| U10.CLK1 | toggle AND C0 | toggles MOVE line |
+| 0xF2| U10.CLK2 | toggle AND C1 | toggles MODE line |
+| 0xF4| U10.CLR1 | toggle AND C2 | clear D-flip-flop |
+| 0xF4| U10.CLR2 | toggle AND C2 | clear D-flip-flop |
+| | | | |
+
+these extends the eeprom table of contents 
+
 
 
 
