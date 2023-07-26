@@ -69,11 +69,11 @@ Not all bytes are opcodes then needs a NOP, do nothing instruction, to catch tho
 | 8 | \] | until loop  | brainfuck | again |
 | 9 | \! | mark end of code | jelly | halt |
 | 0 | \= | do nothing | jelly | noop |
-| 10 | \% | reverse bits | jelly | reset |
-| 11 | \~ | one complement | jelly | noop |
-| 12 | \{ | shift left | jelly | noop |
-| 13 | \} | shift right | jelly | noop |
-| 14 | \^ | clear | jelly | noop |
+| 10 | \~ | one complement | jelly | noop |
+| 11 | \{ | shift left | jelly | noop |
+| 12 | \} | shift right | jelly | noop |
+| 13 | \^ | clear | jelly | noop |
+| 14 | \% | reserved | jelly | noop |
 | 15 | \& | reserved | jelly | noop |
 
 - Any other ascii value is just translated as noop.
