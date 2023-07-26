@@ -196,19 +196,19 @@ Optional external, One dual 2:4 decoder, U9, 74HC139, uses T0-T3 as A0-A3 from U
 Note: The /OE7 line is controled by not(T0 or T1) and direction DIR7 by T2; ****
 
 #### Table 5, devices
-| T0 | T1 | selects |
+| T3 | T2 | selects |
 | --- | --- | --- |
 | 0 | 0 | none, no device |  
-| 1 | 0 | one, code tape | 
-| 0 | 1 | two, data tape | 
+| 0 | 1 | one, code tape | 
+| 1 | 0 | two, data tape | 
 | 1 | 1 | standart device |
 
 #### Table 6, operations
-| T2 | T3 | selects |
+| T1 | T0 | selects |
 | --- | --- | --- |
 | 0 | 0 | write into | 
-| 1 | 0 | read from | 
-| 0 | 1 | forward step| 
+| 0 | 1 | read from | 
+| 1 | 0 | forward step| 
 | 1 | 1 | backward step | 
 
 Note: The standart input and output devices does no moves forward or backward.
