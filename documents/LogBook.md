@@ -1,5 +1,27 @@
 # LogBook
 
+26/07/2023
+
+_be back to future_
+
+Another revision of circuits.
+
+the zero dectector circuit, is necessary for resolve loop issues of _begin and again_.
+
+the move reverse circuit, is necessary to save copy code in eeprom.
+
+the d-flip-flops, is still necessary to hold the move and mode lines state.
+
+the internal implementation needs a clear and a copy math operations then no more reverse operation.
+
+In the list of combinations used to control lines, state of devices and operations, the high nibble vary from 0x1 to 0xE, leaving 0x0 to do nothing and 0xF for select some extra states. 
+
+Those extra states with some glue logics make needs just one eeprom as finite state machine.
+
+| signal | combines | gives |
+| -- | -- | -- |
+| select | t0 and t1 and t2 and t3 | high when 0xF
+
 19/07/2023
 
 Made a C small Jelly simulator for test the _begin and again_ loops using zero at A8 and mode at A9. Note, before mode loop from _again_, must backward code tape two times;
