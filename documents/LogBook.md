@@ -44,7 +44,16 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 | | | |
 | U1.A8 | zero | change page of FSM |
 | U1.A9 | U10.Q1 | change page of FSM, loop mode |
+| CN.T2 | T2 XOR (MOVE AND T3) | reverses movement forward or backward |
 | | | |
+
+BOM:
+CN is a dual eigth pins connector,
+U1 is a AT28C16, U2 is a AT28C16, 
+U4 is a 74HC574, U6 is a 74HC574, U6 is a 74HC574, 
+U7 is a 74HC245, U8 is a 74HC393, U10 is a 74HC74,
+U11 is a 74HC32, U12 is a 74HC32, U13 is a 74HC32
+U14 is a 74HC32, U15 is a 74HC32, U16 is a 74HC32, U17 is a 74HC32,
 
 
 these extends the eeprom table of contents to toggle signals.
