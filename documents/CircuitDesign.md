@@ -122,9 +122,9 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 | U10.CLK2 | toggle AND C1 | toggles MODE line |
 | U10.CLR1 | toggle AND C2 | clear D-flip-flop |
 | U10.CLR2 | toggle AND C2 | clear D-flip-flop |
-| | | |
+| used to detect zero value in data byte | | |
 | zero | D0 OR D1 OR D2 OR D3 OR D4 OR D5 OR D6 OR D7 | high when not zero |
-| | | |
+| extra connections toggles | | |
 | U1.A8 | zero | change page of FSM |
 | U1.A9 | U10.Q1 | change page of FSM, loop mode |
 | CN.T2 | T2 XOR (MOVE AND T3) | reverses movement forward or backward |
