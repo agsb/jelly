@@ -6,6 +6,8 @@ _be back to future_
 
 Another revision of circuits.
 
+Adopt a common notation for MSB at left and LSB at right. Must review the notes.
+
 the zero dectector circuit, is necessary for resolve loop issues of _begin and again_.
 
 the move reverse circuit, is necessary to save copy code in eeprom.
@@ -56,10 +58,6 @@ BOM:
 - U14 is a 74HC32, U15 is a 74HC32, U16 is a 74HC32, U17 is a 74HC32,
 
 these extends the eeprom table of contents to toggle signals.
-
-
-
-
 
 ### 19/07/2023
 
