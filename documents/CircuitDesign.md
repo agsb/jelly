@@ -161,7 +161,7 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 | 0x70 | 0 | 1 | 1 | 1 || 0 | 0 | 0 | 0 | tape one, backward, no transfer |
 | 0xB0 | 1 | 0 | 1 | 1 || 0 | 0 | 0 | 0 | tape two, backward, no transfer |
 |  |  |  |  |  ||  |  |  |  |  |
-| 0x5A | 0 | 1 | 0 | 1 || 1 | 0 | 1 | 0 | tape one, write, U6 into U7 |
+| 0x5A | 0 | 1 | 0 | 1 || 1 | 0 | 1 | 0 | tape one, write, U6 into U7 * |
 | 0x9A | 1 | 0 | 0 | 1 || 1 | 0 | 1 | 0 | tape two, write, U6 into U7 |
 | 0xDA | 1 | 1 | 0 | 1 || 1 | 0 | 1 | 0 | standard, write, U6 into U7 |
 |  |  |  |  |  |  ||  |  |  |  |
@@ -170,15 +170,16 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 | 0xCC | 1 | 1 | 0 | 0 || 1 | 1 | 0 | 0 | standard, read, U7 into U5 |
 |  |   |  |  |  |  ||  |  |  |  |
 | 0x06 | 0 | 0 | 0 | 0 || 0 | 1 | 1 | 0 | none, none, U6 into U5 |
-| 0x02 | 0 | 0 | 0 | 0 || 0 | 0 | 1 | 0 | none, none, clear U5, clear U3 |
+| 0x02 | 0 | 0 | 0 | 0 || 0 | 0 | 1 | 0 | none, none, clear U5, clear U3 **|
 |  |   |  |  |  |  |  ||  |  |  |
-| 0x05 | 0 | 0 | 0 | 0 || 0 | 1 | 0 | 1 | none, none, U6 into U4 |
+| 0x05 | 0 | 0 | 0 | 0 || 0 | 1 | 0 | 1 | none, none, U6 into U4, clear U3 |
 | 0x01 | 0 | 0 | 0 | 0 || 0 | 0 | 0 | 1 | none, none, clear U4, clear U3 |
 |  |   |  |  |  ||  |  |  |  |  |
 
 Notes:
 - logics for /OE6 and /OE7 are inverted, just add a NOT later;  
-- case 5, tape one is code, no write allowed, never;
+- case 0x5A, tape one is code, no write allowed, never;
+- case 0x02, set data latch to zero to be used as counter
 - case 13 and case 14, also clear/reset U3;
 - data bus D0-D7 have pull-down resistors for clear U4 and U5 when U6 and U7 are in 3-state.
 
