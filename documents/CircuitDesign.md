@@ -94,6 +94,42 @@ One input-output switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q
 
 ### Control Devices
 
+The FSM eeprom gives C0-C3 and T0-T3 for control lines. 
+
+In the list of combinations used to control lines, state of devices and operations, the high nibble T0-T3, vary from 0x1 to 0xE, leaving 0x0 to do nothing and 0xF for select some extra states. 
+
+Those extra states with some glue logics make needs just one eeprom as finite state machine. 
+
+Combining low nibble C0-C3 and high nibble T0-T3 as:
+
+| signal | combines | gives |
+| -- | -- | -- |
+| used for math unary operations and decode | |
+| select | T0 AND T1 AND T2 AND T3 | high when 0xF |
+| U2.A8 | select AND C0 | address line of U2 |
+| U2.A9 | select AND C1 | address line of U2 |
+| U2.A10 | select AND C2 | address line of U2 |
+| U6.CS | select AND C3 | chip select line of U6 |
+| used for control lines of data flow | | |
+| control | NOT (select) | high when not 0xF |
+| U4.CS | control AND C0 | chip select line of U4 |
+| U5.CS | control AND C1 | chip select line of U5 |
+| U6.OE | NOT (control AND C2) | output enable line of U6 |
+| U7.OE | NOT (control AND C3) | output enable line of U7 |
+| used to toggle states lines of FSM pages | | |
+| toggle | NOT(C3) AND select | high when not in math | 
+| U10.CLK1 | toggle AND C0 | toggles MOVE line |
+| U10.CLK2 | toggle AND C1 | toggles MODE line |
+| U10.CLR1 | toggle AND C2 | clear D-flip-flop |
+| U10.CLR2 | toggle AND C2 | clear D-flip-flop |
+| | | |
+| zero | D0 OR D1 OR D2 OR D3 OR D4 OR D5 OR D6 OR D7 | high when not zero |
+| | | |
+| U1.A8 | zero | change page of FSM |
+| U1.A9 | U10.Q1 | change page of FSM, loop mode |
+| CN.T2 | T2 XOR (MOVE AND T3) | reverses movement forward or backward |
+| | | |
+
 
 #### Table Controls M3 == 0
 | case | T0 | T1 | T2 | T3 | CK4 C0 | CK5 C1 | OE6 C2 | OE7 C3 | action |
