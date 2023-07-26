@@ -60,9 +60,11 @@ A latch 74HC574, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, cl
 
 One eeprom AT28C16, U1, takes Q0-Q3 from U8 as A0-A3 and Q4-Q7 from U4 as A4-A7, U1 gives D0-D7. The D0-D3 as C0-C3, D4-D7 as T0-T3, as lines for circuits. 
 
-This circuit is used to translate a byte as finite state machine steps. It is used for opcode and microcode lookup, address A0-A3 are used for up 16 steps micro-code, A4-A7 for define 16 op-code, A8 selected by zero circuit detector, A9 selected by toggle a flip-flop as mode code or loop, _A10 is not used_.
+This circuit is used to translate a byte as finite state machine (FSM) steps. 
 
-The M0-M3 are used to select math operation, the T0-T3 are used to signals outside Jelly, both controls signals inside Jelly.
+It is used for opcode and microcode lookup, address A0-A3 are used for up 16 steps micro-code, A4-A7 for define 16 op-code, A8 selected by zero circuit detector, A9 selected by toggle a flip-flop as mode code or loop, _A10 is not used_.
+
+The nibbles M0-M3 and T0-T3 are used to select math operation and control signals inside and outside Jelly.
 
 ### Math Lookups and Decoder
 
@@ -72,23 +74,40 @@ One eeprom At28C16, U3, takes Q0-Q7 from U5 into A0-A7, takes M0-M2 from U1 into
 
 One latch 74HC574, U6, takes Q0-Q7 from U3 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is /OE6, clock is CK6; 
 
-The lookup table does more unary math operations over a byte than increase and decrease. 
+The lookup table maps decode and unary operations as pages of 256 bytes, it does more than increase and decrease. 
 
-#### Table Lookup M3 == 1
+#### Table 1, Lookup M3 == 1
 | name | M0 | M1 | M2 | action |
 | ---- | ----- | ----- | ---- | --- |
 | zero | 0 | 0 | 0 | clear byte | 
 | incr | 1 | 0 | 0 | increase |
 | decr | 0 | 1 | 0 | decrease |
-| cpy  | 1 | 1 | 0 | copy byte |
+| copy  | 1 | 1 | 0 | copy byte |
 | not  | 0 | 0 | 1 | one complement |
 | sfl  | 1 | 0 | 1 | shift left |
 | sfr  | 0 | 1 | 1 | shift right |
-| dcd  | 1 | 1 | 1 | decode |
+| code  | 1 | 1 | 1 | decode byte to opcode |
 
-In _decode_ all bytes are translated in valid opcodes range, 0 to 15, not defined symbols are mapped as noop; 
+Notes:
+  - In _code_ all bytes are translated in valid opcodes range, 0 to 15, not defined symbols are mapped as noop; 
+  - the zero and copy are internal FSM operations, not allow from opcodes.
 
+  
 ### External Devices
+
+All devices are external and accessed by a 16 pin connector, with CLK, T0-T3 and ACK signals and D0-D7 data lines. 
+
+#### Table 2, Connector external
+| line | Pin | Pin | line |
+| --- | --- | --- | --- |
+| D0 | 1 | 16 | VCC |
+| D1 | 2 | 15 | T3 |
+| D2 | 3 | 14 | T2 |
+| D3 | 4 | 13 | T1 |
+| D4 | 5 | 12 | T0 |
+| D5 | 6 | 11 | ACK |
+| D6 | 7 | 10 | CLK |
+| GND | 8 | 9 | D7 |
 
 One input-output switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q7 as D0-D7 into external data bus, output enable is /OE7, direction is DR7; 
 
@@ -102,6 +121,7 @@ Those extra states with some glue logics make needs just one eeprom as finite st
 
 Combining low nibble C0-C3 and high nibble T0-T3 as:
 
+#### Table 3, Signals and states
 | signal | combines | gives |
 | -- | -- | -- |
 | used for math unary operations and decode | |
@@ -131,18 +151,18 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 | | | |
 
 
-#### Table Controls M3 == 0
+#### Table 4, Controls M3 == 0
 | case | T0 | T1 | T2 | T3 | CK4 C0 | CK5 C1 | OE6 C2 | OE7 C3 | action |
 | ---- | -- | -- | -- | --- | --- | --- | --- | --- | --- |
-| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | no action |
+| 0x00 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | no action |
 |  |  |  |  |  |  |  |  |  |  |
-| 1 | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | tape one, forward, no transfer |
-| 2 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | tape two, forward, no transfer |
-| 3 | 1 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | tape one, backward, no transfer |
-| 4 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | tape two, backward, no transfer |
+| 0x90 | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | tape one, forward, no transfer |
+| 0x50 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | tape two, forward, no transfer |
+| 0xB0 | 1 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | tape one, backward, no transfer |
+| 0x70 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | tape two, backward, no transfer |
 |  |  |  |  |  |  |  |  |  |  |
-| 5 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | tape one, write, U6 into U7 |
-| 6 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 1 | tape two, write, U6 into U7 |
+| 0x83 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | tape one, write, U6 into U7 |
+| 0x43 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 1 | tape two, write, U6 into U7 |
 | 7 | 1 | 1 | 0 | 0 | 0 | 0 | 1 | 1 | standard, write, U6 into U7 |
 |  |  |  |  |  |  |  |  |  |  |
 | 8 | 1 | 0 | 1 | 0 | 0 | 1 | 0 | 1 | tape one, read, U7 into U5 |
@@ -176,19 +196,7 @@ Optional external, One dual 2:4 decoder, U9, 74HC139, uses T0-T3 as A0-A3 from U
 
 Note: The /OE7 line is controled by not(T0 or T1) and direction DIR7 by T2; ****
 
-#### Connector external
-| line | Pin | Pin | line |
-| --- | --- | --- | --- |
-| D0 | 1 | 16 | VCC |
-| D1 | 2 | 15 | T3 |
-| D2 | 3 | 14 | T2 |
-| D3 | 4 | 13 | T1 |
-| D4 | 5 | 12 | T0 |
-| D5 | 6 | 11 | ACK |
-| D6 | 7 | 10 | CLK |
-| GND | 8 | 9 | D7 |
-
-#### Table devices
+#### Table 5, devices
 | T0 | T1 | selects |
 | --- | --- | --- |
 | 0 | 0 | none, no device |  
@@ -196,7 +204,7 @@ Note: The /OE7 line is controled by not(T0 or T1) and direction DIR7 by T2; ****
 | 0 | 1 | two, data tape | 
 | 1 | 1 | standart device |
 
-#### Table operations
+#### Table 6, operations
 | T2 | T3 | selects |
 | --- | --- | --- |
 | 0 | 0 | write into | 
