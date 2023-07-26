@@ -28,7 +28,7 @@ Rules:
 
 ### BOM
 
-03 eeproms, U1, U2 and U3, are AT28C16, 150 ns (~ 6.7 MHz), 2k x 8-bits, and have /OE to GND, /CS to GND, /WR to VCC;
+02 eeproms, U1 and U2, are AT28C16, 150 ns (~ 6.7 MHz), 2k x 8-bits, and have /OE to GND, /CS to GND, /WR to VCC;
 
 02 input latch, U4 and U5, 74HC574, 40 ns (< 20.0 MHz), octal D-Flip-Flop, 3-state, with clock (CK6), enable (/OE6);
 
@@ -42,7 +42,7 @@ Rules:
 
 02 OR gates, U11, U12, are 74HC32, 150 ns ( ~6.7 MHz ), quad 2-input OR gate;
 
-02 AND gates, U13, U14, are 74HC08, 150 ns ( ~6.7 MHz ), quad 2-input AND gate;
+04 AND gates, U13, U14, are 74HC08, 150 ns ( ~6.7 MHz ), quad 2-input AND gate;
 
 02 NAND gates, U15, U16, are 74HC00, 150 ns ( ~6.7 MHz ), quad 2-input NAND gate;
 
@@ -58,11 +58,11 @@ A binary up-counter 74HC393, U8, takes clock pulses from clock circuit, gives Q0
 
 A latch 74HC574, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, clock is CK4 and high nibble _Q4-Q7 unused_;
 
-Two eeprom AT28C16, U1 and A2, takes Q0-Q3 from U8 as A0-A3 and Q4-Q7 from U4 as A4-A7, U1 gives C0-C7 and U2 gives C8-C15. The D0-D3 as M0-M3, D4-D7 as T0-T3, D8-D11 as C0-C4, and D12-D15 as K4-K7, as lines for circuits. 
+One eeprom AT28C16, U1, takes Q0-Q3 from U8 as A0-A3 and Q4-Q7 from U4 as A4-A7, U1 gives D0-D7. The D0-D3 as C0-C3, D4-D7 as T0-T3, as lines for circuits. 
 
 This circuit is used to translate a byte as finite state machine steps. It is used for opcode and microcode lookup, address A0-A3 are used for up 16 steps micro-code, A4-A7 for define 16 op-code, A8 selected by zero circuit detector, A9 selected by toggle a flip-flop as mode code or loop, _A10 is not used_.
 
-The M0-M3 are used to select math operation, the T0-T3 are used to signals outside Jelly, the C0-C3 and K0-K3 controls signals inside Jelly.
+The M0-M3 are used to select math operation, the T0-T3 are used to signals outside Jelly, both controls signals inside Jelly.
 
 ### Math Lookups and Decoder
 
@@ -70,35 +70,30 @@ One latch 74HC574, U5, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U3, 
 
 One eeprom At28C16, U3, takes Q0-Q7 from U5 into A0-A7, takes M0-M2 from U1 into A8-A10, gives Q0-Q7 into U6; 
 
-One latch 74HC574, U6, takes Q0-Q7 from U3 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is /OE6, clock is CK6 tied at M3; 
-
-When M3 is low, results does not go to latch U6, but is used to set three active signal lines: S0 (/M3 AND M0), S1 (/M3 AND M1) and S3 (/M3 AND M2); The /M3 is NOT(M3), done by a NAND port;
-
-When M3 is high, it is used to enable clock for U6 (CK6) and load results from lookup table for math functions and translate opcode; 
+One latch 74HC574, U6, takes Q0-Q7 from U3 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is /OE6, clock is CK6; 
 
 The lookup table does more unary math operations over a byte than increase and decrease. 
 
 #### Table Lookup M3 == 1
 | name | M0 | M1 | M2 | action |
 | ---- | ----- | ----- | ---- | --- |
-| zero | 0 | 0 | 0 | clear  | 
+| zero | 0 | 0 | 0 | clear byte | 
 | incr | 1 | 0 | 0 | increase |
 | decr | 0 | 1 | 0 | decrease |
-| not  | 1 | 1 | 0 | one complement |
-| rev  | 0 | 0 | 1 | reverse order |
+| cpy  | 1 | 1 | 0 | copy byte |
+| not  | 0 | 0 | 1 | one complement |
 | sfl  | 1 | 0 | 1 | shift left |
 | sfr  | 0 | 1 | 1 | shift right |
-| cpy  | 1 | 1 | 1 | copy and decode |
+| dcd  | 1 | 1 | 1 | decode |
 
-In _copy and decode_ all bytes are translated in valid opcodes range, 0 to 15, not defined symbols are mapped as noop; 
+In _decode_ all bytes are translated in valid opcodes range, 0 to 15, not defined symbols are mapped as noop; 
 
-Any math lookup will push result into U6 latch, by connections (M3 AND M0) at U2.A8, (M3 AND M2) at U2.A9, (M3 AND M2) at U2.A10 and M3 at CK6. 
+### External Devices
 
 One input-output switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q7 as D0-D7 into external data bus, output enable is /OE7, direction is DR7; 
 
 ### Control Devices
 
-Those U4, U5, U6, U7 must be coordenated to use the data bus, and the signals C0-C3 are used in order for, C0 is CK4, C1 is CK5, C2 is OE6, C3 is OE7, and C4 is tied to U10. The Q1 from U10 as A10 into U1 and U2, C5-C7 not used and reserved.
 
 #### Table Controls M3 == 0
 | case | T0 | T1 | T2 | T3 | CK4 C0 | CK5 C1 | OE6 C2 | OE7 C3 | action |
@@ -148,13 +143,14 @@ Note: The /OE7 line is controled by not(T0 or T1) and direction DIR7 by T2; ****
 #### Connector external
 | line | Pin | Pin | line |
 | --- | --- | --- | --- |
-| D0 | 1 | 14 | VCC |
-| D1 | 2 | 13 | T3 |
-| D2 | 3 | 12 | T2 |
-| D3 | 4 | 11 | T1 |
-| D4 | 5 | 10 | T0 |
-| D5 | 6 |  9 | D7 |
-| GND | 7 |  8 | D6 |
+| D0 | 1 | 16 | VCC |
+| D1 | 2 | 15 | T3 |
+| D2 | 3 | 14 | T2 |
+| D3 | 4 | 13 | T1 |
+| D4 | 5 | 12 | T0 |
+| D5 | 6 | 11 | ACK |
+| D6 | 7 | 10 | CLK |
+| GND | 8 | 9 | D7 |
 
 #### Table devices
 | T0 | T1 | selects |
