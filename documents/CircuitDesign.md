@@ -77,15 +77,15 @@ One latch 74HC574, U6, takes Q0-Q7 from U3 into D0-D7, giving Q0-Q7 as D0-D7 int
 The lookup table maps decode and unary operations as pages of 256 bytes, it does more than increase and decrease. 
 
 #### Table 1, Lookup M3 == 1
-| name | M0 | M1 | M2 | action |
+| name | M2 | M1 | M0 | action |
 | ---- | ----- | ----- | ---- | --- |
 | zero | 0 | 0 | 0 | clear byte | 
-| incr | 1 | 0 | 0 | increase |
+| incr | 0 | 0 | 1 | increase |
 | decr | 0 | 1 | 0 | decrease |
-| copy  | 1 | 1 | 0 | copy byte |
-| not  | 0 | 0 | 1 | one complement |
+| copy  | 0 | 1 | 1 | copy byte |
+| not  | 1 | 0 | 0 | one complement |
 | sfl  | 1 | 0 | 1 | shift left |
-| sfr  | 0 | 1 | 1 | shift right |
+| sfr  | 1 | 1 | 0 | shift right |
 | code  | 1 | 1 | 1 | decode byte to opcode |
 
 Notes:
@@ -152,7 +152,7 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 
 
 #### Table 4, Controls M3 == 0
-| case | T0 | T1 | T2 | T3 | CK4 C0 | CK5 C1 | OE6 C2 | OE7 C3 | action |
+| case | T3 | T2 | T1 | T0 | OE7 C3 | OE6 C2 | CS5 C1 | CS4 C0 | action |
 | ---- | -- | -- | -- | --- | --- | --- | --- | --- | --- |
 | 0x00 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | no action |
 |  |  |  |  |  |  |  |  |  |  |
