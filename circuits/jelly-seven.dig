@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <circuit>
-  <version>2</version>
+  <version>1</version>
   <attributes/>
   <visualElements>
     <visualElement>
@@ -112,7 +112,7 @@
           <string>Data Bus</string>
         </entry>
       </elementAttributes>
-      <pos x="2280" y="1300"/>
+      <pos x="1980" y="1380"/>
     </visualElement>
     <visualElement>
       <elementName>Data</elementName>
@@ -1961,6 +1961,34 @@
       <elementName>7400.dig</elementName>
       <elementAttributes/>
       <pos x="2400" y="1800"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>textFontSize</string>
+          <int>36</int>
+        </entry>
+        <entry>
+          <string>Description</string>
+          <string>Zero Detector</string>
+        </entry>
+      </elementAttributes>
+      <pos x="2560" y="1360"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>textFontSize</string>
+          <int>36</int>
+        </entry>
+        <entry>
+          <string>Description</string>
+          <string>Reverse Move</string>
+        </entry>
+      </elementAttributes>
+      <pos x="2620" y="-260"/>
     </visualElement>
   </visualElements>
   <wires>
