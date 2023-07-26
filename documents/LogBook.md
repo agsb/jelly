@@ -16,11 +16,14 @@ the internal implementation needs a clear and a copy math operations then no mor
 
 In the list of combinations used to control lines, state of devices and operations, the high nibble vary from 0x1 to 0xE, leaving 0x0 to do nothing and 0xF for select some extra states. 
 
-Those extra states with some glue logics make needs just one eeprom as finite state machine.
+Those extra states with some glue logics make needs just one eeprom as finite state machine. Combining low nibble C0-C3 and high nibble T0-T3 as:
 
 | signal | combines | gives |
 | -- | -- | -- |
-| select | t0 and t1 and t2 and t3 | high when 0xF
+| select | t0 and t1 and t2 and t3 | high when 0xF |
+
+
+
 
 19/07/2023
 
