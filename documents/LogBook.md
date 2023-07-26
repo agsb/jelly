@@ -16,28 +16,36 @@ the internal implementation needs a clear and a copy math operations then no mor
 
 In the list of combinations used to control lines, state of devices and operations, the high nibble vary from 0x1 to 0xE, leaving 0x0 to do nothing and 0xF for select some extra states. 
 
-Those extra states with some glue logics make needs just one eeprom as finite state machine. Combining low nibble C0-C3 and high nibble T0-T3 as:
+Those extra states with some glue logics make needs just one eeprom as finite state machine. 
 
-| byte | signal | combines | gives |
-| -- | --| -- | -- |
-| 0xFX | select | T0 AND T1 AND T2 AND T3 | high when 0xF |
-| 0xF9 | U2.A8 | select AND C0 | address line of U2 |
-| 0xFA | U2.A9 | select AND C1 | address line of U2 |
-| 0xFC | U2.A10 | select AND C2 | address line of U2 |
-| 0xF8 | U6.CS | select AND C3 | chip select line of U6 |
-| | | | |
-| 0x | control | NOT (select) | high when not 0xF |
-| 0x | U4.CS | control AND C0 | chip select line of U4 |
-| 0x | U5.CS | control AND C1 | chip select line of U5 |
-| 0x | U6.OE | NOT (control AND C2) | output enable line of U6 |
-| 0x | U7.OE | NOT (control AND C3) | output enable line of U7 |
-| | | | |
-| 0xF | toggle | NOT(C3) AND select | high when not in math | 
-| 0xF1| U10.CLK1 | toggle AND C0 | toggles MOVE line |
-| 0xF2| U10.CLK2 | toggle AND C1 | toggles MODE line |
-| 0xF4| U10.CLR1 | toggle AND C2 | clear D-flip-flop |
-| 0xF4| U10.CLR2 | toggle AND C2 | clear D-flip-flop |
-| | | | |
+Combining low nibble C0-C3 and high nibble T0-T3 as:
+
+| signal | combines | gives |
+| -- | -- | -- |
+| select | T0 AND T1 AND T2 AND T3 | high when 0xF |
+| U2.A8 | select AND C0 | address line of U2 |
+| U2.A9 | select AND C1 | address line of U2 |
+| U2.A10 | select AND C2 | address line of U2 |
+| U6.CS | select AND C3 | chip select line of U6 |
+| | | |
+| control | NOT (select) | high when not 0xF |
+| U4.CS | control AND C0 | chip select line of U4 |
+| U5.CS | control AND C1 | chip select line of U5 |
+| U6.OE | NOT (control AND C2) | output enable line of U6 |
+| U7.OE | NOT (control AND C3) | output enable line of U7 |
+| | | |
+| toggle | NOT(C3) AND select | high when not in math | 
+| U10.CLK1 | toggle AND C0 | toggles MOVE line |
+| U10.CLK2 | toggle AND C1 | toggles MODE line |
+| U10.CLR1 | toggle AND C2 | clear D-flip-flop |
+| U10.CLR2 | toggle AND C2 | clear D-flip-flop |
+| | | |
+| zero | D0 OR D1 OR D2 OR D3 OR D4 OR D5 OR D6 OR D7 | high when not zero |
+| | | |
+| U1.A8 | zero | change page of FSM |
+| U1.A9 | U10.Q1 | change page of FSM, loop mode |
+| | | |
+
 
 these extends the eeprom table of contents 
 
