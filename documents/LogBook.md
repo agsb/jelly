@@ -47,7 +47,7 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 | | | |
 
 
-these extends the eeprom table of contents 
+these extends the eeprom table of contents to toggle signals.
 
 
 
