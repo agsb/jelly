@@ -82,11 +82,11 @@ The lookup table maps decode and unary operations as pages of 256 bytes, it does
 | zero | 0 | 0 | 0 | clear byte | 
 | incr | 0 | 0 | 1 | increase |
 | decr | 0 | 1 | 0 | decrease |
-| copy  | 0 | 1 | 1 | copy byte |
+| copy | 0 | 1 | 1 | copy byte |
 | not  | 1 | 0 | 0 | one complement |
 | sfl  | 1 | 0 | 1 | shift left |
 | sfr  | 1 | 1 | 0 | shift right |
-| code  | 1 | 1 | 1 | decode byte to opcode |
+| code | 1 | 1 | 1 | decode byte to opcode |
 
 Notes:
   - In _code_ all bytes are translated in valid opcodes range, 0 to 15, not defined symbols are mapped as noop; 
@@ -100,14 +100,14 @@ All devices are external and accessed by a 16 pin connector, with CLK, T0-T3 and
 #### Table 2, Connector external
 | line | Pin | Pin | line |
 | --- | --- | --- | --- |
-| D0 | 1 | 16 | VCC |
-| D1 | 2 | 15 | T3 |
-| D2 | 3 | 14 | T2 |
-| D3 | 4 | 13 | T1 |
-| D4 | 5 | 12 | T0 |
-| D5 | 6 | 11 | ACK |
-| D6 | 7 | 10 | CLK |
-| GND | 8 | 9 | D7 |
+| D0  | 1 | 16 | VCC |
+| D1  | 2 | 15 | T3  |
+| D2  | 3 | 14 | T2  |
+| D3  | 4 | 13 | T1  |
+| D4  | 5 | 12 | T0  |
+| D5  | 6 | 11 | ACK |
+| D6  | 7 | 10 | CLK |
+| GND | 8 |  9 | D7  |
 
 One input-output switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q7 as D0-D7 into external data bus, output enable is /OE7, direction is DR7; 
 
@@ -156,27 +156,25 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 | ---- | -- | -- | -- | --- | --- | --- | --- | --- | --- |
 | 0x00 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | no action |
 |  |  |  |  |  |  |  |  |  |  |
-| 0x90 | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | tape one, forward, no transfer |
-| 0x50 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | tape two, forward, no transfer |
-| 0xB0 | 1 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | tape one, backward, no transfer |
-| 0x70 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | tape two, backward, no transfer |
+| 0x60 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | 0 | tape one, forward, no transfer |
+| 0xA0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | tape two, forward, no transfer |
+| 0x70 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | tape one, backward, no transfer |
+| 0xB0 | 1 | 0 | 1 | 1 | 0 | 0 | 0 | 0 | tape two, backward, no transfer |
 |  |  |  |  |  |  |  |  |  |  |
-| 0x83 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | tape one, write, U6 into U7 |
-| 0x43 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 1 | tape two, write, U6 into U7 |
-| 7 | 1 | 1 | 0 | 0 | 0 | 0 | 1 | 1 | standard, write, U6 into U7 |
+| 0x5A | 0 | 1 | 0 | 1 | 1 | 0 | 1 | 0 | tape one, write, U6 into U7 |
+| 0x9A | 1 | 0 | 0 | 1 | 1 | 0 | 1 | 0 | tape two, write, U6 into U7 |
+| 0xDA | 1 | 1 | 0 | 1 | 1 | 0 | 1 | 0 | standard, write, U6 into U7 |
 |  |  |  |  |  |  |  |  |  |  |
-| 8 | 1 | 0 | 1 | 0 | 0 | 1 | 0 | 1 | tape one, read, U7 into U5 |
-| 9 | 0 | 1 | 1 | 0 | 0 | 1 | 0 | 1 | tape two, read, U7 into U5 |
-| 10 | 1 | 1 | 1 | 0 | 0 | 1 | 0 | 1 | standard, read, U7 into U5 |
-|  |  |  |  |  |  |  |  |  |  |
-| 11 | 0 | 0 | 1 | 1 | 0 | 1 | 0 | 0 | none, none, clear U5 |
-| 12 | 0 | 0 | 1 | 0 | 0 | 1 | 1 | 0 | none, none, U6 into U5 |
-|  |  |  |  |  |  |  |  |  |  |
-| 13 | 0 | 0 | 0 | 1 | 1 | 0 | 0| 0 | none, none, clear U4, clear U3 |
-| 14 | 1 | 1 | 0 | 1 | 1 | 0 | 1 | 0 | none, none, U6 into U4, clear U3 |
-|  |  |  |  |  |  |  |  |  |  |
-| 15 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | reserved, no action |
-|  |  |  |  |  |  |  |  |  |  |
+| 0x4C | 0 | 1 | 0 | 0 | 1 | 1 | 0 | 0 | tape one, read, U7 into U5 |
+| 0x8C | 1 | 0 | 0 | 0 | 1 | 1 | 0 | 0 | tape two, read, U7 into U5 |
+| 0xCC | 1 | 1 | 0 | 0 | 1 | 1 | 0 | 0 | standard, read, U7 into U5 |
+|  |   |  |  |  |  |  |  |  |  |
+| 0x06 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | none, none, U6 into U5 |
+| 0x02 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | none, none, clear U5, clear U3 |
+|  |   |  |  |  |  |  |  |  |  |
+| 0x05 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 1 | none, none, U6 into U4 |
+| 0x01 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | none, none, clear U4, clear U3 |
+|  |   |  |  |  |  |  |  |  |  |
 
 Notes:
 - logics for /OE6 and /OE7 are inverted, just add a NOT later;  
