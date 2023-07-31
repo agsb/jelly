@@ -91,8 +91,7 @@ The lookup table maps decode and unary operations as pages of 256 bytes, it does
 Notes:
   - In _code_ all bytes are translated in valid opcodes range, 0 to 15, not defined symbols are mapped as noop; 
   - the zero and copy are internal FSM operations, not allow from opcodes.
-
-  
+  - 
 ### External Devices
 
 All devices are external and accessed by a 16 pin connector, with CLK, T0-T3 and ACK signals and D0-D7 data lines. 
@@ -182,6 +181,7 @@ Notes:
 - case 0x02, set data latch to zero to be used as counter
 - case 13 and case 14, also clear/reset U3;
 - data bus D0-D7 have pull-down resistors for clear U4 and U5 when U6 and U7 are in 3-state.
+- any other combination is invalid.
 
 ### Devices 
 
