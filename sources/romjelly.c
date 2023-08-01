@@ -141,20 +141,20 @@ void show (void) {
 #define nothing   0x00    // none
 
 // uses 0x1 to 0xE of T0-T3
-#define one_forward   0x90    // one, forward,none
-#define two_forward   0x50    // two, forward, none 
-#define one_backward  0xb0    // one, backward, none
-#define two_backward  0x70    // two, backward, none
-#define one_write     0x83    // one, write, U6 into U7
-#define two_write     0x43    // two, write, U6 into U7
-#define std_write     0xc3    // std, write, U6 into U7
-#define one_read      0xa5    // one, read, U7 into U5
-#define two_read      0x65    // two, read, U7 into U5
-#define std_read      0xe5    // std, read, U7 into U5    
-#define zero_data     0x34    // none, none, clear U5
-#define copy_data     0x26    // none, none, U6 into U5
-#define zero_code     0x18    // none, none, clear U4, clear U8
-#define copy_code     0xda    // none, none, U6 into U4, clear U8
+#define one_forward   0x60    // one, forward,none
+#define two_forward   0xA0    // two, forward, none 
+#define one_backward  0x70    // one, backward, none
+#define two_backward  0xB0    // two, backward, none
+#define one_write     0x5A    // one, write, U6 into U7
+#define two_write     0x9A    // two, write, U6 into U7
+#define std_write     0xDA    // std, write, U6 into U7
+#define one_read      0x4C    // one, read, U7 into U5
+#define two_read      0x8C    // two, read, U7 into U5
+#define std_read      0xCC    // std, read, U7 into U5    
+#define copy_data     0x06    // none, none, U6 into U5
+#define zero_data     0x02    // none, none, clear U5
+#define copy_code     0x05    // none, none, U6 into U4, clear U8
+#define zero_code     0x01    // none, none, clear U4, clear U8
 
 // math and decode 
 // T0-T3 is 0xF and C3 is 1
