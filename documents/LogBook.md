@@ -1,5 +1,14 @@
 # LogBook
 
+### 01/08/2023
+
+Jelly now have a stable version. No more changes for the FSM/Math circuits and the glue logics is in 'reduce or delay' decision phase.
+
+From wirewrap view, the connection of data output from 74HC574 into address input of AT28C16 is a mess, all lines crossed. What to do ?
+
+The clear circuit, with resistors to ground (Vss) needs testing for values. 
+
+
 ### 26/07/2023
 
 _be back to future_
