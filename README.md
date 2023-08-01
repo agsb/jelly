@@ -10,7 +10,7 @@ Jelly is a minimal DIY 8-bit CPU made with CMOS chips, to perform computations u
 
 How make a new cpu without memory address, using only sequential access, for code, data and input/output ?
 
-I want to learn about how old cpus are made by inside and understand about signals, gates, latches, pipelines, TTLs etc.
+I want to learn about how old cpus are made by inside and understand about signals, gates, latches, pipelines, etc.
 
 Jelly runs a minimal language, brainfunk, based in brainfuck, a minimal Turing-complete programming language with just eight commands. 
 
@@ -36,7 +36,7 @@ Jelly is not a common cpu.
 
 - There is no general registers, just 3-state latches to keep the data bus safe. 
 
-- There is no arithmetic logical unit (ALU), just a memory with a table of unary "math" results for clear, increment, decrement and copy a byte. Could include shift right, shift left, negation and reverse.
+- There is no arithmetic logical unit (ALU), just a memory with a table of unary "math" results for clear, increment, decrement and copy a byte. Could include shift right, shift left, negation and also used to decode opcodes.
 
 - There is no comparator, just a flag for when a byte is zero or not.
 
@@ -54,7 +54,7 @@ Jelly is really, a finite state machine, running by lookup tables and executing 
 
 Jelly does a classical Read-Eval-Print Loop, or REPL, over bytes received from a code tape. For each byte, use a lookup table to translate into a opcode and execute actions. 
 
-Not all bytes are opcodes then needs a NOP, do nothing instruction, to catch those and just advance the code tape.
+Not all bytes are opcodes and mapped as NOP, do nothing instruction, to catch those and just advance the code tape.
 
 #### Table of OP-CODES
 | opcode | ascii | action | code set | name |
@@ -101,11 +101,13 @@ Jelly does not pre-compiler tricks, then need a logic to deal with loops.
 
 The _begin_ and _again_ loops are like the _while_ and _until_ concepts of any programming language, but used together.
 
-The _begin_ ends when the actual data byte is zero, then advances until the corresponding _again_. 
+The _begin_ ends when the actual data byte is zero, then advances until pass the corresponding _again_. 
 
-The _again_ repeats while the actual data byte is not zero, then must go back to the corresponding _begin_.
+The _again_ repeats while the actual data byte is not zero, then must go back until the corresponding _begin_.
 
-The loops can be nested, using a counter that increase for begins and decrease for again, finishing the loop when counter is zero. As a 8-bit circuit, the maximum nested loops is 255;
+The loops can be nested, using a counter that increase for begins and decrease for again, finishing the loop when counter is zero. 
+
+As a 8-bit circuit, the maximum nested loops is 255;
 
 ## Circuit Layout
 
@@ -122,6 +124,4 @@ Jelly will be a wirewrap circuit -- work in progress
 ## Work Bench
 
 Jelly logic circuits needs some tests -- work in progress
-
-
 
