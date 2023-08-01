@@ -10,15 +10,15 @@ Adopt a common notation for MSB at left and LSB at right. Must review the notes.
 
 the zero dectector circuit, is necessary for resolve loop issues of _begin and again_.
 
-the move reverse circuit, is necessary to save copy code in eeprom.
+the move reverse circuit, is necessary to necessary to avoid multiple copies of same code in eeprom.
 
-the d-flip-flops, is still necessary to hold the move and mode lines state.
+the flip-flops, is still necessary to hold the move and mode lines state.
 
 the internal implementation needs a clear and a copy math operations then no more reverse operation.
 
 In the list of combinations used to control lines, state of devices and operations, the high nibble vary from 0x1 to 0xE, leaving 0x0 to do nothing and 0xF for select some extra states. 
 
-Those extra states with some glue logics make needs just one eeprom as finite state machine. 
+with those extra states done by some glue logics, Jelly just needs one eeprom as finite state machine. 
 
 Combining low nibble C0-C3 and high nibble T0-T3 as:
 
@@ -52,11 +52,12 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 BOM:
 - CN is a dual eigth pins connector,
 - U1 is a AT28C16, U2 is a AT28C16, 
-- U4 is a 74HC574, U6 is a 74HC574, U6 is a 74HC574, 
+- U4 is a 74HC574, U5 is a 74HC574, U6 is a 74HC574, 
 - U7 is a 74HC245, U8 is a 74HC393, U10 is a 74HC74,
-- U11 is a 74HC32, U12 is a 74HC32, U13 is a 74HC32
-- U14 is a 74HC32, U15 is a 74HC32, U16 is a 74HC32, U17 is a 74HC32,
-
+- U11 is a 74HC32, U12 is a 74HC32,
+- U13 is a 74HC00, U14 is a 74HC00,
+- U15 is a 74HC08, U16 is a 74HC08, U17 is a 74HC08, U18 is a 74HC08,
+  
 these extends the eeprom table of contents to toggle signals.
 
 ### 19/07/2023
