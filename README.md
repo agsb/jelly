@@ -85,7 +85,7 @@ Jelly includes: (list can grow)
 
   - a noop, to do nothing, and move forward (or backward) code tape one step;
   
-  - a eof, to end of code and halt;
+  - a eof, to end of code and halt, as a complete Turing Machine;
 
 ### Jelly ideas
 
