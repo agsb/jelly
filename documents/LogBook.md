@@ -1,10 +1,79 @@
 # LogBook
 
-19/07/2023
+### 01/08/2023
+
+Jelly now have a stable version. No more changes for the FSM/Math circuits and the glue logics is in 'reduce or delay' decision phase.
+
+From wirewrap view, the connection of data output from 74HC574 into address input of AT28C16 is a mess, all lines crossed. What to do ?
+
+The clear circuit, with resistors to ground (Vss) needs testing for values. 
+
+
+### 26/07/2023
+
+_be back to future_
+
+Another revision of circuits.
+
+Adopt a common notation for MSB at left and LSB at right. Must review the notes.
+
+the zero dectector circuit, is necessary for resolve loop issues of _begin and again_.
+
+the move reverse circuit, is necessary to necessary to avoid multiple copies of same code in eeprom.
+
+the flip-flops, is still necessary to hold the move and mode lines state.
+
+the internal implementation needs a clear and a copy math operations then no more reverse operation.
+
+In the list of combinations used to control lines, state of devices and operations, the high nibble vary from 0x1 to 0xE, leaving 0x0 to do nothing and 0xF for select some extra states. 
+
+with those extra states done by some glue logics, Jelly just needs one eeprom as finite state machine. 
+
+Combining low nibble C0-C3 and high nibble T0-T3 as:
+
+| signal | combines | gives |
+| -- | -- | -- |
+| select | T0 AND T1 AND T2 AND T3 | high when 0xF |
+| U2.A8 | select AND C0 | address line of U2 |
+| U2.A9 | select AND C1 | address line of U2 |
+| U2.A10 | select AND C2 | address line of U2 |
+| U6.CS | select AND C3 | chip select line of U6 |
+| | | |
+| control | NOT (select) | high when not 0xF |
+| U4.CS | control AND C0 | chip select line of U4 |
+| U5.CS | control AND C1 | chip select line of U5 |
+| U6.OE | NOT (control AND C2) | output enable line of U6 |
+| U7.OE | NOT (control AND C3) | output enable line of U7 |
+| | | |
+| toggle | NOT(C3) AND select | high when not in math | 
+| U10.CLK1 | toggle AND C0 | toggles MOVE line |
+| U10.CLK2 | toggle AND C1 | toggles MODE line |
+| U10.CLR1 | toggle AND C2 | clear D-flip-flop |
+| U10.CLR2 | toggle AND C2 | clear D-flip-flop |
+| | | |
+| zero | D0 OR D1 OR D2 OR D3 OR D4 OR D5 OR D6 OR D7 | high when not zero |
+| | | |
+| U1.A8 | zero | change page of FSM |
+| U1.A9 | U10.Q1 | change page of FSM, loop mode |
+| CN.T2 | T2 XOR (MOVE AND T3) | reverses movement forward or backward |
+| | | |
+
+BOM:
+- CN is a dual eigth pins connector,
+- U1 is a AT28C16, U2 is a AT28C16, 
+- U4 is a 74HC574, U5 is a 74HC574, U6 is a 74HC574, 
+- U7 is a 74HC245, U8 is a 74HC393, U10 is a 74HC74,
+- U11 is a 74HC32, U12 is a 74HC32,
+- U13 is a 74HC00, U14 is a 74HC00,
+- U15 is a 74HC08, U16 is a 74HC08, U17 is a 74HC08, U18 is a 74HC08,
+  
+these extends the eeprom table of contents to toggle signals.
+
+### 19/07/2023
 
 Made a C small Jelly simulator for test the _begin and again_ loops using zero at A8 and mode at A9. Note, before mode loop from _again_, must backward code tape two times;
 
-18/07/2023
+### 18/07/2023
 
 _read the funny manuals_, again.
 
@@ -16,7 +85,7 @@ For old 74HC-CMOS at 4.5-5.1 V, it must be ? Already known that Vil/Iil must be 
 
 And for Leds ? At 4.5V, _20mA source limit_, and no more than 2mA per led, then 1.5k for Red (1.8V), 1.2k Yellow (2.2V), 750 for Green (3.1V) and 450 for Blue (3.6V);
 
-16/07/2023
+### 16/07/2023
 
 Thinking about mode normal and loop. 
 
@@ -32,7 +101,7 @@ Confirm use of two eeproms for Finite State Machine. One with M0-M3, for Math, d
 
 The T0-T4 lines are multiplexed, maybe better one line for each (One, Two, forward, backward, read, write) ? Why not ? Because that mux T0-T3 are easy to decode by a MCU, keeps the connector small and any 74HC139 could demux if need.
 
-11/07/2023
+### 11/07/2023
 
 The 74HC273 is a weird circuit with a strange pinout and use it adds more two control lines for clear function.
 
@@ -40,19 +109,19 @@ The true-table for controls is done but too much logic ports to make it work.
 
 Better return to original design, use 74HC574 and a pull-down pool for clear, and use another eeprom to control signals. Then Jelly will be pleny of lines for states and less glue logic.
 
-03/07/2023
+### 03/07/2023
 
 Jelly needs zero at counter for start counting \[ and \] inside loops, then I could try use a 74HC273 with clear as input latchs.
 
 Some glue logics for define states for detect zero, toggle modes normal and loop, control chip signals need about more than 48 logic ports. Most from especific actions and decision true-tables.
 
-01/07/2023
+### 01/07/2023
 
 Jelly have 2 eeproms, and 16 data lines used as control and signals lines. What to do when need more ? Easy, use more one eeprom in paralel. 
 
 With 11 address lines A0-A11, five lines A0-A4 for microcodes gives 32 steps, four lines A5-A8 for opcodes gives 16 codes, and two lines A9-A10 for 4 pages or modes. With 3 eeproms got 24 lines D0-D7, D8-D15, D16-D23.  
 
-30/06/2023  
+### 30/06/2023  
 
 Start this logbook, as stack of changes in documentation of Jelly.
 
