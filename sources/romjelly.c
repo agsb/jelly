@@ -1,67 +1,120 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define EES 256
+#define PAGE 256
+#define SIZE 2048
+#define CODE 0
+#define MATH 1
 
+/*
 // simulate Jelly computer
 // @agsb 2022
 //
+*/
 
-char eep[5][2048];
-
-char buf[5];
+char eep[2][SIZE];
 
 int i, j, k;
 
-void make_code(void) {
+void make_math(void) {
 
-    for (i = 0; i < EES; i++) {
+/* index */
 
+    j = 0;
+
+// printf (" math zero\n");
+/* zero */
+    for (i = 0; i < PAGE; i++) {
+        eep[MATH][j] = 0;
+        j++;
+        }   
+
+// printf (" math increase\n");
+/* increase */
+    for (i = 0; i < PAGE; i++) {
+        eep[MATH][j] = (i+1)%PAGE;
+        j++;
+        }   
+
+// printf (" math decrease\n");
+/* decrease */
+    for (i = 0; i < PAGE; i++) {
+        eep[MATH][j] = (i-1)%PAGE;
+        j++;
+        }   
+
+// printf (" math equal\n");
+/* equal */
+    for (i = 0; i < PAGE; i++) {
+        eep[MATH][j] = i;
+        j++;
+        }   
+
+// printf (" math one complement\n");
+/* one complement */
+    for (i = 0; i < PAGE; i++) {
+        eep[MATH][j] = ~i;
+        j++;
+        }   
+
+// printf (" math left\n");
+/* shift left */
+    for (i = 0; i < PAGE; i++) {
+        eep[MATH][j] = (i<<1)%PAGE;
+        j++;
+        }   
+
+// printf (" math right\n");
+/* shift right */
+    for (i = 0; i < PAGE; i++) {
+        eep[MATH][j] = (i>>1)%PAGE;
+        j++;
+        }   
+
+// printf (" math decode\n");
+/* decode */
+    for (i = 0; i < PAGE; i++) {
+        
         switch (i) {
-            case '@' : k = 0 ; break ;
-            case '=' : k = 1 ; break ;
-            case '>' : k = 2 ; break ;
-            case '<' : k = 3 ; break ;
-            case '+' : k = 4 ; break ;
-            case '-' : k = 5 ; break ;
-            case '.' : k = 6 ; break ;
-            case ',' : k = 7 ; break ;
-            case '[' : k = 8 ; break ;
-            case ']' : k = 9 ; break ;
+            case '=' : k = 0 ; break ;
+            case '>' : k = 1 ; break ;
+            case '<' : k = 2 ; break ;
+            case '+' : k = 3 ; break ;
+            case '-' : k = 4 ; break ;
+            case '.' : k = 5 ; break ;
+            case ',' : k = 6 ; break ;
+            case '[' : k = 7 ; break ;
+            case ']' : k = 8 ; break ;
+            case '!' : k = 9  ; break ;
             case '~' : k = 10 ; break ;
-            case '?' : k = 11 ; break ;
-            case '!' : k = 12 ; break ;
-            case '&' : k = 13 ; break ;
+            case '{' : k = 11 ; break ;
+            case '}' : k = 12 ; break ;
+            case '^' : k = 13 ; break ;
             case '$' : k = 14 ; break ;
             case '%' : k = 15 ; break ;
             default : k = 0 ; break ;
         }
-        eep[0][i]=k;
+        eep[MATH][j]=k;
+        j++;
     }
+
 }
 
 void show (void) {
 
             // show
 
-            printf (" %3d", i);
-
-            for (j = 0; j < 8; j++) {
-                printf (" 0x%02X", (int) ((eep[4][i + j * EES]) & 0xFF) );
-                };
-                 
-            printf ("\n");
-            
-        }
-
         {
             FILE * fb;
 
             fb = fopen("b.out","w+b");
 
-            for (i=0; i < EES * 8; i++) {
-                fputc((char) (eep[4][i]&0xFF), fb );
-            }
+            for (i=0; i < PAGE * 8; i++) {
+
+                fputc((char) (eep[MATH][i]&0xFF), fb );
+
+                }
+
             fclose (fb);
         }
     }
@@ -71,7 +124,7 @@ void show (void) {
 
  1. uses 2 eeproms of 2k
  one to lookup math and translate a byte value to a valid opcode
- and ione to map control signals
+ and one to map control signals
 
  2. the address for eeproms are 
 
@@ -83,9 +136,10 @@ void show (void) {
 
  3. signals flows
 
- clock --> /U8.74hc394/ --> Q0-Q3 == A0-A3 --> ADDRESS
+ clock circuit --> /U8.74hc394/ --> Q0-Q3 == A0-A3 --> ADDRESS
+
  DATABUS --> D0-D7 --> /U4.74HC574/ --> Q0-Q3 == A4-A7 --> ADDRESS
- ADDRESS --> A0-A7 --> /U1.AT28C16/ --> C0, C1, C2, C3, T0, T1, T2, T3 --> INTERNAL 
+ ADDRESS --> A0-A7 --> /U1.AT28C16/ --> D0-D7 == C0-C3,T0-T3 --> INTERNAL 
 
  INTERNAL --> T0 AND T1 AND T2 AND T3 == MATH --> INTERNAL
  INTERNAL --> MATH AND C0 == U2.A8
@@ -93,13 +147,13 @@ void show (void) {
  INTERNAL --> MATH AND C2 == U2.A10
  INTERNAL --> MATH AND C3 == CS6
 
- INTERNAL --> MATH --> NOT (MATH) == CONTROL
+ INTERNAL --> MATH --> NOT (MATH) == CONTROL --> INTERNAL
  INTERNAL --> CONTROL AND C0 == CS4 
  INTERNAL --> CONTROL AND C1 == CS5 
  INTERNAL --> CONTROL AND C2 == OE6
  INTERNAL --> CONTROL AND C3 == OE7
  
- INTERNAL --> MATH AND NOT (C3) == TOGGLE
+ INTERNAL --> MATH AND NOT (C3) == TOGGLE --> INTERNAL
  INTERNAL --> TOGGLE AND C0 == CLK10.1 
  INTERNAL --> TOGGLE AND C1 == CLK10.2
  INTERNAL --> TOGGLE AND C2 == CLR10.1 and CLR10.2
@@ -108,13 +162,14 @@ void show (void) {
  INTERNAL --> CLK10.2 --> /U10.74HC74/ --> MODE
  INTERNAL --> CLR10   --> /U10.74HC74/ --> CLEAR BOTH
 
- DATABUS --> D0-D7 --> /U5.74HC574/ --> Q0-Q7 == A0-A7 --> /U2.AT28C16/ -->
- INTERNAL --> M0-M2 == A8-A10 --> /U2.AT28C16/ -->
+ INTERNAL --> M0-M2 == A8-A10 --> /U2.AT28C16/ 
+ DATABUS --> D0-D7 --> /U5.74HC574/ --> Q0-Q7 == A0-A7 --> /U2.AT28C16/ 
  /U2.AT28C16/ --> Q0-Q7 == D0-D7 --> /U6.74HC574/ --> Q0-Q7 == D0-D7 --> DATABUS
 
- DATABUS <--> D0-D7 == A1-A8 <--> /U7.74HC245/ <--> B0--B7 <--> EXTERNALBUS
+ DATABUS <--> D0-D7 == A1-A8 <--> /U7.74HC245/ <--> B0--B7 <--> EXTERNAL
 
  INTERNAL --> T0,T1,T3 --> CONNECTOR --> EXTERNAL
+ INTERNAL --> CLOCK    --> CONNECTOR --> EXTERNAL
  INTERNAL --> (MOVE AND T3) XOR T2 --> CONNECTOR --> EXTERNAL
 
 */
@@ -145,14 +200,18 @@ void show (void) {
 #define two_forward   0x50    // two, forward, none 
 #define one_backward  0xb0    // one, backward, none
 #define two_backward  0x70    // two, backward, none
+
 #define one_write     0x83    // one, write, U6 into U7
 #define two_write     0x43    // two, write, U6 into U7
 #define std_write     0xc3    // std, write, U6 into U7
+
 #define one_read      0xa5    // one, read, U7 into U5
 #define two_read      0x65    // two, read, U7 into U5
 #define std_read      0xe5    // std, read, U7 into U5    
+
 #define zero_data     0x34    // none, none, clear U5
 #define copy_data     0x26    // none, none, U6 into U5
+
 #define zero_code     0x18    // none, none, clear U4, clear U8
 #define copy_code     0xda    // none, none, U6 into U4, clear U8
 
@@ -199,9 +258,9 @@ void show (void) {
 
 // less one eeprom and more 
 
-void make_eprom(void) {
+void make_code(void) {
 
-unsigned char page = 0, opcode = 0, uscode = 0;
+unsigned int page = 0, uscode = 0;
 
 /*
  the 2k address memory eeprom space is mapped as
@@ -231,266 +290,262 @@ Note: change mode MUST clear the microcode counter.
 */ 
 
 
+
+/* MUST FOLLOW THAT ORDER */
+
 /*-------------------------------------------------------------------*/
 // page 0, A8=0, A9=0, A10=0
 // mode default
 // data byte is zero
 
-page = 0;
-
 // NEXT opcode 0
 
-opc = 0;
-mpc = 0;
+page = 0;
+uscode = 0;
 
-rom[page + opcode + uscode++] = one_read;
-rom[page + opcode + uscode++] = one_forward;
-rom[page + opcode + uscode++] = do_decode;
-rom[page + opcode + uscode++] = copy_code;
+eep[CODE][page + uscode++] = one_read;
+eep[CODE][page + uscode++] = one_forward;
+eep[CODE][page + uscode++] = do_decode;
+eep[CODE][page + uscode++] = copy_code;
 
 // >    page + opcodeode 1
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = two_forward;
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = two_forward;
+eep[CODE][page + uscode++] = zero_code;
 
 // <    page + opcodeode 2
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = two_backward;
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = two_backward;
+eep[CODE][page + uscode++] = zero_code;
 
 // +    page + opcodeode 3
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = two_read;
-rom[page + opcode + uscode++] = do_increase;
-rom[page + opcode + uscode++] = two_write;
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = two_read;
+eep[CODE][page + uscode++] = do_increase;
+eep[CODE][page + uscode++] = two_write;
+eep[CODE][page + uscode++] = zero_code;
 
 // -    page + opcodeode 4
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = two_read;
-rom[page + opcode + uscode++] = do_decrease;
-rom[page + opcode + uscode++] = two_write;
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = two_read;
+eep[CODE][page + uscode++] = do_decrease;
+eep[CODE][page + uscode++] = two_write;
+eep[CODE][page + uscode++] = zero_code;
 
 // .    page + opcodeode 5
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = two_read;
-rom[page + opcode + uscode++] = do_copy;
-rom[page + opcode + uscode++] = std_write;
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = two_read;
+eep[CODE][page + uscode++] = do_copy;
+eep[CODE][page + uscode++] = std_write;
+eep[CODE][page + uscode++] = zero_code;
 
 // ,    page + opcodeode 6
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = std_read;
-rom[page + opcode + uscode++] = do_copy;
-rom[page + opcode + uscode++] = two_write;
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = std_read;
+eep[CODE][page + uscode++] = do_copy;
+eep[CODE][page + uscode++] = two_write;
+eep[CODE][page + uscode++] = zero_code;
 
 // [    page + opcodeode 7
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = set_mode;
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = set_mode;
+eep[CODE][page + uscode++] = zero_code;
 
 // ]    page + opcodeode 8
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = zero_code;
 
 /*-------------------------------------------------------------------*/
 // page 1, A8=1, A9=0, A10=0
 // mode default
 // data byte is not zero
 
-page = page + 256;
-
 // noop opcode 0
+page = 1 * 256;
+uscode = 0;
 
-opc = 0;
-mpc = 0;
-
-rom[page + opcode + uscode++] = one_read;
-rom[page + opcode + uscode++] = one_forward;
-rom[page + opcode + uscode++] = do_decode;
-rom[page + opcode + uscode++] = copy_code;
+eep[CODE][page + uscode++] = one_read;
+eep[CODE][page + uscode++] = one_forward;
+eep[CODE][page + uscode++] = do_decode;
+eep[CODE][page + uscode++] = copy_code;
 
 // >    opcode 1
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = two_forward;
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = two_forward;
+eep[CODE][page + uscode++] = zero_code;
 
 // <    opcode 2
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = two_backward;
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = two_backward;
+eep[CODE][page + uscode++] = zero_code;
 
 // +    opcode 3
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = two_read;
-rom[page + opcode + uscode++] = do_increase;
-rom[page + opcode + uscode++] = two_write;
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = two_read;
+eep[CODE][page + uscode++] = do_increase;
+eep[CODE][page + uscode++] = two_write;
+eep[CODE][page + uscode++] = zero_code;
 
 // -    opcode 4
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = two_read;
-rom[page + opcode + uscode++] = do_decrease;
-rom[page + opcode + uscode++] = two_write;
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = two_read;
+eep[CODE][page + uscode++] = do_decrease;
+eep[CODE][page + uscode++] = two_write;
+eep[CODE][page + uscode++] = zero_code;
 
 // .    opcode 5
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = two_read;
-rom[page + opcode + uscode++] = do_copy;
-rom[page + opcode + uscode++] = std_write;
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = two_read;
+eep[CODE][page + uscode++] = do_copy;
+eep[CODE][page + uscode++] = std_write;
+eep[CODE][page + uscode++] = zero_code;
 
 // ,    opcode 6
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = std_read;
-rom[page + opcode + uscode++] = do_copy;
-rom[page + opcode + uscode++] = two_write;
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = std_read;
+eep[CODE][page + uscode++] = do_copy;
+eep[CODE][page + uscode++] = two_write;
+eep[CODE][page + uscode++] = zero_code;
 
 // [    opcode 7
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = zero_code;
 
 // ]    opcode 8
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = one_backward;
-rom[page + opcode + uscode++] = one_backward;
-rom[page + opcode + uscode++] = set_move;   // reverse move
-rom[page + opcode + uscode++] = set_mode;   // toggle mode
-rom[page + opcode + uscode++] = zero_code;  // for safe
+eep[CODE][page + uscode++] = one_backward;
+eep[CODE][page + uscode++] = one_backward;
+eep[CODE][page + uscode++] = set_move;   // reverse move
+eep[CODE][page + uscode++] = set_mode;   // toggle mode
+eep[CODE][page + uscode++] = zero_code;  // for safe
 
 /*-------------------------------------------------------------------*/
 // page 2, A8=0, A9=1, A10=0
 // mode loop
 // data byte is zero
 
-page = page + 256 ;
-
 // noop opcode 0
 
-opc = 0;
-mpc = 0;
+page = 2 * 256 ;
+uscode = 0;
 
-rom[page + opcode + uscode++] = one_read;
-rom[page + opcode + uscode++] = one_forward;
-rom[page + opcode + uscode++] = do_decode;
-rom[page + opcode + uscode++] = copy_code;
+eep[CODE][page + uscode++] = one_read;
+eep[CODE][page + uscode++] = one_forward;
+eep[CODE][page + uscode++] = do_decode;
+eep[CODE][page + uscode++] = copy_code;
 
 // >    opcode 1
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = set_clear;  // clear toggles
-rom[page + opcode + uscode++] = zero_code;  // for safe
+eep[CODE][page + uscode++] = set_clear;  // clear toggles
+eep[CODE][page + uscode++] = zero_code;  // for safe
 
 // <    opcode 2
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = set_clear;  // toggle mode
-rom[page + opcode + uscode++] = zero_code;  // for safe
+eep[CODE][page + uscode++] = set_clear;  // toggle mode
+eep[CODE][page + uscode++] = zero_code;  // for safe
 
 // +    opcode 3
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = set_clear;  // toggle mode
-rom[page + opcode + uscode++] = zero_code;  // for safe
+eep[CODE][page + uscode++] = set_clear;  // toggle mode
+eep[CODE][page + uscode++] = zero_code;  // for safe
 
 // -    opcode 4
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = set_clear;  // toggle mode
-rom[page + opcode + uscode++] = zero_code;  // for safe
+eep[CODE][page + uscode++] = set_clear;  // toggle mode
+eep[CODE][page + uscode++] = zero_code;  // for safe
 
 // .    opcode 5
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = set_clear;  // toggle mode
-rom[page + opcode + uscode++] = zero_code;  // for safe
+eep[CODE][page + uscode++] = set_clear;  // toggle mode
+eep[CODE][page + uscode++] = zero_code;  // for safe
 
 // ,    opcode 6
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = set_clear;  // toggle mode
-rom[page + opcode + uscode++] = zero_code;  // for safe
+eep[CODE][page + uscode++] = set_clear;  // toggle mode
+eep[CODE][page + uscode++] = zero_code;  // for safe
 
 
 // [    opcode 7
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = set_clear;  // toggle mode
-rom[page + opcode + uscode++] = zero_code;  // for safe
+eep[CODE][page + uscode++] = set_clear;  // toggle mode
+eep[CODE][page + uscode++] = zero_code;  // for safe
 
 // ]    opcode 8
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = set_clear;  // toggle mode
-rom[page + opcode + uscode++] = zero_code;  // for safe
+eep[CODE][page + uscode++] = set_clear;  // toggle mode
+eep[CODE][page + uscode++] = zero_code;  // for safe
 
 
 /*-------------------------------------------------------------------*/
@@ -498,80 +553,107 @@ rom[page + opcode + uscode++] = zero_code;  // for safe
 // mode loop
 // data byte is not zero
 
-page = page + 256 ;
-
 // noop opcode 0
 
-opc = 0;
-mpc = 0;
+page = 3 * 256 ;
+uscode = 0;
 
-rom[page + opcode + uscode++] = one_read;
-rom[page + opcode + uscode++] = one_forward;
-rom[page + opcode + uscode++] = do_decode;
-rom[page + opcode + uscode++] = copy_code;
+eep[CODE][page + uscode++] = one_read;
+eep[CODE][page + uscode++] = one_forward;
+eep[CODE][page + uscode++] = do_decode;
+eep[CODE][page + uscode++] = copy_code;
 
 // >    opcode 1
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = zero_code;
 
 // <    opcode 2
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = zero_code;
 
 // +    opcode 3
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = zero_code;
 
 // -    opcode 4
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = zero_code;
 
 // .    opcode 5
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = zero_code;
 
 // ,    opcode 6
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = zero_code;
 
 // [    opcode 7
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = copy_data;
-rom[page + opcode + uscode++] = do_increase;
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = copy_data;
+eep[CODE][page + uscode++] = do_increase;
+eep[CODE][page + uscode++] = zero_code;
 
 // ]    opcode 8
 
-page + opcode += 16;
+page += 16;
 uscode = 0;
 
-rom[page + opcode + uscode++] = copy_data;
-rom[page + opcode + uscode++] = do_decrease;
-rom[page + opcode + uscode++] = zero_code;
+eep[CODE][page + uscode++] = copy_data;
+eep[CODE][page + uscode++] = do_decrease;
+eep[CODE][page + uscode++] = zero_code;
 
 }
 
+int make_ihex (void) {
+
+    /* venerable intel hex */
+
+
+    printf ("// code eeprom\n");
+
+    for (j=0;j<SIZE;j++) {
+
+        if(!(j%16)) printf ("\n:%02x%04x%02x",0x10,j,0x0);
+    
+        printf("%02X",(eep[CODE][j])&0XFF);
+   
+        }
+    
+    printf ("\n:00000001FF\n");
+
+    printf ("\n// data eeprom\n");
+
+    for (j=0;j<SIZE;j++) {
+
+        if(!(j%16)) printf ("\n:%02x%04x%02x",0x10,j,0x0);
+    
+        printf("%02X",(eep[MATH][j])&0XFF);
+
+        }
+
+    printf ("\n:00000001FF\n");
+ }
 
 
 int main (int argc, char * argv[]) {
@@ -581,9 +663,23 @@ int main (int argc, char * argv[]) {
 
     unsigned char * pc, * pd, * pe; 
 
+
+    for (i = 0; i++; i < SIZE) {
+        eep[0][i] = 0x0;
+        eep[1][i] = 0x0;
+    }
+
+// printf (" make code\n");
+
     make_code();
     
+// printf (" make math\n");
+
     make_math();
+
+// printf (" make ihex\n");
+
+    make_ihex();
 
 /*
 
@@ -593,7 +689,6 @@ int main (int argc, char * argv[]) {
 
     assume data till EOF
 
-*/
 
     k = 0;
     
@@ -612,6 +707,7 @@ int main (int argc, char * argv[]) {
     if (pd == NULL) pd = &tape[k];
 
 
+*/
     
 
 
