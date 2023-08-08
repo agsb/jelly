@@ -1,5 +1,11 @@
 # LogBook
 
+### 08/08/2023
+
+_KISS_
+
+Easy cut-off. Do simplify math operations just to 'decode, increase, decrease, copy'. 
+
 ### 03/08/2023
 
 Made a simple program to make the eeprom contents as intel hex files, as code.hex and math.hex [romjelly](https://github.com/agsb/jelly/blob/main/sources/romjelly.c).
