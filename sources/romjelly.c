@@ -1,20 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define PAGE 256
-#define SIZE 2048
-#define CODE 0
-#define MATH 1
-
 /*
 // simulate Jelly computer
 // @agsb 2022
 //
+// not good code, but the work done.
 */
+
+// all could be done with 1k eeproms
+
+// size of eeproms 
+#define SIZE 2048
+
+// page for a byte 0-255
+#define PAGE 256
+
+// page 16 opcodes of 8 microcodes is 128 bytes long
+#define HALF 128
+
+// page 16 opcodes of 8 microcodes is 128 bytes long
+#define OFFS 8
+
+// one eeprom
+#define CODE 0
+
+// two epprom
+#define MATH 1
+
+// simplifly as common. yes I like FORTRAN !
 
 char rom[2][SIZE];
 
 int i, j, k;
+
 
 void make_math(void) {
 
@@ -95,45 +114,29 @@ void make_math(void) {
 
 }
 
-void show (void) {
-
-            // show
-
-        {
-            FILE * fb;
-
-            fb = fopen("b.out","w+b");
-
-            for (i=0; i < PAGE * 8; i++) {
-
-                fputc((char) (rom[MATH][i]&0xFF), fb );
-
-                }
-
-            fclose (fb);
-        }
-    }
-
 /*
  Jelly 
 
- 1. uses 2 romroms of 2k
+ 1. uses 2 eeproms of 2k
+
  one to lookup math and translate a byte value to a valid opcode
  and one to map control signals
 
- 2. the address for romroms are 
+ 2. the address for eeproms are 
 
- a counter 0-15, acts as step pipeline, which maps lower nibble A0-A3 into romroms
- a octal latch does receive D0-D7 from data bus, and gives A4-A7 into romroms.
+ a counter 0-8, acts as step pipeline, which maps lower bits A0-A2 into eeproms
 
- the first romrom does control lines C0, C1, C2, C3 and T0, T1, T2, T3
- the second romrom does math unary operations and decode to opcodes. 
+ a octal latch does receive D0-D7 from data bus, and gives A3-A6 into eeproms.
+
+ the first eeprom does control lines C0, C1, C2, C3 and T0, T1, T2, T3
+
+ the second eeprom does math unary operations and decode to opcodes. 
 
  3. signals flows
 
- clock circuit --> /U8.74hc394/ --> Q0-Q3 == A0-A3 --> ADDRESS
+ clock circuit --> /U8.74hc394/ --> Q0-Q2 == A0-A2 --> ADDRESS
 
- DATABUS --> D0-D7 --> /U4.74HC574/ --> Q0-Q3 == A4-A7 --> ADDRESS
+ DATABUS --> D0-D7 --> /U4.74HC574/ --> Q0-Q3 == A3-A6 --> ADDRESS
  ADDRESS --> A0-A7 --> /U1.AT28C16/ --> D0-D7 == C0-C3,T0-T3 --> INTERNAL 
 
  INTERNAL --> T0 AND T1 AND T2 AND T3 == MATH --> INTERNAL
@@ -157,7 +160,7 @@ void show (void) {
  INTERNAL --> CLK10.2 --> /U10.74HC74/ --> MODE
  INTERNAL --> CLR10   --> /U10.74HC74/ --> CLEAR BOTH
 
- INTERNAL --> M0-M2 == A8-A10 --> /U2.AT28C16/ 
+ INTERNAL --> C0-C2 == A8-A10 --> /U2.AT28C16/ 
  DATABUS --> D0-D7 --> /U5.74HC574/ --> Q0-Q7 == A0-A7 --> /U2.AT28C16/ 
  /U2.AT28C16/ --> Q0-Q7 == D0-D7 --> /U6.74HC574/ --> Q0-Q7 == D0-D7 --> DATABUS
 
@@ -168,6 +171,8 @@ void show (void) {
  INTERNAL --> (MOVE AND T3) XOR T2 --> CONNECTOR --> EXTERNAL
 
 */
+
+// this will be a brush of bits
 
 // device control
 #define T0 0b00010000
@@ -248,16 +253,16 @@ void show (void) {
 // U10.CLR1 = tn and C2
 // U10.CLR2 = tn and C2
 
-// less one romrom and more 
+// less one eeprom and more 
 
 void make_code(void) {
 
-unsigned int page = 0, uscode = 0, offset = 4;
+unsigned int page = 0, uscode = 0;
 
 /*
-the 2k address memory romrom space is mapped as pages of 256 bytes
+the 2k address memory eeprom space is mapped as pages of 256 bytes
 
-the microcode goes 3-bits, then 8 steps.
+the microcode goes 3-bits, then 8 steps as offset.
 
 page 0, A8=0, A9=0 
     mode default, data byte is zero
@@ -291,7 +296,7 @@ Note: change mode MUST clear the microcode counter.
 
 // NEXT opcode 0
 
-page = 0;
+page = 0 * HALF;
 uscode = 0;
 
 rom[CODE][page + uscode++] = one_read;
@@ -301,7 +306,7 @@ rom[CODE][page + uscode++] = copy_code;
 
 // >    page + opcodeode 1
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = two_forward;
@@ -309,7 +314,7 @@ rom[CODE][page + uscode++] = zero_code;
 
 // <    page + opcodeode 2
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = two_backward;
@@ -317,7 +322,7 @@ rom[CODE][page + uscode++] = zero_code;
 
 // +    page + opcodeode 3
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = two_read;
@@ -327,7 +332,7 @@ rom[CODE][page + uscode++] = zero_code;
 
 // -    page + opcodeode 4
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = two_read;
@@ -337,7 +342,7 @@ rom[CODE][page + uscode++] = zero_code;
 
 // .    page + opcodeode 5
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = two_read;
@@ -347,7 +352,7 @@ rom[CODE][page + uscode++] = zero_code;
 
 // ,    page + opcodeode 6
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = std_read;
@@ -357,7 +362,7 @@ rom[CODE][page + uscode++] = zero_code;
 
 // [    page + opcodeode 7
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = set_mode;
@@ -365,7 +370,7 @@ rom[CODE][page + uscode++] = zero_code;
 
 // ]    page + opcodeode 8
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = zero_code;
@@ -376,7 +381,7 @@ rom[CODE][page + uscode++] = zero_code;
 // data byte is not zero
 
 // noop opcode 0
-page = 1 * 256;
+page = 1 * HALF;
 uscode = 0;
 
 rom[CODE][page + uscode++] = one_read;
@@ -386,7 +391,7 @@ rom[CODE][page + uscode++] = copy_code;
 
 // >    opcode 1
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = two_forward;
@@ -394,7 +399,7 @@ rom[CODE][page + uscode++] = zero_code;
 
 // <    opcode 2
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = two_backward;
@@ -402,7 +407,7 @@ rom[CODE][page + uscode++] = zero_code;
 
 // +    opcode 3
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = two_read;
@@ -412,7 +417,7 @@ rom[CODE][page + uscode++] = zero_code;
 
 // -    opcode 4
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = two_read;
@@ -422,7 +427,7 @@ rom[CODE][page + uscode++] = zero_code;
 
 // .    opcode 5
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = two_read;
@@ -432,7 +437,7 @@ rom[CODE][page + uscode++] = zero_code;
 
 // ,    opcode 6
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = std_read;
@@ -442,14 +447,14 @@ rom[CODE][page + uscode++] = zero_code;
 
 // [    opcode 7
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = zero_code;
 
 // ]    opcode 8
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = one_backward;
@@ -465,7 +470,7 @@ rom[CODE][page + uscode++] = zero_code;  // for safe
 
 // noop opcode 0
 
-page = 2 * 256 ;
+page = 2 * HALF ;
 uscode = 0;
 
 rom[CODE][page + uscode++] = one_read;
@@ -475,7 +480,7 @@ rom[CODE][page + uscode++] = copy_code;
 
 // >    opcode 1
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = set_clear;  // clear toggles
@@ -483,7 +488,7 @@ rom[CODE][page + uscode++] = zero_code;  // for safe
 
 // <    opcode 2
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = set_clear;  // toggle mode
@@ -491,7 +496,7 @@ rom[CODE][page + uscode++] = zero_code;  // for safe
 
 // +    opcode 3
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = set_clear;  // toggle mode
@@ -499,7 +504,7 @@ rom[CODE][page + uscode++] = zero_code;  // for safe
 
 // -    opcode 4
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = set_clear;  // toggle mode
@@ -507,7 +512,7 @@ rom[CODE][page + uscode++] = zero_code;  // for safe
 
 // .    opcode 5
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = set_clear;  // toggle mode
@@ -515,7 +520,7 @@ rom[CODE][page + uscode++] = zero_code;  // for safe
 
 // ,    opcode 6
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = set_clear;  // toggle mode
@@ -524,7 +529,7 @@ rom[CODE][page + uscode++] = zero_code;  // for safe
 
 // [    opcode 7
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 //rom[CODE][page + uscode++] = copy_data;
@@ -535,7 +540,7 @@ rom[CODE][page + uscode++] = zero_code;  // for safe
 
 // ]    opcode 8
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 //rom[CODE][page + uscode++] = copy_data;
@@ -552,7 +557,7 @@ rom[CODE][page + uscode++] = zero_code;  // for safe
 
 // noop opcode 0
 
-page = 3 * 256 ;
+page = 3 * HALF ;
 uscode = 0;
 
 rom[CODE][page + uscode++] = one_read;
@@ -562,49 +567,49 @@ rom[CODE][page + uscode++] = copy_code;
 
 // >    opcode 1
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = zero_code;
 
 // <    opcode 2
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = zero_code;
 
 // +    opcode 3
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = zero_code;
 
 // -    opcode 4
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = zero_code;
 
 // .    opcode 5
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = zero_code;
 
 // ,    opcode 6
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = zero_code;
 
 // [    opcode 7
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = copy_data;
@@ -613,7 +618,7 @@ rom[CODE][page + uscode++] = zero_code;
 
 // ]    opcode 8
 
-page += offset;
+page += OFFS;
 uscode = 0;
 
 rom[CODE][page + uscode++] = copy_data;
