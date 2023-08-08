@@ -69,14 +69,8 @@ Not all bytes are opcodes and mapped as NOP, do nothing instruction, to catch th
 | 8 | \] | until loop  | brainfuck | again |
 | 9 | \! | mark end of code | jelly | halt |
 | 0 | \= | do nothing | jelly | noop |
-| 10 | \~ | one complement | jelly | noop |
-| 11 | \{ | shift left | jelly | noop |
-| 12 | \} | shift right | jelly | noop |
-| 13 | \^ | clear | jelly | noop |
-| 14 | \% | reserved | jelly | noop |
-| 15 | \& | reserved | jelly | noop |
 
-- Any other ascii value is just translated as noop.
+- Any other ascii value is just translated as (0x0) noop.
 - Opcodes 10, 11, 12, 13, 14, 15 reserved and could change.
 
 ## Jelly extensions
