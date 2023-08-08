@@ -93,17 +93,19 @@ Notes:
 
 All devices are external and accessed by a 16 pin connector, with CLK, T0-T3 and ACK signals and D0-D7 data lines. 
 
+( make it better !)
+
 #### Table 2, Connector external
 | line | Pin | Pin | line |
 | --- | --- | --- | --- |
 | D0  |  1 | 16 | VCC |
-| D1  |  2 | 15 | T3  |
-| D2  |  3 | 14 | T2  |
-| D3  |  4 | 13 | T1  |
-| D4  |  6 | 14 | T0  |
-| D5  |  7 | 13 | CLK |
-| D6  |  8 | 12 | ACK |
-| GND | 10 | 11 | D7  |
+| D1  |  2 | 15 | NC |
+| D2  |  3 | 14 | T3  |
+| D3  |  4 | 13 | T2  |
+| D4  |  6 | 14 | T1  |
+| D5  |  7 | 13 | T0 |
+| D6  |  8 | 12 | D7 |
+| GND | 10 | 11 | CLK |
 
 One input-output switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q7 as D0-D7 into external data bus, output enable is /OE7, direction is DR7; 
 
