@@ -79,19 +79,16 @@ The lookup table maps decode and unary operations as pages of 256 bytes, it does
 #### Table 1, Lookup M3 == 1
 | name | M2 | M1 | M0 | action |
 | ---- | ----- | ----- | ---- | --- |
-| zero | 0 | 0 | 0 | clear byte | 
+| code | 0 | 0 | 0 | decode byte | 
 | incr | 0 | 0 | 1 | increase |
 | decr | 0 | 1 | 0 | decrease |
 | copy | 0 | 1 | 1 | copy byte |
-| not  | 1 | 0 | 0 | one complement |
-| sfl  | 1 | 0 | 1 | shift left |
-| sfr  | 1 | 1 | 0 | shift right |
-| code | 1 | 1 | 1 | decode byte to opcode |
 
 Notes:
   - In _code_ all bytes are translated in valid opcodes range, 0 to 15, not defined symbols are mapped as noop; 
-  - the zero and copy are internal FSM operations, not allow from opcodes.
-  - 
+  - the code and copy are internal FSM operations, not allow from opcodes.
+  - yes, was more 4 possible math, shift left, shift right, one complement, reverse. 
+
 ### External Devices
 
 All devices are external and accessed by a 16 pin connector, with CLK, T0-T3 and ACK signals and D0-D7 data lines. 
@@ -99,14 +96,14 @@ All devices are external and accessed by a 16 pin connector, with CLK, T0-T3 and
 #### Table 2, Connector external
 | line | Pin | Pin | line |
 | --- | --- | --- | --- |
-| D0  | 1 | 16 | VCC |
-| D1  | 2 | 15 | T3  |
-| D2  | 3 | 14 | T2  |
-| D3  | 4 | 13 | T1  |
-| D4  | 5 | 12 | T0  |
-| D5  | 6 | 11 | ACK |
-| D6  | 7 | 10 | CLK |
-| GND | 8 |  9 | D7  |
+| D0  |  1 | 16 | VCC |
+| D1  |  2 | 15 | T3  |
+| D2  |  3 | 14 | T2  |
+| D3  |  4 | 13 | T1  |
+| D4  |  6 | 14 | T0  |
+| D5  |  7 | 13 | CLK |
+| D6  |  8 | 12 | ACK |
+| GND | 10 | 11 | D7  |
 
 One input-output switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q7 as D0-D7 into external data bus, output enable is /OE7, direction is DR7; 
 
