@@ -4,7 +4,10 @@
 
 _KISS_
 
-Easy cut-off. Do simplify math operations just to 'decode, increase, decrease, copy'. 
+Easy cut-off. 
+
+Do simplify math operations just to 'decode, increase, decrease, copy'. 
+Do a short-cut in 74HC393 counter from Q1d to CLR1, counting 0 to 7.
 
 ### 03/08/2023
 
