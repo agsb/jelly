@@ -7,7 +7,12 @@ _KISS_
 Easy cut-off. 
 
 Do simplify math operations just to 'decode, increase, decrease, copy'. 
+
 Do a short-cut in 74HC393 counter from Q1d to CLR1, counting 0 to 7.
+
+Do include the halt (!) in decoder.
+
+**Jelly uses 1024 bytes for math, copy and decode, and less than 512 bytes for control and states, considering all  accessory logic equivalent to 512 bytes, can say that all Jelly is equivalent about 2048 x 8 d-flip-flops or about 65356 NANDS.**
 
 ### 03/08/2023
 
