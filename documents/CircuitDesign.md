@@ -125,7 +125,7 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 | _used for logics_ | |
 | enable | T1 AND T2 AND T3 | high when 0xE or 0xF |
 | _used for control lines of data flow_ | | |
-| control | NOT (enable) | high when not 0xF |
+| control | NOT (enable) | high when 0x0 to 0xD |
 | U4.CS | control AND C0 | chip select line of U4 |
 | U5.CS | control AND C1 | chip select line of U5 |
 | U6.OE | NOT (control AND C2) | output enable line of U6 |
@@ -144,6 +144,7 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 | U10.CLR2 | toggle AND C2 | clear D-flip-flop |
 | _used for command more seven lines, as select does_ |
 | reduce | enable AND T0 | high when 0xF |
+| reduce | halt AND clock | halt |
 | _used to detect zero value in data byte_ | | |
 | zero | D0 OR D1 OR D2 OR D3 OR D4 OR D5 OR D6 OR D7 | high when not zero |
 | _extra connections toggles_ | | |
