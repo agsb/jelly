@@ -122,36 +122,46 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 #### Table 3, Signals and states
 | signal | combines | gives |
 | -- | -- | -- |
-| used for math unary operations and decode | |
+| _used for logics_ | |
 | enable | T1 AND T2 AND T3 | high when 0xE or 0xF |
-| select | enable AND T0 | high when 0xF |
+| _used for control lines of data flow_ | | |
+| control | NOT (enable) | high when not 0xF |
+| U4.CS | control AND C0 | chip select line of U4 |
+| U5.CS | control AND C1 | chip select line of U5 |
+| U6.OE | NOT (control AND C2) | output enable line of U6 |
+| U7.OE | NOT (control AND C3) | output enable line of U7 |
+| _used for math unary operations and decode_ | |
 | select | enable AND NOT (T0) | high when 0xE |
 | U2.A8 | select AND C0 | address line of U2 |
 | U2.A9 | select AND C1 | address line of U2 |
 | U2.A10 | select AND C2 | address line of U2 |
 | U6.CS | select AND C3 | chip select line of U6 |
-| used for control lines of data flow | | |
-| control | NOT (select) | high when not 0xF |
-| U4.CS | control AND C0 | chip select line of U4 |
-| U5.CS | control AND C1 | chip select line of U5 |
-| U6.OE | NOT (control AND C2) | output enable line of U6 |
-| U7.OE | NOT (control AND C3) | output enable line of U7 |
-| used to toggle states lines of FSM pages | | |
+| _used to toggle states lines of FSM pages_ | | |
 | toggle | NOT(C3) AND select | high when not in math | 
 | U10.CLK1 | toggle AND C0 | toggles MOVE line |
 | U10.CLK2 | toggle AND C1 | toggles MODE line |
 | U10.CLR1 | toggle AND C2 | clear D-flip-flop |
 | U10.CLR2 | toggle AND C2 | clear D-flip-flop |
-| used to detect zero value in data byte | | |
+| _used for command more seven lines, as select does_ |
+| reduce | enable AND T0 | high when 0xF |
+| _used to detect zero value in data byte_ | | |
 | zero | D0 OR D1 OR D2 OR D3 OR D4 OR D5 OR D6 OR D7 | high when not zero |
-| extra connections toggles | | |
-| U1.A8 | zero | change page of FSM |
+| _extra connections toggles_ | | |
+| U1.A7 | zero | change page of FSM |
 | U1.A9 | U10.Q1 | change page of FSM, loop mode |
 | CN.T2 | T2 XOR (MOVE AND T3) | reverses movement forward or backward |
 | | | |
 
+Notes:
 
-#### Table 4, Valid Controls M3 == 0
+- signal _enable_ does active the logics circuit;
+- signal _select_ does the math circuit;
+- signal _control_ does the chips lines;
+- signal _toggle_ does the D-flip-flips setup;
+- signal _reduce_ could be used to command more 7 lines, when 0xFF does HALT ;
+
+
+#### Table 4, Valid Controls
 | byte | T3 | T2 | T1 | T0 || OE7 C3 | OE6 C2 | CS5 C1 | CS4 C0 | action |
 | ---- | -- | -- | -- | --- |-- | --- | --- | --- | --- | --- |
 | 0x00 | 0 | 0 | 0 | 0 || 0 | 0 | 0 | 0 | no action |
