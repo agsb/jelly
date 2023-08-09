@@ -137,7 +137,7 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 | U2.A10 | select AND C2 | address line of U2 |
 | U6.CS | select AND C3 | chip select line of U6 |
 | _used to toggle states lines of FSM pages_ | | |
-| toggle | NOT(C3) AND select | high when not in math | 
+| toggle | select AND NOT(C3) | high when not in math | 
 | U10.CLK1 | toggle AND C0 | toggles MOVE line |
 | U10.CLK2 | toggle AND C1 | toggles MODE line |
 | U10.CLR1 | toggle AND C2 | clear D-flip-flop |
