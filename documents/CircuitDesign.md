@@ -123,7 +123,9 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 | signal | combines | gives |
 | -- | -- | -- |
 | used for math unary operations and decode | |
-| select | T0 AND T1 AND T2 AND T3 | high when 0xF |
+| enable | T1 AND T2 AND T3 | high when 0xE or 0xF |
+| select | enable AND T0 | high when 0xF |
+| select | enable AND NOT (T0) | high when 0xE |
 | U2.A8 | select AND C0 | address line of U2 |
 | U2.A9 | select AND C1 | address line of U2 |
 | U2.A10 | select AND C2 | address line of U2 |
@@ -149,7 +151,7 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 | | | |
 
 
-#### Table 4, Controls M3 == 0
+#### Table 4, Valid Controls M3 == 0
 | byte | T3 | T2 | T1 | T0 || OE7 C3 | OE6 C2 | CS5 C1 | CS4 C0 | action |
 | ---- | -- | -- | -- | --- |-- | --- | --- | --- | --- | --- |
 | 0x00 | 0 | 0 | 0 | 0 || 0 | 0 | 0 | 0 | no action |
@@ -159,13 +161,13 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 | 0x70 | 0 | 1 | 1 | 1 || 0 | 0 | 0 | 0 | tape one, backward, no transfer |
 | 0xB0 | 1 | 0 | 1 | 1 || 0 | 0 | 0 | 0 | tape two, backward, no transfer |
 |  |  |  |  |  ||  |  |  |  |  |
-| 0x5A | 0 | 1 | 0 | 1 || 1 | 0 | 1 | 0 | tape one, write, U6 into U7 * |
-| 0x9A | 1 | 0 | 0 | 1 || 1 | 0 | 1 | 0 | tape two, write, U6 into U7 |
-| 0xDA | 1 | 1 | 0 | 1 || 1 | 0 | 1 | 0 | standard, write, U6 into U7 |
+| 0x4C | 0 | 1 | 0 | 1 || 1 | 0 | 1 | 0 | tape one, write, U6 into U7 * |
+| 0x8C | 1 | 0 | 0 | 1 || 1 | 0 | 1 | 0 | tape two, write, U6 into U7 |
+| 0xCC | 1 | 1 | 0 | 1 || 1 | 0 | 1 | 0 | standard, write, U6 into U7 |
 |  |  |  |  |  |  ||  |  |  |  |
-| 0x4C | 0 | 1 | 0 | 0 || 1 | 1 | 0 | 0 | tape one, read, U7 into U5 |
-| 0x8C | 1 | 0 | 0 | 0 || 1 | 1 | 0 | 0 | tape two, read, U7 into U5 |
-| 0xCC | 1 | 1 | 0 | 0 || 1 | 1 | 0 | 0 | standard, read, U7 into U5 |
+| 0x5A | 0 | 1 | 0 | 0 || 1 | 1 | 0 | 0 | tape one, read, U7 into U5 |
+| 0x9A | 1 | 0 | 0 | 0 || 1 | 1 | 0 | 0 | tape two, read, U7 into U5 |
+| 0xDA | 1 | 1 | 0 | 0 || 1 | 1 | 0 | 0 | standard, read, U7 into U5 |
 |  |   |  |  |  |  ||  |  |  |  |
 | 0x06 | 0 | 0 | 0 | 0 || 0 | 1 | 1 | 0 | none, none, U6 into U5 |
 | 0x02 | 0 | 0 | 0 | 0 || 0 | 0 | 1 | 0 | none, none, clear U5, clear U3 **|
@@ -175,11 +177,13 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 |  |   |  |  |  ||  |  |  |  |  |
 
 Notes:
+
 - logics for /OE6 and /OE7 are inverted, just add a NOT later;  
-- case 0x5A, tape one is code, no write allowed, never;
-- case 0x02, set data latch to zero to be used as counter
-- case 13 and case 14, also clear/reset U3;
+- case 0x4C, tape one is code, no write allowed, never;
+- case 0x02, set data latch to zero to be used as counter;
+- case 0x05 and 0x01, also clear/reset U3;
 - data bus D0-D7 have pull-down resistors for clear U4 and U5 when U6 and U7 are in 3-state.
+- codes 0xFE, std forward, and 0xFF, std backward, do not exists and are used to control logic
 - any other combination is invalid.
 
 ### Devices 
@@ -210,7 +214,18 @@ Note: The /OE7 line is controled by not(T0 or T1) and direction DIR7 by T2; ****
 | 1 | 0 | forward step| 
 | 1 | 1 | backward step | 
 
-Note: The standart input and output devices does no moves forward or backward.
+#### Table 7, controls
+| line | connected |
+| -- | -- |
+| C3 | /OE7 |
+| C2 | /OE6 |
+| C1 | CS5 |
+| C0 | CS4 |
+
+
+Note: 
+- order is (MSB) T3-T2-T1-T0 (LSB), (MSB) C3-C2-C1-C0 (LSB) 
+- The standart input and output devices does no moves forward or backward.
 
 ### Glue Logics
 
