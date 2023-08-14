@@ -1,13 +1,36 @@
 # LogBook
 
+### 08/08/2023
+
+_KISS_
+
+Easy cut-off. 
+
+Do simplify math operations just to 'decode, increase, decrease, copy'. 
+
+Do a short-cut in 74HC393 counter from Q1d to CLR1, counting 0 to 7.
+
+Do include the halt (!) in decoder.
+
+**Jelly uses 1024 bytes for math, copy and decode, and less than 512 bytes for control and states, considering all  accessory logic equivalent to 512 bytes, can say that all Jelly is equivalent about 2048 x 8 d-flip-flops or about 65356 NANDS.**
+
+### 03/08/2023
+
+Made a simple program to make the eeprom contents as intel hex files, as code.hex and math.hex [romjelly](https://github.com/agsb/jelly/blob/main/sources/romjelly.c).
+
+A trick, by use noop opcode to fetch code and move the code tape, each opcode just ends loading zero (noop).
+
+When list down all steps for each opcodes, none are longer than 8 steps. 
+
+The microcode could be done with 3 bits, A0-A2, and opcode with 4 bits, A3-A6, plus 2 bits for modes and pages, A7-A8, leaving A9-A10 for free.
+
 ### 01/08/2023
 
-Jelly now have a stable version. No more changes for the FSM/Math circuits and the glue logics is in 'reduce or delay' decision phase.
+Jelly now have a stable version. No changes for the FSM/Math circuits and the glue logics is in 'reduce or delay' decision phase.
 
 From wirewrap view, the connection of data output from 74HC574 into address input of AT28C16 is a mess, all lines crossed. What to do ?
 
 The clear circuit, with resistors to ground (Vss) needs testing for values. 
-
 
 ### 26/07/2023
 

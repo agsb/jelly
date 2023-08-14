@@ -47,7 +47,7 @@ while (1) {
     if (c == '!') break;
 
     if (mode == 1) {
-        // page 110 
+        // page 11 
         if (c == '[') loop++;
         if (c == ']') loop--;
         loop = loop % 256;
@@ -57,7 +57,7 @@ while (1) {
             }
         continue;
         }
-        // page 010
+        // page 01
 
     if (mode == 0) {
     
@@ -69,7 +69,7 @@ while (1) {
             case '+' : d = data[dp]; d++; data[dp] = d; break;
             case '-' : d = data[dp]; d--; data[dp] = d; break;
             case '[' : 
-                    // page 000
+                    // page 00
                     d = data[dp];
                     if (d == 0) {
                         loop = 1;
@@ -79,7 +79,7 @@ while (1) {
                         }
                     break;
             case ']' :        
-                    // page 100
+                    // page 10
                     d = data[dp];
                     if (d != 0) {
                         cp--;

@@ -8,13 +8,13 @@ Jelly is a simple 8-bit digital circuit, all math, opcodes and microcodes are do
 
 Jelly circuit include the interface for Device Control Circuit (DCC), that could be real tape or memory emulated.
 
-Jelly uses 2kb space, address are A0-A10, data inputs are D0-D7, data outputs are Q0-Q7, multiplexed control lines C0-C7 and C8-C15. 
+Jelly uses 2kb space, address are A0-A10, data inputs are D0-D7, data outputs are Q0-Q7, multiplexed control lines C0-C7. 
 
 All chips used are CMOS, have OE (output enable), CK (clock pulse) or CS (chip select), CR (clear latch) lines for select action. The eeproms have /WR (write enable) to VCC.
 
 There are four 8-bit devices, a code tape, a data tape, a standart input and a standart output. For easy, a code_byte is read from code tape and data_byte is writed into or read from data tape. The standart devices are like streams and instantaneous.
 
-The processing steps are based in lookup tables, defined by 16 (4-bits) operation codes - opcodes, with 16 (4-bits) sequential steps - microcodes, in 8 (3-bits) modes, in total of 11 bits, 2048 possibilities.
+The processing steps are based in lookup tables, defined by 16 (4-bits) operation codes - opcodes, each with 8 (3-bits) sequential steps - microcodes, in 4 (2-bits) modes, in total of 9 bits, 512 possibilities.
 
 ## Circuits
 
@@ -54,15 +54,15 @@ One oscilator circuit with a 555, gives a primary clock pulses (less than 2.0 MH
 
 ### Finite State Machine 
 
-A binary up-counter 74HC393, U8, takes clock pulses from clock circuit, gives Q0-Q3 as A0-A4 into U1 and U2, clear is CR3 and second counter _Q4-Q7 unused_;
+A binary up-counter 74HC393, U8, takes clock pulses from clock circuit, gives Q0-Q2 as A0-A3 into U1 and U2, clear is CR3 and second counter _Q4-Q7 unused_;
 
-A latch 74HC574, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1, clock is CK4 and high nibble _Q4-Q7 unused_;
+A latch 74HC574, U4, takes D0-D7 from data bus, gives Q0-Q3 as A3-A6 into U1, clock is CK4 and high nibble _Q4-Q7 unused_;
 
-One eeprom AT28C16, U1, takes Q0-Q3 from U8 as A0-A3 and Q4-Q7 from U4 as A4-A7, U1 gives D0-D7. The D0-D3 as C0-C3, D4-D7 as T0-T3, as lines for circuits. 
+One eeprom AT28C16, U1, takes Q0-Q2 from U8 as A0-A2 and Q0-Q3 from U4 as A3-A6, U1 gives D0-D7, with D0-D3 as M0-M3, D4-D7 as T0-T3, as lines for circuits. 
 
 This circuit is used to translate a byte as finite state machine (FSM) steps. 
 
-It is used for opcode and microcode lookup, address A0-A3 are used for up 16 steps micro-code, A4-A7 for define 16 op-code, A8 selected by zero circuit detector, A9 selected by toggle a flip-flop as mode code or loop, _A10 is not used_.
+It is used for opcode and microcode lookup, address A0-A2 are used for up 8 steps micro-code, A3-A6 for define 16 op-code, A7 selected by zero circuit detector, A8 selected by toggle a flip-flop as mode default or loop, _A9-A10 are not used_.
 
 The nibbles M0-M3 and T0-T3 are used to select math operation and control signals inside and outside Jelly.
 
@@ -79,79 +79,90 @@ The lookup table maps decode and unary operations as pages of 256 bytes, it does
 #### Table 1, Lookup M3 == 1
 | name | M2 | M1 | M0 | action |
 | ---- | ----- | ----- | ---- | --- |
-| zero | 0 | 0 | 0 | clear byte | 
+| code | 0 | 0 | 0 | decode byte | 
 | incr | 0 | 0 | 1 | increase |
 | decr | 0 | 1 | 0 | decrease |
 | copy | 0 | 1 | 1 | copy byte |
-| not  | 1 | 0 | 0 | one complement |
-| sfl  | 1 | 0 | 1 | shift left |
-| sfr  | 1 | 1 | 0 | shift right |
-| code | 1 | 1 | 1 | decode byte to opcode |
 
 Notes:
   - In _code_ all bytes are translated in valid opcodes range, 0 to 15, not defined symbols are mapped as noop; 
-  - the zero and copy are internal FSM operations, not allow from opcodes.
-  - 
+  - the code and copy are internal FSM operations, not allow from opcodes.
+  - yes, was more 4 possible math, shift left, shift right, one complement, reverse. 
+
 ### External Devices
 
 All devices are external and accessed by a 16 pin connector, with CLK, T0-T3 and ACK signals and D0-D7 data lines. 
 
+( make it better !)
+
 #### Table 2, Connector external
 | line | Pin | Pin | line |
 | --- | --- | --- | --- |
-| D0  | 1 | 16 | VCC |
-| D1  | 2 | 15 | T3  |
-| D2  | 3 | 14 | T2  |
-| D3  | 4 | 13 | T1  |
-| D4  | 5 | 12 | T0  |
-| D5  | 6 | 11 | ACK |
-| D6  | 7 | 10 | CLK |
-| GND | 8 |  9 | D7  |
+| D0  |  1 | 16 | VCC |
+| D1  |  2 | 15 | NC |
+| D2  |  3 | 14 | T3  |
+| D3  |  4 | 13 | T2  |
+| D4  |  6 | 14 | T1  |
+| D5  |  7 | 13 | T0 |
+| D6  |  8 | 12 | D7 |
+| GND | 10 | 11 | CLK |
 
 One input-output switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q7 as D0-D7 into external data bus, output enable is /OE7, direction is DR7; 
 
 ### Control Devices
 
-The FSM eeprom gives C0-C3 and T0-T3 for control lines. 
+The FSM eeprom gives M0-M3 and T0-T3 for control lines. 
 
-In the list of combinations used to control lines, state of devices and operations, the high nibble T0-T3, vary from 0x1 to 0xE, leaving 0x0 to do nothing and 0xF for select some extra states. 
+In the list of combinations used to control lines, state of devices and operations, the high nibble T0-T3, vary from 0x1 to 0xD, leaving 0x0 to do nothing, and 0xE-0xF for select some extra states. 
 
 Those extra states with some glue logics make needs just one eeprom as finite state machine. 
 
-Combining low nibble C0-C3 and high nibble T0-T3 as:
+Combining low nibble M0-M3 and high nibble T0-T3 as:
 
 #### Table 3, Signals and states
 | signal | combines | gives |
 | -- | -- | -- |
-| used for math unary operations and decode | |
-| select | T0 AND T1 AND T2 AND T3 | high when 0xF |
-| U2.A8 | select AND C0 | address line of U2 |
-| U2.A9 | select AND C1 | address line of U2 |
-| U2.A10 | select AND C2 | address line of U2 |
-| U6.CS | select AND C3 | chip select line of U6 |
-| used for control lines of data flow | | |
-| control | NOT (select) | high when not 0xF |
-| U4.CS | control AND C0 | chip select line of U4 |
-| U5.CS | control AND C1 | chip select line of U5 |
-| U6.OE | NOT (control AND C2) | output enable line of U6 |
-| U7.OE | NOT (control AND C3) | output enable line of U7 |
-| used to toggle states lines of FSM pages | | |
-| toggle | NOT(C3) AND select | high when not in math | 
-| U10.CLK1 | toggle AND C0 | toggles MOVE line |
-| U10.CLK2 | toggle AND C1 | toggles MODE line |
-| U10.CLR1 | toggle AND C2 | clear D-flip-flop |
-| U10.CLR2 | toggle AND C2 | clear D-flip-flop |
-| used to detect zero value in data byte | | |
+| _used for logics_ | |
+| enable | T1 AND T2 AND T3 | high when 0xE or 0xF |
+| _used for control lines of data flow_ | | |
+| control | NOT (enable) | high when 0x0 to 0xD |
+| U4.CS | control AND M0 | chip select line of U4 |
+| U5.CS | control AND M1 | chip select line of U5 |
+| U6.OE | NOT (control AND M2) | output enable line of U6 |
+| U7.OE | NOT (control AND M3) | output enable line of U7 |
+| _used for math unary operations and decode_ | |
+| select | enable AND NOT (T0) | high when 0xE |
+| U2.A8 | select AND M0 | address line of U2 |
+| U2.A9 | select AND M1 | address line of U2 |
+| U2.A10 | select AND M2 | address line of U2 |
+| U6.CS | select AND M3 | chip select line of U6 |
+| _used to toggle states lines of FSM pages_ | | |
+| toggle | select AND NOT(M3) | high when not in math | 
+| U10.CLK1 | toggle AND M0 | toggles MOVE line |
+| U10.CLK2 | toggle AND M1 | toggles MODE line |
+| U10.CLR1 | toggle AND M2 | clear D-flip-flop |
+| U10.CLR2 | toggle AND M2 | clear D-flip-flop |
+| _used for command more seven lines, as select does_ |
+| reduce | enable AND T0 | high when 0xF |
+| reduce | reduce AND clock | halt |
+| _used to detect zero value in data byte_ | | |
 | zero | D0 OR D1 OR D2 OR D3 OR D4 OR D5 OR D6 OR D7 | high when not zero |
-| extra connections toggles | | |
-| U1.A8 | zero | change page of FSM |
+| _extra connections toggles_ | | |
+| U1.A7 | zero | change page of FSM |
 | U1.A9 | U10.Q1 | change page of FSM, loop mode |
 | CN.T2 | T2 XOR (MOVE AND T3) | reverses movement forward or backward |
 | | | |
 
+Notes:
 
-#### Table 4, Controls M3 == 0
-| byte | T3 | T2 | T1 | T0 || OE7 C3 | OE6 C2 | CS5 C1 | CS4 C0 | action |
+- signal _enable_ does active the logics circuit;
+- signal _select_ does the math circuit;
+- signal _control_ does the chips lines;
+- signal _toggle_ does the D-flip-flips setups;
+- signal _reduce_ could be used to command more 7 lines, by now just does HALT ;
+
+#### Table 4, Valid Controls
+| byte | T3 | T2 | T1 | T0 || OE7 M3 | OE6 M2 | CS5 M1 | CS4 M0 | action |
 | ---- | -- | -- | -- | --- |-- | --- | --- | --- | --- | --- |
 | 0x00 | 0 | 0 | 0 | 0 || 0 | 0 | 0 | 0 | no action |
 |  |  |  |  |  ||  |  |  |  |  |
@@ -160,13 +171,13 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 | 0x70 | 0 | 1 | 1 | 1 || 0 | 0 | 0 | 0 | tape one, backward, no transfer |
 | 0xB0 | 1 | 0 | 1 | 1 || 0 | 0 | 0 | 0 | tape two, backward, no transfer |
 |  |  |  |  |  ||  |  |  |  |  |
-| 0x5A | 0 | 1 | 0 | 1 || 1 | 0 | 1 | 0 | tape one, write, U6 into U7 * |
-| 0x9A | 1 | 0 | 0 | 1 || 1 | 0 | 1 | 0 | tape two, write, U6 into U7 |
-| 0xDA | 1 | 1 | 0 | 1 || 1 | 0 | 1 | 0 | standard, write, U6 into U7 |
+| 0x4C | 0 | 1 | 0 | 1 || 1 | 0 | 1 | 0 | tape one, write, U6 into U7 * |
+| 0x8C | 1 | 0 | 0 | 1 || 1 | 0 | 1 | 0 | tape two, write, U6 into U7 |
+| 0xCC | 1 | 1 | 0 | 1 || 1 | 0 | 1 | 0 | standard, write, U6 into U7 |
 |  |  |  |  |  |  ||  |  |  |  |
-| 0x4C | 0 | 1 | 0 | 0 || 1 | 1 | 0 | 0 | tape one, read, U7 into U5 |
-| 0x8C | 1 | 0 | 0 | 0 || 1 | 1 | 0 | 0 | tape two, read, U7 into U5 |
-| 0xCC | 1 | 1 | 0 | 0 || 1 | 1 | 0 | 0 | standard, read, U7 into U5 |
+| 0x5A | 0 | 1 | 0 | 0 || 1 | 1 | 0 | 0 | tape one, read, U7 into U5 |
+| 0x9A | 1 | 0 | 0 | 0 || 1 | 1 | 0 | 0 | tape two, read, U7 into U5 |
+| 0xDA | 1 | 1 | 0 | 0 || 1 | 1 | 0 | 0 | standard, read, U7 into U5 |
 |  |   |  |  |  |  ||  |  |  |  |
 | 0x06 | 0 | 0 | 0 | 0 || 0 | 1 | 1 | 0 | none, none, U6 into U5 |
 | 0x02 | 0 | 0 | 0 | 0 || 0 | 0 | 1 | 0 | none, none, clear U5, clear U3 **|
@@ -176,11 +187,13 @@ Combining low nibble C0-C3 and high nibble T0-T3 as:
 |  |   |  |  |  ||  |  |  |  |  |
 
 Notes:
+
 - logics for /OE6 and /OE7 are inverted, just add a NOT later;  
-- case 0x5A, tape one is code, no write allowed, never;
-- case 0x02, set data latch to zero to be used as counter
-- case 13 and case 14, also clear/reset U3;
+- case 0x4C, tape one is code, no write allowed, never;
+- case 0x02, set data latch to zero to be used as counter;
+- case 0x05 and 0x01, also clear/reset U3;
 - data bus D0-D7 have pull-down resistors for clear U4 and U5 when U6 and U7 are in 3-state.
+- codes 0xFE, std forward, and 0xFF, std backward, do not exists and are used to control logic
 - any other combination is invalid.
 
 ### Devices 
@@ -211,7 +224,18 @@ Note: The /OE7 line is controled by not(T0 or T1) and direction DIR7 by T2; ****
 | 1 | 0 | forward step| 
 | 1 | 1 | backward step | 
 
-Note: The standart input and output devices does no moves forward or backward.
+#### Table 7, controls
+| line | connected |
+| -- | -- |
+| M3 | /OE7 |
+| M2 | /OE6 |
+| M1 | CS5 |
+| M0 | CS4 |
+
+
+Note: 
+- order is (MSB) T3-T2-T1-T0 (LSB), (MSB) C3-C2-C1-C0 (LSB) 
+- The standart input and output devices does no moves forward or backward.
 
 ### Glue Logics
 
