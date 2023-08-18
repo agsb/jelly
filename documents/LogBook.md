@@ -1,5 +1,11 @@
 # LogBook
 
+### 18/08/2023
+
+Reviews and reviews and reviews
+
+Small typos and checkout counter
+
 ### 08/08/2023
 
 _KISS_
