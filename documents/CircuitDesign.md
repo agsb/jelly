@@ -99,7 +99,7 @@ All devices are external and accessed by a 16 pin connector, with CLK, T0-T3 and
 | line | Pin | Pin | line |
 | --- | --- | --- | --- |
 | D0  |  1 | 16 | VCC |
-| D1  |  2 | 15 | NC |
+| D1  |  2 | 15 | ACK |
 | D2  |  3 | 14 | T3  |
 | D3  |  4 | 13 | T2  |
 | D4  |  6 | 14 | T1  |
@@ -144,7 +144,7 @@ Combining low nibble M0-M3 and high nibble T0-T3 as:
 | U10.CLR2 | toggle AND M2 | clear D-flip-flop |
 | _used for command more seven lines, as select does_ |
 | reduce | enable AND T0 | high when 0xF |
-| reduce | reduce AND clock | halt |
+| halt | reduce AND clock | halt the clock |
 | _used to detect zero value in data byte_ | | |
 | zero | D0 OR D1 OR D2 OR D3 OR D4 OR D5 OR D6 OR D7 | high when not zero |
 | _extra connections toggles_ | | |
