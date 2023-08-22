@@ -77,9 +77,9 @@ Not all bytes are opcodes and mapped as NOP, do nothing instruction, to catch th
 
 Jelly includes: (list can grow)
 
-  - a noop, to do nothing, and move forward (or backward) code tape one step;
+  - a noop, to do nothing, and movescode tape one step, forward or backward;
   
-  - a eof, to end of code and halt, as a complete Turing Machine;
+  - a eof, to end of code and halt, to be a complete Turing Machine;
 
 ### Jelly ideas
 
