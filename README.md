@@ -36,7 +36,7 @@ Jelly is not a common cpu.
 
 - There is no general registers, just 3-state latches to keep the data bus safe. 
 
-- There is no arithmetic logical unit (ALU), just a memory with a table of unary "math" results for clear, increment, decrement and copy a byte. Could include shift right, shift left, negation and also used to decode opcodes.
+- There is no arithmetic logical unit (ALU), just a memory with a table of unary "math" results for increment, decrement and copy a byte, and also used to decode opcodes. Could include clear, shift right, shift left, negation.
 
 - There is no comparator, just a flag for when a byte is zero or not.
 
@@ -77,31 +77,31 @@ Not all bytes are opcodes and mapped as NOP, do nothing instruction, to catch th
 
 Jelly includes: (list can grow)
 
-  - a noop, to do nothing, and movescode tape one step, forward or backward;
+  - a noop, to do nothing, and moves code tape one step, forward or backward;
   
   - a eof, to end of code and halt, to be a complete Turing Machine;
 
 ### Jelly ideas
 
-How the standart devices could be changed ? Maybe using the bytes at first two positions of data tape, to select which port to use, as input and output, as like in many microcontrolers ?
+How the standart devices could be changed ? 
 
-The math could include opcodes, for shifts, negation, and reverse a byte.
+Maybe using the bytes at first two positions of data tape, to select which port to use, as input and output, as like in many microcontrolers ?
+
+The math could include opcodes, for clear, shifts, negation, and reverse a byte.
 
 ## About loops
 
 There are some brainfuck computers, but almost with the loop instructions _begin_ and _again_ (\[ and \]) replaced by pre-compiled jumps. 
 
-Jelly does not pre-compiler tricks, then need a logic to deal with loops.
+Jelly does not allow pre-compiler tricks, then need a logic to deal with loops.
 
 The _begin_ and _again_ loops are like the _while_ and _until_ concepts of any programming language, but used together.
 
-The _begin_ ends when the actual data byte is zero, then advances until pass the corresponding _again_. 
+The _begin_ ends the loop when the actual data byte is zero, then advances until pass the corresponding _again_. 
 
-The _again_ repeats while the actual data byte is not zero, then must go back until the corresponding _begin_.
+The _again_ repeats the loop while the actual data byte is not zero, then must go back until the corresponding _begin_.
 
-The loops can be nested, using a counter that increase for begins and decrease for again, finishing the loop when counter is zero. 
-
-As a 8-bit circuit, the maximum nested loops is 255;
+The loops can be nested, using a counter that increase for begins and decrease for again, finishing the loop when counter is zero. As a 8-bit circuit, the maximum nested loops is 255;
 
 ## Circuit Layout
 
