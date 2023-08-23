@@ -1,5 +1,16 @@
 # LogBook
 
+### 23/08/2023
+
+Some tips for wirewraps. The wires color coded is:
+
+  - Red – Positive Rail
+  - Yellow – Negative rail
+  - Green – common data bus 
+  - Blue – direct between latch to eeprom
+  - Orange – to leds
+  - Black - to connector
+
 ### 18/08/2023
 
 Reviews and reviews and reviews
