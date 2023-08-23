@@ -1,6 +1,6 @@
 # LogBook
 
-#### 23/08/2023
+### 23/08/2023
 
 Some tips for wirewraps. The wires color coded is:
 
