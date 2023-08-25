@@ -10,7 +10,7 @@ A 74HC74 dual D-flip-flop and 2 x 74HC32 OR for zero detector, about 28/2 == 14 
 
 For state logics need more 4 x quad dual AND and 2 x quad dual NAND, uses about 98/2 == 49 lines of wirewrap.
 
-But all state logics could be replaced by one more eeprom.
+But all state logics could be replaced by one more eeprom, 24/2 == 12 lines of wirewrap.
 
 ### 23/08/2023
 
