@@ -1,5 +1,17 @@
 # LogBook
 
+### 24/08/2023
+
+Laziness and the art of simplify. 
+
+The core of Jelly is formed by 2 x AT28C16 eeproms (2 x 24 pins), 3 x 74HC574 latchs (3 x 20 pins), 1 x 74HC393 counter (1 x 14 pins), 1 x 74HC245 switch (1 x 14 pins), about 156/2 == 78 wirewrap lines. 
+
+A 74HC74 dual D-flip-flop and 2 x 74HC32 OR for zero detector, about 28/2 == 14 wirewrap lines.
+
+For state logics need more 4 x quad dual AND and 2 x quad dual NAND, uses about 98/2 == 49 lines of wirewrap.
+
+But all state logics could be replaced by one more eeprom.
+
 ### 23/08/2023
 
 Some tips for wirewraps. The wires color coded is:
