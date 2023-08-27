@@ -2,7 +2,7 @@
 
 -- This file is still a stub --
 
-### Chips used in Jelly
+## Chips used in Jelly
 
   - U1 AT28C16 [at28c16](https://github.com/agsb/jelly/assets/14941647/0e6a42e7-9d13-4c5b-8078-834cc9717078)
   - U2 AT28C16 [at28c16](https://github.com/agsb/jelly/assets/14941647/0e6a42e7-9d13-4c5b-8078-834cc9717078)
@@ -17,7 +17,7 @@
   - C1 to C10, capacitor 100nF
   - C11 to C14, capacitor 4.7uF 
 
-### Connections for WireWrap
+## Connections for WireWrap
 
   - POWER, all VCC connect U1.24, U2.24, U3.24, U4.20, U5.20, U6.20, U7.20, U8.14, U9.14, U10.14
   - GROUND, all GND connect U1.12, U2.12, U3.12, U4.10, U5.10, U6.10, U7.10, U8.7, U9.7, U10.7
@@ -33,21 +33,21 @@
 	U1.06-U8.11
 	U1.07-U8.10
 	U1.08-U8.09
-	U1.09-
-	U1.10-
-	U1.11-
+	U1.09-U4.11	// CLK
+	U1.10-U5.11	// CLK
+	U1.11-U6.11	// CLK
 	U1.12-GND
-	U1.13-
-	U1.14-
-	U1.15-
-	U1.16-
-	U1.17-
+	U1.13-U6.01	// /OE
+	U1.14-U7.01	// /OE
+	U1.15-U2.A8
+	U1.16-U2.A9
+	U1.17-U2.A10
 	U1.18-GND
-	U1.19-A10-NC
+	U1.19-GND	// A10
 	U1.20-GND
 	U1.21-VCC
-	U1.22-A9
-	U1.23-A8
+	U1.22-A9 ????
+	U1.23-A8 ????
 	U1.24-VCC
 
 
@@ -76,7 +76,7 @@
 	U2.22-A9 ???
 	U2.23-A8 ???
 	U2.24-VCC
-
+ 
 
 	// control FSM eeprom
 	U3.01-ZERO
@@ -97,11 +97,11 @@
 	U3.16-
 	U3.17-
 	U3.18-GND
-	U3.19-A10-NC
+	U3.19-U1.19
 	U3.20-GND
 	U3.21-VCC
-	U3.22-A9 ????
-	U3.23-A8 ????
+	U3.22-U1.22
+	U3.23-U1.23
 	U3.24-VCC
 	
 	// code byte latch, only low nibble used
@@ -120,10 +120,10 @@
 	U4.13-NC
 	U4.14-NC
 	U4.15-NC
-	U4.16-X
-	U4.17-X
-	U4.18-X
-	U4.19-X
+	U4.16-U1.02
+	U4.17-U1.03
+	U4.18-U1.04
+	U4.19-U1.05
 	U4.20-VCC
 
 
