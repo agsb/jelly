@@ -1,5 +1,14 @@
 # LogBook
 
+### 05/09/2023
+
+Now, the core of Jelly is formed by 3 x AT28C16 eeproms (3 x 24 pins), 3 x 74HC574 latchs (3 x 20 pins), 1 x 74HC393 counter (1 x 14 pins), 1 x 74HC245 switch (1 x 14 pins), about 180/2 == 90 wirewrap lines. More connections for a 74HC74, a 74HC00, and clock circuit.
+
+Jelly must wait for device ends the processing of a requisition. How about implement a send, wait, continue protocol? 
+
+The connector still have VCC, VSS, D0-D7, T0-T3, 
+
+
 ### 24/08/2023
 
 Laziness and the art of simplify. 
@@ -10,7 +19,7 @@ A 74HC74 dual D-flip-flop and 2 x 74HC32 OR for zero detector, about 28/2 == 14 
 
 For state logics need more 4 x quad dual AND and 2 x quad dual NAND, uses about 98/2 == 49 lines of wirewrap.
 
-But all state logics could be replaced by one more eeprom, 24/2 == 12 lines of wirewrap.
+But all state logics could be replaced by one more eeprom, 24/2 == 12 lines of wirewrap, and the OR detector by a array of diodes.
 
 ### 23/08/2023
 
