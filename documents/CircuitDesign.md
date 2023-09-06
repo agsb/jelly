@@ -28,7 +28,7 @@ Rules:
 
 ### BOM
 
-02 eeproms, U1 and U2, are AT28C16, 150 ns (~ 6.7 MHz), 2k x 8-bits, and have /OE to GND, /CS to GND, /WR to VCC;
+03 eeproms, U1 and U2, are AT28C16, 150 ns (~ 6.7 MHz), 2k x 8-bits, and have /OE to GND, /CS to GND, /WR to VCC;
 
 02 input latch, U4 and U5, 74HC574, 40 ns (< 20.0 MHz), octal D-Flip-Flop, 3-state, with clock (CK6), enable (/OE6);
 
@@ -40,37 +40,31 @@ Rules:
 
 01 D-flip-flop, U10, is 74HC74, dual D-Type flip-flops, with clear and preset;
 
-02 OR gates, U11, U12, are 74HC32, 150 ns ( ~6.7 MHz ), quad 2-input OR gate;
-
-04 AND gates, U13, U14, are 74HC08, 150 ns ( ~6.7 MHz ), quad 2-input AND gate;
-
 02 NAND gates, U15, U16, are 74HC00, 150 ns ( ~6.7 MHz ), quad 2-input NAND gate;
-
-(01 XOR gates, U17, U18, are 74HC86, 150 ns ( ~6.7 MHz ), quad 2-input XOR gate) maybe not;
 
 ### Clock Circuit
 
-One oscilator circuit with a 555, gives a primary clock pulses (less than 2.0 MHz); 
+One oscilator circuit with a 555, or 74HC00 and a crystal, gives a primary clock pulses (less than 2.0 MHz); 
 
 ### Finite State Machine 
 
-A binary up-counter 74HC393, U8, takes clock pulses from clock circuit, gives Q0-Q2 as A0-A3 into U1 and U2, clear is CR3 and second counter _Q4-Q7 unused_;
+A binary up-counter 74HC393, U8, takes clock pulses from clock circuit, gives Q0-Q2 as A0-A3 into U1 and U3, clear is CR3 and second counter _Q4-Q7 unused_;
 
-A latch 74HC574, U4, takes D0-D7 from data bus, gives Q0-Q3 as A3-A6 into U1, clock is CK4 and high nibble _Q4-Q7 unused_;
+A latch 74HC574, U4, takes D0-D7 from data bus, gives Q0-Q3 as A3-A6 into U1 and U3, clock is CK4 and high nibble _Q4-Q7 unused_;
 
-One eeprom AT28C16, U1, takes Q0-Q2 from U8 as A0-A2 and Q0-Q3 from U4 as A3-A6, U1 gives D0-D7, with D0-D3 as M0-M3, D4-D7 as T0-T3, as lines for circuits. 
+Two eeproms AT28C16, U1 and U3, takes Q0-Q2 from U8 as A0-A2 and Q0-Q3 from U4 as A3-A6, U1 gives D0-D7 and U3 gives D8-D15, as lines for circuits. 
 
 This circuit is used to translate a byte as finite state machine (FSM) steps. 
 
 It is used for opcode and microcode lookup, address A0-A2 are used for up 8 steps micro-code, A3-A6 for define 16 op-code, A7 selected by zero circuit detector, A8 selected by toggle a flip-flop as mode default or loop, _A9-A10 are not used_.
 
-The nibbles M0-M3 and T0-T3 are used to select math operation and control signals inside and outside Jelly.
+The lines D0-D15 are used to select math operation and control signals inside and outside Jelly.
 
 ### Math Lookups and Decoder
 
 One latch 74HC574, U5, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U3, clock is CK5;
 
-One eeprom At28C16, U3, takes Q0-Q7 from U5 into A0-A7, takes M0-M2 from U1 into A8-A10, gives Q0-Q7 into U6; 
+One eeprom At28C16, U2, takes Q0-Q7 from U5 into A0-A7, takes M0-M2 from U1 into A8-A10, gives Q0-Q7 into U6; 
 
 One latch 74HC574, U6, takes Q0-Q7 from U3 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is /OE6, clock is CK6; 
 
@@ -83,6 +77,10 @@ The lookup table maps decode and unary operations as pages of 256 bytes, it does
 | incr | 0 | 0 | 1 | increase |
 | decr | 0 | 1 | 0 | decrease |
 | copy | 0 | 1 | 1 | copy byte |
+| not  | 1 | 0 | 0 | one complement |
+| lsh  | 1 | 0 | 1 | shift left 1 bit |
+| rsh  | 1 | 1 | 0 | shift right 1 bit |
+| copy | 1 | 1 | 1 | reverse bits |
 
 Notes:
   - In _code_ all bytes are translated in valid opcodes range, 0 to 15, not defined symbols are mapped as noop; 
