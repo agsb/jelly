@@ -10,7 +10,9 @@ The reverse move is used because the unique diference in loops \[ (_begin_) and 
 
 At _begin_ if data byte is zero then move forward to next code byte after matched _again_;  At _again_ if data byte is not zero then move backwards to next code byte after matched _begin_; 
 
-A lot of duplicate code could be not used if a flag could hold a 'reverse' condition, as using a 74HC74 D-flip-flop. But why do this ? The 2k eeprom already have plenny unused space, so let's make it in software. Vide CodePages.
+A lot of duplicate code could be not used if a flag could hold a 'reverse' condition, as using a 74HC74 D-flip-flop. But why do this ? The 2k eeprom already have plenny unused space, so let's make it in software. Vide (logic loops)[LogicLoop.md]
+
+A simple pull-down array grants a clear byte (zero) for start counter of \[ and \] in loop mode. 
 
 ### 05/09/2023
 
