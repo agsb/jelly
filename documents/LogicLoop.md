@@ -63,7 +63,7 @@ When a _begin_ occurs and the data byte is zero, it's the end of the loop, so it
 
 When a _again_ occurs and the data byte is not zero, then it is not the end of the loop, so it must step backward to find the corresponding _begin_, and return to mode normal;
 
-Since no data byte is read while in mode loop, the circuit of U7, U3, U8 is used as counter;
+Since no data byte is read in mode loop, the circuit of U5, U2, U6 is used as counter;
 
 ### Actions 
 
@@ -74,10 +74,12 @@ the actions from pseudo-code are:
 - move data tape forward
 - move data tape backward
 - read from data tape into data latch
-- read from code tape into code latch
-- write from data latch into data tape
 - increase data latch
 - decrease data latch
+- write from data latch into data tape
+- read from code tape into data latch
+- decode data latch
+- copy from data latch to code latch
 - clear data latch
 - read from standart input device into data latch
 - write from data latch into standart output device
@@ -97,24 +99,29 @@ the solution was make true-table for lines and states.
 
 - again is a control line set high when code_byte is ]
 
-- zero is a control line set high when data byte is non zero, from Zero Detector circuit. 
+- zero is a address line for eeproms U1 and U3, from zero detector circuit. 
 
-- mode is the address line A10 for eeproms U1 and U2, from Toggle Circuit.
+- mode is a address line for eeproms U1 and U3.
 
-- move is the movement line, from Toggle Circuit.
+- move is a address line for eeproms U1 and U3.
 
-- switch mode is the line to clock for D-Flip-FLop the control the address A10 line.
+- switch mode is next state for line.
 
-- switch move is the line to clock for D-Flip-FLop the control the direction of movement, forward or backward.
+- switch move is next state for line.
 
 ## True Table
 
-   | case | mode | move |  zero | begin | again | _switch mode_ | _switch move_ | results |
+   | case | zero | mode | move | begin | again | _switch mode_ | _switch move_ | results |
    | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-   | 1 | 0 | X | 0 | 1 | 0 | 1 | 0 | toggle mode, not change move |
-   | 2 | 0 | X | 1 | 0 | 1 | 1 | 1 | toggle mode, toggle move |
-   | 3 | 1  | 0 | 0 | X | X | 1 | 0 | toggle mode, not change move  |
-   | 4 | 1 | 1 | 0 | X | X | 1 | 1 | toggle mode, toggle move  |
+   | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | default |
+   | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | default |
+   | 3 | 0 | 0 | 0 | 1 | 0 | 1 | 0 | toggle mode, not chanhe move |
+   | 4 | 1 | 0 | 0 | 0 | 1 | 1 | 1 | toggle mode, toggle move  |
+   | 5 | 1 | 1 | X | 1 | 0 | 1 | X | loop mode, increase counter, |
+   | | | | | | | --continue |
+   | 6 | 1 | 1 | X | 0 | 1 | 1 | X | loop mode, decrease counter, |
+   | 7 | 1 | 1 | X | 0 | 1 | 1 | X | loop mode, decrease counter, |
+   | 8 | 1 | 1 | X | 0 | 0 | 1 | X | loop mode, |
    |  |  |  |  |  |  |  |
    
 The paging is controled just from 5 lines, and _switch mode_ and _switch move_ are clock lines to D-flip-flops.
