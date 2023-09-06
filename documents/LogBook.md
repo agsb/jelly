@@ -1,5 +1,17 @@
 # LogBook
 
+### 06/09/2023
+
+There are two extra circuits around Jelly, one for zero detector and one for reverse move.
+
+The zero detector is usally done with gates OR, using a 74HC32 or diode logic. I must verify if could be done with red LEDS. See more later.
+
+The reverse move is used because the unique diference in loops \[ (-begin_) and \] (again) is the direction of move. 
+
+At _begin_ if data byte is zero then move forward to next code byte after matched _again_;  At _again_ if data byte is not zero then move backwards to next code byte after matched _begin_; 
+
+A lot of duplicate code could be not used if a flag could hold a 'reverse' condition, as using a 74HC74 D-flip-flop. But why do this ? The 2k eeprom already have plenny unused space, so let's make it in software. Vide CodePages.
+
 ### 05/09/2023
 
 Now, the core of Jelly is formed by 3 x AT28C16 eeproms (3 x 24 pins), 3 x 74HC574 latchs (3 x 20 pins), 1 x 74HC393 counter (1 x 14 pins), 1 x 74HC245 switch (1 x 14 pins), about 180/2 == 90 wirewrap lines. More connections for a 74HC74, a 74HC00, and clock circuit.
