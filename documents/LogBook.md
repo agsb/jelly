@@ -6,7 +6,7 @@ There are two extra circuits around Jelly, one for zero detector and one for rev
 
 The zero detector is usally done with gates OR, using a 74HC32 or diode logic. I must verify if could be done with red LEDS. See more later.
 
-The reverse move is used because the unique diference in loops \[ (-begin_) and \] (again) is the direction of move. 
+The reverse move is used because the unique diference in loops \[ (_begin_) and \] (_again_) is the direction of move. 
 
 At _begin_ if data byte is zero then move forward to next code byte after matched _again_;  At _again_ if data byte is not zero then move backwards to next code byte after matched _begin_; 
 
