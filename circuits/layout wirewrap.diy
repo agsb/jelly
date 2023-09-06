@@ -17,11 +17,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.6" y="0.4"/>
-        <point x="5.9" y="1.2"/>
+        <point x="5.5" y="0.4"/>
+        <point x="5.8" y="1.2"/>
       </controlPoints>
-      <firstPoint x="5.6" y="0.4"/>
-      <secondPoint x="5.9" y="1.2"/>
+      <firstPoint x="5.5" y="0.4"/>
+      <secondPoint x="5.8" y="1.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -97,11 +97,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.6" y="1.4"/>
-        <point x="5.9" y="2.2"/>
+        <point x="5.5" y="1.4"/>
+        <point x="5.8" y="2.2"/>
       </controlPoints>
-      <firstPoint x="5.6" y="1.4"/>
-      <secondPoint x="5.9" y="2.2"/>
+      <firstPoint x="5.5" y="1.4"/>
+      <secondPoint x="5.8" y="2.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -117,11 +117,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.6" y="2.4"/>
-        <point x="5.9" y="3.2"/>
+        <point x="5.5" y="2.4"/>
+        <point x="5.8" y="3.2"/>
       </controlPoints>
-      <firstPoint x="5.6" y="2.4"/>
-      <secondPoint x="5.9" y="3.2"/>
+      <firstPoint x="5.5" y="2.4"/>
+      <secondPoint x="5.8" y="3.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -137,11 +137,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.6" y="3.4"/>
-        <point x="5.9" y="4.2"/>
+        <point x="5.5" y="3.4"/>
+        <point x="5.8" y="4.2"/>
       </controlPoints>
-      <firstPoint x="5.6" y="3.4"/>
-      <secondPoint x="5.9" y="4.2"/>
+      <firstPoint x="5.5" y="3.4"/>
+      <secondPoint x="5.8" y="4.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -197,11 +197,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.1" y="0.4"/>
-        <point x="5.4" y="1.2"/>
+        <point x="5.0" y="0.4"/>
+        <point x="5.3" y="1.2"/>
       </controlPoints>
-      <firstPoint x="5.1" y="0.4"/>
-      <secondPoint x="5.4" y="1.2"/>
+      <firstPoint x="5.0" y="0.4"/>
+      <secondPoint x="5.3" y="1.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -217,11 +217,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.1" y="1.4"/>
-        <point x="5.4" y="2.2"/>
+        <point x="5.0" y="1.4"/>
+        <point x="5.3" y="2.2"/>
       </controlPoints>
-      <firstPoint x="5.1" y="1.4"/>
-      <secondPoint x="5.4" y="2.2"/>
+      <firstPoint x="5.0" y="1.4"/>
+      <secondPoint x="5.3" y="2.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -237,11 +237,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.1" y="2.4"/>
-        <point x="5.4" y="3.2"/>
+        <point x="5.0" y="2.4"/>
+        <point x="5.3" y="3.2"/>
       </controlPoints>
-      <firstPoint x="5.1" y="2.4"/>
-      <secondPoint x="5.4" y="3.2"/>
+      <firstPoint x="5.0" y="2.4"/>
+      <secondPoint x="5.3" y="3.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -257,11 +257,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.1" y="3.4"/>
-        <point x="5.4" y="4.2"/>
+        <point x="5.0" y="3.4"/>
+        <point x="5.3" y="4.2"/>
       </controlPoints>
-      <firstPoint x="5.1" y="3.4"/>
-      <secondPoint x="5.4" y="4.2"/>
+      <firstPoint x="5.0" y="3.4"/>
+      <secondPoint x="5.3" y="4.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -277,11 +277,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.6" y="4.4"/>
-        <point x="5.9" y="5.2"/>
+        <point x="5.5" y="4.4"/>
+        <point x="5.8" y="5.2"/>
       </controlPoints>
-      <firstPoint x="5.6" y="4.4"/>
-      <secondPoint x="5.9" y="5.2"/>
+      <firstPoint x="5.5" y="4.4"/>
+      <secondPoint x="5.8" y="5.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -317,11 +317,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.6" y="5.4"/>
-        <point x="5.9" y="6.2"/>
+        <point x="5.5" y="5.4"/>
+        <point x="5.8" y="6.2"/>
       </controlPoints>
-      <firstPoint x="5.6" y="5.4"/>
-      <secondPoint x="5.9" y="6.2"/>
+      <firstPoint x="5.5" y="5.4"/>
+      <secondPoint x="5.8" y="6.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -337,11 +337,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.6" y="6.4"/>
-        <point x="5.9" y="7.2"/>
+        <point x="5.5" y="6.4"/>
+        <point x="5.8" y="7.2"/>
       </controlPoints>
-      <firstPoint x="5.6" y="6.4"/>
-      <secondPoint x="5.9" y="7.2"/>
+      <firstPoint x="5.5" y="6.4"/>
+      <secondPoint x="5.8" y="7.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -357,11 +357,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.6" y="7.4"/>
-        <point x="5.9" y="8.2"/>
+        <point x="5.5" y="7.4"/>
+        <point x="5.8" y="8.2"/>
       </controlPoints>
-      <firstPoint x="5.6" y="7.4"/>
-      <secondPoint x="5.9" y="8.2"/>
+      <firstPoint x="5.5" y="7.4"/>
+      <secondPoint x="5.8" y="8.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -417,11 +417,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.1" y="4.4"/>
-        <point x="5.4" y="5.2"/>
+        <point x="5.0" y="4.4"/>
+        <point x="5.3" y="5.2"/>
       </controlPoints>
-      <firstPoint x="5.1" y="4.4"/>
-      <secondPoint x="5.4" y="5.2"/>
+      <firstPoint x="5.0" y="4.4"/>
+      <secondPoint x="5.3" y="5.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -437,11 +437,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.1" y="5.4"/>
-        <point x="5.4" y="6.2"/>
+        <point x="5.0" y="5.4"/>
+        <point x="5.3" y="6.2"/>
       </controlPoints>
-      <firstPoint x="5.1" y="5.4"/>
-      <secondPoint x="5.4" y="6.2"/>
+      <firstPoint x="5.0" y="5.4"/>
+      <secondPoint x="5.3" y="6.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -457,11 +457,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.1" y="6.4"/>
-        <point x="5.4" y="7.2"/>
+        <point x="5.0" y="6.4"/>
+        <point x="5.3" y="7.2"/>
       </controlPoints>
-      <firstPoint x="5.1" y="6.4"/>
-      <secondPoint x="5.4" y="7.2"/>
+      <firstPoint x="5.0" y="6.4"/>
+      <secondPoint x="5.3" y="7.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -477,11 +477,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.1" y="7.4"/>
-        <point x="5.4" y="8.2"/>
+        <point x="5.0" y="7.4"/>
+        <point x="5.3" y="8.2"/>
       </controlPoints>
-      <firstPoint x="5.1" y="7.4"/>
-      <secondPoint x="5.4" y="8.2"/>
+      <firstPoint x="5.0" y="7.4"/>
+      <secondPoint x="5.3" y="8.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -549,6 +549,8 @@
       <coordinateOrigin>Top_Left</coordinateOrigin>
       <coordinateDisplay>One_Side</coordinateDisplay>
       <yType>Letters</yType>
+      <length value="12.7" unit="mm"/>
+      <width value="33.02" unit="mm"/>
       <mode>TwoPoints</mode>
       <type>SQUARE</type>
     </diylc.boards.BlankBoard>
@@ -597,11 +599,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.1" y="8.4"/>
-        <point x="5.4" y="9.2"/>
+        <point x="5.0" y="8.4"/>
+        <point x="5.3" y="9.2"/>
       </controlPoints>
-      <firstPoint x="5.1" y="8.4"/>
-      <secondPoint x="5.4" y="9.2"/>
+      <firstPoint x="5.0" y="8.4"/>
+      <secondPoint x="5.3" y="9.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -617,11 +619,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="5.6" y="8.4"/>
-        <point x="5.9" y="9.2"/>
+        <point x="5.5" y="8.4"/>
+        <point x="5.8" y="9.2"/>
       </controlPoints>
-      <firstPoint x="5.6" y="8.4"/>
-      <secondPoint x="5.9" y="9.2"/>
+      <firstPoint x="5.5" y="8.4"/>
+      <secondPoint x="5.8" y="9.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -917,11 +919,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.6" y="0.4"/>
-        <point x="4.9" y="1.2"/>
+        <point x="4.5" y="0.4"/>
+        <point x="4.8" y="1.2"/>
       </controlPoints>
-      <firstPoint x="4.6" y="0.4"/>
-      <secondPoint x="4.9" y="1.2"/>
+      <firstPoint x="4.5" y="0.4"/>
+      <secondPoint x="4.8" y="1.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -937,11 +939,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.6" y="1.4"/>
-        <point x="4.9" y="2.2"/>
+        <point x="4.5" y="1.4"/>
+        <point x="4.8" y="2.2"/>
       </controlPoints>
-      <firstPoint x="4.6" y="1.4"/>
-      <secondPoint x="4.9" y="2.2"/>
+      <firstPoint x="4.5" y="1.4"/>
+      <secondPoint x="4.8" y="2.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -957,11 +959,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.6" y="2.4"/>
-        <point x="4.9" y="3.2"/>
+        <point x="4.5" y="2.4"/>
+        <point x="4.8" y="3.2"/>
       </controlPoints>
-      <firstPoint x="4.6" y="2.4"/>
-      <secondPoint x="4.9" y="3.2"/>
+      <firstPoint x="4.5" y="2.4"/>
+      <secondPoint x="4.8" y="3.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -977,11 +979,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.6" y="3.4"/>
-        <point x="4.9" y="4.2"/>
+        <point x="4.5" y="3.4"/>
+        <point x="4.8" y="4.2"/>
       </controlPoints>
-      <firstPoint x="4.6" y="3.4"/>
-      <secondPoint x="4.9" y="4.2"/>
+      <firstPoint x="4.5" y="3.4"/>
+      <secondPoint x="4.8" y="4.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -997,11 +999,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.1" y="0.4"/>
-        <point x="4.4" y="1.2"/>
+        <point x="4.0" y="0.4"/>
+        <point x="4.3" y="1.2"/>
       </controlPoints>
-      <firstPoint x="4.1" y="0.4"/>
-      <secondPoint x="4.4" y="1.2"/>
+      <firstPoint x="4.0" y="0.4"/>
+      <secondPoint x="4.3" y="1.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -1017,11 +1019,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.1" y="1.4"/>
-        <point x="4.4" y="2.2"/>
+        <point x="4.0" y="1.4"/>
+        <point x="4.3" y="2.2"/>
       </controlPoints>
-      <firstPoint x="4.1" y="1.4"/>
-      <secondPoint x="4.4" y="2.2"/>
+      <firstPoint x="4.0" y="1.4"/>
+      <secondPoint x="4.3" y="2.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -1037,11 +1039,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.1" y="2.4"/>
-        <point x="4.4" y="3.2"/>
+        <point x="4.0" y="2.4"/>
+        <point x="4.3" y="3.2"/>
       </controlPoints>
-      <firstPoint x="4.1" y="2.4"/>
-      <secondPoint x="4.4" y="3.2"/>
+      <firstPoint x="4.0" y="2.4"/>
+      <secondPoint x="4.3" y="3.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -1057,11 +1059,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.1" y="3.4"/>
-        <point x="4.4" y="4.2"/>
+        <point x="4.0" y="3.4"/>
+        <point x="4.3" y="4.2"/>
       </controlPoints>
-      <firstPoint x="4.1" y="3.4"/>
-      <secondPoint x="4.4" y="4.2"/>
+      <firstPoint x="4.0" y="3.4"/>
+      <secondPoint x="4.3" y="4.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -1077,11 +1079,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.6" y="4.4"/>
-        <point x="4.9" y="5.2"/>
+        <point x="4.5" y="4.4"/>
+        <point x="4.8" y="5.2"/>
       </controlPoints>
-      <firstPoint x="4.6" y="4.4"/>
-      <secondPoint x="4.9" y="5.2"/>
+      <firstPoint x="4.5" y="4.4"/>
+      <secondPoint x="4.8" y="5.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -1097,11 +1099,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.6" y="5.4"/>
-        <point x="4.9" y="6.2"/>
+        <point x="4.5" y="5.4"/>
+        <point x="4.8" y="6.2"/>
       </controlPoints>
-      <firstPoint x="4.6" y="5.4"/>
-      <secondPoint x="4.9" y="6.2"/>
+      <firstPoint x="4.5" y="5.4"/>
+      <secondPoint x="4.8" y="6.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -1117,11 +1119,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.6" y="6.4"/>
-        <point x="4.9" y="7.2"/>
+        <point x="4.5" y="6.4"/>
+        <point x="4.8" y="7.2"/>
       </controlPoints>
-      <firstPoint x="4.6" y="6.4"/>
-      <secondPoint x="4.9" y="7.2"/>
+      <firstPoint x="4.5" y="6.4"/>
+      <secondPoint x="4.8" y="7.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -1137,11 +1139,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.6" y="7.4"/>
-        <point x="4.9" y="8.2"/>
+        <point x="4.5" y="7.4"/>
+        <point x="4.8" y="8.2"/>
       </controlPoints>
-      <firstPoint x="4.6" y="7.4"/>
-      <secondPoint x="4.9" y="8.2"/>
+      <firstPoint x="4.5" y="7.4"/>
+      <secondPoint x="4.8" y="8.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -1157,11 +1159,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.1" y="4.4"/>
-        <point x="4.4" y="5.2"/>
+        <point x="4.0" y="4.4"/>
+        <point x="4.3" y="5.2"/>
       </controlPoints>
-      <firstPoint x="4.1" y="4.4"/>
-      <secondPoint x="4.4" y="5.2"/>
+      <firstPoint x="4.0" y="4.4"/>
+      <secondPoint x="4.3" y="5.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -1177,11 +1179,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.1" y="5.4"/>
-        <point x="4.4" y="6.2"/>
+        <point x="4.0" y="5.4"/>
+        <point x="4.3" y="6.2"/>
       </controlPoints>
-      <firstPoint x="4.1" y="5.4"/>
-      <secondPoint x="4.4" y="6.2"/>
+      <firstPoint x="4.0" y="5.4"/>
+      <secondPoint x="4.3" y="6.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -1197,11 +1199,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.1" y="6.4"/>
-        <point x="4.4" y="7.2"/>
+        <point x="4.0" y="6.4"/>
+        <point x="4.3" y="7.2"/>
       </controlPoints>
-      <firstPoint x="4.1" y="6.4"/>
-      <secondPoint x="4.4" y="7.2"/>
+      <firstPoint x="4.0" y="6.4"/>
+      <secondPoint x="4.3" y="7.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -1217,11 +1219,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.1" y="7.4"/>
-        <point x="4.4" y="8.2"/>
+        <point x="4.0" y="7.4"/>
+        <point x="4.3" y="8.2"/>
       </controlPoints>
-      <firstPoint x="4.1" y="7.4"/>
-      <secondPoint x="4.4" y="8.2"/>
+      <firstPoint x="4.0" y="7.4"/>
+      <secondPoint x="4.3" y="8.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -1237,11 +1239,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.1" y="8.4"/>
-        <point x="4.4" y="9.2"/>
+        <point x="4.0" y="8.4"/>
+        <point x="4.3" y="9.2"/>
       </controlPoints>
-      <firstPoint x="4.1" y="8.4"/>
-      <secondPoint x="4.4" y="9.2"/>
+      <firstPoint x="4.0" y="8.4"/>
+      <secondPoint x="4.3" y="9.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -1257,11 +1259,11 @@
       <alpha>127</alpha>
       <value></value>
       <controlPoints>
-        <point x="4.6" y="8.4"/>
-        <point x="4.9" y="9.2"/>
+        <point x="4.5" y="8.4"/>
+        <point x="4.8" y="9.2"/>
       </controlPoints>
-      <firstPoint x="4.6" y="8.4"/>
-      <secondPoint x="4.9" y="9.2"/>
+      <firstPoint x="4.5" y="8.4"/>
+      <secondPoint x="4.8" y="9.2"/>
       <boardColor hex="f8ebb3"/>
       <borderColor hex="ada47d"/>
       <coordinateColor hex="b6b6b6"/>
@@ -1756,9 +1758,9 @@
       <name>Trace1</name>
       <alpha>127</alpha>
       <points>
-        <point x="6.0" y="0.2"/>
-        <point x="6.0" y="4.4"/>
-        <point x="6.0" y="2.3"/>
+        <point x="5.9" y="0.2"/>
+        <point x="5.9" y="4.4"/>
+        <point x="5.9" y="2.3"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -1816,9 +1818,9 @@
       <name>Trace4</name>
       <alpha>127</alpha>
       <points>
-        <point x="5.5" y="0.2"/>
-        <point x="5.5" y="4.4"/>
-        <point x="5.5" y="2.3"/>
+        <point x="5.4" y="0.2"/>
+        <point x="5.4" y="4.4"/>
+        <point x="5.4" y="2.3"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -1836,9 +1838,9 @@
       <name>Trace5</name>
       <alpha>127</alpha>
       <points>
-        <point x="6.0" y="4.4"/>
-        <point x="6.0" y="9.5"/>
-        <point x="6.0" y="6.95"/>
+        <point x="5.9" y="4.4"/>
+        <point x="5.9" y="9.5"/>
+        <point x="5.9" y="6.95"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -1896,9 +1898,9 @@
       <name>Trace8</name>
       <alpha>127</alpha>
       <points>
-        <point x="5.5" y="4.4"/>
-        <point x="5.5" y="9.5"/>
-        <point x="5.5" y="6.95"/>
+        <point x="5.4" y="4.4"/>
+        <point x="5.4" y="9.5"/>
+        <point x="5.4" y="6.95"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -2036,9 +2038,9 @@
       <name>Trace15</name>
       <alpha>127</alpha>
       <points>
-        <point x="5.0" y="0.2"/>
-        <point x="5.0" y="4.4"/>
-        <point x="5.0" y="2.3"/>
+        <point x="4.9" y="0.2"/>
+        <point x="4.9" y="4.4"/>
+        <point x="4.9" y="2.3"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -2056,9 +2058,9 @@
       <name>Trace16</name>
       <alpha>127</alpha>
       <points>
-        <point x="4.5" y="0.2"/>
-        <point x="4.5" y="4.4"/>
-        <point x="4.5" y="2.3"/>
+        <point x="4.4" y="0.2"/>
+        <point x="4.4" y="4.4"/>
+        <point x="4.4" y="2.3"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -2076,9 +2078,9 @@
       <name>Trace17</name>
       <alpha>127</alpha>
       <points>
-        <point x="5.0" y="4.4"/>
-        <point x="5.0" y="9.5"/>
-        <point x="5.0" y="6.95"/>
+        <point x="4.9" y="4.4"/>
+        <point x="4.9" y="9.5"/>
+        <point x="4.9" y="6.95"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -2096,9 +2098,9 @@
       <name>Trace18</name>
       <alpha>127</alpha>
       <points>
-        <point x="4.5" y="4.4"/>
-        <point x="4.5" y="9.5"/>
-        <point x="4.5" y="6.95"/>
+        <point x="4.4" y="4.4"/>
+        <point x="4.4" y="9.5"/>
+        <point x="4.4" y="6.95"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -2116,9 +2118,9 @@
       <name>Trace19</name>
       <alpha>127</alpha>
       <points>
-        <point x="4.0" y="0.2"/>
-        <point x="4.0" y="9.6"/>
-        <point x="4.0" y="4.9"/>
+        <point x="3.9" y="0.2"/>
+        <point x="3.9" y="9.6"/>
+        <point x="3.9" y="4.9"/>
       </points>
       <bodyColor hex="ffffff"/>
       <borderColor hex="000000"/>
@@ -2172,9 +2174,29 @@
       <thickness value="0.5" unit="mm"/>
       <layer>_1</layer>
     </diylc.connectivity.CopperTrace>
+    <diylc.connectivity.CopperTrace>
+      <name>Trace22</name>
+      <alpha>127</alpha>
+      <points>
+        <point x="0.2" y="0.4"/>
+        <point x="0.2" y="9.6"/>
+        <point x="0.2" y="5.0"/>
+      </points>
+      <bodyColor hex="ffffff"/>
+      <borderColor hex="000000"/>
+      <labelColor hex="000000"/>
+      <leadColor hex="000000"/>
+      <display>NAME</display>
+      <flipStanding>false</flipStanding>
+      <labelOriantation>Directional</labelOriantation>
+      <moveLabel>false</moveLabel>
+      <hideShortLeads>false</hideShortLeads>
+      <thickness value="0.5" unit="mm"/>
+      <layer>_1</layer>
+    </diylc.connectivity.CopperTrace>
     <diylc.misc.Label>
       <name>LAB1</name>
-      <point x="5.9" y="0.5"/>
+      <point x="5.8" y="0.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -2184,7 +2206,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB2</name>
-      <point x="5.9" y="0.6"/>
+      <point x="5.8" y="0.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -2194,7 +2216,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB3</name>
-      <point x="5.9" y="0.7"/>
+      <point x="5.8" y="0.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -2204,7 +2226,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB4</name>
-      <point x="5.9" y="0.8"/>
+      <point x="5.8" y="0.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -2214,7 +2236,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB5</name>
-      <point x="5.9" y="0.9"/>
+      <point x="5.8" y="0.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -2224,7 +2246,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB7</name>
-      <point x="5.9" y="1.0"/>
+      <point x="5.8" y="1.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -2234,7 +2256,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB8</name>
-      <point x="5.9" y="1.1"/>
+      <point x="5.8" y="1.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -2244,7 +2266,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB9</name>
-      <point x="5.6" y="1.1"/>
+      <point x="5.5" y="1.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -2254,7 +2276,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB11</name>
-      <point x="5.6" y="1.0"/>
+      <point x="5.5" y="1.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -2264,7 +2286,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB12</name>
-      <point x="5.6" y="0.9"/>
+      <point x="5.5" y="0.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -2274,7 +2296,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB13</name>
-      <point x="5.6" y="0.8"/>
+      <point x="5.5" y="0.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -2284,7 +2306,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB14</name>
-      <point x="5.6" y="0.7"/>
+      <point x="5.5" y="0.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -2294,7 +2316,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB15</name>
-      <point x="5.6" y="0.6"/>
+      <point x="5.5" y="0.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -2304,7 +2326,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB16</name>
-      <point x="5.6" y="0.5"/>
+      <point x="5.5" y="0.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -2994,7 +3016,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB83</name>
-      <point x="5.9" y="1.5"/>
+      <point x="5.8" y="1.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3004,7 +3026,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB84</name>
-      <point x="5.9" y="1.6"/>
+      <point x="5.8" y="1.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3014,7 +3036,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB85</name>
-      <point x="5.9" y="1.7"/>
+      <point x="5.8" y="1.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3024,7 +3046,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB86</name>
-      <point x="5.9" y="1.8"/>
+      <point x="5.8" y="1.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3034,7 +3056,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB87</name>
-      <point x="5.9" y="1.9"/>
+      <point x="5.8" y="1.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3044,7 +3066,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB88</name>
-      <point x="5.9" y="2.0"/>
+      <point x="5.8" y="2.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3054,7 +3076,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB89</name>
-      <point x="5.9" y="2.1"/>
+      <point x="5.8" y="2.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3064,7 +3086,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB90</name>
-      <point x="5.6" y="2.1"/>
+      <point x="5.5" y="2.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3074,7 +3096,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB91</name>
-      <point x="5.6" y="2.0"/>
+      <point x="5.5" y="2.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3084,7 +3106,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB92</name>
-      <point x="5.6" y="1.9"/>
+      <point x="5.5" y="1.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3094,7 +3116,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB93</name>
-      <point x="5.6" y="1.8"/>
+      <point x="5.5" y="1.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3104,7 +3126,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB94</name>
-      <point x="5.6" y="1.7"/>
+      <point x="5.5" y="1.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3114,7 +3136,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB95</name>
-      <point x="5.6" y="1.6"/>
+      <point x="5.5" y="1.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3124,7 +3146,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB96</name>
-      <point x="5.6" y="1.5"/>
+      <point x="5.5" y="1.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3134,7 +3156,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB97</name>
-      <point x="5.9" y="2.5"/>
+      <point x="5.8" y="2.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3144,7 +3166,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB98</name>
-      <point x="5.9" y="2.6"/>
+      <point x="5.8" y="2.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3154,7 +3176,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB99</name>
-      <point x="5.9" y="2.7"/>
+      <point x="5.8" y="2.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3164,7 +3186,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB100</name>
-      <point x="5.9" y="2.8"/>
+      <point x="5.8" y="2.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3174,7 +3196,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB101</name>
-      <point x="5.9" y="2.9"/>
+      <point x="5.8" y="2.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3184,7 +3206,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB102</name>
-      <point x="5.9" y="3.0"/>
+      <point x="5.8" y="3.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3194,7 +3216,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB103</name>
-      <point x="5.9" y="3.1"/>
+      <point x="5.8" y="3.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3204,7 +3226,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB104</name>
-      <point x="5.6" y="3.1"/>
+      <point x="5.5" y="3.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3214,7 +3236,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB105</name>
-      <point x="5.6" y="3.0"/>
+      <point x="5.5" y="3.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3224,7 +3246,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB106</name>
-      <point x="5.6" y="2.9"/>
+      <point x="5.5" y="2.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3234,7 +3256,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB107</name>
-      <point x="5.6" y="2.8"/>
+      <point x="5.5" y="2.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3244,7 +3266,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB108</name>
-      <point x="5.6" y="2.7"/>
+      <point x="5.5" y="2.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3254,7 +3276,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB109</name>
-      <point x="5.6" y="2.6"/>
+      <point x="5.5" y="2.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3264,7 +3286,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB110</name>
-      <point x="5.6" y="2.5"/>
+      <point x="5.5" y="2.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3274,7 +3296,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB111</name>
-      <point x="5.9" y="3.5"/>
+      <point x="5.8" y="3.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3284,7 +3306,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB112</name>
-      <point x="5.9" y="3.6"/>
+      <point x="5.8" y="3.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3294,7 +3316,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB113</name>
-      <point x="5.9" y="3.7"/>
+      <point x="5.8" y="3.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3304,7 +3326,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB114</name>
-      <point x="5.9" y="3.8"/>
+      <point x="5.8" y="3.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3314,7 +3336,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB115</name>
-      <point x="5.9" y="3.9"/>
+      <point x="5.8" y="3.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3324,7 +3346,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB116</name>
-      <point x="5.9" y="4.0"/>
+      <point x="5.8" y="4.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3334,7 +3356,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB117</name>
-      <point x="5.9" y="4.1"/>
+      <point x="5.8" y="4.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3344,7 +3366,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB118</name>
-      <point x="5.6" y="4.1"/>
+      <point x="5.5" y="4.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3354,7 +3376,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB119</name>
-      <point x="5.6" y="4.0"/>
+      <point x="5.5" y="4.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3364,7 +3386,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB120</name>
-      <point x="5.6" y="3.9"/>
+      <point x="5.5" y="3.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3374,7 +3396,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB121</name>
-      <point x="5.6" y="3.8"/>
+      <point x="5.5" y="3.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3384,7 +3406,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB122</name>
-      <point x="5.6" y="3.7"/>
+      <point x="5.5" y="3.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3394,7 +3416,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB123</name>
-      <point x="5.6" y="3.6"/>
+      <point x="5.5" y="3.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3404,7 +3426,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB124</name>
-      <point x="5.6" y="3.5"/>
+      <point x="5.5" y="3.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3814,7 +3836,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB165</name>
-      <point x="5.4" y="0.5"/>
+      <point x="5.3" y="0.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3824,7 +3846,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB166</name>
-      <point x="5.4" y="0.6"/>
+      <point x="5.3" y="0.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3834,7 +3856,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB167</name>
-      <point x="5.4" y="0.7"/>
+      <point x="5.3" y="0.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3844,7 +3866,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB168</name>
-      <point x="5.4" y="0.8"/>
+      <point x="5.3" y="0.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3854,7 +3876,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB169</name>
-      <point x="5.4" y="0.9"/>
+      <point x="5.3" y="0.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3864,7 +3886,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB170</name>
-      <point x="5.4" y="1.0"/>
+      <point x="5.3" y="1.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3874,7 +3896,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB171</name>
-      <point x="5.4" y="1.1"/>
+      <point x="5.3" y="1.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3884,7 +3906,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB172</name>
-      <point x="5.1" y="1.1"/>
+      <point x="5.0" y="1.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3894,7 +3916,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB173</name>
-      <point x="5.1" y="1.0"/>
+      <point x="5.0" y="1.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3904,7 +3926,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB174</name>
-      <point x="5.1" y="0.9"/>
+      <point x="5.0" y="0.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3914,7 +3936,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB175</name>
-      <point x="5.1" y="0.8"/>
+      <point x="5.0" y="0.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3924,7 +3946,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB176</name>
-      <point x="5.1" y="0.7"/>
+      <point x="5.0" y="0.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3934,7 +3956,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB177</name>
-      <point x="5.1" y="0.6"/>
+      <point x="5.0" y="0.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3944,7 +3966,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB178</name>
-      <point x="5.1" y="0.5"/>
+      <point x="5.0" y="0.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3954,7 +3976,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB179</name>
-      <point x="5.4" y="1.5"/>
+      <point x="5.3" y="1.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3964,7 +3986,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB180</name>
-      <point x="5.4" y="1.6"/>
+      <point x="5.3" y="1.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3974,7 +3996,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB181</name>
-      <point x="5.4" y="1.7"/>
+      <point x="5.3" y="1.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3984,7 +4006,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB182</name>
-      <point x="5.4" y="1.8"/>
+      <point x="5.3" y="1.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -3994,7 +4016,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB183</name>
-      <point x="5.4" y="1.9"/>
+      <point x="5.3" y="1.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4004,7 +4026,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB184</name>
-      <point x="5.4" y="2.0"/>
+      <point x="5.3" y="2.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4014,7 +4036,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB185</name>
-      <point x="5.4" y="2.1"/>
+      <point x="5.3" y="2.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4024,7 +4046,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB186</name>
-      <point x="5.1" y="2.1"/>
+      <point x="5.0" y="2.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4034,7 +4056,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB187</name>
-      <point x="5.1" y="2.0"/>
+      <point x="5.0" y="2.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4044,7 +4066,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB188</name>
-      <point x="5.1" y="1.9"/>
+      <point x="5.0" y="1.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4054,7 +4076,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB189</name>
-      <point x="5.1" y="1.8"/>
+      <point x="5.0" y="1.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4064,7 +4086,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB190</name>
-      <point x="5.1" y="1.7"/>
+      <point x="5.0" y="1.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4074,7 +4096,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB191</name>
-      <point x="5.1" y="1.6"/>
+      <point x="5.0" y="1.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4084,7 +4106,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB192</name>
-      <point x="5.1" y="1.5"/>
+      <point x="5.0" y="1.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4094,7 +4116,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB193</name>
-      <point x="5.4" y="2.5"/>
+      <point x="5.3" y="2.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4104,7 +4126,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB194</name>
-      <point x="5.4" y="2.6"/>
+      <point x="5.3" y="2.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4114,7 +4136,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB195</name>
-      <point x="5.4" y="2.7"/>
+      <point x="5.3" y="2.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4124,7 +4146,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB196</name>
-      <point x="5.4" y="2.8"/>
+      <point x="5.3" y="2.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4134,7 +4156,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB197</name>
-      <point x="5.4" y="2.9"/>
+      <point x="5.3" y="2.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4144,7 +4166,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB198</name>
-      <point x="5.4" y="3.0"/>
+      <point x="5.3" y="3.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4154,7 +4176,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB199</name>
-      <point x="5.4" y="3.1"/>
+      <point x="5.3" y="3.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4164,7 +4186,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB200</name>
-      <point x="5.1" y="3.1"/>
+      <point x="5.0" y="3.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4174,7 +4196,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB201</name>
-      <point x="5.1" y="3.0"/>
+      <point x="5.0" y="3.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4184,7 +4206,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB202</name>
-      <point x="5.1" y="2.9"/>
+      <point x="5.0" y="2.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4194,7 +4216,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB203</name>
-      <point x="5.1" y="2.8"/>
+      <point x="5.0" y="2.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4204,7 +4226,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB204</name>
-      <point x="5.1" y="2.7"/>
+      <point x="5.0" y="2.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4214,7 +4236,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB205</name>
-      <point x="5.1" y="2.6"/>
+      <point x="5.0" y="2.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4224,7 +4246,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB206</name>
-      <point x="5.1" y="2.5"/>
+      <point x="5.0" y="2.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4234,7 +4256,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB207</name>
-      <point x="5.4" y="3.5"/>
+      <point x="5.3" y="3.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4244,7 +4266,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB208</name>
-      <point x="5.4" y="3.6"/>
+      <point x="5.3" y="3.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4254,7 +4276,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB209</name>
-      <point x="5.4" y="3.7"/>
+      <point x="5.3" y="3.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4264,7 +4286,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB210</name>
-      <point x="5.4" y="3.8"/>
+      <point x="5.3" y="3.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4274,7 +4296,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB211</name>
-      <point x="5.4" y="3.9"/>
+      <point x="5.3" y="3.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4284,7 +4306,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB212</name>
-      <point x="5.4" y="4.0"/>
+      <point x="5.3" y="4.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4294,7 +4316,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB213</name>
-      <point x="5.4" y="4.1"/>
+      <point x="5.3" y="4.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4304,7 +4326,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB214</name>
-      <point x="5.1" y="4.1"/>
+      <point x="5.0" y="4.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4314,7 +4336,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB215</name>
-      <point x="5.1" y="4.0"/>
+      <point x="5.0" y="4.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4324,7 +4346,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB216</name>
-      <point x="5.1" y="3.9"/>
+      <point x="5.0" y="3.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4334,7 +4356,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB217</name>
-      <point x="5.1" y="3.8"/>
+      <point x="5.0" y="3.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4344,7 +4366,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB218</name>
-      <point x="5.1" y="3.7"/>
+      <point x="5.0" y="3.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4354,7 +4376,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB219</name>
-      <point x="5.1" y="3.6"/>
+      <point x="5.0" y="3.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4364,7 +4386,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB220</name>
-      <point x="5.1" y="3.5"/>
+      <point x="5.0" y="3.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4374,7 +4396,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB221</name>
-      <point x="5.9" y="4.5"/>
+      <point x="5.8" y="4.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4384,7 +4406,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB222</name>
-      <point x="5.9" y="4.6"/>
+      <point x="5.8" y="4.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4394,7 +4416,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB223</name>
-      <point x="5.9" y="4.7"/>
+      <point x="5.8" y="4.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4404,7 +4426,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB224</name>
-      <point x="5.9" y="4.8"/>
+      <point x="5.8" y="4.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4414,7 +4436,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB225</name>
-      <point x="5.9" y="4.9"/>
+      <point x="5.8" y="4.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4424,7 +4446,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB226</name>
-      <point x="5.9" y="5.0"/>
+      <point x="5.8" y="5.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4434,7 +4456,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB227</name>
-      <point x="5.9" y="5.1"/>
+      <point x="5.8" y="5.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4444,7 +4466,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB228</name>
-      <point x="5.6" y="5.1"/>
+      <point x="5.5" y="5.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4454,7 +4476,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB229</name>
-      <point x="5.6" y="5.0"/>
+      <point x="5.5" y="5.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4464,7 +4486,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB230</name>
-      <point x="5.6" y="4.9"/>
+      <point x="5.5" y="4.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4474,7 +4496,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB231</name>
-      <point x="5.6" y="4.8"/>
+      <point x="5.5" y="4.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4484,7 +4506,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB232</name>
-      <point x="5.6" y="4.7"/>
+      <point x="5.5" y="4.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4494,7 +4516,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB233</name>
-      <point x="5.6" y="4.6"/>
+      <point x="5.5" y="4.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4504,7 +4526,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB234</name>
-      <point x="5.6" y="4.5"/>
+      <point x="5.5" y="4.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4714,7 +4736,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB255</name>
-      <point x="5.9" y="5.5"/>
+      <point x="5.8" y="5.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4724,7 +4746,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB256</name>
-      <point x="5.9" y="5.6"/>
+      <point x="5.8" y="5.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4734,7 +4756,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB257</name>
-      <point x="5.9" y="5.7"/>
+      <point x="5.8" y="5.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4744,7 +4766,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB258</name>
-      <point x="5.9" y="5.8"/>
+      <point x="5.8" y="5.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4754,7 +4776,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB259</name>
-      <point x="5.9" y="5.9"/>
+      <point x="5.8" y="5.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4764,7 +4786,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB260</name>
-      <point x="5.9" y="6.0"/>
+      <point x="5.8" y="6.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4774,7 +4796,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB261</name>
-      <point x="5.9" y="6.1"/>
+      <point x="5.8" y="6.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4784,7 +4806,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB262</name>
-      <point x="5.6" y="6.1"/>
+      <point x="5.5" y="6.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4794,7 +4816,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB263</name>
-      <point x="5.6" y="6.0"/>
+      <point x="5.5" y="6.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4804,7 +4826,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB264</name>
-      <point x="5.6" y="5.9"/>
+      <point x="5.5" y="5.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4814,7 +4836,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB265</name>
-      <point x="5.6" y="5.8"/>
+      <point x="5.5" y="5.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4824,7 +4846,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB266</name>
-      <point x="5.6" y="5.7"/>
+      <point x="5.5" y="5.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4834,7 +4856,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB267</name>
-      <point x="5.6" y="5.6"/>
+      <point x="5.5" y="5.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4844,7 +4866,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB268</name>
-      <point x="5.6" y="5.5"/>
+      <point x="5.5" y="5.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4854,7 +4876,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB269</name>
-      <point x="5.9" y="6.5"/>
+      <point x="5.8" y="6.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4864,7 +4886,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB270</name>
-      <point x="5.9" y="6.6"/>
+      <point x="5.8" y="6.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4874,7 +4896,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB271</name>
-      <point x="5.9" y="6.7"/>
+      <point x="5.8" y="6.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4884,7 +4906,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB272</name>
-      <point x="5.9" y="6.8"/>
+      <point x="5.8" y="6.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4894,7 +4916,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB273</name>
-      <point x="5.9" y="6.9"/>
+      <point x="5.8" y="6.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4904,7 +4926,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB274</name>
-      <point x="5.9" y="7.0"/>
+      <point x="5.8" y="7.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4914,7 +4936,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB275</name>
-      <point x="5.9" y="7.1"/>
+      <point x="5.8" y="7.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4924,7 +4946,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB276</name>
-      <point x="5.6" y="7.1"/>
+      <point x="5.5" y="7.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4934,7 +4956,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB277</name>
-      <point x="5.6" y="7.0"/>
+      <point x="5.5" y="7.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4944,7 +4966,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB278</name>
-      <point x="5.6" y="6.9"/>
+      <point x="5.5" y="6.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4954,7 +4976,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB279</name>
-      <point x="5.6" y="6.8"/>
+      <point x="5.5" y="6.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4964,7 +4986,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB280</name>
-      <point x="5.6" y="6.7"/>
+      <point x="5.5" y="6.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4974,7 +4996,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB281</name>
-      <point x="5.6" y="6.6"/>
+      <point x="5.5" y="6.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4984,7 +5006,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB282</name>
-      <point x="5.6" y="6.5"/>
+      <point x="5.5" y="6.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -4994,7 +5016,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB283</name>
-      <point x="5.9" y="7.5"/>
+      <point x="5.8" y="7.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5004,7 +5026,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB284</name>
-      <point x="5.9" y="7.6"/>
+      <point x="5.8" y="7.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5014,7 +5036,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB285</name>
-      <point x="5.9" y="7.7"/>
+      <point x="5.8" y="7.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5024,7 +5046,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB286</name>
-      <point x="5.9" y="7.8"/>
+      <point x="5.8" y="7.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5034,7 +5056,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB287</name>
-      <point x="5.9" y="7.9"/>
+      <point x="5.8" y="7.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5044,7 +5066,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB288</name>
-      <point x="5.9" y="8.0"/>
+      <point x="5.8" y="8.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5054,7 +5076,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB289</name>
-      <point x="5.9" y="8.1"/>
+      <point x="5.8" y="8.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5064,7 +5086,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB290</name>
-      <point x="5.6" y="8.1"/>
+      <point x="5.5" y="8.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5074,7 +5096,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB291</name>
-      <point x="5.6" y="8.0"/>
+      <point x="5.5" y="8.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5084,7 +5106,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB292</name>
-      <point x="5.6" y="7.9"/>
+      <point x="5.5" y="7.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5094,7 +5116,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB293</name>
-      <point x="5.6" y="7.8"/>
+      <point x="5.5" y="7.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5104,7 +5126,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB294</name>
-      <point x="5.6" y="7.7"/>
+      <point x="5.5" y="7.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5114,7 +5136,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB295</name>
-      <point x="5.6" y="7.6"/>
+      <point x="5.5" y="7.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5124,7 +5146,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB296</name>
-      <point x="5.6" y="7.5"/>
+      <point x="5.5" y="7.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5534,7 +5556,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB337</name>
-      <point x="5.4" y="4.5"/>
+      <point x="5.3" y="4.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5544,7 +5566,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB338</name>
-      <point x="5.4" y="4.6"/>
+      <point x="5.3" y="4.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5554,7 +5576,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB339</name>
-      <point x="5.4" y="4.7"/>
+      <point x="5.3" y="4.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5564,7 +5586,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB340</name>
-      <point x="5.4" y="4.8"/>
+      <point x="5.3" y="4.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5574,7 +5596,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB341</name>
-      <point x="5.4" y="4.9"/>
+      <point x="5.3" y="4.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5584,7 +5606,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB342</name>
-      <point x="5.4" y="5.0"/>
+      <point x="5.3" y="5.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5594,7 +5616,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB343</name>
-      <point x="5.4" y="5.1"/>
+      <point x="5.3" y="5.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5604,7 +5626,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB344</name>
-      <point x="5.1" y="5.1"/>
+      <point x="5.0" y="5.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5614,7 +5636,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB345</name>
-      <point x="5.1" y="5.0"/>
+      <point x="5.0" y="5.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5624,7 +5646,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB346</name>
-      <point x="5.1" y="4.9"/>
+      <point x="5.0" y="4.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5634,7 +5656,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB347</name>
-      <point x="5.1" y="4.8"/>
+      <point x="5.0" y="4.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5644,7 +5666,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB348</name>
-      <point x="5.1" y="4.7"/>
+      <point x="5.0" y="4.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5654,7 +5676,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB349</name>
-      <point x="5.1" y="4.6"/>
+      <point x="5.0" y="4.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5664,7 +5686,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB350</name>
-      <point x="5.1" y="4.5"/>
+      <point x="5.0" y="4.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5674,7 +5696,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB351</name>
-      <point x="5.4" y="5.5"/>
+      <point x="5.3" y="5.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5684,7 +5706,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB352</name>
-      <point x="5.4" y="5.6"/>
+      <point x="5.3" y="5.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5694,7 +5716,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB353</name>
-      <point x="5.4" y="5.7"/>
+      <point x="5.3" y="5.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5704,7 +5726,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB354</name>
-      <point x="5.4" y="5.8"/>
+      <point x="5.3" y="5.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5714,7 +5736,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB355</name>
-      <point x="5.4" y="5.9"/>
+      <point x="5.3" y="5.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5724,7 +5746,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB356</name>
-      <point x="5.4" y="6.0"/>
+      <point x="5.3" y="6.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5734,7 +5756,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB357</name>
-      <point x="5.4" y="6.1"/>
+      <point x="5.3" y="6.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5744,7 +5766,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB358</name>
-      <point x="5.1" y="6.1"/>
+      <point x="5.0" y="6.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5754,7 +5776,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB359</name>
-      <point x="5.1" y="6.0"/>
+      <point x="5.0" y="6.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5764,7 +5786,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB360</name>
-      <point x="5.1" y="5.9"/>
+      <point x="5.0" y="5.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5774,7 +5796,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB361</name>
-      <point x="5.1" y="5.8"/>
+      <point x="5.0" y="5.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5784,7 +5806,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB362</name>
-      <point x="5.1" y="5.7"/>
+      <point x="5.0" y="5.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5794,7 +5816,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB363</name>
-      <point x="5.1" y="5.6"/>
+      <point x="5.0" y="5.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5804,7 +5826,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB364</name>
-      <point x="5.1" y="5.5"/>
+      <point x="5.0" y="5.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5814,7 +5836,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB365</name>
-      <point x="5.4" y="6.5"/>
+      <point x="5.3" y="6.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5824,7 +5846,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB366</name>
-      <point x="5.4" y="6.6"/>
+      <point x="5.3" y="6.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5834,7 +5856,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB367</name>
-      <point x="5.4" y="6.7"/>
+      <point x="5.3" y="6.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5844,7 +5866,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB368</name>
-      <point x="5.4" y="6.8"/>
+      <point x="5.3" y="6.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5854,7 +5876,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB369</name>
-      <point x="5.4" y="6.9"/>
+      <point x="5.3" y="6.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5864,7 +5886,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB370</name>
-      <point x="5.4" y="7.0"/>
+      <point x="5.3" y="7.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5874,7 +5896,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB371</name>
-      <point x="5.4" y="7.1"/>
+      <point x="5.3" y="7.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5884,7 +5906,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB372</name>
-      <point x="5.1" y="7.1"/>
+      <point x="5.0" y="7.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5894,7 +5916,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB373</name>
-      <point x="5.1" y="7.0"/>
+      <point x="5.0" y="7.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5904,7 +5926,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB374</name>
-      <point x="5.1" y="6.9"/>
+      <point x="5.0" y="6.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5914,7 +5936,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB375</name>
-      <point x="5.1" y="6.8"/>
+      <point x="5.0" y="6.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5924,7 +5946,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB376</name>
-      <point x="5.1" y="6.7"/>
+      <point x="5.0" y="6.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5934,7 +5956,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB377</name>
-      <point x="5.1" y="6.6"/>
+      <point x="5.0" y="6.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5944,7 +5966,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB378</name>
-      <point x="5.1" y="6.5"/>
+      <point x="5.0" y="6.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5954,7 +5976,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB379</name>
-      <point x="5.4" y="7.5"/>
+      <point x="5.3" y="7.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5964,7 +5986,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB380</name>
-      <point x="5.4" y="7.6"/>
+      <point x="5.3" y="7.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5974,7 +5996,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB381</name>
-      <point x="5.4" y="7.7"/>
+      <point x="5.3" y="7.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5984,7 +6006,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB382</name>
-      <point x="5.4" y="7.8"/>
+      <point x="5.3" y="7.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -5994,7 +6016,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB383</name>
-      <point x="5.4" y="7.9"/>
+      <point x="5.3" y="7.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -6004,7 +6026,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB384</name>
-      <point x="5.4" y="8.0"/>
+      <point x="5.3" y="8.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -6014,7 +6036,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB385</name>
-      <point x="5.4" y="8.1"/>
+      <point x="5.3" y="8.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -6024,7 +6046,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB386</name>
-      <point x="5.1" y="8.1"/>
+      <point x="5.0" y="8.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -6034,7 +6056,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB387</name>
-      <point x="5.1" y="8.0"/>
+      <point x="5.0" y="8.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -6044,7 +6066,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB388</name>
-      <point x="5.1" y="7.9"/>
+      <point x="5.0" y="7.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -6054,7 +6076,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB389</name>
-      <point x="5.1" y="7.8"/>
+      <point x="5.0" y="7.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -6064,7 +6086,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB390</name>
-      <point x="5.1" y="7.7"/>
+      <point x="5.0" y="7.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -6074,7 +6096,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB391</name>
-      <point x="5.1" y="7.6"/>
+      <point x="5.0" y="7.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -6084,7 +6106,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB392</name>
-      <point x="5.1" y="7.5"/>
+      <point x="5.0" y="7.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7254,7 +7276,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB509</name>
-      <point x="5.4" y="8.5"/>
+      <point x="5.3" y="8.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7264,7 +7286,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB510</name>
-      <point x="5.4" y="8.6"/>
+      <point x="5.3" y="8.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7274,7 +7296,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB511</name>
-      <point x="5.4" y="8.7"/>
+      <point x="5.3" y="8.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7284,7 +7306,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB512</name>
-      <point x="5.4" y="8.8"/>
+      <point x="5.3" y="8.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7294,7 +7316,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB513</name>
-      <point x="5.4" y="8.9"/>
+      <point x="5.3" y="8.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7304,7 +7326,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB514</name>
-      <point x="5.4" y="9.0"/>
+      <point x="5.3" y="9.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7314,7 +7336,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB515</name>
-      <point x="5.4" y="9.1"/>
+      <point x="5.3" y="9.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7324,7 +7346,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB516</name>
-      <point x="5.1" y="9.1"/>
+      <point x="5.0" y="9.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7334,7 +7356,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB517</name>
-      <point x="5.1" y="9.0"/>
+      <point x="5.0" y="9.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7344,7 +7366,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB518</name>
-      <point x="5.1" y="8.9"/>
+      <point x="5.0" y="8.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7354,7 +7376,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB519</name>
-      <point x="5.1" y="8.8"/>
+      <point x="5.0" y="8.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7364,7 +7386,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB520</name>
-      <point x="5.1" y="8.7"/>
+      <point x="5.0" y="8.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7374,7 +7396,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB521</name>
-      <point x="5.1" y="8.6"/>
+      <point x="5.0" y="8.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7384,7 +7406,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB522</name>
-      <point x="5.1" y="8.5"/>
+      <point x="5.0" y="8.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7394,7 +7416,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB523</name>
-      <point x="5.9" y="8.5"/>
+      <point x="5.8" y="8.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7404,7 +7426,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB524</name>
-      <point x="5.9" y="8.6"/>
+      <point x="5.8" y="8.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7414,7 +7436,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB525</name>
-      <point x="5.9" y="8.7"/>
+      <point x="5.8" y="8.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7424,7 +7446,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB526</name>
-      <point x="5.9" y="8.8"/>
+      <point x="5.8" y="8.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7434,7 +7456,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB527</name>
-      <point x="5.9" y="8.9"/>
+      <point x="5.8" y="8.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7444,7 +7466,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB528</name>
-      <point x="5.9" y="9.0"/>
+      <point x="5.8" y="9.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7454,7 +7476,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB529</name>
-      <point x="5.9" y="9.1"/>
+      <point x="5.8" y="9.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7464,7 +7486,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB530</name>
-      <point x="5.6" y="9.1"/>
+      <point x="5.5" y="9.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7474,7 +7496,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB531</name>
-      <point x="5.6" y="9.0"/>
+      <point x="5.5" y="9.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7484,7 +7506,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB532</name>
-      <point x="5.6" y="8.9"/>
+      <point x="5.5" y="8.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7494,7 +7516,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB533</name>
-      <point x="5.6" y="8.8"/>
+      <point x="5.5" y="8.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7504,7 +7526,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB534</name>
-      <point x="5.6" y="8.7"/>
+      <point x="5.5" y="8.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7514,7 +7536,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB535</name>
-      <point x="5.6" y="8.6"/>
+      <point x="5.5" y="8.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -7524,7 +7546,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB536</name>
-      <point x="5.6" y="8.5"/>
+      <point x="5.5" y="8.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10334,7 +10356,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB957</name>
-      <point x="4.9" y="0.5"/>
+      <point x="4.8" y="0.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10344,7 +10366,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB958</name>
-      <point x="4.9" y="0.6"/>
+      <point x="4.8" y="0.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10354,7 +10376,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB959</name>
-      <point x="4.9" y="0.7"/>
+      <point x="4.8" y="0.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10364,7 +10386,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB960</name>
-      <point x="4.9" y="0.8"/>
+      <point x="4.8" y="0.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10374,7 +10396,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB961</name>
-      <point x="4.9" y="0.9"/>
+      <point x="4.8" y="0.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10384,7 +10406,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB962</name>
-      <point x="4.9" y="1.0"/>
+      <point x="4.8" y="1.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10394,7 +10416,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB963</name>
-      <point x="4.9" y="1.1"/>
+      <point x="4.8" y="1.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10404,7 +10426,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB964</name>
-      <point x="4.6" y="1.1"/>
+      <point x="4.5" y="1.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10414,7 +10436,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB965</name>
-      <point x="4.6" y="1.0"/>
+      <point x="4.5" y="1.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10424,7 +10446,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB966</name>
-      <point x="4.6" y="0.9"/>
+      <point x="4.5" y="0.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10434,7 +10456,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB967</name>
-      <point x="4.6" y="0.8"/>
+      <point x="4.5" y="0.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10444,7 +10466,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB968</name>
-      <point x="4.6" y="0.7"/>
+      <point x="4.5" y="0.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10454,7 +10476,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB969</name>
-      <point x="4.6" y="0.6"/>
+      <point x="4.5" y="0.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10464,7 +10486,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB970</name>
-      <point x="4.6" y="0.5"/>
+      <point x="4.5" y="0.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10474,7 +10496,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB971</name>
-      <point x="4.9" y="1.5"/>
+      <point x="4.8" y="1.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10484,7 +10506,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB972</name>
-      <point x="4.9" y="1.6"/>
+      <point x="4.8" y="1.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10494,7 +10516,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB973</name>
-      <point x="4.9" y="1.7"/>
+      <point x="4.8" y="1.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10504,7 +10526,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB974</name>
-      <point x="4.9" y="1.8"/>
+      <point x="4.8" y="1.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10514,7 +10536,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB975</name>
-      <point x="4.9" y="1.9"/>
+      <point x="4.8" y="1.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10524,7 +10546,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB976</name>
-      <point x="4.9" y="2.0"/>
+      <point x="4.8" y="2.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10534,7 +10556,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB977</name>
-      <point x="4.9" y="2.1"/>
+      <point x="4.8" y="2.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10544,7 +10566,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB978</name>
-      <point x="4.6" y="2.1"/>
+      <point x="4.5" y="2.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10554,7 +10576,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB979</name>
-      <point x="4.6" y="2.0"/>
+      <point x="4.5" y="2.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10564,7 +10586,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB980</name>
-      <point x="4.6" y="1.9"/>
+      <point x="4.5" y="1.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10574,7 +10596,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB981</name>
-      <point x="4.6" y="1.8"/>
+      <point x="4.5" y="1.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10584,7 +10606,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB982</name>
-      <point x="4.6" y="1.7"/>
+      <point x="4.5" y="1.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10594,7 +10616,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB983</name>
-      <point x="4.6" y="1.6"/>
+      <point x="4.5" y="1.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10604,7 +10626,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB984</name>
-      <point x="4.6" y="1.5"/>
+      <point x="4.5" y="1.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10614,7 +10636,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB985</name>
-      <point x="4.9" y="2.5"/>
+      <point x="4.8" y="2.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10624,7 +10646,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB986</name>
-      <point x="4.9" y="2.6"/>
+      <point x="4.8" y="2.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10634,7 +10656,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB987</name>
-      <point x="4.9" y="2.7"/>
+      <point x="4.8" y="2.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10644,7 +10666,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB988</name>
-      <point x="4.9" y="2.8"/>
+      <point x="4.8" y="2.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10654,7 +10676,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB989</name>
-      <point x="4.9" y="2.9"/>
+      <point x="4.8" y="2.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10664,7 +10686,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB990</name>
-      <point x="4.9" y="3.0"/>
+      <point x="4.8" y="3.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10674,7 +10696,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB991</name>
-      <point x="4.9" y="3.1"/>
+      <point x="4.8" y="3.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10684,7 +10706,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB992</name>
-      <point x="4.6" y="3.1"/>
+      <point x="4.5" y="3.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10694,7 +10716,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB993</name>
-      <point x="4.6" y="3.0"/>
+      <point x="4.5" y="3.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10704,7 +10726,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB994</name>
-      <point x="4.6" y="2.9"/>
+      <point x="4.5" y="2.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10714,7 +10736,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB995</name>
-      <point x="4.6" y="2.8"/>
+      <point x="4.5" y="2.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10724,7 +10746,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB996</name>
-      <point x="4.6" y="2.7"/>
+      <point x="4.5" y="2.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10734,7 +10756,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB997</name>
-      <point x="4.6" y="2.6"/>
+      <point x="4.5" y="2.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10744,7 +10766,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB998</name>
-      <point x="4.6" y="2.5"/>
+      <point x="4.5" y="2.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10754,7 +10776,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB999</name>
-      <point x="4.9" y="3.5"/>
+      <point x="4.8" y="3.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10764,7 +10786,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1000</name>
-      <point x="4.9" y="3.6"/>
+      <point x="4.8" y="3.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10774,7 +10796,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1001</name>
-      <point x="4.9" y="3.7"/>
+      <point x="4.8" y="3.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10784,7 +10806,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1002</name>
-      <point x="4.9" y="3.8"/>
+      <point x="4.8" y="3.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10794,7 +10816,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1003</name>
-      <point x="4.9" y="3.9"/>
+      <point x="4.8" y="3.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10804,7 +10826,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1004</name>
-      <point x="4.9" y="4.0"/>
+      <point x="4.8" y="4.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10814,7 +10836,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1005</name>
-      <point x="4.9" y="4.1"/>
+      <point x="4.8" y="4.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10824,7 +10846,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1006</name>
-      <point x="4.6" y="4.1"/>
+      <point x="4.5" y="4.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10834,7 +10856,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1007</name>
-      <point x="4.6" y="4.0"/>
+      <point x="4.5" y="4.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10844,7 +10866,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1008</name>
-      <point x="4.6" y="3.9"/>
+      <point x="4.5" y="3.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10854,7 +10876,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1009</name>
-      <point x="4.6" y="3.8"/>
+      <point x="4.5" y="3.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10864,7 +10886,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1010</name>
-      <point x="4.6" y="3.7"/>
+      <point x="4.5" y="3.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10874,7 +10896,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1011</name>
-      <point x="4.6" y="3.6"/>
+      <point x="4.5" y="3.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10884,7 +10906,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1012</name>
-      <point x="4.6" y="3.5"/>
+      <point x="4.5" y="3.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10894,7 +10916,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1013</name>
-      <point x="4.4" y="0.5"/>
+      <point x="4.3" y="0.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10904,7 +10926,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1014</name>
-      <point x="4.4" y="0.6"/>
+      <point x="4.3" y="0.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10914,7 +10936,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1015</name>
-      <point x="4.4" y="0.7"/>
+      <point x="4.3" y="0.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10924,7 +10946,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1016</name>
-      <point x="4.4" y="0.8"/>
+      <point x="4.3" y="0.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10934,7 +10956,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1017</name>
-      <point x="4.4" y="0.9"/>
+      <point x="4.3" y="0.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10944,7 +10966,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1018</name>
-      <point x="4.4" y="1.0"/>
+      <point x="4.3" y="1.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10954,7 +10976,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1019</name>
-      <point x="4.4" y="1.1"/>
+      <point x="4.3" y="1.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10964,7 +10986,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1020</name>
-      <point x="4.1" y="1.1"/>
+      <point x="4.0" y="1.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10974,7 +10996,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1021</name>
-      <point x="4.1" y="1.0"/>
+      <point x="4.0" y="1.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10984,7 +11006,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1022</name>
-      <point x="4.1" y="0.9"/>
+      <point x="4.0" y="0.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -10994,7 +11016,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1023</name>
-      <point x="4.1" y="0.8"/>
+      <point x="4.0" y="0.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11004,7 +11026,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1024</name>
-      <point x="4.1" y="0.7"/>
+      <point x="4.0" y="0.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11014,7 +11036,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1025</name>
-      <point x="4.1" y="0.6"/>
+      <point x="4.0" y="0.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11024,7 +11046,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1026</name>
-      <point x="4.1" y="0.5"/>
+      <point x="4.0" y="0.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11034,7 +11056,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1027</name>
-      <point x="4.4" y="1.5"/>
+      <point x="4.3" y="1.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11044,7 +11066,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1028</name>
-      <point x="4.4" y="1.6"/>
+      <point x="4.3" y="1.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11054,7 +11076,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1029</name>
-      <point x="4.4" y="1.7"/>
+      <point x="4.3" y="1.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11064,7 +11086,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1030</name>
-      <point x="4.4" y="1.8"/>
+      <point x="4.3" y="1.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11074,7 +11096,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1031</name>
-      <point x="4.4" y="1.9"/>
+      <point x="4.3" y="1.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11084,7 +11106,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1032</name>
-      <point x="4.4" y="2.0"/>
+      <point x="4.3" y="2.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11094,7 +11116,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1033</name>
-      <point x="4.4" y="2.1"/>
+      <point x="4.3" y="2.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11104,7 +11126,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1034</name>
-      <point x="4.1" y="2.1"/>
+      <point x="4.0" y="2.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11114,7 +11136,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1035</name>
-      <point x="4.1" y="2.0"/>
+      <point x="4.0" y="2.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11124,7 +11146,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1036</name>
-      <point x="4.1" y="1.9"/>
+      <point x="4.0" y="1.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11134,7 +11156,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1037</name>
-      <point x="4.1" y="1.8"/>
+      <point x="4.0" y="1.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11144,7 +11166,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1038</name>
-      <point x="4.1" y="1.7"/>
+      <point x="4.0" y="1.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11154,7 +11176,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1039</name>
-      <point x="4.1" y="1.6"/>
+      <point x="4.0" y="1.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11164,7 +11186,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1040</name>
-      <point x="4.1" y="1.5"/>
+      <point x="4.0" y="1.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11174,7 +11196,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1041</name>
-      <point x="4.4" y="2.5"/>
+      <point x="4.3" y="2.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11184,7 +11206,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1042</name>
-      <point x="4.4" y="2.6"/>
+      <point x="4.3" y="2.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11194,7 +11216,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1043</name>
-      <point x="4.4" y="2.7"/>
+      <point x="4.3" y="2.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11204,7 +11226,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1044</name>
-      <point x="4.4" y="2.8"/>
+      <point x="4.3" y="2.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11214,7 +11236,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1045</name>
-      <point x="4.4" y="2.9"/>
+      <point x="4.3" y="2.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11224,7 +11246,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1046</name>
-      <point x="4.4" y="3.0"/>
+      <point x="4.3" y="3.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11234,7 +11256,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1047</name>
-      <point x="4.4" y="3.1"/>
+      <point x="4.3" y="3.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11244,7 +11266,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1048</name>
-      <point x="4.1" y="3.1"/>
+      <point x="4.0" y="3.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11254,7 +11276,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1049</name>
-      <point x="4.1" y="3.0"/>
+      <point x="4.0" y="3.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11264,7 +11286,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1050</name>
-      <point x="4.1" y="2.9"/>
+      <point x="4.0" y="2.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11274,7 +11296,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1051</name>
-      <point x="4.1" y="2.8"/>
+      <point x="4.0" y="2.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11284,7 +11306,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1052</name>
-      <point x="4.1" y="2.7"/>
+      <point x="4.0" y="2.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11294,7 +11316,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1053</name>
-      <point x="4.1" y="2.6"/>
+      <point x="4.0" y="2.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11304,7 +11326,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1054</name>
-      <point x="4.1" y="2.5"/>
+      <point x="4.0" y="2.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11314,7 +11336,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1055</name>
-      <point x="4.4" y="3.5"/>
+      <point x="4.3" y="3.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11324,7 +11346,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1056</name>
-      <point x="4.4" y="3.6"/>
+      <point x="4.3" y="3.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11334,7 +11356,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1057</name>
-      <point x="4.4" y="3.7"/>
+      <point x="4.3" y="3.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11344,7 +11366,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1058</name>
-      <point x="4.4" y="3.8"/>
+      <point x="4.3" y="3.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11354,7 +11376,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1059</name>
-      <point x="4.4" y="3.9"/>
+      <point x="4.3" y="3.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11364,7 +11386,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1060</name>
-      <point x="4.4" y="4.0"/>
+      <point x="4.3" y="4.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11374,7 +11396,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1061</name>
-      <point x="4.4" y="4.1"/>
+      <point x="4.3" y="4.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11384,7 +11406,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1062</name>
-      <point x="4.1" y="4.1"/>
+      <point x="4.0" y="4.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11394,7 +11416,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1063</name>
-      <point x="4.1" y="4.0"/>
+      <point x="4.0" y="4.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11404,7 +11426,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1064</name>
-      <point x="4.1" y="3.9"/>
+      <point x="4.0" y="3.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11414,7 +11436,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1065</name>
-      <point x="4.1" y="3.8"/>
+      <point x="4.0" y="3.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11424,7 +11446,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1066</name>
-      <point x="4.1" y="3.7"/>
+      <point x="4.0" y="3.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11434,7 +11456,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1067</name>
-      <point x="4.1" y="3.6"/>
+      <point x="4.0" y="3.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11444,7 +11466,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1068</name>
-      <point x="4.1" y="3.5"/>
+      <point x="4.0" y="3.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11454,7 +11476,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1069</name>
-      <point x="4.9" y="4.5"/>
+      <point x="4.8" y="4.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11464,7 +11486,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1070</name>
-      <point x="4.9" y="4.6"/>
+      <point x="4.8" y="4.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11474,7 +11496,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1071</name>
-      <point x="4.9" y="4.7"/>
+      <point x="4.8" y="4.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11484,7 +11506,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1072</name>
-      <point x="4.9" y="4.8"/>
+      <point x="4.8" y="4.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11494,7 +11516,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1073</name>
-      <point x="4.9" y="4.9"/>
+      <point x="4.8" y="4.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11504,7 +11526,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1074</name>
-      <point x="4.9" y="5.0"/>
+      <point x="4.8" y="5.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11514,7 +11536,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1075</name>
-      <point x="4.9" y="5.1"/>
+      <point x="4.8" y="5.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11524,7 +11546,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1076</name>
-      <point x="4.6" y="5.1"/>
+      <point x="4.5" y="5.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11534,7 +11556,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1077</name>
-      <point x="4.6" y="5.0"/>
+      <point x="4.5" y="5.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11544,7 +11566,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1078</name>
-      <point x="4.6" y="4.9"/>
+      <point x="4.5" y="4.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11554,7 +11576,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1079</name>
-      <point x="4.6" y="4.8"/>
+      <point x="4.5" y="4.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11564,7 +11586,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1080</name>
-      <point x="4.6" y="4.7"/>
+      <point x="4.5" y="4.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11574,7 +11596,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1081</name>
-      <point x="4.6" y="4.6"/>
+      <point x="4.5" y="4.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11584,7 +11606,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1082</name>
-      <point x="4.6" y="4.5"/>
+      <point x="4.5" y="4.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11594,7 +11616,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1083</name>
-      <point x="4.9" y="5.5"/>
+      <point x="4.8" y="5.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11604,7 +11626,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1084</name>
-      <point x="4.9" y="5.6"/>
+      <point x="4.8" y="5.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11614,7 +11636,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1085</name>
-      <point x="4.9" y="5.7"/>
+      <point x="4.8" y="5.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11624,7 +11646,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1086</name>
-      <point x="4.9" y="5.8"/>
+      <point x="4.8" y="5.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11634,7 +11656,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1087</name>
-      <point x="4.9" y="5.9"/>
+      <point x="4.8" y="5.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11644,7 +11666,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1088</name>
-      <point x="4.9" y="6.0"/>
+      <point x="4.8" y="6.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11654,7 +11676,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1089</name>
-      <point x="4.9" y="6.1"/>
+      <point x="4.8" y="6.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11664,7 +11686,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1090</name>
-      <point x="4.6" y="6.1"/>
+      <point x="4.5" y="6.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11674,7 +11696,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1091</name>
-      <point x="4.6" y="6.0"/>
+      <point x="4.5" y="6.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11684,7 +11706,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1092</name>
-      <point x="4.6" y="5.9"/>
+      <point x="4.5" y="5.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11694,7 +11716,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1093</name>
-      <point x="4.6" y="5.8"/>
+      <point x="4.5" y="5.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11704,7 +11726,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1094</name>
-      <point x="4.6" y="5.7"/>
+      <point x="4.5" y="5.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11714,7 +11736,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1095</name>
-      <point x="4.6" y="5.6"/>
+      <point x="4.5" y="5.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11724,7 +11746,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1096</name>
-      <point x="4.6" y="5.5"/>
+      <point x="4.5" y="5.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11734,7 +11756,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1097</name>
-      <point x="4.9" y="6.5"/>
+      <point x="4.8" y="6.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11744,7 +11766,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1098</name>
-      <point x="4.9" y="6.6"/>
+      <point x="4.8" y="6.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11754,7 +11776,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1099</name>
-      <point x="4.9" y="6.7"/>
+      <point x="4.8" y="6.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11764,7 +11786,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1100</name>
-      <point x="4.9" y="6.8"/>
+      <point x="4.8" y="6.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11774,7 +11796,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1101</name>
-      <point x="4.9" y="6.9"/>
+      <point x="4.8" y="6.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11784,7 +11806,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1102</name>
-      <point x="4.9" y="7.0"/>
+      <point x="4.8" y="7.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11794,7 +11816,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1103</name>
-      <point x="4.9" y="7.1"/>
+      <point x="4.8" y="7.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11804,7 +11826,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1104</name>
-      <point x="4.6" y="7.1"/>
+      <point x="4.5" y="7.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11814,7 +11836,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1105</name>
-      <point x="4.6" y="7.0"/>
+      <point x="4.5" y="7.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11824,7 +11846,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1106</name>
-      <point x="4.6" y="6.9"/>
+      <point x="4.5" y="6.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11834,7 +11856,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1107</name>
-      <point x="4.6" y="6.8"/>
+      <point x="4.5" y="6.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11844,7 +11866,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1108</name>
-      <point x="4.6" y="6.7"/>
+      <point x="4.5" y="6.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11854,7 +11876,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1109</name>
-      <point x="4.6" y="6.6"/>
+      <point x="4.5" y="6.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11864,7 +11886,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1110</name>
-      <point x="4.6" y="6.5"/>
+      <point x="4.5" y="6.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11874,7 +11896,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1111</name>
-      <point x="4.9" y="7.5"/>
+      <point x="4.8" y="7.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11884,7 +11906,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1112</name>
-      <point x="4.9" y="7.6"/>
+      <point x="4.8" y="7.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11894,7 +11916,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1113</name>
-      <point x="4.9" y="7.7"/>
+      <point x="4.8" y="7.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11904,7 +11926,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1114</name>
-      <point x="4.9" y="7.8"/>
+      <point x="4.8" y="7.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11914,7 +11936,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1115</name>
-      <point x="4.9" y="7.9"/>
+      <point x="4.8" y="7.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11924,7 +11946,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1116</name>
-      <point x="4.9" y="8.0"/>
+      <point x="4.8" y="8.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11934,7 +11956,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1117</name>
-      <point x="4.9" y="8.1"/>
+      <point x="4.8" y="8.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11944,7 +11966,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1118</name>
-      <point x="4.6" y="8.1"/>
+      <point x="4.5" y="8.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11954,7 +11976,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1119</name>
-      <point x="4.6" y="8.0"/>
+      <point x="4.5" y="8.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11964,7 +11986,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1120</name>
-      <point x="4.6" y="7.9"/>
+      <point x="4.5" y="7.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11974,7 +11996,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1121</name>
-      <point x="4.6" y="7.8"/>
+      <point x="4.5" y="7.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11984,7 +12006,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1122</name>
-      <point x="4.6" y="7.7"/>
+      <point x="4.5" y="7.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -11994,7 +12016,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1123</name>
-      <point x="4.6" y="7.6"/>
+      <point x="4.5" y="7.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12004,7 +12026,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1124</name>
-      <point x="4.6" y="7.5"/>
+      <point x="4.5" y="7.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12014,7 +12036,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1125</name>
-      <point x="4.4" y="4.5"/>
+      <point x="4.3" y="4.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12024,7 +12046,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1126</name>
-      <point x="4.4" y="4.6"/>
+      <point x="4.3" y="4.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12034,7 +12056,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1127</name>
-      <point x="4.4" y="4.7"/>
+      <point x="4.3" y="4.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12044,7 +12066,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1128</name>
-      <point x="4.4" y="4.8"/>
+      <point x="4.3" y="4.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12054,7 +12076,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1129</name>
-      <point x="4.4" y="4.9"/>
+      <point x="4.3" y="4.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12064,7 +12086,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1130</name>
-      <point x="4.4" y="5.0"/>
+      <point x="4.3" y="5.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12074,7 +12096,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1131</name>
-      <point x="4.4" y="5.1"/>
+      <point x="4.3" y="5.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12084,7 +12106,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1132</name>
-      <point x="4.1" y="5.1"/>
+      <point x="4.0" y="5.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12094,7 +12116,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1133</name>
-      <point x="4.1" y="5.0"/>
+      <point x="4.0" y="5.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12104,7 +12126,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1134</name>
-      <point x="4.1" y="4.9"/>
+      <point x="4.0" y="4.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12114,7 +12136,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1135</name>
-      <point x="4.1" y="4.8"/>
+      <point x="4.0" y="4.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12124,7 +12146,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1136</name>
-      <point x="4.1" y="4.7"/>
+      <point x="4.0" y="4.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12134,7 +12156,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1137</name>
-      <point x="4.1" y="4.6"/>
+      <point x="4.0" y="4.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12144,7 +12166,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1138</name>
-      <point x="4.1" y="4.5"/>
+      <point x="4.0" y="4.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12154,7 +12176,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1139</name>
-      <point x="4.4" y="5.5"/>
+      <point x="4.3" y="5.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12164,7 +12186,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1140</name>
-      <point x="4.4" y="5.6"/>
+      <point x="4.3" y="5.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12174,7 +12196,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1141</name>
-      <point x="4.4" y="5.7"/>
+      <point x="4.3" y="5.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12184,7 +12206,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1142</name>
-      <point x="4.4" y="5.8"/>
+      <point x="4.3" y="5.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12194,7 +12216,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1143</name>
-      <point x="4.4" y="5.9"/>
+      <point x="4.3" y="5.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12204,7 +12226,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1144</name>
-      <point x="4.4" y="6.0"/>
+      <point x="4.3" y="6.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12214,7 +12236,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1145</name>
-      <point x="4.4" y="6.1"/>
+      <point x="4.3" y="6.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12224,7 +12246,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1146</name>
-      <point x="4.1" y="6.1"/>
+      <point x="4.0" y="6.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12234,7 +12256,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1147</name>
-      <point x="4.1" y="6.0"/>
+      <point x="4.0" y="6.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12244,7 +12266,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1148</name>
-      <point x="4.1" y="5.9"/>
+      <point x="4.0" y="5.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12254,7 +12276,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1149</name>
-      <point x="4.1" y="5.8"/>
+      <point x="4.0" y="5.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12264,7 +12286,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1150</name>
-      <point x="4.1" y="5.7"/>
+      <point x="4.0" y="5.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12274,7 +12296,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1151</name>
-      <point x="4.1" y="5.6"/>
+      <point x="4.0" y="5.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12284,7 +12306,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1152</name>
-      <point x="4.1" y="5.5"/>
+      <point x="4.0" y="5.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12294,7 +12316,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1153</name>
-      <point x="4.4" y="6.5"/>
+      <point x="4.3" y="6.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12304,7 +12326,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1154</name>
-      <point x="4.4" y="6.6"/>
+      <point x="4.3" y="6.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12314,7 +12336,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1155</name>
-      <point x="4.4" y="6.7"/>
+      <point x="4.3" y="6.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12324,7 +12346,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1156</name>
-      <point x="4.4" y="6.8"/>
+      <point x="4.3" y="6.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12334,7 +12356,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1157</name>
-      <point x="4.4" y="6.9"/>
+      <point x="4.3" y="6.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12344,7 +12366,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1158</name>
-      <point x="4.4" y="7.0"/>
+      <point x="4.3" y="7.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12354,7 +12376,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1159</name>
-      <point x="4.4" y="7.1"/>
+      <point x="4.3" y="7.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12364,7 +12386,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1160</name>
-      <point x="4.1" y="7.1"/>
+      <point x="4.0" y="7.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12374,7 +12396,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1161</name>
-      <point x="4.1" y="7.0"/>
+      <point x="4.0" y="7.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12384,7 +12406,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1162</name>
-      <point x="4.1" y="6.9"/>
+      <point x="4.0" y="6.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12394,7 +12416,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1163</name>
-      <point x="4.1" y="6.8"/>
+      <point x="4.0" y="6.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12404,7 +12426,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1164</name>
-      <point x="4.1" y="6.7"/>
+      <point x="4.0" y="6.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12414,7 +12436,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1165</name>
-      <point x="4.1" y="6.6"/>
+      <point x="4.0" y="6.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12424,7 +12446,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1166</name>
-      <point x="4.1" y="6.5"/>
+      <point x="4.0" y="6.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12434,7 +12456,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1167</name>
-      <point x="4.4" y="7.5"/>
+      <point x="4.3" y="7.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12444,7 +12466,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1168</name>
-      <point x="4.4" y="7.6"/>
+      <point x="4.3" y="7.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12454,7 +12476,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1169</name>
-      <point x="4.4" y="7.7"/>
+      <point x="4.3" y="7.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12464,7 +12486,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1170</name>
-      <point x="4.4" y="7.8"/>
+      <point x="4.3" y="7.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12474,7 +12496,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1171</name>
-      <point x="4.4" y="7.9"/>
+      <point x="4.3" y="7.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12484,7 +12506,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1172</name>
-      <point x="4.4" y="8.0"/>
+      <point x="4.3" y="8.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12494,7 +12516,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1173</name>
-      <point x="4.4" y="8.1"/>
+      <point x="4.3" y="8.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12504,7 +12526,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1174</name>
-      <point x="4.1" y="8.1"/>
+      <point x="4.0" y="8.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12514,7 +12536,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1175</name>
-      <point x="4.1" y="8.0"/>
+      <point x="4.0" y="8.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12524,7 +12546,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1176</name>
-      <point x="4.1" y="7.9"/>
+      <point x="4.0" y="7.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12534,7 +12556,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1177</name>
-      <point x="4.1" y="7.8"/>
+      <point x="4.0" y="7.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12544,7 +12566,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1178</name>
-      <point x="4.1" y="7.7"/>
+      <point x="4.0" y="7.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12554,7 +12576,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1179</name>
-      <point x="4.1" y="7.6"/>
+      <point x="4.0" y="7.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12564,7 +12586,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1180</name>
-      <point x="4.1" y="7.5"/>
+      <point x="4.0" y="7.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12574,7 +12596,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1181</name>
-      <point x="4.4" y="8.5"/>
+      <point x="4.3" y="8.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12584,7 +12606,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1182</name>
-      <point x="4.4" y="8.6"/>
+      <point x="4.3" y="8.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12594,7 +12616,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1183</name>
-      <point x="4.4" y="8.7"/>
+      <point x="4.3" y="8.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12604,7 +12626,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1184</name>
-      <point x="4.4" y="8.8"/>
+      <point x="4.3" y="8.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12614,7 +12636,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1185</name>
-      <point x="4.4" y="8.9"/>
+      <point x="4.3" y="8.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12624,7 +12646,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1186</name>
-      <point x="4.4" y="9.0"/>
+      <point x="4.3" y="9.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12634,7 +12656,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1187</name>
-      <point x="4.4" y="9.1"/>
+      <point x="4.3" y="9.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12644,7 +12666,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1188</name>
-      <point x="4.1" y="9.1"/>
+      <point x="4.0" y="9.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12654,7 +12676,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1189</name>
-      <point x="4.1" y="9.0"/>
+      <point x="4.0" y="9.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12664,7 +12686,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1190</name>
-      <point x="4.1" y="8.9"/>
+      <point x="4.0" y="8.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12674,7 +12696,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1191</name>
-      <point x="4.1" y="8.8"/>
+      <point x="4.0" y="8.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12684,7 +12706,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1192</name>
-      <point x="4.1" y="8.7"/>
+      <point x="4.0" y="8.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12694,7 +12716,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1193</name>
-      <point x="4.1" y="8.6"/>
+      <point x="4.0" y="8.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12704,7 +12726,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1194</name>
-      <point x="4.1" y="8.5"/>
+      <point x="4.0" y="8.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12714,7 +12736,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1195</name>
-      <point x="4.9" y="8.5"/>
+      <point x="4.8" y="8.5"/>
       <text>1 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12724,7 +12746,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1196</name>
-      <point x="4.9" y="8.6"/>
+      <point x="4.8" y="8.6"/>
       <text>2 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12734,7 +12756,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1197</name>
-      <point x="4.9" y="8.7"/>
+      <point x="4.8" y="8.7"/>
       <text>3 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12744,7 +12766,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1198</name>
-      <point x="4.9" y="8.8"/>
+      <point x="4.8" y="8.8"/>
       <text>4 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12754,7 +12776,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1199</name>
-      <point x="4.9" y="8.9"/>
+      <point x="4.8" y="8.9"/>
       <text>5 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12764,7 +12786,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1200</name>
-      <point x="4.9" y="9.0"/>
+      <point x="4.8" y="9.0"/>
       <text>6 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12774,7 +12796,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1201</name>
-      <point x="4.9" y="9.1"/>
+      <point x="4.8" y="9.1"/>
       <text>7 </text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12784,7 +12806,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1202</name>
-      <point x="4.6" y="9.1"/>
+      <point x="4.5" y="9.1"/>
       <text> 8</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12794,7 +12816,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1203</name>
-      <point x="4.6" y="9.0"/>
+      <point x="4.5" y="9.0"/>
       <text> 9</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12804,7 +12826,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1204</name>
-      <point x="4.6" y="8.9"/>
+      <point x="4.5" y="8.9"/>
       <text> 10</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12814,7 +12836,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1205</name>
-      <point x="4.6" y="8.8"/>
+      <point x="4.5" y="8.8"/>
       <text> 11</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12824,7 +12846,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1206</name>
-      <point x="4.6" y="8.7"/>
+      <point x="4.5" y="8.7"/>
       <text> 12</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12834,7 +12856,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1207</name>
-      <point x="4.6" y="8.6"/>
+      <point x="4.5" y="8.6"/>
       <text> 13</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
@@ -12844,7 +12866,7 @@
     </diylc.misc.Label>
     <diylc.misc.Label>
       <name>LAB1208</name>
-      <point x="4.6" y="8.5"/>
+      <point x="4.5" y="8.5"/>
       <text> 14</text>
       <font name="Te X Gyre Heros Bold" size="16" style="1"/>
       <color hex="000000"/>
