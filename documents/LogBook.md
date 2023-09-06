@@ -4,9 +4,9 @@
 
 Now, the core of Jelly is formed by 3 x AT28C16 eeproms (3 x 24 pins), 3 x 74HC574 latchs (3 x 20 pins), 1 x 74HC393 counter (1 x 14 pins), 1 x 74HC245 switch (1 x 14 pins), about 180/2 == 90 wirewrap lines. More connections for a 74HC74, a 74HC00, and clock circuit.
 
-Jelly must wait for device ends the processing of a requisition. How about implement a send, wait, continue protocol? 
+Jelly must wait for device ends the processing of a requisition. How about implement a send, wait, continue protocol ? Or a hardware handshake ?
 
-The connector still have VCC, VSS, D0-D7, T0-T3, 
+The connector between Jelly and devices must have VCC, VSS, D0-D7, T0-T3, and two more lines for handshake. A line for signaling a request for device (REQ), and a line for acknowledge from device (ACK).  
 
 
 ### 24/08/2023
