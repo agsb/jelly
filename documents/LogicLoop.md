@@ -113,18 +113,21 @@ the solution was make true-table for lines and states.
 
    | case | zero | mode | move | begin | again | _switch mode_ | _switch move_ | results |
    | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-   | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | default |
-   | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | default |
-   | 3 | 0 | 0 | 0 | 1 | 0 | 1 | 0 | toggle mode, not chanhe move |
-   | 4 | 1 | 0 | 0 | 0 | 1 | 1 | 1 | toggle mode, toggle move  |
-   | 5 | 1 | 1 | X | 1 | 0 | 1 | X | loop mode, increase counter, |
-   | | | | | | | --continue |
-   | 6 | 1 | 1 | X | 0 | 1 | 1 | X | loop mode, decrease counter, |
-   | 7 | 1 | 1 | X | 0 | 1 | 1 | X | loop mode, decrease counter, |
-   | 8 | 1 | 1 | X | 0 | 0 | 1 | X | loop mode, |
-   |  |  |  |  |  |  |  |
+   | | | | | | | | | page 0 and page 1 | 
+   | 1 | X | 0 | 0 | 0 | 0 | 0 | 0 | default |
+   | 2 | 0 | 0 | 0 | 1 | 0 | 1 | 0 | toggle mode, goto 5 |
+   | 3 | 1 | 0 | 0 | 0 | 1 | 1 | 1 | toggle mode, toggle move, goto 7  |
+   | | | | | | | | | page 2 | 
+   | 4 | 0 | 1 | 0 | | | | | 
+   | | | | | | | | | | 
+   | 5 | 1 | 1 | 0 | 1 | 0 | 1 | 0 | loop mode, forward, increase counter |
+   | 6 | 1 | 1 | 0 | 0 | 1 | 1 | 0 | loop mode, forward, decrease counter |
+   | 7 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | loop mode, backward, increase counter |
+   | 8 | 1 | 1 | 1 | 0 | 1 | 1 | 1 | loop mode, backward, decrease counter |
+   | 9 | 0 | 1 | 0 |  |  |  |
+   | 10 | 0 | 1 | 1 |  |  |  |
    
-The paging is controled just from 5 lines, and _switch mode_ and _switch move_ are clock lines to D-flip-flops.
+The paging is controled just from five conditions, and _switch mode_ and _switch move_ are clock lines to D-flip-flops.
 
 For simplify, when mode is normal (0), move is always for forward (0) and when mode is loop (1), the state of begin and again does not matter;
 
