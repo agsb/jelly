@@ -116,24 +116,32 @@ the solution was make true-table for lines and states.
 ## True Table
 
    | case | zero | mode | move | while | again | _switch mode_ | _switch move_ | results |
-   | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-   | | | | | | | | | page 0 and page 1 | 
-   | 1 | X | 0 | 0 | 0 | 0 | 0 | 0 | default |
-   | 2 | 0 | 0 | 0 | 1 | 0 | 1 | 0 | toggle mode, goto 5 |
-   | 3 | 1 | 0 | 0 | 0 | 1 | 1 | 1 | toggle mode, toggle move, goto 7  |
-   | | | | | | | | | page 2 | 
-   | 4 | 0 | 1 | 0 | | | | | 
-   | | | | | | | | | | 
-   | 5 | 1 | 1 | 0 | 1 | 0 | 1 | 0 | loop mode, forward, increase counter |
-   | 6 | 1 | 1 | 0 | 0 | 1 | 1 | 0 | loop mode, forward, decrease counter |
-   | 7 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | loop mode, backward, increase counter |
-   | 8 | 1 | 1 | 1 | 0 | 1 | 1 | 1 | loop mode, backward, decrease counter |
-   | 9 | 0 | 1 | 0 |  |  |  |
-   | 10 | 0 | 1 | 1 |  |  |  |
-   
-The paging is controled just from five conditions, and _switch mode_ and _switch move_ are clock lines to D-flip-flops.
+   | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+   | 1 | 0/1 | 0 | 0 | 0 | 0 | 0 | 0 | default |
+   | 2 | 0 | 0 | 0 | 1 | 0 | 1 | 0 | set mode,  |
+   | 3 | 1 | 0 | 0 | 0 | 1 | 1 | 1 | set mode, set move |
+   | 4 | 0 | 1 | 0/1 | 0 | 0 | 0 | 0 | set mode, set move | 
+   | 5 | 1 | 1 | 0/1 | 1 | 0 | 1 | 0/1 | increase counter, set mode, set move |
+   | 6 | 1 | 1 | 0/1 | 0 | 1 | 1 | 0/1 | decrease counter, set mode, set move |
 
-For simplify, when mode is normal (0), move is always for forward (0) and when mode is loop (1), the state of while and again does not matter;
+The paging is controled just from five conditions, and _switch mode_ and _switch move_ could do clock lines to D-flip-flops.
+
+For simplify, when mode is normal (0), move is always for forward (0) and when mode is loop (1), the state of _while_ and _again_ does changes the counter;
+
+## Circuits
+
+Jelly have 16 opcodes of 8 microcodes, then a code page uses 128 bytes.
+
+I tried to implement the truth table in three ways: 1. With only one FSM eeprom and complex multiplex circuits for logics; 2. With 4 pages at second FSM eeprom and external circuits; and 3. With 6 pages at second FSM eeprom and few external circuits;
+
+### one eeprom and many circuits
+
+### two eeproms and less circuits
+
+### two eeproms and minimal logic circuits
+
+## Considerations 
+
 
 ** But, how clear the data latch (as counter) in case 2 ? how forward code tape two times in case 4 ? **
 
