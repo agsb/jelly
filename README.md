@@ -65,8 +65,8 @@ Not all bytes are opcodes and mapped as NOP, do nothing instruction, to catch th
 | 4 | \- | decrease byte at tape | brainfuck | decrease |
 | 5 | \. | output byte from tape | brainfuck | putchar |
 | 6 | \, | input byte into tape | brainfuck | getchar |
-| 7 | \[ | while loop  | brainfuck | begin |
-| 8 | \] | until loop  | brainfuck | again |
+| 7 | \[ | while loop  | brainfuck | while |
+| 8 | \] | until loop  | brainfuck | until |
 | 9 | \! | mark end of code | jelly | halt |
 | 0 | \= | do nothing | jelly | noop |
 
