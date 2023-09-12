@@ -59,13 +59,13 @@ A interpreter of brainfunk, in pseudo-code, _left not optimized, sure not optimi
 
 Notes:
 
-For easy, the \[ is called _while_ and the \] is called _again_
+For easy, the \[ is called _while_ and the \] is called _until_
                     
-When grouping the code in dependence of state of loop, gives two modes, the normal mode does all opcodes but _while_ and _again_. Those are executed by the loop mode, described as: 
+When grouping the code in dependence of state of loop, gives two modes, the normal mode does all opcodes but _while_ and _until_. Those are executed by the loop mode, described as: 
 
-When a _while_ occurs and the data byte is zero, it's the end of the loop, so it must step **forward** to find the corresponding _again_, and return to mode normal;
+When a _while_ occurs and the data byte is zero, it's the end of the loop, so it must step **forward** to find the corresponding _until_, and return to mode normal;
 
-When a _again_ occurs and the data byte is not zero, then it is not the end of the loop, so it must step **backward** to find the corresponding _while_, and return to mode normal;
+When a _until_ occurs and the data byte is not zero, then it is not the end of the loop, so it must step **backward** to find the corresponding _while_, and return to mode normal;
 
 Since no data bytes are read in loop mode, the circuit U5-U2-U6 is used as a counter for up to 255 nested loops;
 
@@ -93,7 +93,7 @@ Those actions must be done by combination of control lines, selects which chips 
 
 ## How To
 
-How implement the loop opcodes _while_ and _again_ , keep me in a round-robin by months without a feasible solution.
+How implement the loop opcodes _while_ and _until_ , keep me in a round-robin by months without a feasible solution.
 
 A solution is a true table of five state lines, while, again, zero, mode, move and two result toggle switches S1 and S2, that controls which mode and reverse movement.
 
@@ -101,7 +101,7 @@ the solution was make true-table for lines and states.
 
 - _while_ is a condition set high when code_byte is [
 
-- _again_ is a condition set high when code_byte is ]
+- _until_ is a condition set high when code_byte is ]
 
 - _zero_ is a condition set low when data_byte is zero. 
 
@@ -115,7 +115,7 @@ the solution was make true-table for lines and states.
 
 ## True Table
 
-   | case | zero | mode | move | while | again | _switch mode_ | _switch move_ | results |
+   | case | zero | mode | move | _while_ | _again_ | _switch mode_ | _switch move_ | results |
    | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
    | 1 | 0/1 | 0 | 0 | 0 | 0 | 0 | 0 | default |
    | 2 | 0 | 0 | 0 | 1 | 0 | 1 | 0 | set mode,  |
@@ -126,7 +126,7 @@ the solution was make true-table for lines and states.
 
 The paging is controled just from five conditions, and _switch mode_ and _switch move_ could do clock lines to D-flip-flops.
 
-For simplify, when mode is normal (0), move is always for forward (0) and when mode is loop (1), the state of _while_ and _again_ does changes the counter;
+For simplify, when mode is normal (0), move is always for forward (0) and when mode is loop (1), the state of _while_ and _until_ does changes the counter;
 
 ## Circuits
 
@@ -143,5 +143,4 @@ I tried to implement the truth table in three ways: 1. With only one FSM eeprom 
 ## Considerations 
 
 
-** But, how clear the data latch (as counter) in case 2 ? how forward code tape two times in case 4 ? **
 

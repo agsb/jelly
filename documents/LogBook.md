@@ -1,5 +1,12 @@
 # LogBook
 
+### 12/09/2023
+
+The draw of glue logics circuits, as complex, common and minimal, done. Not
+finish, not tested, just scretch.
+
+Replaced terms _begin_ and _again_ with _while_ and _until_ for clarify loop concepts.
+
 ### 06/09/2023
 
 There are two extra circuits around Jelly, one for zero detector and one for reverse move.
