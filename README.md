@@ -91,15 +91,15 @@ The math could include opcodes, for clear, shifts, negation, and reverse a byte.
 
 ## About loops
 
-There are some brainfuck computers, but almost with the loop instructions _begin_ and _again_ (\[ and \]) replaced by pre-compiled jumps. 
+There are some brainfuck computers, but almost with the loop instructions _while_ and _until_ (\[ and \]) replaced by pre-compiled jumps. 
 
 Jelly does not allow pre-compiler tricks, then need a logic to deal with loops.
 
-The _begin_ and _again_ loops are like the _while_ and _until_ concepts of any programming language, but used together.
+The _while_ and _until_ loops are like the concepts of any programming language, but used together.
 
-The _begin_ ends the loop when the actual data byte is zero, then advances until pass the corresponding _again_. 
+The _while_ ends the loop when the actual data byte is zero, then advances to pass the corresponding _until_. 
 
-The _again_ repeats the loop while the actual data byte is not zero, then must go back until the corresponding _begin_.
+The _until_ repeats the loop while the actual data byte is not zero, then must go back after the corresponding _while_.
 
 The loops can be nested, using a counter that increase for begins and decrease for again, finishing the loop when counter is zero. As a 8-bit circuit, the maximum nested loops is 255;
 
