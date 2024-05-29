@@ -1,5 +1,7 @@
 -- THIS FILE IS A STUB ---
 
+_01/05/2024 I'm on vacancy for refresh some ideas_
+
 # Jelly revision 2.0
 
 Jelly is a concept, a alternative computer with a diferent paradigm, not for performance but for design.
