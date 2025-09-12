@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>/home/agsb/Projects/jelly-one/jelly-one.kicad_sch</source>
+    <date>qui 04 ago 2022 15:55:19</date>
+    <tool>Eeschema 6.0.4-6f826c9f35~116~ubuntu18.04.1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>JELLY ONE</title>
+        <company/>
+        <rev>review 01</rev>
+        <date>2022-08-01</date>
+        <source>jelly-one.kicad_sch</source>
+        <comment number="1" value="A minimal brainfuck cpu"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="U1">
+      <value>74AHC374</value>
+      <datasheet>https://assets.nexperia.com/documents/data-sheet/74AHC_AHCT374.pdf</datasheet>
+      <libsource lib="74xx" part="74AHC374" description="8-bit Register, 3-state outputs"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="jelly-one.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4fa10683-33cd-4dcd-8acc-2415cd63c62a</tstamps>
+    </comp>
+    <comp ref="U2">
+      <value>74LS32</value>
+      <datasheet>http://www.ti.com/lit/gpn/sn74LS32</datasheet>
+      <libsource lib="74xx" part="74LS32" description="Quad 2-input OR"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="jelly-one.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>49f16bed-aace-45fd-adf1-2b297c0e8522 97f41563-b89f-4467-a029-b22244819e02 f2e8d99e-45cf-4a5a-8e0d-2b00b4a43220 80d579e4-8c4d-49fe-bc46-874fd7d3940f 3ba9517c-a9c5-4c84-9fcc-9fff5c1cc3bf</tstamps>
+    </comp>
+    <comp ref="U3">
+      <value>74LS32</value>
+      <datasheet>http://www.ti.com/lit/gpn/sn74LS32</datasheet>
+      <libsource lib="74xx" part="74LS32" description="Quad 2-input OR"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="jelly-one.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6d22c918-ce68-460a-9e42-7a7f97152442 83659874-3548-4a3d-ab47-3f166a5ac42a 394182cd-2613-45aa-acd3-a42f422e2c02 d919798b-fc3a-4025-8790-e94321178fee 0e40bd92-1dae-45fd-ad04-0e17634efa22</tstamps>
+    </comp>
+    <comp ref="U4">
+      <value>74LS32</value>
+      <datasheet>http://www.ti.com/lit/gpn/sn74LS32</datasheet>
+      <libsource lib="74xx" part="74LS32" description="Quad 2-input OR"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="jelly-one.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c420ffba-885c-4129-bde5-16102223bf0f 9b9fbb29-0b47-4bd0-84a4-9c7c61c688fc 5e3d0667-65df-4227-9805-76746ab8a5cb 865a9e6c-f1b1-45e8-90f9-3898a5d2494a 013d28f0-33d8-45fa-94c3-0e6cfa3f427e</tstamps>
+    </comp>
+    <comp ref="U5">
+      <value>74LS393</value>
+      <datasheet>74xx\74LS393.pdf</datasheet>
+      <libsource lib="74xx" part="74LS393" description="Dual BCD 4-bit counter"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="jelly-one.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7a20e88e-79b0-4fb3-a32c-3d811463a4f0 7484d729-0a2a-4fa9-bdc5-c90819de84a6 3e78918a-14cd-4ff9-9f73-faa7f23d5d9f</tstamps>
+    </comp>
+    <comp ref="U6">
+      <value>74LS393</value>
+      <datasheet>74xx\74LS393.pdf</datasheet>
+      <libsource lib="74xx" part="74LS393" description="Dual BCD 4-bit counter"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="jelly-one.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b9d877ee-bc07-4a86-9bda-49d460d0bd20 535173ae-c2b4-4b92-b226-64bd23f7511c 066a5b2d-4303-4529-a078-f7519a5d3d92</tstamps>
+    </comp>
+    <comp ref="U7">
+      <value>74LS08</value>
+      <datasheet>http://www.ti.com/lit/gpn/sn74LS08</datasheet>
+      <libsource lib="74xx" part="74LS08" description="Quad And2"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="jelly-one.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bd3d50e3-7ada-4dea-9ce2-d0c01a14134a 8f03ae41-61bd-4463-bc12-db0dde34447c 7806469b-c133-4e19-b2d5-f2b690b4b2f3 78e9fb0c-04a5-4088-a599-fae1a0fda152 25a58b38-e4e5-4924-abd3-89b90e72c12a</tstamps>
+    </comp>
+    <comp ref="U8">
+      <value>74LS32</value>
+      <datasheet>http://www.ti.com/lit/gpn/sn74LS32</datasheet>
+      <libsource lib="74xx" part="74LS32" description="Quad 2-input OR"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="jelly-one.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fd60d305-6625-44f5-b4f2-1d8f928a9997 cf65e622-d2ac-4ce5-b14b-ec68c56697fd b67e1adf-e05a-4cbd-97fb-0363811fbfd7 8b60c0ab-7f57-44db-85fd-584893f6a0f0 3f2998f1-aed4-4017-8d2a-2d748bdd497c</tstamps>
+    </comp>
+    <comp ref="U9">
+      <value>74LS32</value>
+      <datasheet>http://www.ti.com/lit/gpn/sn74LS32</datasheet>
+      <libsource lib="74xx" part="74LS32" description="Quad 2-input OR"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="jelly-one.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>57f2584e-2287-42ec-8fcb-284dacd6ae88 2e2f270d-40c0-458a-a7e8-ed6c2223a0f6 6fb0fa1e-7c20-4624-95fd-7c8752955296 105bf62e-1bc2-48ad-a46f-bbaf6b93403c</tstamps>
+    </comp>
+    <comp ref="U10">
+      <value>28C256</value>
+      <datasheet>http://ww1.microchip.com/downloads/en/DeviceDoc/doc0006.pdf</datasheet>
+      <libsource lib="Memory_EEPROM" part="28C256" description="Paged Parallel EEPROM 256Kb (32K x 8), DIP-28/SOIC-28"/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="jelly-one.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bdda70c2-3421-4655-b5b9-d211191a6325</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="74xx" part="74AHC374">
+      <description>8-bit Register, 3-state outputs</description>
+      <docs>https://assets.nexperia.com/documents/data-sheet/74AHC_AHCT374.pdf</docs>
+      <footprints>
+        <fp>DIP?20*</fp>
+        <fp>SOIC?20*</fp>
+        <fp>SO?20*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74AHC374</field>
+        <field name="Datasheet">https://assets.nexperia.com/documents/data-sheet/74AHC_AHCT374.pdf</field>
+      </fields>
+      <pins>
+        <pin num="1" name="OE" type="input"/>
+        <pin num="2" name="O0" type="tri_state"/>
+        <pin num="3" name="D0" type="input"/>
+        <pin num="4" name="D1" type="input"/>
+        <pin num="5" name="O1" type="tri_state"/>
+        <pin num="6" name="O2" type="tri_state"/>
+        <pin num="7" name="D2" type="input"/>
+        <pin num="8" name="D3" type="input"/>
+        <pin num="9" name="O3" type="tri_state"/>
+        <pin num="10" name="GND" type="power_in"/>
+        <pin num="11" name="Cp" type="input"/>
+        <pin num="12" name="O4" type="tri_state"/>
+        <pin num="13" name="D4" type="input"/>
+        <pin num="14" name="D5" type="input"/>
+        <pin num="15" name="O5" type="tri_state"/>
+        <pin num="16" name="O6" type="tri_state"/>
+        <pin num="17" name="D6" type="input"/>
+        <pin num="18" name="D7" type="input"/>
+        <pin num="19" name="O7" type="tri_state"/>
+        <pin num="20" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="74xx" part="74LS08">
+      <description>Quad And2</description>
+      <docs>http://www.ti.com/lit/gpn/sn74LS08</docs>
+      <footprints>
+        <fp>DIP*W7.62mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74LS08</field>
+        <field name="Datasheet">http://www.ti.com/lit/gpn/sn74LS08</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="input"/>
+        <pin num="2" name="" type="input"/>
+        <pin num="3" name="" type="output"/>
+        <pin num="4" name="" type="input"/>
+        <pin num="5" name="" type="input"/>
+        <pin num="6" name="" type="output"/>
+        <pin num="7" name="GND" type="power_in"/>
+        <pin num="8" name="" type="output"/>
+        <pin num="9" name="" type="input"/>
+        <pin num="10" name="" type="input"/>
+        <pin num="11" name="" type="output"/>
+        <pin num="12" name="" type="input"/>
+        <pin num="13" name="" type="input"/>
+        <pin num="14" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="74xx" part="74LS32">
+      <description>Quad 2-input OR</description>
+      <docs>http://www.ti.com/lit/gpn/sn74LS32</docs>
+      <footprints>
+        <fp>DIP?14*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74LS32</field>
+        <field name="Datasheet">http://www.ti.com/lit/gpn/sn74LS32</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="input"/>
+        <pin num="2" name="" type="input"/>
+        <pin num="3" name="" type="output"/>
+        <pin num="4" name="" type="input"/>
+        <pin num="5" name="" type="input"/>
+        <pin num="6" name="" type="output"/>
+        <pin num="7" name="GND" type="power_in"/>
+        <pin num="8" name="" type="output"/>
+        <pin num="9" name="" type="input"/>
+        <pin num="10" name="" type="input"/>
+        <pin num="11" name="" type="output"/>
+        <pin num="12" name="" type="input"/>
+        <pin num="13" name="" type="input"/>
+        <pin num="14" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="74xx" part="74LS393">
+      <description>Dual BCD 4-bit counter</description>
+      <docs>74xx\74LS393.pdf</docs>
+      <footprints>
+        <fp>DIP*W7.62mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74LS393</field>
+        <field name="Datasheet">74xx\74LS393.pdf</field>
+      </fields>
+      <pins>
+        <pin num="1" name="CP" type="input"/>
+        <pin num="2" name="MR" type="input"/>
+        <pin num="3" name="Q0" type="output"/>
+        <pin num="4" name="Q1" type="output"/>
+        <pin num="5" name="Q2" type="output"/>
+        <pin num="6" name="Q3" type="output"/>
+        <pin num="7" name="GND" type="power_in"/>
+        <pin num="8" name="Q3" type="output"/>
+        <pin num="9" name="Q2" type="output"/>
+        <pin num="10" name="Q1" type="output"/>
+        <pin num="11" name="Q0" type="output"/>
+        <pin num="12" name="MR" type="input"/>
+        <pin num="13" name="CP" type="input"/>
+        <pin num="14" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Memory_EEPROM" part="28C256">
+      <description>Paged Parallel EEPROM 256Kb (32K x 8), DIP-28/SOIC-28</description>
+      <docs>http://ww1.microchip.com/downloads/en/DeviceDoc/doc0006.pdf</docs>
+      <footprints>
+        <fp>DIP*W15.24mm*</fp>
+        <fp>SOIC*7.5x17.9mm*P1.27mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">28C256</field>
+        <field name="Datasheet">http://ww1.microchip.com/downloads/en/DeviceDoc/doc0006.pdf</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A14" type="input"/>
+        <pin num="2" name="A12" type="input"/>
+        <pin num="3" name="A7" type="input"/>
+        <pin num="4" name="A6" type="input"/>
+        <pin num="5" name="A5" type="input"/>
+        <pin num="6" name="A4" type="input"/>
+        <pin num="7" name="A3" type="input"/>
+        <pin num="8" name="A2" type="input"/>
+        <pin num="9" name="A1" type="input"/>
+        <pin num="10" name="A0" type="input"/>
+        <pin num="11" name="D0" type="tri_state"/>
+        <pin num="12" name="D1" type="tri_state"/>
+        <pin num="13" name="D2" type="tri_state"/>
+        <pin num="14" name="GND" type="power_in"/>
+        <pin num="15" name="D3" type="tri_state"/>
+        <pin num="16" name="D4" type="tri_state"/>
+        <pin num="17" name="D5" type="tri_state"/>
+        <pin num="18" name="D6" type="tri_state"/>
+        <pin num="19" name="D7" type="tri_state"/>
+        <pin num="20" name="~{CS}" type="input"/>
+        <pin num="21" name="A10" type="input"/>
+        <pin num="22" name="~{OE}" type="input"/>
+        <pin num="23" name="A11" type="input"/>
+        <pin num="24" name="A9" type="input"/>
+        <pin num="25" name="A8" type="input"/>
+        <pin num="26" name="A13" type="input"/>
+        <pin num="27" name="~{WE}" type="input"/>
+        <pin num="28" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="74xx">
+      <uri>/usr/share/kicad/symbols//74xx.kicad_sym</uri>
+    </library>
+    <library logical="Memory_EEPROM">
+      <uri>/usr/share/kicad/symbols//Memory_EEPROM.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/CPC">
+      <node ref="U6" pin="1" pinfunction="CP" pintype="input"/>
+    </net>
+    <net code="2" name="/K0">
+      <node ref="U4" pin="10" pintype="input"/>
+      <node ref="U4" pin="9" pintype="input"/>
+    </net>
+    <net code="3" name="/K1">
+      <node ref="U3" pin="10" pintype="input"/>
+      <node ref="U3" pin="9" pintype="input"/>
+    </net>
+    <net code="4" name="/K2">
+      <node ref="U3" pin="1" pintype="input"/>
+      <node ref="U3" pin="2" pintype="input"/>
+    </net>
+    <net code="5" name="/Loop">
+      <node ref="U9" pin="8" pintype="output"/>
+    </net>
+    <net code="6" name="/MRC">
+      <node ref="U6" pin="12" pinfunction="MR" pintype="input"/>
+      <node ref="U6" pin="2" pinfunction="MR" pintype="input"/>
+    </net>
+    <net code="7" name="/NO OPCODE">
+      <node ref="U2" pin="12" pintype="input"/>
+      <node ref="U2" pin="8" pintype="output"/>
+      <node ref="U4" pin="1" pintype="input"/>
+      <node ref="U4" pin="4" pintype="input"/>
+    </net>
+    <net code="8" name="Net-(U1-Pad2)">
+      <node ref="U1" pin="2" pinfunction="O0" pintype="tri_state"/>
+      <node ref="U10" pin="6" pinfunction="A4" pintype="input"/>
+    </net>
+    <net code="9" name="Net-(U1-Pad5)">
+      <node ref="U1" pin="5" pinfunction="O1" pintype="tri_state"/>
+      <node ref="U10" pin="5" pinfunction="A5" pintype="input"/>
+    </net>
+    <net code="10" name="Net-(U1-Pad6)">
+      <node ref="U1" pin="6" pinfunction="O2" pintype="tri_state"/>
+      <node ref="U10" pin="4" pinfunction="A6" pintype="input"/>
+    </net>
+    <net code="11" name="Net-(U1-Pad9)">
+      <node ref="U1" pin="9" pinfunction="O3" pintype="tri_state"/>
+      <node ref="U10" pin="3" pinfunction="A7" pintype="input"/>
+    </net>
+    <net code="12" name="Net-(U1-Pad12)">
+      <node ref="U1" pin="12" pinfunction="O4" pintype="tri_state"/>
+      <node ref="U2" pin="1" pintype="input"/>
+    </net>
+    <net code="13" name="Net-(U1-Pad15)">
+      <node ref="U1" pin="15" pinfunction="O5" pintype="tri_state"/>
+      <node ref="U2" pin="2" pintype="input"/>
+    </net>
+    <net code="14" name="Net-(U1-Pad16)">
+      <node ref="U1" pin="16" pinfunction="O6" pintype="tri_state"/>
+      <node ref="U2" pin="4" pintype="input"/>
+    </net>
+    <net code="15" name="Net-(U1-Pad19)">
+      <node ref="U1" pin="19" pinfunction="O7" pintype="tri_state"/>
+      <node ref="U2" pin="5" pintype="input"/>
+    </net>
+    <net code="16" name="Net-(U2-Pad3)">
+      <node ref="U2" pin="3" pintype="output"/>
+      <node ref="U2" pin="9" pintype="input"/>
+    </net>
+    <net code="17" name="Net-(U2-Pad10)">
+      <node ref="U2" pin="10" pintype="input"/>
+      <node ref="U2" pin="6" pintype="output"/>
+    </net>
+    <net code="18" name="Net-(U2-Pad13)">
+      <node ref="U2" pin="13" pintype="input"/>
+      <node ref="U3" pin="6" pintype="output"/>
+    </net>
+    <net code="19" name="Net-(U3-Pad3)">
+      <node ref="U3" pin="3" pintype="output"/>
+      <node ref="U3" pin="4" pintype="input"/>
+      <node ref="U3" pin="5" pintype="input"/>
+    </net>
+    <net code="20" name="Net-(U3-Pad11)">
+      <node ref="U3" pin="11" pintype="output"/>
+      <node ref="U4" pin="2" pintype="input"/>
+    </net>
+    <net code="21" name="Net-(U3-Pad12)">
+      <node ref="U3" pin="12" pintype="input"/>
+      <node ref="U3" pin="13" pintype="input"/>
+      <node ref="U3" pin="8" pintype="output"/>
+    </net>
+    <net code="22" name="Net-(U4-Pad11)">
+      <node ref="U4" pin="11" pintype="output"/>
+      <node ref="U4" pin="5" pintype="input"/>
+    </net>
+    <net code="23" name="Net-(U4-Pad12)">
+      <node ref="U4" pin="12" pintype="input"/>
+      <node ref="U4" pin="13" pintype="input"/>
+      <node ref="U4" pin="8" pintype="output"/>
+    </net>
+    <net code="24" name="Net-(U6-Pad3)">
+      <node ref="U6" pin="3" pinfunction="Q0" pintype="output"/>
+      <node ref="U7" pin="1" pintype="input"/>
+      <node ref="U8" pin="1" pintype="input"/>
+    </net>
+    <net code="25" name="Net-(U6-Pad4)">
+      <node ref="U6" pin="4" pinfunction="Q1" pintype="output"/>
+      <node ref="U7" pin="2" pintype="input"/>
+      <node ref="U8" pin="2" pintype="input"/>
+    </net>
+    <net code="26" name="Net-(U6-Pad5)">
+      <node ref="U6" pin="5" pinfunction="Q2" pintype="output"/>
+      <node ref="U7" pin="4" pintype="input"/>
+      <node ref="U8" pin="4" pintype="input"/>
+    </net>
+    <net code="27" name="Net-(U6-Pad6)">
+      <node ref="U6" pin="6" pinfunction="Q3" pintype="output"/>
+      <node ref="U7" pin="5" pintype="input"/>
+      <node ref="U8" pin="5" pintype="input"/>
+    </net>
+    <net code="28" name="Net-(U6-Pad8)">
+      <node ref="U6" pin="8" pinfunction="Q3" pintype="output"/>
+      <node ref="U8" pin="13" pintype="input"/>
+    </net>
+    <net code="29" name="Net-(U6-Pad10)">
+      <node ref="U6" pin="10" pinfunction="Q1" pintype="output"/>
+      <node ref="U8" pin="10" pintype="input"/>
+    </net>
+    <net code="30" name="Net-(U6-Pad11)">
+      <node ref="U6" pin="11" pinfunction="Q0" pintype="output"/>
+      <node ref="U8" pin="9" pintype="input"/>
+    </net>
+    <net code="31" name="Net-(U6-Pad13)">
+      <node ref="U6" pin="13" pinfunction="CP" pintype="input"/>
+      <node ref="U7" pin="8" pintype="output"/>
+    </net>
+    <net code="32" name="Net-(U7-Pad3)">
+      <node ref="U7" pin="3" pintype="output"/>
+      <node ref="U7" pin="9" pintype="input"/>
+    </net>
+    <net code="33" name="Net-(U7-Pad10)">
+      <node ref="U7" pin="10" pintype="input"/>
+      <node ref="U7" pin="6" pintype="output"/>
+    </net>
+    <net code="34" name="Net-(U8-Pad3)">
+      <node ref="U8" pin="3" pintype="output"/>
+      <node ref="U9" pin="1" pintype="input"/>
+    </net>
+    <net code="35" name="Net-(U8-Pad6)">
+      <node ref="U8" pin="6" pintype="output"/>
+      <node ref="U9" pin="2" pintype="input"/>
+    </net>
+    <net code="36" name="Net-(U8-Pad8)">
+      <node ref="U8" pin="8" pintype="output"/>
+      <node ref="U9" pin="4" pintype="input"/>
+    </net>
+    <net code="37" name="Net-(U8-Pad11)">
+      <node ref="U8" pin="11" pintype="output"/>
+      <node ref="U9" pin="5" pintype="input"/>
+    </net>
+    <net code="38" name="Net-(U9-Pad3)">
+      <node ref="U9" pin="3" pintype="output"/>
+      <node ref="U9" pin="9" pintype="input"/>
+    </net>
+    <net code="39" name="Net-(U9-Pad10)">
+      <node ref="U9" pin="10" pintype="input"/>
+      <node ref="U9" pin="6" pintype="output"/>
+    </net>
+    <net code="40" name="Net-(U10-Pad7)">
+      <node ref="U10" pin="7" pinfunction="A3" pintype="input"/>
+      <node ref="U5" pin="6" pinfunction="Q3" pintype="output"/>
+    </net>
+    <net code="41" name="Net-(U10-Pad8)">
+      <node ref="U10" pin="8" pinfunction="A2" pintype="input"/>
+      <node ref="U5" pin="5" pinfunction="Q2" pintype="output"/>
+    </net>
+    <net code="42" name="Net-(U10-Pad9)">
+      <node ref="U10" pin="9" pinfunction="A1" pintype="input"/>
+      <node ref="U5" pin="4" pinfunction="Q1" pintype="output"/>
+    </net>
+    <net code="43" name="Net-(U10-Pad10)">
+      <node ref="U10" pin="10" pinfunction="A0" pintype="input"/>
+      <node ref="U5" pin="3" pinfunction="Q0" pintype="output"/>
+    </net>
+    <net code="44" name="Net-(U10-Pad21)">
+      <node ref="U10" pin="21" pinfunction="A10" pintype="input"/>
+      <node ref="U2" pin="11" pintype="output"/>
+    </net>
+    <net code="45" name="Net-(U10-Pad24)">
+      <node ref="U10" pin="24" pinfunction="A9" pintype="input"/>
+      <node ref="U4" pin="3" pintype="output"/>
+    </net>
+    <net code="46" name="Net-(U10-Pad25)">
+      <node ref="U10" pin="25" pinfunction="A8" pintype="input"/>
+      <node ref="U4" pin="6" pintype="output"/>
+    </net>
+    <net code="47" name="unconnected-(U1-Pad1)">
+      <node ref="U1" pin="1" pinfunction="OE" pintype="input"/>
+    </net>
+    <net code="48" name="unconnected-(U1-Pad3)">
+      <node ref="U1" pin="3" pinfunction="D0" pintype="input"/>
+    </net>
+    <net code="49" name="unconnected-(U1-Pad4)">
+      <node ref="U1" pin="4" pinfunction="D1" pintype="input"/>
+    </net>
+    <net code="50" name="unconnected-(U1-Pad7)">
+      <node ref="U1" pin="7" pinfunction="D2" pintype="input"/>
+    </net>
+    <net code="51" name="unconnected-(U1-Pad8)">
+      <node ref="U1" pin="8" pinfunction="D3" pintype="input"/>
+    </net>
+    <net code="52" name="unconnected-(U1-Pad10)">
+      <node ref="U1" pin="10" pinfunction="GND" pintype="power_in"/>
+    </net>
+    <net code="53" name="unconnected-(U1-Pad11)">
+      <node ref="U1" pin="11" pinfunction="Cp" pintype="input"/>
+    </net>
+    <net code="54" name="unconnected-(U1-Pad13)">
+      <node ref="U1" pin="13" pinfunction="D4" pintype="input"/>
+    </net>
+    <net code="55" name="unconnected-(U1-Pad14)">
+      <node ref="U1" pin="14" pinfunction="D5" pintype="input"/>
+    </net>
+    <net code="56" name="unconnected-(U1-Pad17)">
+      <node ref="U1" pin="17" pinfunction="D6" pintype="input"/>
+    </net>
+    <net code="57" name="unconnected-(U1-Pad18)">
+      <node ref="U1" pin="18" pinfunction="D7" pintype="input"/>
+    </net>
+    <net code="58" name="unconnected-(U1-Pad20)">
+      <node ref="U1" pin="20" pinfunction="VCC" pintype="power_in"/>
+    </net>
+    <net code="59" name="unconnected-(U2-Pad7)">
+      <node ref="U2" pin="7" pinfunction="GND" pintype="power_in"/>
+    </net>
+    <net code="60" name="unconnected-(U2-Pad14)">
+      <node ref="U2" pin="14" pinfunction="VCC" pintype="power_in"/>
+    </net>
+    <net code="61" name="unconnected-(U3-Pad7)">
+      <node ref="U3" pin="7" pinfunction="GND" pintype="power_in"/>
+    </net>
+    <net code="62" name="unconnected-(U3-Pad14)">
+      <node ref="U3" pin="14" pinfunction="VCC" pintype="power_in"/>
+    </net>
+    <net code="63" name="unconnected-(U4-Pad7)">
+      <node ref="U4" pin="7" pinfunction="GND" pintype="power_in"/>
+    </net>
+    <net code="64" name="unconnected-(U4-Pad14)">
+      <node ref="U4" pin="14" pinfunction="VCC" pintype="power_in"/>
+    </net>
+    <net code="65" name="unconnected-(U5-Pad1)">
+      <node ref="U5" pin="1" pinfunction="CP" pintype="input"/>
+    </net>
+    <net code="66" name="unconnected-(U5-Pad2)">
+      <node ref="U5" pin="2" pinfunction="MR" pintype="input"/>
+    </net>
+    <net code="67" name="unconnected-(U5-Pad7)">
+      <node ref="U5" pin="7" pinfunction="GND" pintype="power_in"/>
+    </net>
+    <net code="68" name="unconnected-(U5-Pad8)">
+      <node ref="U5" pin="8" pinfunction="Q3" pintype="output"/>
+    </net>
+    <net code="69" name="unconnected-(U5-Pad9)">
+      <node ref="U5" pin="9" pinfunction="Q2" pintype="output"/>
+    </net>
+    <net code="70" name="unconnected-(U5-Pad10)">
+      <node ref="U5" pin="10" pinfunction="Q1" pintype="output"/>
+    </net>
+    <net code="71" name="unconnected-(U5-Pad11)">
+      <node ref="U5" pin="11" pinfunction="Q0" pintype="output"/>
+    </net>
+    <net code="72" name="unconnected-(U5-Pad12)">
+      <node ref="U5" pin="12" pinfunction="MR" pintype="input"/>
+    </net>
+    <net code="73" name="unconnected-(U5-Pad13)">
+      <node ref="U5" pin="13" pinfunction="CP" pintype="input"/>
+    </net>
+    <net code="74" name="unconnected-(U5-Pad14)">
+      <node ref="U5" pin="14" pinfunction="VCC" pintype="power_in"/>
+    </net>
+    <net code="75" name="unconnected-(U6-Pad7)">
+      <node ref="U6" pin="7" pinfunction="GND" pintype="power_in"/>
+    </net>
+    <net code="76" name="unconnected-(U6-Pad9)">
+      <node ref="U6" pin="9" pinfunction="Q2" pintype="output"/>
+    </net>
+    <net code="77" name="unconnected-(U6-Pad14)">
+      <node ref="U6" pin="14" pinfunction="VCC" pintype="power_in"/>
+    </net>
+    <net code="78" name="unconnected-(U7-Pad7)">
+      <node ref="U7" pin="7" pinfunction="GND" pintype="power_in"/>
+    </net>
+    <net code="79" name="unconnected-(U7-Pad11)">
+      <node ref="U7" pin="11" pintype="output"/>
+    </net>
+    <net code="80" name="unconnected-(U7-Pad12)">
+      <node ref="U7" pin="12" pintype="input"/>
+    </net>
+    <net code="81" name="unconnected-(U7-Pad13)">
+      <node ref="U7" pin="13" pintype="input"/>
+    </net>
+    <net code="82" name="unconnected-(U7-Pad14)">
+      <node ref="U7" pin="14" pinfunction="VCC" pintype="power_in"/>
+    </net>
+    <net code="83" name="unconnected-(U8-Pad7)">
+      <node ref="U8" pin="7" pinfunction="GND" pintype="power_in"/>
+    </net>
+    <net code="84" name="unconnected-(U8-Pad12)">
+      <node ref="U8" pin="12" pintype="input"/>
+    </net>
+    <net code="85" name="unconnected-(U8-Pad14)">
+      <node ref="U8" pin="14" pinfunction="VCC" pintype="power_in"/>
+    </net>
+    <net code="86" name="unconnected-(U9-Pad11)">
+      <node ref="U9" pin="11" pintype="output"/>
+    </net>
+    <net code="87" name="unconnected-(U9-Pad12)">
+      <node ref="U9" pin="12" pintype="input"/>
+    </net>
+    <net code="88" name="unconnected-(U9-Pad13)">
+      <node ref="U9" pin="13" pintype="input"/>
+    </net>
+    <net code="89" name="unconnected-(U10-Pad1)">
+      <node ref="U10" pin="1" pinfunction="A14" pintype="input"/>
+    </net>
+    <net code="90" name="unconnected-(U10-Pad2)">
+      <node ref="U10" pin="2" pinfunction="A12" pintype="input"/>
+    </net>
+    <net code="91" name="unconnected-(U10-Pad11)">
+      <node ref="U10" pin="11" pinfunction="D0" pintype="tri_state"/>
+    </net>
+    <net code="92" name="unconnected-(U10-Pad12)">
+      <node ref="U10" pin="12" pinfunction="D1" pintype="tri_state"/>
+    </net>
+    <net code="93" name="unconnected-(U10-Pad13)">
+      <node ref="U10" pin="13" pinfunction="D2" pintype="tri_state"/>
+    </net>
+    <net code="94" name="unconnected-(U10-Pad14)">
+      <node ref="U10" pin="14" pinfunction="GND" pintype="power_in"/>
+    </net>
+    <net code="95" name="unconnected-(U10-Pad15)">
+      <node ref="U10" pin="15" pinfunction="D3" pintype="tri_state"/>
+    </net>
+    <net code="96" name="unconnected-(U10-Pad16)">
+      <node ref="U10" pin="16" pinfunction="D4" pintype="tri_state"/>
+    </net>
+    <net code="97" name="unconnected-(U10-Pad17)">
+      <node ref="U10" pin="17" pinfunction="D5" pintype="tri_state"/>
+    </net>
+    <net code="98" name="unconnected-(U10-Pad18)">
+      <node ref="U10" pin="18" pinfunction="D6" pintype="tri_state"/>
+    </net>
+    <net code="99" name="unconnected-(U10-Pad19)">
+      <node ref="U10" pin="19" pinfunction="D7" pintype="tri_state"/>
+    </net>
+    <net code="100" name="unconnected-(U10-Pad20)">
+      <node ref="U10" pin="20" pinfunction="~{CS}" pintype="input"/>
+    </net>
+    <net code="101" name="unconnected-(U10-Pad22)">
+      <node ref="U10" pin="22" pinfunction="~{OE}" pintype="input"/>
+    </net>
+    <net code="102" name="unconnected-(U10-Pad23)">
+      <node ref="U10" pin="23" pinfunction="A11" pintype="input"/>
+    </net>
+    <net code="103" name="unconnected-(U10-Pad26)">
+      <node ref="U10" pin="26" pinfunction="A13" pintype="input"/>
+    </net>
+    <net code="104" name="unconnected-(U10-Pad27)">
+      <node ref="U10" pin="27" pinfunction="~{WE}" pintype="input"/>
+    </net>
+    <net code="105" name="unconnected-(U10-Pad28)">
+      <node ref="U10" pin="28" pinfunction="VCC" pintype="power_in"/>
+    </net>
+  </nets>
+</export>

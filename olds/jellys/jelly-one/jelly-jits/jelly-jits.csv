@@ -1,0 +1,26 @@
+"Source:","/home/agsb/Projects/jelly-one/jelly-jits/jelly-jits.kicad_sch"
+"Date:","qui 04 ago 2022 15:57:29"
+"Tool:","Eeschema 6.0.4-6f826c9f35~116~ubuntu18.04.1"
+"Generator:","/usr/share/kicad/plugins/bom_csv_grouped_by_value.py"
+"Component Count:","8"
+
+"Individual Components:"
+
+"Item","Qty","Reference(s)","Value","LibPart","Footprint","Datasheet"
+"","","U1","74LS00","74xx:74LS00","","http://www.ti.com/lit/gpn/sn74ls00"
+"","","U2","74LS273","74xx:74LS273","","http://www.ti.com/lit/gpn/sn74LS273"
+"","","U3","74LS08","74xx:74LS08","","http://www.ti.com/lit/gpn/sn74LS08"
+"","","U4","74LS273","74xx:74LS273","","http://www.ti.com/lit/gpn/sn74LS273"
+"","","U5","74LS273","74xx:74LS273","","http://www.ti.com/lit/gpn/sn74LS273"
+"","","U6","74LS00","74xx:74LS00","","http://www.ti.com/lit/gpn/sn74ls00"
+"","","U7","74LS08","74xx:74LS08","","http://www.ti.com/lit/gpn/sn74LS08"
+"","","U8","74LS273","74xx:74LS273","","http://www.ti.com/lit/gpn/sn74LS273"
+
+
+
+"Collated Components:"
+
+"Item","Qty","Reference(s)","Value","LibPart","Footprint","Datasheet"
+"1","2","U1, U6","74LS00","74xx:74LS00","","http://www.ti.com/lit/gpn/sn74ls00"
+"2","4","U2, U4, U5, U8","74LS273","74xx:74LS273","","http://www.ti.com/lit/gpn/sn74LS273"
+"3","2","U3, U7","74LS08","74xx:74LS08","","http://www.ti.com/lit/gpn/sn74LS08"

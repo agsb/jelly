@@ -1,0 +1,33 @@
+"Source:","/home/agsb/Projects/jelly-one/jelly-adder/jelly-adder.kicad_sch"
+"Date:","sex 05 ago 2022 10:24:34"
+"Tool:","Eeschema 6.0.4-6f826c9f35~116~ubuntu18.04.1"
+"Generator:","/usr/share/kicad/plugins/bom_csv_grouped_by_value.py"
+"Component Count:","14"
+
+"Individual Components:"
+
+"Item","Qty","Reference(s)","Value","LibPart","Footprint","Datasheet"
+"","","U1","74LS86","74xx:74LS86","","74xx/74ls86.pdf"
+"","","U2","74LS08","74xx:74LS08","","http://www.ti.com/lit/gpn/sn74LS08"
+"","","U3","74LS32","74xx:74LS32","","http://www.ti.com/lit/gpn/sn74LS32"
+"","","U4","74LS86","74xx:74LS86","","74xx/74ls86.pdf"
+"","","U5","74LS08","74xx:74LS08","","http://www.ti.com/lit/gpn/sn74LS08"
+"","","U6","74LS86","74xx:74LS86","","74xx/74ls86.pdf"
+"","","U7","74LS08","74xx:74LS08","","http://www.ti.com/lit/gpn/sn74LS08"
+"","","U8","74LS32","74xx:74LS32","","http://www.ti.com/lit/gpn/sn74LS32"
+"","","U9","74LS86","74xx:74LS86","","74xx/74ls86.pdf"
+"","","U10","74LS08","74xx:74LS08","","http://www.ti.com/lit/gpn/sn74LS08"
+"","","U11","74LS08","74xx:74LS08","","http://www.ti.com/lit/gpn/sn74LS08"
+"","","U12","74LS08","74xx:74LS08","","http://www.ti.com/lit/gpn/sn74LS08"
+"","","U13","74LS00","74xx:74LS00","","http://www.ti.com/lit/gpn/sn74ls00"
+"","","U14","74LS32","74xx:74LS32","","http://www.ti.com/lit/gpn/sn74LS32"
+
+
+
+"Collated Components:"
+
+"Item","Qty","Reference(s)","Value","LibPart","Footprint","Datasheet"
+"1","4","U1, U4, U6, U9","74LS86","74xx:74LS86","","74xx/74ls86.pdf"
+"2","6","U2, U5, U7, U10, U11, U12","74LS08","74xx:74LS08","","http://www.ti.com/lit/gpn/sn74LS08"
+"3","3","U3, U8, U14","74LS32","74xx:74LS32","","http://www.ti.com/lit/gpn/sn74LS32"
+"4","1","U13","74LS00","74xx:74LS00","","http://www.ti.com/lit/gpn/sn74ls00"
