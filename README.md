@@ -2,6 +2,8 @@
 
 _01/05/2024 I'm on vacancy for refresh some ideas_
 
+_22/05/2026 Review for make it__
+
 # Jelly revision 2.0
 
 Jelly is a concept, a alternative computer with a diferent paradigm, not for performance but for design.
