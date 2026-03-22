@@ -2,7 +2,7 @@
 
 _01/05/2024 I'm on vacancy for refresh some ideas_
 
-_22/03/2026 Review for make it__
+_22/03/2026 Review for make it_
 
 # Jelly revision 2.0
 
