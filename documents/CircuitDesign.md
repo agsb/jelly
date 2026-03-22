@@ -28,15 +28,19 @@ Rules:
 
 ### BOM
 
-03 eeproms, U1 and U2, are AT28C16, 150 ns (~ 6.7 MHz), 2k x 8-bits, and have /OE to GND, /CS to GND, /WR to VCC;
+### States
 
-02 input latch, U4 and U5, 74HC574, 40 ns (< 20.0 MHz), octal D-Flip-Flop, 3-state, with clock (CK6), enable (/OE6);
+02 eeproms, U1 and U2, are AT28C16, 150 ns (~ 6.7 MHz), 2k x 8-bits, and have /OE to GND, /CS to GND, /WR to VCC; U3 is reserved to an EEPROM future extention; Could be a AT28C64.
 
-01 output latch, U6, 74HC574, 40 ns (< 20.0 MHz), octal D-Flip-Flop, 3-state, with clock (CK6), enable (/OE6);
+02 input latch, U4 and U5, 74HC574, 40 ns (< 20.0 MHz), octal D-Flip-Flop, 3-state, with clock (CK) and enable (/OE);
 
-01 input-output switch, U7, is 74HC245, 40 ns (< 20.0 MHz), octal bi-diretional switch, 3-state, with direction (DIR), enable (/OE7);
+01 output latch, U6, 74HC574, 40 ns (< 20.0 MHz), octal D-Flip-Flop, 3-state, with clock (CK) and enable (/OE);
 
-01 binary counter, U8, 74HC393, (< 100 MHz), dual 4-bit binary counter, with clock (CK3) and clear (CR3);
+01 input-output switch, U7, is 74HC245, 40 ns (< 20.0 MHz), octal bi-diretional switch, 3-state, with direction (DIR) and enable (/OE);
+
+01 binary counter, U8, 74HC393, (< 100 MHz), dual 4-bit binary counter, with clock (CK) and clear (CR);
+
+### Glues
 
 01 D-flip-flop, U10, is 74HC74, dual D-Type flip-flops, with clear and preset;
 
@@ -44,31 +48,31 @@ Rules:
 
 ### Clock Circuit
 
-One oscilator circuit with a 555, or 74HC00 and a crystal, gives a primary clock pulses (less than 2.0 MHz); 
+One oscilator circuit with a 555, or 74HC00 and a crystal, gives a primary clock pulses less than 2.0 MHz; 
 
-### Finite State Machine 
+## Finite State Machine 
 
-A binary up-counter 74HC393, U8, takes clock pulses from clock circuit, gives Q0-Q2 as A0-A3 into U1 and U3, clear is CR3 and second counter _Q4-Q7 unused_;
+A binary up-counter 74HC393, U8, takes clock pulses from clock circuit, gives Q0-Q2 as A0-A3 into U1 (and U3), clear is CR3 and second counter _Q4-Q7 unused_;
 
-A latch 74HC574, U4, takes D0-D7 from data bus, gives Q0-Q3 as A3-A6 into U1 and U3, clock is CK4 and high nibble _Q4-Q7 unused_;
+A latch 74HC574, U4, takes D0-D7 from data bus, gives Q0-Q3 as A4-A7 into U1 (and U3), clock is CK4 and high nibble _Q4-Q7 unused_;
 
-Two eeproms AT28C16, U1 and U3, takes Q0-Q2 from U8 as A0-A2 and Q0-Q3 from U4 as A3-A6, U1 gives C0-C7 and U3 gives C0-C15, as lines for circuits. 
+The eeprom(s) AT28C16, U1 (and U3), takes Q0-Q3 from U8 as A0-A3 and Q0-Q3 from U4 as A4-A7, U1 gives C0-C7 (and U3 gives C8-C15), as control lines to circuits, C0-C3 are T0-T3 and C4-C7 are M0-M3. 
 
 This circuit is used to translate a byte as finite state machine (FSM) steps. 
 
-It is used for opcode and microcode lookup, address A0-A2 are used for up 8 steps micro-code, A3-A6 for define 16 op-code, A7 selected by zero circuit detector, A8 selected by toggle a flip-flop as mode default or loop, _A9-A10 are not used_.
+It is used for opcode and microcode lookup, address A0-A2 are used for up 8 steps micro-code, A3-A6 for define 16 op-code, A7 selected by zero circuit detector, A8 selected by toggle a flip-flop as mode default or loop, _A9-A10 are reserved, not used_.
 
-The lines D0-D15 are used to select math operation and control signals inside and outside Jelly.
+The lines D0-D7 (D8-D15) are used to select math operations and control signals inside and outside Jelly.
 
 ### Math Lookups and Decoder
 
-One latch 74HC574, U5, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U3, clock is CK5;
+One latch 74HC574, U5, takes D0-D7 from data bus, gives Q0-Q7 as A0-A7 into U2, clock is CK5;
 
-One eeprom At28C16, U2, takes Q0-Q7 from U5 into A0-A7, takes C4-C6 from U1 into A8-A10, gives Q0-Q7 into U6; 
+One eeprom At28C16, U2, takes Q0-Q7 from U5 into A0-A7, takes C4-C6 from U1 into A8-A10, and gives Q0-Q7 into U6 as D0-D7; 
 
-One latch 74HC574, U6, takes Q0-Q7 from U3 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is /OE6, clock is CK6; 
+One latch 74HC574, U6, takes Q0-Q7 from U2 into D0-D7, giving Q0-Q7 as D0-D7 into data bus, output enable is /OE6, clock is CK6; 
 
-The lookup table maps decode and unary operations as pages of 256 bytes, it does more than increase and decrease. 
+The lookup table maps decode and unary operations as pages of 256 bytes, it could do more than increase and decrease. 
 
 #### Table 1, Lookup M3 == 1
 | name | M2 | M1 | M0 | action |
@@ -85,7 +89,7 @@ The lookup table maps decode and unary operations as pages of 256 bytes, it does
 Notes:
   - In _code_ all bytes are translated in valid opcodes range, 0 to 15, not defined symbols are mapped as noop; 
   - the code and copy are internal FSM operations, not allow from opcodes.
-  - yes, was more 4 possible math, one complement, shift left, shift right, reverse. 
+  - yes, was more 4 possible math: one complement, shift left, shift right, reverse. 
 
 ### External Devices
 
@@ -96,25 +100,26 @@ All devices are external and accessed by a 16 pin connector, with VCC, VSS, REQ,
 #### Table 2, Connector external
 | line | Pin | Pin | line |
 | --- | --- | --- | --- |
-| GND |  1 | 16 | VCC |
+| REQ |  1 | 16 | VCC |
 | D0  |  2 | 15 | T3 |
 | D1  |  3 | 14 | T2 |
 | D2  |  4 | 13 | T1 |
 | D3  |  5 | 12 | T0 |
 | D4  |  6 | 11 | D7 |
 | D5  |  7 | 10 | D6 |
-| GND |  8 |  9 | VCC |
+| GND |  8 |  9 | ACK |
 
-
-One input-output switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q7 as D0-D7 into external data bus, output enable is /OE7, direction is DR7; The Mode Operation is defined by T0-T3 from Finite State EEPROM U1
+One input-output switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q7 as D0-D7 into an external data bus, output enable is /OE7, direction is DR7; The Mode Operation is defined by T0-T3 from Finite State EEPROM U1
 
 ### Control Devices
 
-The FSM eeproms gives Q0-Q15 for math and control lines. 
+The FSM eeproms gives Q0-Q7 (D8-Q15 with U3) for math and control lines. 
 
 In the list of combinations used to control lines, state of devices and operations, the high nibble of U3.C4-C7 as T0-T3, vary from 0x1 to 0xD, leaving 0x0 to do nothing, and 0xE-0xF for select some extra states. 
 
 Those extra states with some glue logics make needs just one eeprom as finite state machine. 
+
+# ZZZZZ wip 
 
 #### Table 3, Signals and states
 | signal | combines | gives |
