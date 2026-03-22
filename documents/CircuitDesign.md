@@ -81,6 +81,7 @@ The lookup table maps decode and unary operations as pages of 256 bytes, it coul
 | incr | 0 | 0 | 1 | increase |
 | decr | 0 | 1 | 0 | decrease |
 | copy | 0 | 1 | 1 | copy byte |
+| | | | | |
 | not  | 1 | 0 | 0 | one complement |
 | lsh  | 1 | 0 | 1 | shift left 1 bit |
 | rsh  | 1 | 1 | 0 | shift right 1 bit |
@@ -100,14 +101,14 @@ All devices are external and accessed by a 16 pin connector, with VCC, VSS, REQ,
 #### Table 2, Connector external
 | line | Pin | Pin | line |
 | --- | --- | --- | --- |
-| REQ |  1 | 16 | VCC |
+| ACK |  1 | 16 | VCC |
 | D0  |  2 | 15 | T3 |
 | D1  |  3 | 14 | T2 |
 | D2  |  4 | 13 | T1 |
 | D3  |  5 | 12 | T0 |
 | D4  |  6 | 11 | D7 |
 | D5  |  7 | 10 | D6 |
-| GND |  8 |  9 | ACK |
+| GND |  8 |  9 | CLK |
 
 One input-output switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q7 as D0-D7 into an external data bus, output enable is /OE7, direction is DR7; The Mode Operation is defined by T0-T3 from Finite State EEPROM U1
 
