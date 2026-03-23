@@ -5,7 +5,7 @@
 
 // simulate Jelly computer
 // @agsb 2022
-//
+// outdated, do not simulate actual Jelly //
 
 char eep[5][2048];
 
