@@ -52,6 +52,9 @@ IO, conector bus, (CLk, ACK, D0-D7, T0-T3)
     | 0  | 0  | 0  | 1  | nothing |
     | 0  | 0  | 1  | 0  | nothing |
     | 0  | 0  | 1  | 1  | nothing |
+    | 1  | 1  | 1  | 0  | nothing |
+    | 1  | 1  | 1  | 1  | nothing |
+    
 
 
 ## Tables 
