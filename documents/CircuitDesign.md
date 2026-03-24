@@ -110,7 +110,10 @@ All devices are external and accessed by a 16 pin connector, with VCC, VSS, REQ,
 | D5  |  7 | 10 | D6 |
 | GND |  8 |  9 | CLK |
 
-One input-output switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q7 as D0-D7 into an external data bus, output enable is /OE7, direction is DR7; The Mode Operation is defined by T0-T3 from Finite State EEPROM U1
+The high nible T0-T1 selects devices, operations, comands and information for a controler at external word.
+
+One input-output switch 74HC245, U7, takes Q0-Q7 from U6 into D0-D7, giving Q0-Q7 as D0-D7 into an external data bus, output enable is /OE7, direction is DR7; The Mode Operation is defined by 
+T0-T3 from Finite State EEPROM U1
 
 ### Control Devices
 
