@@ -59,6 +59,14 @@ IO, conector bus, (CLk, ACK, D0-D7, T0-T3)
 
 ## Tables 
 
+### controls 
+    
+U1(D0-D7) to (U4.CE, U4.OE, U5.CE, U5.OE, U6.CE, U6.OE, U7.DIR, U7.OE)
+
+### functions
+
+U3(D0-D7) to (M0, M1, M2, M3, T0, T1, T2, T3)
+
 ### Clock
 
 1. CLOCK -> U8(D1)
