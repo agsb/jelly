@@ -3,6 +3,22 @@ _this file is still a stub_
 
 # review of inside Jelly
 
+## goods
+
+    1. Need a zero byte detector, for assert end loops
+
+    2. Need a move selector flip-flop, forward or backward;
+
+    3. Need a mode selector flip-flop, code or loop;
+
+    4. Need a reset step, for resume step counter;
+
+    5. Only one active device: none, code, data, stream
+
+    6. Only one active action: read, write, forward, backward
+
+    7. Math table for: decode, increase, decrease, copy, zero(?) 
+
 ## Components
 
 U1  AT28C16 or AT28C32 (A0-A12, D0-D7, /CE, /OE, /WE)
@@ -35,19 +51,19 @@ IO, conector bus, (CLk, ACK, D0-D7, T0-T3)
 
 ## IO Control
 
-    | T3 | T2 | device |
+    | T3 | T2 | device OR |
+    | 0 | 0 | none | 
     | 0 | 1 | code tape |
     | 1 | 0 | data tape |
     | 1 | 1 | std device |
 
-    | T1 | T0 | select |
+    | T1 | T0 | select OR |
     | 0 | 0 | read |
     | 0 | 1 | write |
     | 1 | 0 | forward |
     | 1 | 1 | backward |
 
-
-    | T3 | T2 | T1 | T0 | select |
+    | T3 | T2 | T1 | T0 | not used |
     | 0  | 0  | 0  | 0  | nothing |
     | 0  | 0  | 0  | 1  | nothing |
     | 0  | 0  | 1  | 0  | nothing |
@@ -55,7 +71,6 @@ IO, conector bus, (CLk, ACK, D0-D7, T0-T3)
     | 1  | 1  | 1  | 0  | nothing |
     | 1  | 1  | 1  | 1  | nothing |
     
-
 
 ## Tables 
 
