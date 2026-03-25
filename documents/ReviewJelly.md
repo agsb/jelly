@@ -82,7 +82,7 @@ IO, conector bus, (CLk, ACK, D0-D7, T0-T3)
 
 ### controls 
     
-U1(D0-D7) to (U4.CE, U4.OE, U5.CE, U5.OE, U6.CE, U6.OE, U7.DIR, U7.OE)
+U1(D0-D7) to (U4.CE, U5.CE, U6.CE, U6.OE, U7.DIR, U7.OE, X6, X7). Note that U4.OE and U5.OE are always low, because U4-U1 and U5-U2 are closed circuits.
 
 ### functions
 
