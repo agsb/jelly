@@ -19,6 +19,12 @@ _this file is still a stub_
 
     7. Math table for: decode, increase, decrease, copy, zero(?) 
 
+## low frequency clock
+
+For tests Jelly needs a low frequency oscilator as clock. A oscilator with one gate of 74HC14, a resistor between input and output pins and a capacitor between input and ground (GND) have frequency by _Hz = 1.2 * 10^6 / RC_ and use another gate to filter. 
+        
+Using C = 100nF and R=10K, Hz ~ 1200 Hz, R could vary 10k to 4M, C could vary from 1n to 220n;
+
 ## Components
 
 U1  AT28C16 or AT28C32 (A0-A12, D0-D7, /CE, /OE, /WE)
