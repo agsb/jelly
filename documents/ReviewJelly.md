@@ -119,6 +119,12 @@ U3(D0-D7) to (M0, M1, M2, M3, T0, T1, T2, T3)
 11. U7(A0-A7) -> DB(D0-D7)
 
 
+## Notes
 
+    The data bus D0-D7 is pull down 10k resistors. 
+    Using U4.CL or U5.CL pulse with U6.OE high and U7.OE high,
+    loads zero. 
+
+    An 74HC14 serves the clock to 74HC393 steps.
 
 
