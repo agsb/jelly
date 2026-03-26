@@ -22,7 +22,7 @@ _this file is still a stub_
 ## low frequency clock
 
 For tests Jelly needs a low frequency oscilator as clock. A oscilator with one gate of 74HC14, a resistor between input and output pins and a capacitor between input and ground (GND) have frequency by _Hz = 1.2 * 10^6 / RC_ and use another gate to filter. 
-Use R from 10k to 4M, use C from 1n to 220n;
+Use R from 10k to 4M, use C from 1n to 100u;
 ( Using C = 100nF and R=10K, Hz ~ 1200 Hz, and C = 10uF and R=10K, Hz ~ 1.2 Hz, so on. )
 
 ## Components
