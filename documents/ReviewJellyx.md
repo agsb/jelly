@@ -135,4 +135,5 @@ U3(D0-D7) to (M0, M1, M2, M3, T0, T1, T2, T3)
 
     An 74HC14 serves the clock to 74HC393 steps.
 
+    March/2026 found it: https://bailleux.net/pub/ob-project-gray1.pdf
 
