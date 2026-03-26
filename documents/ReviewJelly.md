@@ -25,6 +25,8 @@ _this file is still a stub_
 
 _"FSMs are procedural, while planning is declarative."_
 
+_"Informally, a category is just a collection of things, along with a particular relationship between these things"_
+
 ## low frequency clock
 
 For tests Jelly needs a low frequency oscilator as clock. A oscilator with one gate of 74HC14, a resistor between input and output pins and a capacitor between input and ground (GND) have frequency by _Hz = 1.2 * 10^6 / RC_ and use another gate to filter. 
