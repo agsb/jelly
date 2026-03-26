@@ -19,6 +19,12 @@ _this file is still a stub_
 
     7. Math table for: decode, increase, decrease, copy, zero(?) 
 
+    8. Need a REQ/ACK handshake for Jelly and External IO
+
+## Finite State Machines
+
+_"FSMs are procedural, while planning is declarative."_
+
 ## low frequency clock
 
 For tests Jelly needs a low frequency oscilator as clock. A oscilator with one gate of 74HC14, a resistor between input and output pins and a capacitor between input and ground (GND) have frequency by _Hz = 1.2 * 10^6 / RC_ and use another gate to filter. 
@@ -139,4 +145,7 @@ U3(D0-D7) to (M0, M1, M2, M3, T0, T1, T2, T3)
 https://web.stanford.edu/class/archive/cs/cs103/cs103.1132/lectures/19/Small19.pdf
 
 https://bailleux.net/pub/ob-project-gray1.pdf
+
+https://www.gamedevs.org/uploads/three-states-plan-ai-of-fear.pdf
+
 
