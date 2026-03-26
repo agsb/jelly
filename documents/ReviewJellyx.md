@@ -54,7 +54,7 @@ DB, data bus, (D0, D1, D2, D3, D4, D5, D6, D7)
 
 CT, control bus, (C0, C1, C2, C3, C4, C5, C6, C7)
 
-IO, conector bus, (CLk, ACK, D0-D7, T0-T3)
+IO, conector bus, (CLK, ACK, D0-D7, T0-T3)
 
 ## IO Control
 
@@ -76,7 +76,7 @@ IO, conector bus, (CLk, ACK, D0-D7, T0-T3)
     | 0  | 0  | 1  | 0  | nothing |
     | 0  | 0  | 1  | 1  | nothing |
     | | | | | 
-    | 1  | 1  | 1  | 0  | nothing |
+    | 1  | 1  | 1  | 0  | clear ACK |
     | 1  | 1  | 1  | 1  | nothing |
     
 
