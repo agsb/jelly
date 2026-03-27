@@ -33,6 +33,20 @@ For tests Jelly needs a low frequency oscilator as clock. A oscilator with one g
 Use R from 10k to 4M, use C from 1n to 100u;
 ( Using C = 100nF and R=10K, Hz ~ 1200 Hz, and C = 10uF and R=10K, Hz ~ 1.2 Hz, so on. )
 
+## Consise Protocol
+
+Two lines REQ and ACK. 
+
+states *** not work ***
+
+| REQ | ACK | results |
+|  0  |  0  | void |
+|  1  |  0  | request |
+|  1  |  1  | response |
+|  0  |  1  | clear |
+
+
+
 ## Components
 
 U1  AT28C16 or AT28C32 (A0-A12, D0-D7, /CE, /OE, /WE)
