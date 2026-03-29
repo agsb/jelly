@@ -19,7 +19,7 @@ _this file is still a stub_
 
     7. Math table for: decode, increase, decrease, copy, zero(?) 
 
-    8. Need a REQ/ACK handshake for Jelly and External IO
+    8. Need define a REQ/ACK handshake for Jelly and External IO, how sense ACK, when toggle REQ, trace external protocol
 
 ## Finite State Machines
 
