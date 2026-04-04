@@ -37,13 +37,19 @@ Use R from 10k to 4M, use C from 1n to 100u;
 
 Two lines REQ and ACK. 
 
-states *** not work ***
+Four-Phase Handshake (RZ - Return-to-Zero): A very common and robust approach where control lines return to their initial state after each transaction. It involves four distinct steps:
+
+    Request (Req) Active: Sender prepares data, then activates the Req line.
+    Data Accepted: Receiver reads data, then activates the Ack line.
+    Request Inactive: Sender detects Ack and brings Req low.
+    Acknowledge Inactive: Receiver brings Ack low, returning the system to an idle state.
 
 | REQ | ACK | results |
 |  0  |  0  | void |
 |  1  |  0  | request |
 |  1  |  1  | response |
-|  0  |  1  | clear |
+|  0  |  1  | clear req |
+|  0  |  0  | clear ack |
 
 
 
