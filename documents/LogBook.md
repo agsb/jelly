@@ -18,6 +18,7 @@ Just a simple protocol:
 The Request and action depends on T0 T1 T2 T3
 
 | T0 | T1 | T2 | T3 | action |
+| --- | --- | --- | --- | --- |
 | 0 | 0 | 0 | 0 | 
 
 ### 12/09/2023
