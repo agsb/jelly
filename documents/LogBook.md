@@ -19,7 +19,17 @@ The Request and action depends on T0 T1 T2 T3
 
 | T0 | T1 | T2 | T3 | action |
 | --- | --- | --- | --- | --- |
-| 0 | 0 | 0 | 0 | 
+| 0 | 0 | X | X | void internal | 
+| 0 | 1 | X | X | data tape | 
+| 1 | 0 | X | X | code tape | 
+| 1 | 1 | X | X | standart I/O | 
+| | | | |
+| X | X | 0 | 0 | read | 
+| X | X | 1 | 0 | write | 
+| X | X | 0 | 1 | forward move | 
+| X | X | 1 | 1 | backward move |
+| | | | | 
+
 
 ### 12/09/2023
 
