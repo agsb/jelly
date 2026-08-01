@@ -1,5 +1,25 @@
 # LogBook
 
+### 01/08/2026
+
+Review of Jelly, circuits and proposal changed. Chosse use REQ and ACK protocol to talk with Non-Jelly world :)
+
+Just a simple protocol: 
+
+| REQ | ACK | action |
+| --- | --- | --- |
+| 0 | 0 | nothing |
+| 1 | 0 | request |
+| 1 | 1 | acknow |
+| 0 | 1 | release |
+| 0 | 0 | nothing |
+| | | |
+
+The Request and action depends on T0 T1 T2 T3
+
+| T0 | T1 | T2 | T3 | action |
+| 0 | 0 | 0 | 0 | 
+
 ### 12/09/2023
 
 The draw of glue logics circuits, as complex, common and minimal, done. Not
