@@ -2,7 +2,7 @@
 
 ### 01/08/2026
 
-Review of Jelly, circuits and proposal changed. Chosse use REQ and ACK protocol to talk with Non-Jelly world :)
+Review of Jelly, circuits and proposal changed. Chose use REQ and ACK protocol to talk with Non-Jelly world :)
 
 Just a simple protocol: 
 
