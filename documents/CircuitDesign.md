@@ -2,7 +2,7 @@
 
 # Circuit Design
 
-In a processing unit, opcodes define what to make and microcode how to make. Opcode names a abstract action and microcode controls signals and flow of information to execute actions.
+In a processing unit, opcodes define what to make and microcode how to make. Opcode names an abstract action and microcode controls signals and flow of information to execute actions.
 
 Jelly is a simple 8-bit digital circuit, all math, opcodes and microcodes are done by eeproms and latches. It haves a zero detector, a binary counter e some glue state logics, and LEDs many LEDS ! 
 
