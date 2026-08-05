@@ -1,11 +1,7 @@
 
 _this file is still a stub_
 
-# Review of inside Jelly
-
-    Jelly talks to a Device. The device is the gateway to external world.
-    Device have two nternal infinite tapes, one of code and one of data, 
-    and also a standart input/output system.
+# review of inside a really minimal Jelly
 
 ## goods
 
@@ -21,11 +17,9 @@ _this file is still a stub_
 
     6. Only one active action: read, write, forward, backward
 
-    7. Math table for: decode, increase, decrease, copy, ( not, shift left, shift rigth ) 
+    7. Math table for: decode, increase, decrease, copy, zero(?) 
 
-    8. Need define a REQ/ACK handshake for Jelly and External IO 
-
-    9. How sense ACK, when toggle REQ, trace external protocol
+    8. Need define a REQ/ACK handshake for Jelly and External IO, how sense ACK, when toggle REQ, trace external protocol
 
 ## Finite State Machines
 
@@ -33,12 +27,9 @@ _"FSMs are procedural, while planning is declarative."_
 
 _"Informally, a category is just a collection of things, along with a particular relationship between these things"_
 
-## Low frequency clock
+## low frequency clock
 
-For tests Jelly needs a low frequency oscilator as clock. 
-A oscilator with one gate of 74HC14, a resistor between input and output 
-pins and a capacitor between input and ground (GND) have frequency by 
-_Hz = 1.2 * 10^6 / RC_ and use another gate to filter. 
+For tests Jelly needs a low frequency oscilator as clock. A oscilator with one gate of 74HC14, a resistor between input and output pins and a capacitor between input and ground (GND) have frequency by _Hz = 1.2 * 10^6 / RC_ and use another gate to filter. 
 Use R from 10k to 4M, use C from 1n to 100u;
 ( Using C = 100nF and R=10K, Hz ~ 1200 Hz, and C = 10uF and R=10K, Hz ~ 1.2 Hz, so on. )
 
@@ -64,18 +55,14 @@ Four-Phase Handshake (RZ - Return-to-Zero): A very common and robust approach wh
 
 ### Request-Acknowledge
 
-    The implementation is slightly diferent, Jelly and Device.
+When a request is made with (T0 T1 T2 T3):
 
-| SEQ | REQ | ACK | results |
-| 0 |  0  |  0  | void state |
-| 1 |  1  |  0  | Jelly prepares control and data, then active REQ |
-| 2 |  1  |  0  | Device sense REQ, read controls |
-| 3 |  1  |  1  | Device process data, then active ACK |
-| 4 |  1  |  1  | Jelly sense ACK, process data |
-| 5 |  0  |  1  | Jelly deactive REQ |
-| 6 |  0  |  0  | Device sense REQ and deactive the ACK |
-| 7 |  0  |  0  | return to void state |
-
+    1. Place a request 
+    2. Down ACK
+    3. Wait REQ Down
+    4. Resume request
+    5. Up ACK
+    6. wait REQ UP
 
 ## Components
 
@@ -99,61 +86,47 @@ U10 74HC74  (CLR1, CLK1, D1, Q1, /Q1, /PRE1, CLR2, CLK2, D2, Q2, /Q2, /PRE2)
 
 U11 74HC00  (A1, A2, Y1, A3, A4, Y2, A5, A6, Y3, A7, A8, Y4) 
 
-U12 74HC00  (A1, A2, Y1, A3, A4, Y2, A5, A6, Y3, A7, A8, Y4) 
-
 ## Buses
 
 DB, data bus, (D0, D1, D2, D3, D4, D5, D6, D7)
 
 CT, control bus, (C0, C1, C2, C3, C4, C5, C6, C7)
 
-IO, conector bus, (CLK, ACK, REQ, D0-D7, T0-T3)
+IO, conector bus, (CLK, ACK, D0-D7, T0-T3)
 
 ## IO Control
 
-    | T0 | T1 | device OR |
+    | T3 | T2 | device OR |
     | 0 | 0 | none | 
     | 0 | 1 | code tape |
     | 1 | 0 | data tape |
     | 1 | 1 | std device |
 
-    | T2 | T3 | select OR |
+    | T1 | T0 | select OR |
     | 0 | 0 | read |
     | 0 | 1 | write |
     | 1 | 0 | forward |
     | 1 | 1 | backward |
 
-    | T0 | T1 | T2 | T3 |  |
+    | T3 | T2 | T1 | T0 | not used |
     | 0  | 0  | 0  | 0  | nothing |
     | 0  | 0  | 0  | 1  | nothing |
     | 0  | 0  | 1  | 0  | nothing |
     | 0  | 0  | 1  | 1  | nothing |
     | | | | | 
-    | 1  | 1  | 1  | 0  | reserved |
-    | 1  | 1  | 1  | 1  | reserved |
+    | 1  | 1  | 1  | 0  | clear ACK |
+    | 1  | 1  | 1  | 1  | nothing |
     
+
 ## Tables 
 
 ### controls 
     
-    | origin | destin | note |
-    | U1.D0  | U4.CK/OE | Clock must be pulsed low to high |
-    | U1.D1  | U5.CK/OE | Clock must be pulsed low to high |
-    | U1.D2  | U6.CK/OE | Clock must be pulsed low to high |
-    | U1.D3  | U7.OE | controls both A and B |
-    | | | |
-    | U1.D4  | T0 | vide above |
-    | U1.D5  | T1 | vide above |
-    | U1.D6  | T2 | vide above |
-    | U1.D7  | T3 | vide above |
-
-    Note: 
-
-        U7.DIR tied to U6.OE, when U6.OE low U7.DIR is low does B to A
+U1(D0-D7) to (U4.CE, U5.CE, U6.CE, U6.OE, U7.DIR, U7.OE, X6, X7). Note that U4.OE and U5.OE are always low, because U4-U1 and U5-U2 are closed circuits.
 
 ### functions
 
-    When T0 and T1 are low, T2 and T3 are math functions. (need some glue circuit)
+U3(D0-D7) to (M0, M1, M2, M3, T0, T1, T2, T3)
 
 ### Clock
 
@@ -161,54 +134,44 @@ IO, conector bus, (CLK, ACK, REQ, D0-D7, T0-T3)
 
 ### Code
 
+1. U8(QA1, QB1, QC1) -> U1(A0, A1, A2), 8 steps or stages
+
 1. DB(D0-D7) -> U4(D0-D7)
 
-2. U8(QA1, QB1, QC1) -> U1(A0-A2), 8 steps or stages
+2. U4(Q0-Q4) -> U1(A3-A7), 32 opcodes, (A8, A9, A10) 8 modes
 
-3. U4(Q0-Q3) -> U1(A3-A6), 16 opcodes, (A7, A8, A9, A10) 16 modes
-
-4. U4(Q4-Q7) -> Not used
-
-5. U1(D0-D7) -> CT(C0-C7)
+3. U1(D0-D7) -> CT(C0-C7)
 
 ### Data Internal 
 
-1. DB(D0-D7) -> U5(D0-D7)
+4. DB(D0-D7) -> U5(D0-D7)
 
-2. U5(Q0-Q7) -> U2(A0-A7)
+5. U5(Q0-Q7) -> U2(A0-A7)
 
-3. CT(T6,T7) -> U2(A8,A9), 4 math operations: none, INC, DEC, COPY
+6. CT(C0,C2,C3) -> U2(A8,A9,A10)
 
-4. U2(D0-D7) -> U6(D0-D7)
+6. U2(D0-D7) -> U6(D0-D7)
 
-5. U6(Q0-Q7) -> DB(D0-D7)
+7. U6(Q0-Q7) -> DB(D0-D7)
 
 ## Data External 
 
-10. DB(D0-D7) -> U7(B0-B7)
+10. DB(D0-D7) -> U7(A0-A7)
 
-11. U7(A0-A7) -> IO(D0-D7)
+11. U7(B0-B7) -> IO(D0-D7)
 
-10. IO(D0-D7) -> U7(A0-A7)
+10. IO(D0-D7) -> U7(B0-B7)
 
-11. U7(B0-B7) -> DB(D0-D7)
+11. U7(A0-A7) -> DB(D0-D7)
+
 
 ## Notes
 
     The data bus D0-D7 is pull down 10k resistors. 
-    
-    The addr bus A0-A7 is pull down 10k resistors. 
-
-    Using U4.CL, U5.CL and U6.CL tied to OE, pulsed to high do load the latch. 
-
-    Ever when U6.OE is low U7.DIR must goes to outside, 
-        then port B is connected to DB and port A is connected to CON.
+    Using U4.CL or U5.CL pulse with U6.OE high and U7.OE high,
+    loads zero. 
 
     An 74HC14 serves the clock to 74HC393 steps.
-
-    The (T0 T1) the 0/0 is a internal, else is a external and tied REQ
-
-    using ANOTHER AT28C16 allow more controls.
 
 ## References
 
