@@ -3,11 +3,13 @@ _this file is still a stub_
 
 # Review of inside Jelly
 
-    Jelly talks to a Device. The device is the gateway to external world.
-    Device have two nternal infinite tapes, one of code and one of data, 
-    and also a standart input/output system.
+## Talks
 
-## goods
+    Jelly talks to a Device. The device is the gateway to external world.
+    Device have two internal infinite tapes, one of code and one of data, 
+    and also a standart system for input and output.
+
+## Goods
 
     1. Need a zero byte detector, for assert end loops
 
@@ -76,14 +78,13 @@ Four-Phase Handshake (RZ - Return-to-Zero): A very common and robust approach wh
 | 6 |  0  |  0  | Device sense REQ and deactive the ACK |
 | 7 |  0  |  0  | return to void state |
 
-
 ## Components
 
-U1  AT28C16 or AT28C32 (A0-A12, D0-D7, /CE, /OE, /WE)
+U1  AT28C16 (A0-A10, D0-D7, /CE, /OE, /WE)
 
-U2  AT28C16 or AT28C32 (A0-A12, D0-D7, /CE, /OE, /WE)
+U2  AT28C16 (A0-A10, D0-D7, /CE, /OE, /WE)
 
-U3  AT28C16 or AT28C32 (A0-A12, D0-D7, /CE, /OE, /WE) ***
+U3  AT28C16 (A0-A10, D0-D7, /CE, /OE, /WE) ***
 
 U4  74HC574 (D0-D7, Q0-Q7, CL, /OE), input code
 
@@ -107,9 +108,9 @@ DB, data bus, (D0, D1, D2, D3, D4, D5, D6, D7)
 
 CT, control bus, (C0, C1, C2, C3, C4, C5, C6, C7)
 
-IO, conector bus, (CLK, ACK, REQ, D0-D7, T0-T3)
+IO, conector bus, (ACK, REQ, D0-D7, C4-C7)
 
-## IO Control
+## control
 
     | T0 | T1 | device OR |
     | 0 | 0 | none | 
@@ -136,22 +137,34 @@ IO, conector bus, (CLK, ACK, REQ, D0-D7, T0-T3)
 
 ### controls 
     
-    | origin | destin | note |
-    | U1.D0  | U4.CK/OE | Clock must be pulsed low to high |
-    | U1.D1  | U5.CK/OE | Clock must be pulsed low to high |
-    | U1.D2  | U6.CK/OE | Clock must be pulsed low to high |
-    | U1.D3  | U7.OE | controls both A and B |
+    | origin | named | destin | note |
+    | U1.D0  | C0 | U4.CK/OE | clock must be pulsed low to high |
+    | U1.D1  | C1 | U5.CK/OE | clock must be pulsed low to high |
+    | U1.D2  | C2 | U6.CK/OE | clock must be pulsed low to high |
+    | U1.D3  | C3 | U7.OE | controls both A and B |
     | | | |
-    | U1.D4  | T0 | vide above |
-    | U1.D5  | T1 | vide above |
-    | U1.D6  | T2 | vide above |
-    | U1.D7  | T3 | vide above |
+    | U1.D4  | C4 | T0 | vide above |
+    | U1.D5  | C5 | T1 | vide above |
+    | U1.D6  | C6 | T2 | vide above |
+    | U1.D7  | C7 | T3 | vide above |
 
     Note: 
 
-        U7.DIR tied to U6.OE, when U6.OE low U7.DIR is low does B to A
+        U6.OE  goes high when input from Device and 
+            goes low when output into Device
 
-### functions
+        U7.DIR tied to U6.OE, when U6.OE low U7.DIR is low, direction
+            is from port B into port A, then port B must be connected 
+            to DB and port A to Connector.
+
+#### Tables
+
+    | C0 | C1 | C2 | C3 | C4 | C5 | C6 | C7 | results | 
+    | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+    | 0 | 0| 0| 0| 0| 0 | 0 | 0 | halts | 
+    | | | | | | | | |
+
+### Math 
 
     When T0 and T1 are low, T2 and T3 are math functions. (need some glue circuit)
 
@@ -173,25 +186,31 @@ IO, conector bus, (CLK, ACK, REQ, D0-D7, T0-T3)
 
 ### Data Internal 
 
-1. DB(D0-D7) -> U5(D0-D7)
+6. DB(D0-D7) -> U5(D0-D7)
 
-2. U5(Q0-Q7) -> U2(A0-A7)
+7. U5(Q0-Q7) -> U2(A0-A7)
 
-3. CT(T6,T7) -> U2(A8,A9), 4 math operations: none, INC, DEC, COPY
+8. CT(C6,C7) -> U2(A8,A9), 4 math operations: none, INC, DEC, COPY
 
-4. U2(D0-D7) -> U6(D0-D7)
+9. U2(D0-D7) -> U6(D0-D7)
 
-5. U6(Q0-Q7) -> DB(D0-D7)
+10. U6(Q0-Q7) -> DB(D0-D7)
 
-## Data External 
+## Data External Output
 
-10. DB(D0-D7) -> U7(B0-B7)
+11. DB(D0-D7) -> U7(B0-B7)
 
-11. U7(A0-A7) -> IO(D0-D7)
+12. U7(B0-B7) -> U7(A0-A7)
 
-10. IO(D0-D7) -> U7(A0-A7)
+13. U7(A0-A7) -> IO(D0-D7)
 
-11. U7(B0-B7) -> DB(D0-D7)
+## Data External Input
+
+14. IO(D0-D7) -> U7(A0-A7)
+
+15. U7(A0-A7) -> U7(B0-B7)
+
+16. U7(B0-B7) -> DB(D0-D7)
 
 ## Notes
 
