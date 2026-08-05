@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name "Jelly")(type "KiCad")(uri "${KIPRJMOD}/Jelly.kicad_sym")(options "")(descr ""))
+  (lib (name "74ls574")(type "KiCad")(uri "D:/Users/barce/Documentos/Projects/Kicad/jelly-one/74ls574.kicad_sym")(options "")(descr ""))
+)

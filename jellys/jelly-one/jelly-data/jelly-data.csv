@@ -1,0 +1,25 @@
+"Source:","/home/agsb/Projects/jelly-one/jelly-data/jelly-data.kicad_sch"
+"Date:","qui 04 ago 2022 15:58:50"
+"Tool:","Eeschema 6.0.4-6f826c9f35~116~ubuntu18.04.1"
+"Generator:","/usr/share/kicad/plugins/bom_csv_grouped_by_value.py"
+"Component Count:","6"
+
+"Individual Components:"
+
+"Item","Qty","Reference(s)","Value","LibPart","Footprint","Datasheet"
+"","","J1","Conn_01x16_Female","Connector:Conn_01x16_Female","","~"
+"","","U1","74AHC374","74xx:74AHC374","","https://assets.nexperia.com/documents/data-sheet/74AHC_AHCT374.pdf"
+"","","U2","74AHC374","74xx:74AHC374","","https://assets.nexperia.com/documents/data-sheet/74AHC_AHCT374.pdf"
+"","","U3","74LS83","74xx:74LS83","","http://www.ti.com/lit/gpn/sn74LS83"
+"","","U4","74LS83","74xx:74LS83","","http://www.ti.com/lit/gpn/sn74LS83"
+"","","U5","74HC00","74xx:74HC00","","http://www.ti.com/lit/gpn/sn74hc00"
+
+
+
+"Collated Components:"
+
+"Item","Qty","Reference(s)","Value","LibPart","Footprint","Datasheet"
+"1","1","J1","Conn_01x16_Female","Connector:Conn_01x16_Female","","~"
+"2","2","U1, U2","74AHC374","74xx:74AHC374","","https://assets.nexperia.com/documents/data-sheet/74AHC_AHCT374.pdf"
+"3","2","U3, U4","74LS83","74xx:74LS83","","http://www.ti.com/lit/gpn/sn74LS83"
+"4","1","U5","74HC00","74xx:74HC00","","http://www.ti.com/lit/gpn/sn74hc00"
