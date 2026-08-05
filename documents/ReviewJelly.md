@@ -58,6 +58,7 @@ Four-Phase Handshake (RZ - Return-to-Zero): A very common and robust approach wh
     Acknowledge Inactive: Receiver brings Ack low, returning the system to an idle state.
 
 | REQ | ACK | results |
+| -- | -- | -- |
 |  0  |  0  | void |
 |  1  |  0  | request |
 |  1  |  1  | response |
@@ -69,6 +70,7 @@ Four-Phase Handshake (RZ - Return-to-Zero): A very common and robust approach wh
     The implementation is slightly diferent, Jelly and Device.
 
 | SEQ | REQ | ACK | results |
+| -- | -- | -- | -- |
 | 0 |  0  |  0  | void state |
 | 1 |  1  |  0  | Jelly prepares control and data, then active REQ |
 | 2 |  1  |  0  | Device sense REQ, read controls |
@@ -112,43 +114,47 @@ IO, conector bus, (ACK, REQ, D0-D7, C4-C7)
 
 ## control
 
-    | T0 | T1 | device OR |
-    | 0 | 0 | none | 
-    | 0 | 1 | code tape |
-    | 1 | 0 | data tape |
-    | 1 | 1 | std device |
+| T0 | T1 | device OR |
+| -- | -- | -- |
+| 0 | 0 | none | 
+| 0 | 1 | code tape |
+| 1 | 0 | data tape |
+| 1 | 1 | std device |
 
-    | T2 | T3 | select OR |
-    | 0 | 0 | read |
-    | 0 | 1 | write |
-    | 1 | 0 | forward |
-    | 1 | 1 | backward |
+| T2 | T3 | select OR |
+| -- | -- | -- |
+| 0 | 0 | read |
+| 0 | 1 | write |
+| 1 | 0 | forward |
+| 1 | 1 | backward |
 
-    | T0 | T1 | T2 | T3 |  |
-    | 0  | 0  | 0  | 0  | nothing |
-    | 0  | 0  | 0  | 1  | nothing |
-    | 0  | 0  | 1  | 0  | nothing |
-    | 0  | 0  | 1  | 1  | nothing |
-    | | | | | 
-    | 1  | 1  | 1  | 0  | reserved |
-    | 1  | 1  | 1  | 1  | reserved |
+| T0 | T1 | T2 | T3 |  action |
+| -- | -- | -- | -- | -- |
+| 0  | 0  | 0  | 0  | nothing |
+| 0  | 0  | 0  | 1  | nothing |
+| 0  | 0  | 1  | 0  | nothing |
+| 0  | 0  | 1  | 1  | nothing |
+| | | | | 
+| 1  | 1  | 1  | 0  | reserved |
+| 1  | 1  | 1  | 1  | reserved |
     
 ## Tables 
 
 ### controls 
     
-    | origin | named | destin | note |
-    | U1.D0  | C0 | U4.CK/OE | clock must be pulsed low to high |
-    | U1.D1  | C1 | U5.CK/OE | clock must be pulsed low to high |
-    | U1.D2  | C2 | U6.CK/OE | clock must be pulsed low to high |
-    | U1.D3  | C3 | U7.OE | controls both A and B |
-    | | | |
-    | U1.D4  | C4 | T0 | vide above |
-    | U1.D5  | C5 | T1 | vide above |
-    | U1.D6  | C6 | T2 | vide above |
-    | U1.D7  | C7 | T3 | vide above |
+| origin | named | destin | note |
+| -- | -- | -- | -- |
+| U1.D0  | C0 | U4.CK/OE | clock must be pulsed low to high |
+| U1.D1  | C1 | U5.CK/OE | clock must be pulsed low to high |
+| U1.D2  | C2 | U6.CK/OE | clock must be pulsed low to high |
+| U1.D3  | C3 | U7.OE | controls both A and B |
+| | | |
+| U1.D4  | C4 | T0 | vide above |
+| U1.D5  | C5 | T1 | vide above |
+| U1.D6  | C6 | T2 | vide above |
+| U1.D7  | C7 | T3 | vide above |
 
-    Note: 
+Note: 
 
         U6.OE  goes high when input from Device and 
             goes low when output into Device
@@ -159,14 +165,14 @@ IO, conector bus, (ACK, REQ, D0-D7, C4-C7)
 
 #### Tables
 
-    | C0 | C1 | C2 | C3 | C4 | C5 | C6 | C7 | results | 
-    | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-    | 0 | 0| 0| 0| 0| 0 | 0 | 0 | halts | 
-    | | | | | | | | |
+| C0 | C1 | C2 | C3 | C4 | C5 | C6 | C7 | results | 
+| -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| 0 | 0| 0| 0| 0| 0 | 0 | 0 | halts | 
+| | | | | | | | |
 
 ### Math 
 
-    When T0 and T1 are low, T2 and T3 are math functions. (need some glue circuit)
+When T0 and T1 are low, T2 and T3 are math functions. (need some glue circuit)
 
 ### Clock
 
@@ -212,22 +218,38 @@ IO, conector bus, (ACK, REQ, D0-D7, C4-C7)
 
 16. U7(B0-B7) -> DB(D0-D7)
 
+## Problems
+
+When detect a ACK, it could be from a:
+
+* read a byte from code tape
+* write a byte into code tape ---- ERROR
+* read a byte from data tape
+* write a byte into data tape
+* read a byte from stds 
+* write a byte into stds
+* move code tape forward
+* move code tape backward
+* move data tape forward
+* move data tape backward
+
+    On read cases, the byte must be load somewhere.
 ## Notes
 
-    The data bus D0-D7 is pull down 10k resistors. 
+The data bus D0-D7 is pull down 10k resistors. 
     
-    The addr bus A0-A7 is pull down 10k resistors. 
+The addr bus A0-A7 is pull down 10k resistors. 
 
-    Using U4.CL, U5.CL and U6.CL tied to OE, pulsed to high do load the latch. 
+Using U4.CL, U5.CL and U6.CL tied to OE, pulsed to high do load the latch. 
 
-    Ever when U6.OE is low U7.DIR must goes to outside, 
+Ever when U6.OE is low U7.DIR must goes to outside, 
         then port B is connected to DB and port A is connected to CON.
 
-    An 74HC14 serves the clock to 74HC393 steps.
+An 74HC14 serves the clock to 74HC393 steps.
 
-    The (T0 T1) the 0/0 is a internal, else is a external and tied REQ
+The (T0 T1) the 0/0 is a internal, else is a external and tied REQ
 
-    using ANOTHER AT28C16 allow more controls.
+using ANOTHER AT28C16 allow more controls.
 
 ## References
 
