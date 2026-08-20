@@ -35,6 +35,8 @@ _"FSMs are procedural, while planning is declarative."_
 
 _"Informally, a category is just a collection of things, along with a particular relationship between these things"_
 
+About MC14500 https://www.youtube.com/watch?v=ioL9cbNx0O8&t=2s
+
 ## Low frequency clock
 
 For tests Jelly needs a low frequency oscilator as clock. 
