@@ -182,7 +182,9 @@ Note:
 
 ### Math 
 
-When T0 and T1 are low, T2 and T3 are math functions. (need some glue circuit)
+When C8 and C9 are low, C10, C11 and C12 are math functions. 
+C8 and C9 must be pulldown, and connected to U2.OE (need some glue circuit)
+Connect U3.D2(C10) to U2.A8, U3.D3(C11) to A2.A9, U3.D4(C12) to U2.A10 
 
 ### Clock
 
