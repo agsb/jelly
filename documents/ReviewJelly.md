@@ -88,7 +88,7 @@ U1  AT28C16 (A0-A10, D0-D7, /CE, /OE, /WE)
 
 U2  AT28C16 (A0-A10, D0-D7, /CE, /OE, /WE)
 
-U3  AT28C16 (A0-A10, D0-D7, /CE, /OE, /WE) ***
+U3  AT28C16 (A0-A10, D0-D7, /CE, /OE, /WE)
 
 U4  74HC574 (D0-D7, Q0-Q7, CL, /OE), input code
 
@@ -110,27 +110,27 @@ U12 74HC00  (A1, A2, Y1, A3, A4, Y2, A5, A6, Y3, A7, A8, Y4)
 
 DB, data bus, (D0, D1, D2, D3, D4, D5, D6, D7)
 
-CT, control bus, (C0, C1, C2, C3, C4, C5, C6, C7)
+CT, control bus, U1.(C0, C1, C2, C3, C4, C5, C6, C7), U3.(C8, C9, C10, C11, C12, C13, C14. C15)
 
-IO, conector bus, (ACK, REQ, D0-D7, C4-C7)
+IO, conector bus, (ACK, REQ, D0-D7, C8-C12)
 
 ## control
 
-| T0 | T1 | device OR |
+| C8 | C9 | device |
 | -- | -- | -- |
 | 0 | 0 | none | 
 | 0 | 1 | code tape |
 | 1 | 0 | data tape |
 | 1 | 1 | std device |
 
-| T2 | T3 | select OR |
+| C10 | C11 | select |
 | -- | -- | -- |
 | 0 | 0 | read |
 | 0 | 1 | write |
 | 1 | 0 | forward |
 | 1 | 1 | backward |
 
-| T0 | T1 | T2 | T3 |  action |
+| C8 | C9 | C10 | C11 |  action |
 | -- | -- | -- | -- | -- |
 | 0  | 0  | 0  | 0  | nothing |
 | 0  | 0  | 0  | 1  | nothing |
@@ -146,15 +146,23 @@ IO, conector bus, (ACK, REQ, D0-D7, C4-C7)
     
 | origin | named | destin | note |
 | -- | -- | -- | -- |
-| U1.D0  | C0 | U4.CK/OE | clock must be pulsed low to high |
-| U1.D1  | C1 | U5.CK/OE | clock must be pulsed low to high |
-| U1.D2  | C2 | U6.CK/OE | clock must be pulsed low to high |
-| U1.D3  | C3 | U7.OE | controls both A and B |
-| | | |
-| U1.D4  | C4 | T0 | vide above |
-| U1.D5  | C5 | T1 | vide above |
-| U1.D6  | C6 | T2 | vide above |
-| U1.D7  | C7 | T3 | vide above |
+| U1.D0  | C0 | U4.CK | clock must be pulsed low to high |
+| U1.D1  | C1 | U5.CK | clock must be pulsed low to high |
+| U1.D2  | C2 | U6.CK | clock must be pulsed low to high |
+| U1.D3  | C3 | U6.OE | eneble output U6, controls U7.DIR |
+| U1.D4  | C4 | U7.OE | enable output U7 |
+| U1.D5  | C5 |  | reserved |
+| U1.D6  | C6 |  | reserved |
+| U1.D7  | C7 |  | reserved |
+|  |  |  |  |
+| U3.D0 | C8 | Conector | device |
+| U3.D1 | C9 | Conector | device |
+| U3.D2 | C10 | Conector | select |
+| U3.D3 | C11 | Conector | select |
+| U3.D4 | C12 | Conector | request |
+| U3.D5 | C13 |  | reserved |
+| U3.D6 | C14 |  | reserved |
+| U3.D7 | C15 |  | reserved |
 
 Note: 
 
