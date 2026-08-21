@@ -184,7 +184,7 @@ Note:
 
 When C8 and C9 are low, C10, C11 and C12 are math functions. 
 C8 and C9 must be pulldown, and connected to U2.OE (need some glue circuit)
-Connect U3.D2(C10) to U2.A8, U3.D3(C11) to A2.A9, U3.D4(C12) to U2.A10 
+Connect U3.D2(C10) to U2.A8, U3.D3(C11) to A2.A9, U3.D4(C12) to U2.A10 to select math function
 
 ### Clock
 
@@ -194,9 +194,9 @@ Connect U3.D2(C10) to U2.A8, U3.D3(C11) to A2.A9, U3.D4(C12) to U2.A10
 
 1. DB(D0-D7) -> U4(D0-D7)
 
-2. U8(QA1, QB1, QC1) -> U1(A0-A2), 8 steps or stages
+2. U8(QA1, QB1, QC1, QD1) -> U1(A0-A3), 16 steps or stages
 
-3. U4(Q0-Q3) -> U1(A3-A6), 16 opcodes, (A7, A8, A9, A10) 16 modes
+3. U4(Q0-Q3) -> U1(A4-A7), 16 opcodes, (A8, A9, A10) 8 modes
 
 4. U4(Q4-Q7) -> Not used
 
@@ -208,17 +208,19 @@ Connect U3.D2(C10) to U2.A8, U3.D3(C11) to A2.A9, U3.D4(C12) to U2.A10
 
 7. U5(Q0-Q7) -> U2(A0-A7)
 
-8. CT(C6,C7) -> U2(A8,A9), 4 math operations: none, INC, DEC, COPY
+8. CT(C10,C11,C12) -> U2(A8,A9), 8 math operations: none, INC, DEC, COPY, (NOT, SHL, SHR, 
 
-9. U2(D0-D7) -> U6(D0-D7)
+9. CT(C8,C9) --> U2.OE
 
-10. U6(Q0-Q7) -> DB(D0-D7)
+10. U2(D0-D7) -> U6(D0-D7)
+
+11. U6(Q0-Q7) -> DB(D0-D7)
 
 ## Data External Output
 
 11. DB(D0-D7) -> U7(B0-B7)
 
-12. U7(B0-B7) -> U7(A0-A7)
+12. U7(B0-B7) -> U7(A0-A7), internal
 
 13. U7(A0-A7) -> IO(D0-D7)
 
@@ -226,7 +228,7 @@ Connect U3.D2(C10) to U2.A8, U3.D3(C11) to A2.A9, U3.D4(C12) to U2.A10
 
 14. IO(D0-D7) -> U7(A0-A7)
 
-15. U7(A0-A7) -> U7(B0-B7)
+15. U7(A0-A7) -> U7(B0-B7), internal
 
 16. U7(B0-B7) -> DB(D0-D7)
 
