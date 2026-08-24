@@ -114,7 +114,7 @@ DB, data bus, (D0, D1, D2, D3, D4, D5, D6, D7), pull down with 10k resistors
 
 CT, control bus, U1.(C0, C1, C2, C3, C4, C5, C6, C7), U3.(C8, C9, C10, C11, C12, C13, C14. C15)
 
-IO, conector bus, (ACK, REQ, D0-D7, C8-C12)
+IO, conector bus, (ACK, REQ, D0-D7, C8-C11, VCC, VSS)
 
 ## control
 
