@@ -102,13 +102,15 @@ U8  74HC393 (QA1, QB1, QC1, QD1, CLR1, /CLK1, QA2, QB2, QC2, QD2, CLR2, /CLK2)
 
 U10 74HC74  (CLR1, CLK1, D1, Q1, /Q1, /PRE1, CLR2, CLK2, D2, Q2, /Q2, /PRE2)
 
-U11 74HC00  (A1, A2, Y1, A3, A4, Y2, A5, A6, Y3, A7, A8, Y4) 
+U11 74HC74  (CLR1, CLK1, D1, Q1, /Q1, /PRE1, CLR2, CLK2, D2, Q2, /Q2, /PRE2)
 
 U12 74HC00  (A1, A2, Y1, A3, A4, Y2, A5, A6, Y3, A7, A8, Y4) 
 
+U13 74HC00  (A1, A2, Y1, A3, A4, Y2, A5, A6, Y3, A7, A8, Y4) 
+
 ## Buses
 
-DB, data bus, (D0, D1, D2, D3, D4, D5, D6, D7)
+DB, data bus, (D0, D1, D2, D3, D4, D5, D6, D7), pull down with 10k resistors
 
 CT, control bus, U1.(C0, C1, C2, C3, C4, C5, C6, C7), U3.(C8, C9, C10, C11, C12, C13, C14. C15)
 
@@ -149,7 +151,7 @@ IO, conector bus, (ACK, REQ, D0-D7, C8-C12)
 | U1.D0  | C0 | U4.CK | clock must be pulsed low to high |
 | U1.D1  | C1 | U5.CK | clock must be pulsed low to high |
 | U1.D2  | C2 | U6.CK | clock must be pulsed low to high |
-| U1.D3  | C3 | U6.OE | eneble output U6, controls U7.DIR |
+| U1.D3  | C3 | U6.OE | enable output U6, tied to U7.DIR |
 | U1.D4  | C4 | U7.OE | enable output U7 |
 | U1.D5  | C5 |  | reserved |
 | U1.D6  | C6 |  | reserved |
@@ -173,6 +175,8 @@ Note:
             is from port B into port A, then port B must be connected 
             to DB and port A to Connector.
 
+        C8 and C9 tied to U2.OE
+        
 #### Tables
 
 | C0 | C1 | C2 | C3 | C4 | C5 | C6 | C7 | results | 
