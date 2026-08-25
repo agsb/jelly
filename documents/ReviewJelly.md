@@ -39,14 +39,14 @@ About MC14500 https://www.youtube.com/watch?v=ioL9cbNx0O8&t=2s
 
 ## Low frequency clock
 
-For tests Jelly needs a low frequency oscilator as clock. 
-A oscilator with one gate of 74HC14, a resistor between input and output 
+For tests Jelly needs a low frequency oscillator as clock. 
+A oscillator with one gate of 74HC14, a resistor between input and output 
 pins and a capacitor between input and ground (GND) have frequency by 
 _Hz = 1.2 * 10^6 / RC_ and use another gate to filter. 
 Use R from 10k to 4M, use C from 1n to 100u;
 ( Using C = 100nF and R=10K, Hz ~ 1200 Hz, and C = 10uF and R=10K, Hz ~ 1.2 Hz, so on. )
 
-## Consise Protocol
+## Concise Protocol
 
 Two lines REQ and ACK. 
 
@@ -69,7 +69,7 @@ Four-Phase Handshake (RZ - Return-to-Zero): A very common and robust approach wh
 
 ### Request-Acknowledge
 
-    The implementation is slightly diferent, Jelly and Device.
+The Jelly implementation is slightly diferent, Jelly and Device.
 
 | SEQ | REQ | ACK | results |
 | -- | -- | -- | -- |
@@ -96,7 +96,7 @@ U5  74HC574 (D0-D7, Q0-Q7, CL, /OE), input data
 
 U6  74HC574 (D0-D7, Q0-Q7, CL, /OE), output data
 
-U7  74HC245 (A0-A7, B0-B7, DR, /OE), bidiretional, code and data
+U7  74HC245 (A0-A7, B0-B7, DR, /OE), bidirectional, code and data
 
 U8  74HC393 (QA1, QB1, QC1, QD1, CLR1, /CLK1, QA2, QB2, QC2, QD2, CLR2, /CLK2)
 
@@ -114,7 +114,7 @@ DB, data bus, (D0, D1, D2, D3, D4, D5, D6, D7), pull down with 10k resistors
 
 CT, control bus, U1.(C0, C1, C2, C3, C4, C5, C6, C7), U3.(C8, C9, C10, C11, C12, C13, C14. C15)
 
-IO, conector bus, (ACK, REQ, D0-D7, C8-C11, VCC, VSS)
+IO, connector bus, (ACK, REQ, D0-D7, C8-C11, VCC, VSS)
 
 ## control
 
@@ -157,11 +157,11 @@ IO, conector bus, (ACK, REQ, D0-D7, C8-C11, VCC, VSS)
 | U1.D6  | C6 |  | reserved |
 | U1.D7  | C7 |  | reserved |
 |  |  |  |  |
-| U3.D0 | C8 | Conector | device |
-| U3.D1 | C9 | Conector | device |
-| U3.D2 | C10 | Conector | select |
-| U3.D3 | C11 | Conector | select |
-| U3.D4 | C12 | Conector | request |
+| U3.D0 | C8 | Connector | device |
+| U3.D1 | C9 | Connector | device |
+| U3.D2 | C10 | Connector | select |
+| U3.D3 | C11 | Connector | select |
+| U3.D4 | C12 | Connector | request |
 | U3.D5 | C13 |  | reserved |
 | U3.D6 | C14 |  | reserved |
 | U3.D7 | C15 |  | reserved |
@@ -179,9 +179,9 @@ Note:
         
 #### Tables
 
-| C0 | C1 | C2 | C3 | C4 | C5 | C6 | C7 | results | 
-| -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| 0 | 0| 0| 0| 0| 0 | 0 | 0 | halts | 
+| C0 | C1 | C2 | C3 | C4 | C5 | C6 | C7 | C8 | C9 | C10 | C11 | C12 | C13 | C14 | C15 | results | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 0 | 0 | 0 | 0 | 0| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0| 0 | 0 | 0 | halts | 
 | | | | | | | | |
 
 ### Math 
