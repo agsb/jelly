@@ -1,5 +1,14 @@
 # LogBook
 
+### 26/08/2026
+
+    Maybe need change the 74HC393 to 74HC163.
+
+    Idea. Use REQ and ACK to pause and continue the clock before it goes to 393/163 chip
+    
+        Using a SR-Latch with set (REQ) and reset (ACK) going into a AND port.
+
+ 
 ### 01/08/2026
 
 Review of Jelly, circuits and proposal changed. Chose use REQ and ACK protocol to talk with Non-Jelly world :)
