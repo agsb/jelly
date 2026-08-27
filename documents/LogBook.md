@@ -2,11 +2,16 @@
 
 ### 26/08/2026
 
-    Maybe need change the 74HC393 to 74HC163.
+Maybe need change the 74HC393 to 74HC163.
 
-    Idea. Use REQ and ACK to pause and continue the clock before it goes to 393/163 chip
+Idea. Use REQ and ACK as XOR to pause and continue the clock before it goes to 393/163 chip
     
-        Using a SR-Latch with set (REQ) and reset (ACK) going into a AND port.
+| REQ | ACK | CLK | action |
+| --- | --- | --- | --- |
+| 0 | 0 | flow | normal steps|
+| 1 | 0 | stop | made a request to device|
+| 1 | 1 | flow | device responds to request |
+| 0 | 1 | stop | wait device ready for next |
 
  
 ### 01/08/2026
