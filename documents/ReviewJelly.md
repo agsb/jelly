@@ -82,6 +82,16 @@ The Jelly implementation is slightly diferent, Jelly and Device.
 | 6 |  0  |  0  | Device sense REQ and deactive the ACK |
 | 7 |  0  |  0  | return to void state |
 
+Use REQ and ACK as a XOR to pause and continue the clock before it goes to 393/163 chip
+    
+| REQ | ACK | CLK | action |
+| --- | --- | --- | --- |
+| 0 | 0 | flow | device ready|
+| 1 | 0 | stop | made a request to device|
+| 1 | 1 | flow | device responds to request |
+| 0 | 1 | stop | wait device ready for next |
+
+
 ## Components
 
 U1  AT28C16 (A0-A10, D0-D7, /CE, /OE, /WE)
